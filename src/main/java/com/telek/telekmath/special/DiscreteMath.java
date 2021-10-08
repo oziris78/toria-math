@@ -19,7 +19,7 @@ public class DiscreteMath {
             factors.put(1L,1L);
             return factors;
         }
-        long myNum = new Long(num).longValue();
+        long myNum = num;
         while(myNum != 1){
             for(long i = 2; i <= myNum; i++){
                 if( myNum % i == 0){
@@ -35,7 +35,7 @@ public class DiscreteMath {
 
 
     /**
-     * Returns gcd(a,b) while printing the output
+     * Returns gcd(a,b) using the Euclidean Algorithm
      * @param a any integer
      * @param b any integer
      * @return greatest common divisor of a and b using the Euclidean Algorithm
