@@ -4,3 +4,5 @@ IFunction sınıfı düzenlenmeli ve temel fonksiyon işlemleri için konulmalı
     =>  Laplace Dönüşümü vb. uygulanabilir
 
 
+EquationSolver  =>  1,2,3,4. dereceden polinomları çözen bir sınıf olsun
+hem TPolynomial alanı olsun hem de a,b,c,d,e,...
