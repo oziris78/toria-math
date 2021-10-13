@@ -1,0 +1,6 @@
+
+calculus şeylerini güzelce yaz
+IFunction sınıfı düzenlenmeli ve temel fonksiyon işlemleri için konulmalı
+    =>  Laplace Dönüşümü vb. uygulanabilir
+
+
