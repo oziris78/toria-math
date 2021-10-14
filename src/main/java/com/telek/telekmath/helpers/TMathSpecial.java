@@ -2,7 +2,8 @@ package com.telek.telekmath.helpers;
 
 import java.util.HashMap;
 
-public class TSpecialUtils {
+public class TMathSpecial {
+
 
     /**
      * Stringifies the output of DiscreteMath.primeFactorization(long)
@@ -14,5 +15,6 @@ public class TSpecialUtils {
         for(Long key : factors.keySet()) sb.append(String.format("%d^%d * ", key, factors.get(key)));
         return sb.substring(0, sb.length()-2);
     }
+
 
 }

@@ -147,12 +147,10 @@ public final class TMath {
         float a2 = a * a;  // a squared
         float a3 = a * a2; // a cubed
         if (a >= 0f) {
-            return 1.5707963267948966f - (float) Math.sqrt(1f - a) *
-                    (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
+            return 1.5707963267948966f - (float) Math.sqrt(1f - a) * (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
         }
         else {
-            return -1.5707963267948966f + (float) Math.sqrt(1f + a) *
-                    (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
+            return -1.5707963267948966f + (float) Math.sqrt(1f + a) * (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
         }
     }
 
