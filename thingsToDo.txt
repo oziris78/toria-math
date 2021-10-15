@@ -9,3 +9,6 @@ hem TPolynomial alanı olsun hem de a,b,c,d,e,...
 
 utils  =>  ColorTheme, TColorThemes sınıfları ile bir sürü güzel renkleri float olarak saklayabilirim, belki bir tane metot yazarım hem sınıf hem de constructor alarak otomatik dönüştürür
 
+Statistics.java
+    =>  bunu belki istatistik dersi bitince doğrudan eklerim ancak şimdiden de başlamak güzel olur
+
