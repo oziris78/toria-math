@@ -4,11 +4,19 @@ IFunction sınıfı düzenlenmeli ve temel fonksiyon işlemleri için konulmalı
     =>  Laplace Dönüşümü vb. uygulanabilir
 
 
-EquationSolver  =>  1,2,3,4. dereceden polinomları çözen bir sınıf olsun
-hem TPolynomial alanı olsun hem de a,b,c,d,e,...
+EquationSolver  =>  3,4. dereceden polinomları çözen bir sınıf olsun
+
 
 utils  =>  ColorTheme, TColorThemes sınıfları ile bir sürü güzel renkleri float olarak saklayabilirim, belki bir tane metot yazarım hem sınıf hem de constructor alarak otomatik dönüştürür
 
 Statistics.java
     =>  bunu belki istatistik dersi bitince doğrudan eklerim ancak şimdiden de başlamak güzel olur
+
+Lineer Cebir:
+    Inverse of matrix
+    Rank
+    Eigenvalues
+    Eigenvectors
+    Matris sınıfı kopya olayı
+
 
