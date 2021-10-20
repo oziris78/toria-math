@@ -1,12 +1,11 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekmath.special.random.TRandom;
-
 import java.util.Arrays;
 
 
 public class TMatrix {
+
 
     /*  CONSTRUCTORS  */
 
@@ -20,8 +19,6 @@ public class TMatrix {
         }
         return newMatrix;
     }
-
-
 
 
 
@@ -185,6 +182,9 @@ public class TMatrix {
         else if(exponential == 1) return matrix.clone();
         else return matrixMultiplication(matrix, powerMatrix(matrix, exponential-1));
     }
+
+
+
 
 
 

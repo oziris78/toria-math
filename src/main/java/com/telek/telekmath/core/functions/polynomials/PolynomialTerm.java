@@ -1,5 +1,6 @@
 package com.telek.telekmath.core.functions.polynomials;
 
+
 public class PolynomialTerm{
 
     private int degree;

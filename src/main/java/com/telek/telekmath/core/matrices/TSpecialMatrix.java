@@ -39,8 +39,25 @@ public class TSpecialMatrix {
 
 
 
-    /*  METHODS  */
+    /**
+     * @param rowSize the row size of this matrix
+     * @param colSize the column size of this matrix
+     * @param value any double value
+     * @return A matrix filled with the specified value
+     */
+    public static double[][] createMatrixFilledWith(int rowSize, int colSize, double value){
+        double[][] newMatrix = new double[rowSize][colSize];
 
+        for (int i = 0; i < rowSize; i++)
+            for (int j = 0; j < colSize; j++)
+                newMatrix[i][j] = 1;
+
+        return newMatrix;
+    }
+
+
+
+    /*  METHODS  */
 
     public static boolean isSquareMatrix(double[][] matrix){
         return (TMatrix.getRowSize(matrix) == TMatrix.getColSize(matrix));

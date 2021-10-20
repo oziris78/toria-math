@@ -1,6 +1,8 @@
 com.telek.telekmath.core.constants
-com.telek.telekmath.core.functions
+com.telek.telekmath.core.functions.explog
+com.telek.telekmath.core.functions.general
 com.telek.telekmath.core.functions.polynomials
+com.telek.telekmath.core.functions.trig
 com.telek.telekmath.core.geometry.lines
 com.telek.telekmath.core.geometry.points
 com.telek.telekmath.core.geometry.vectors
@@ -12,4 +14,6 @@ com.telek.telekmath.special.distributions
 com.telek.telekmath.special.distributions.continuousdists
 com.telek.telekmath.special.distributions.discretedists
 com.telek.telekmath.special.random
-com.telek.telekutils
+com.telek.telekutils.colors
+com.telek.telekutils.image
+com.telek.telekutils.singular

@@ -2,7 +2,7 @@ package com.telek.tests;
 
 
 import com.telek.telekmath.core.constants.MathConstants;
-import com.telek.telekutils.TCollectionUtils;
+import com.telek.telekutils.singular.TCollectionUtils;
 import com.telek.telekmath.special.IAF;
 import java.util.ArrayList;
 

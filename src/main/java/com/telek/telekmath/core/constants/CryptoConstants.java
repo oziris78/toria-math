@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.constants;
 
 
-import com.telek.telekutils.TCollectionUtils;
+import com.telek.telekutils.singular.TCollectionUtils;
 
 import java.util.HashMap;
 

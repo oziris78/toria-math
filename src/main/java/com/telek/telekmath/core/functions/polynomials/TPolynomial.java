@@ -1,21 +1,26 @@
 package com.telek.telekmath.core.functions.polynomials;
 
-import com.telek.telekmath.core.functions.IFunction;
+import com.telek.telekmath.core.functions.general.TFunction;
+import com.telek.telekmath.core.functions.general.TRange;
+
 import java.util.*;
 
-public class TPolynomial implements IFunction {
+
+
+public class TPolynomial extends TFunction {
 
     private ArrayList<PolynomialTerm> terms;
 
     /* CONSTRUCTORS */
 
-    public TPolynomial(ArrayList<PolynomialTerm> terms){
-        this.terms = new ArrayList<PolynomialTerm>();
+    public TPolynomial(TRange range, ArrayList<PolynomialTerm> terms){
+        super(range);
         this.terms = terms;
         this.sortPolynomial();
     }
 
-    public TPolynomial(PolynomialTerm... termsOfPolynomial){
+    public TPolynomial(TRange range, PolynomialTerm... termsOfPolynomial){
+        super(range);
         this.terms = new ArrayList<PolynomialTerm>();
         for(PolynomialTerm term : termsOfPolynomial)
             this.terms.add(term);
@@ -23,8 +28,18 @@ public class TPolynomial implements IFunction {
     }
 
 
+    public TPolynomial(ArrayList<PolynomialTerm> terms){
+        this(TRange.REEL_NUMBERS, terms);
+    }
+
+    public TPolynomial(PolynomialTerm... termsOfPolynomial){
+        this(TRange.REEL_NUMBERS, termsOfPolynomial);
+    }
+
+
 
     /* FUNCTIONS */
+
 
     /**
      * @param p2 any polynomial
@@ -66,11 +81,12 @@ public class TPolynomial implements IFunction {
      * @return P(x = value) which is the value of this polynomial
      */
     @Override
-    public double value(double value){
-        if(value==0) return this.getCoefficientOfDegree(0); // P(0) = a0
+    public double value(double x){
+        if( !this.range.isInRange(x) ) return 0;
+        if(x==0) return this.getCoefficientOfDegree(0); // P(0) = a0
         double sum = 0;
         for(PolynomialTerm term : this.terms)
-            sum += term.getCoefficient() * Math.pow(value, term.getDegree());
+            sum += term.getCoefficient() * Math.pow(x, term.getDegree());
         return sum;
     }
 
@@ -103,53 +119,11 @@ public class TPolynomial implements IFunction {
     }
 
 
-    /**
-     * @param C the +C constant that will be put into the integral
-     * @return the integral of this polynomial
-     */
-    public TPolynomial integral(double C){
-        TPolynomial integratedPoly = this.integral();
-        return integratedPoly.add( new TPolynomial( new PolynomialTerm(C,0) ) );
-    }
-
-    /**
-     * Finds the integral of this polynomial with the given x input and y output from the INTEGRATED polynomial
-     * This method determines the integrated polynomial by finding the +C constant using the x,y and returns that polynomial
-     * @param knownX an input that will be put into the integrated polynomial
-     * @param knownY the output of knownX from the integrated polynomial
-     * @return the integral of this polynomial
-     */
-    public TPolynomial integral(double knownX, double knownY){
-        TPolynomial integratedPoly = this.integral();
-        double C = knownY - integratedPoly.value(knownX);
-        return integratedPoly.add( new TPolynomial( new PolynomialTerm(C,0) ) );
-    }
-
-    /**
-     * @param a lower limit for the integral
-     * @param b upper limit for the integral
-     * @return The value of the definite integral of P(x) from a to b (in the [a,b] interval)
-     */
-    public double definiteIntegral(double a, double b){
-        TPolynomial F = this.integral();
-        return F.value(b) - F.value(a);
-    }
 
     public ArrayList<PolynomialTerm> getTerms(){ return this.terms; }
 
 
     /* HELPER FUNCTIONS */
-
-    private TPolynomial integral(){
-        TPolynomial newPoly = new TPolynomial();
-        for(PolynomialTerm term : this.terms){
-            int currentDegree = term.getDegree();
-            double currentCoef = term.getCoefficient();
-            PolynomialTerm integratedTerm = new PolynomialTerm( currentCoef / (currentDegree + 1) , currentDegree + 1);
-            newPoly.terms.add(integratedTerm);
-        }
-        return getSortedPolynomial(newPoly);
-    }
 
     private static TPolynomial multiplyTermWithPoly(TPolynomial poly, PolynomialTerm term){
         TPolynomial newPoly = new TPolynomial();
