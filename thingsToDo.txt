@@ -1,4 +1,21 @@
 
 
-< empty for now ... >
+Telekmath için module info eklemeye çalış
+
+TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
+
+Custom exceptions
+
+
+Optimization apache ba
+Öbür apache şeylerine de bak
+
+Şu fonksiyon işlerini düzgünce yapmalıyım
+derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>
+    =>  sonra toplama çıkarma çarpma ayarla, sonra türevleri ekle, sonra integralleri ekle
+
+İstatistik ve lpt gelecek diye düşün to do içine yaz
+
+
+Tline2d yeniden yazabilirim ve intersection point bulan static metot yaz
 
