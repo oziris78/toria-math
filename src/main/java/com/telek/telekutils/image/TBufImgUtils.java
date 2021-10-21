@@ -1,8 +1,11 @@
 package com.telek.telekutils.image;
 
 
+import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.exceptions.NotInRangeException;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
+
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -116,7 +119,7 @@ public final class TBufImgUtils {
 	 * @return a blurred image
 	 */
 	public static BufferedImage getBlurredImage(BufferedImage imageToBlur, int neighborCount, double similarity){
-		if(similarity > 1 || similarity < 0) throw new RuntimeException("Similarity should be a double between 0 and 1");
+		if(similarity > 1 || similarity < 0) throw new NotInRangeException(TRange.ZERO_TO_ONE, similarity);
 		BufferedImage blurredImage = new BufferedImage( imageToBlur.getWidth(), imageToBlur.getHeight(), imageToBlur.getType());
 		Color c1, c2;
 		for(int i = 0; i < blurredImage.getWidth(); i++){
@@ -212,7 +215,7 @@ public final class TBufImgUtils {
 	 * @return a grayscaled image with dark/bright areas painted with secondaryColor
 	 */
 	public static BufferedImage getGrayscaledImage(BufferedImage imageToChange, int harshness, boolean setColorToDarkAreas, Color secondaryColor){
-		if(harshness >= 256 || harshness < 0) throw new RuntimeException("Invalid harshness value, harshness must a value between 0 and 255");
+		if(harshness >= 256 || harshness < 0) throw new NotInRangeException(new TRange(0,255), harshness);
 		BufferedImage img = getCopyOf(imageToChange);
 		Color currentColor;
 		Color newColor;
@@ -261,7 +264,7 @@ public final class TBufImgUtils {
 
 	private static void checkForExtension(String extension) {
 		if( ! (extension.toLowerCase().startsWith("png") || extension.toLowerCase().startsWith("jpg")) )
-			throw new RuntimeException("The extension must be either \"PNG\" or \"JPG\"");
+			throw new InvalidExtensionException();
 	}
 
 	private static Color getAverageColorUsingNeighboringCells(BufferedImage imageToBlur, int neighborCount, int x, int y){

@@ -1,6 +1,7 @@
 package com.telek.telekmath.special.distributions.discretedists;
 
 
+import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.special.distributions.Experiment;
 
 public class DiscreteUniformDist extends Experiment  {
@@ -8,7 +9,7 @@ public class DiscreteUniformDist extends Experiment  {
     private double n;
 
     public DiscreteUniformDist(double n){
-        if( n < 1 ) throw new RuntimeException("Invalid value for n : " + n);
+        if( n < 1 ) throw new InvalidValueException("n", n);
         this.n = n;
         this.setE(calculateE(n));
         this.setE2(calculateE_2(n));

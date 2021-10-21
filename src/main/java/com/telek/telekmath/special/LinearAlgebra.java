@@ -1,6 +1,8 @@
 package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.matrices.TMatrix;
+import com.telek.telekmath.exceptions.InvalidValueException;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 
 public class LinearAlgebra {
@@ -8,10 +10,10 @@ public class LinearAlgebra {
 
     public static double[] cramerMethod(int equationCount, double[][] A, double[][] B){
         if( TMatrix.getRowSize(B) != equationCount || TMatrix.getColSize(B) != 1 || TMatrix.getRowSize(A) != equationCount)
-            throw new RuntimeException("Invalid matrices or equationCount");
+            throw new InvalidEquationCountException();
 
         double detA = TMatrix.determinant(A);
-        if(detA == 0) throw new RuntimeException("Determinant of A can't be 0");
+        if(detA == 0) throw new InvalidValueException("determinant", 0);
 
         double[] answers = new double[equationCount];
 

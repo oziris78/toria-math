@@ -1,5 +1,7 @@
 package com.telek.telekutils.singular;
 
+import static com.telek.telekmath.exceptions.TelekMathException.*;
+
 import java.util.*;
 
 
@@ -44,7 +46,7 @@ public final class TCollectionUtils {
     public static <T1, T2> HashMap<T1,T2> createHashMap(T1[] keys, T2[] values){
         HashMap<T1, T2> newMap = new HashMap<T1, T2>();
         try{
-            if(keys.length != values.length) throw new Exception("Number of keys and values aren't equal");
+            if(keys.length != values.length) throw new NotEqualKeyAndValueException();
             for(int i=0; i<keys.length; i++) newMap.put( keys[i], values[i] );
         }
         catch (Exception e) { e.printStackTrace(); }

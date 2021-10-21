@@ -1,6 +1,7 @@
 package com.telek.telekmath.special.distributions.discretedists;
 
 
+import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.special.distributions.Experiment;
 
 public class GeometricDist extends Experiment  {
@@ -9,7 +10,7 @@ public class GeometricDist extends Experiment  {
 
     public GeometricDist(double p){
         this.p = p;
-        if( !(p >= 0 && p <= 1) ) throw new RuntimeException("Invalid value for p : " + p);
+        if( !(p >= 0 && p <= 1) ) throw new InvalidValueException("p", p);
         this.setE(calculateE(p));
         this.setE2(calculateE_2(p));
         this.setVar(calculateVAR(p));

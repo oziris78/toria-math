@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.general;
 
 
+import com.telek.telekmath.exceptions.NotInRangeException;
 
 public abstract class TFunction {
 
@@ -26,7 +27,7 @@ public abstract class TFunction {
 
     protected void checkForRange(double x){
         if( !this.range.isInRange(x) )
-            throw new RuntimeException(String.format("the value %d is not in the range %s", x, this.range.toString()));
+            throw new NotInRangeException(range, x);
     }
 
 

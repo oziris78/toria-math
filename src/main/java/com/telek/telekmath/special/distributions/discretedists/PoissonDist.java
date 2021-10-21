@@ -1,6 +1,7 @@
 package com.telek.telekmath.special.distributions.discretedists;
 
 
+import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.special.distributions.Experiment;
 import com.telek.telekmath.helpers.TMath;
 
@@ -16,8 +17,8 @@ public class PoissonDist extends Experiment  {
     }
 
     public PoissonDist(int n, double p){
-        if( n < 1 ) throw new RuntimeException("Invalid value for n : " + n);
-        if( !(p >= 0 && p <= 1) ) throw new RuntimeException("Invalid value for p : " + p);
+        if( n < 1 ) throw new InvalidValueException("n", n);
+        if( !(p >= 0 && p <= 1) ) throw new InvalidValueException("p", p);
         this.lambda = n * p;
         this.setE(calculateE(lambda));
         this.setE2(calculateE_2(lambda));

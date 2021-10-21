@@ -1,6 +1,7 @@
 package com.telek.telekmath.special.distributions.discretedists;
 
 
+import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.special.distributions.Experiment;
 import com.telek.telekmath.helpers.TMath;
 
@@ -12,8 +13,8 @@ public class NegativeBinomialDist extends Experiment  {
     public NegativeBinomialDist(int k, double p){
         this.k = k;
         this.p = p;
-        if( k < 0 ) throw new RuntimeException("Invalid value for k : " + k);
-        if( !(p >= 0 && p <= 1) ) throw new RuntimeException("Invalid value for p : " + p);
+        if( k < 0 ) throw new InvalidValueException("k", k);
+        if( !(p >= 0 && p <= 1) ) throw new InvalidValueException("p", p);
         this.setE(calculateE(k,p));
         this.setE2(calculateE_2(k,p));
         this.setVar(calculateVAR(k,p));

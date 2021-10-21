@@ -1,6 +1,10 @@
 package com.telek.telekmath.core.matrices;
 
 
+import com.telek.telekmath.exceptions.TelekMathException;
+
+import static com.telek.telekmath.exceptions.TelekMathException.*;
+
 import java.util.Arrays;
 
 
@@ -29,7 +33,7 @@ public class TMatrix {
         int m1RowSize = getRowSize(matrix1);
 
         if( m1ColSize != getColSize(matrix2) || m1RowSize != getRowSize(matrix2) )
-            throw new RuntimeException("Both matrices must have the same dimension.");
+            throw new DifferentMatrixDimensionException();
 
         double[][] newMatrix = new double[m1RowSize][m1ColSize];
         for(int i = 0; i < m1RowSize; i++)
@@ -45,7 +49,7 @@ public class TMatrix {
         int m1RowSize = getRowSize(matrix1);
 
         if( m1ColSize != getColSize(matrix2) || m1RowSize != getRowSize(matrix2) )
-            throw new RuntimeException("Both matrices must have the same dimension.");
+            throw new DifferentMatrixDimensionException();
 
         double[][] newMatrix = new double[m1RowSize][m1ColSize];
         for(int i = 0; i < m1RowSize; i++)
@@ -91,7 +95,7 @@ public class TMatrix {
         int m1RowSize = getRowSize(matrix1);
         int m2RowSize = getRowSize(matrix2);
 
-        if(m1ColSize != m2RowSize) throw new RuntimeException("These matrices can't be multiplied!");
+        if(m1ColSize != m2RowSize) throw new MatricesCantBeMultipliedException(m1ColSize, m2RowSize);
 
         double[][] newMatrix = new double[m1RowSize][m2ColSize];
         for(int i = 0; i < m1RowSize; i++){
@@ -223,7 +227,7 @@ public class TMatrix {
     /*  HELPERS  */
 
     private static void checkForSquareMatrix(double[][] matrix){
-        if( !TSpecialMatrix.isSquareMatrix(matrix) ) throw new RuntimeException("This isn't a square matrix...");
+        if( !TSpecialMatrix.isSquareMatrix(matrix) ) throw new NotASquareMatrixException();
     }
 
 

@@ -3,13 +3,14 @@ package com.telek.telekmath.special.distributions.continuousdists;
 
 import com.telek.telekmath.special.distributions.Experiment;
 import com.telek.telekmath.helpers.TMath;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 public class ChiSquaredDist extends Experiment  {
 
     private double alpha, v;
 
     public ChiSquaredDist(double alpha){
-        if( alpha <= 0 ) throw new RuntimeException("Alpha has to be greater than zero");
+        if( alpha <= 0 ) throw new NotGreaterThanZeroException("Alpha");
         this.alpha = alpha;
         this.v = 2 * this.alpha;
         this.setE(calculateE(v));

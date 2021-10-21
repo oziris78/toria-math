@@ -3,6 +3,8 @@ package com.telek.telekmath.core.geometry.lines;
 import com.telek.telekmath.core.constants.LineConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 
+import static com.telek.telekmath.exceptions.TelekMathException.*;
+
 
 public class TLine2D {
 
@@ -135,7 +137,7 @@ public class TLine2D {
      * @return The symmetrical line according to x = k
      */
     public TLine2D getSymmetricalLineToAVerticalLine(TLine2D verticalLine){
-        if(!verticalLine.isParallelToYAxis()) throw new RuntimeException("This line isn't a vertical line such as x = 3");
+        if(!verticalLine.isParallelToYAxis()) throw new NotAVerticalLineException(verticalLine);
         else return getSymmetricalLineToAVerticalLine( verticalLine.getX0() );  /*  y = -mx + (2km + n)  */
     }
 
@@ -153,7 +155,7 @@ public class TLine2D {
      * @return The symmetrical line according to y = k
      */
     public TLine2D getSymmetricalLineToAHorizontalLine(TLine2D horizontalLine){
-        if(horizontalLine.getSlope() != 0) throw new RuntimeException("This line isn't a horizontal line such as y = k");
+        if(horizontalLine.getSlope() != 0) throw new NotAHorizontalLineException(horizontalLine);
         else return getSymmetricalLineToAHorizontalLine(horizontalLine.getConstant());  /*  y = -mx + (2k-n)  */
     }
 
@@ -188,7 +190,7 @@ public class TLine2D {
      * @return The orthogonal distance between two parallel lines
      */
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
-        if(!line1.isParallelTo(line2)) throw new RuntimeException("These lines aren't parallel to each other.");
+        if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
         return Math.abs(line1.getConstant() - line2.getConstant()) / line1.size();
     }
 

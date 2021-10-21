@@ -2,6 +2,7 @@ package com.telek.telekmath.special.distributions.continuousdists;
 
 
 import com.telek.telekmath.special.distributions.Experiment;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 import com.telek.telekmath.helpers.TMath;
 
 public class GammaDist extends Experiment  {
@@ -9,7 +10,7 @@ public class GammaDist extends Experiment  {
     private double alpha, beta;
 
     public GammaDist(double alpha, double beta){
-        if( alpha <= 0 || beta <= 0) throw new RuntimeException("Alpha and beta has to be greater than zero");
+        if( alpha <= 0 || beta <= 0) throw new NotGreaterThanZeroException("Alpha and beta");
         this.alpha = alpha;
         this.beta = beta;
         this.setE(calculateE(alpha,beta));

@@ -2,6 +2,7 @@ package com.telek.telekmath.core.geometry.points;
 
 import com.telek.telekmath.core.geometry.lines.TLine2D;
 import com.telek.telekmath.core.geometry.vectors.TVector2D;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 public class TPoint2D {
 
@@ -22,6 +23,10 @@ public class TPoint2D {
         return Math.sqrt( this.x * this.x + this.y * this.y );
     }
 
+    public void moveBy(double xAmount, double yAmount){
+        this.x += xAmount;
+        this.y += yAmount;
+    }
 
     /**
      * @param point2 any point
@@ -58,12 +63,12 @@ public class TPoint2D {
     }
 
     public TPoint2D getSymmetricalPointToVerticalLine(TLine2D verticalLine){
-        if(!verticalLine.isParallelToYAxis()) throw new RuntimeException("This line isn't a vertical line");
+        if(!verticalLine.isParallelToYAxis()) throw new NotAVerticalLineException(verticalLine);
         else return new TPoint2D(2 * verticalLine.getX0() - this.x, this.y);
     }
 
     public TPoint2D getSymmetricalPointToHorizontalLine(TLine2D horizontalLine){
-        if(horizontalLine.getSlope() != 0) throw new RuntimeException("This line isn't a horizontal line");
+        if(horizontalLine.getSlope() != 0) throw new NotAHorizontalLineException(horizontalLine);
         else return new TPoint2D(this.x, 2 * horizontalLine.getConstant() - this.y);
     }
 

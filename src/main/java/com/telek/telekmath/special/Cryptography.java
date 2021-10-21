@@ -1,8 +1,13 @@
 package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.constants.CryptoConstants;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.exceptions.InvalidBaseException;
+import com.telek.telekmath.exceptions.InvalidValueException;
+import com.telek.telekmath.exceptions.NotAMultiplyOfNException;
 
 import java.util.*;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 // Crpytography
 public class Cryptography {
@@ -21,10 +26,10 @@ public class Cryptography {
     public static String decodeBaconCypher(String code){
         StringBuilder answer = new StringBuilder();
         String text = code.replaceAll("[^a-zA-Z]", ""); // remove all non-alphabetic words
-        if(text.length() % 5 != 0) throw new RuntimeException("code's length isn't 5n...");
+        if(text.length() % 5 != 0) throw new NotAMultiplyOfNException("code's length", 5);
         for(int i = 0; i < text.length(); i++) {
             if( !alphabetString.toString().contains(String.valueOf(text.charAt(i)).toUpperCase(Locale.ROOT) ) )
-                throw new RuntimeException("write the code without non-letter characters");
+                throw new HasNonLetterCharactersException();
         }
         for(int i = 0; i != text.length(); i+=5){
             StringBuilder currentCode = new StringBuilder();
@@ -163,7 +168,7 @@ public class Cryptography {
         else if(base == 14) return CryptoConstants.baseFourteen;
         else if(base == 15) return CryptoConstants.baseFifteen;
         else if(base == 16) return CryptoConstants.baseSixteen;
-        else throw new IllegalArgumentException("invalid base: " + base);
+        else throw new InvalidValueException("base", base);
     }
 
 

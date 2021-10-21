@@ -2,6 +2,7 @@ package com.telek.telekmath.special.distributions.continuousdists;
 
 
 import com.telek.telekmath.special.distributions.Experiment;
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 public class NormalDist extends Experiment  {
 
@@ -9,7 +10,7 @@ public class NormalDist extends Experiment  {
 
 
     public NormalDist(double mean, double sigma){
-        if( sigma <= 0 ) throw new RuntimeException("Sigma has to be greater than zero");
+        if( sigma <= 0 ) throw new NotGreaterThanZeroException("Sigma");
         this.mean = mean;
         this.sigma = sigma;
         this.setE(calculateE(mean, sigma));

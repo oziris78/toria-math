@@ -1,6 +1,7 @@
 package com.telek.telekmath.special.distributions.continuousdists;
 
 
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 import com.telek.telekmath.special.distributions.Experiment;
 
 
@@ -9,7 +10,7 @@ public class ExponentialDist extends Experiment  {
     private double beta;
 
     public ExponentialDist(double beta){
-        if( beta <= 0) throw new RuntimeException("Beta has to be greater than zero");
+        if( beta <= 0) throw new NotGreaterThanZeroException("Beta");
         this.beta = beta;
         this.setE(calculateE(beta));
         this.setE2(calculateE_2(beta));

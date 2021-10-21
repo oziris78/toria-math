@@ -4,7 +4,6 @@ Telekmath için module info eklemeye çalış
 
 TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
 
-Custom exceptions
 
 
 Optimization apache ba

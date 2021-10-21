@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.functions.trig;
 
-import com.telek.telekmath.core.functions.general.TFunction;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.exceptions.WrongFunctionException;
+import com.telek.telekmath.core.functions.general.*;
 
 
 /**
@@ -17,8 +17,8 @@ public class TSin extends TFunction {
 
     public TSin(TRange range, double A, double m, double n) {
         super(range);
-        if(A == 0) throw new RuntimeException("A value for Asin(mx+n) can't be 0, use TPolynomials for constant functions.");
-        if(m == 0) throw new RuntimeException("m value for Asin(mx+n) can't be 0");
+        if(A == 0) throw new WrongFunctionException("A", "Asin(mx+n)", "0");
+        if(m == 0) throw new WrongFunctionException("m", "Asin(mx+n)", "0");
         this.A = A;  this.m = m;  this.n = n;
     }
 

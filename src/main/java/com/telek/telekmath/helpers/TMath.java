@@ -1,5 +1,7 @@
 package com.telek.telekmath.helpers;
 
+import com.telek.telekmath.exceptions.RepeatedPermutationException;
+import com.telek.telekmath.exceptions.TelekMathException.*;
 import org.apache.commons.math3.special.*;
 
 
@@ -66,15 +68,15 @@ public final class TMath {
 
 
     public static int permutation(int n, int r){
-        if( !(n>=r && r>=0) ) throw new RuntimeException(String.format("Invalid values for permutation for perm(%d,%d)", n, r));
+        if( !(n>=r && r>=0) ) throw new PermutationException(n, r);
         return TMath.factorial(n) / TMath.factorial( n - r );
     }
 
 
     public static int repeatedPermutation(int n, int... rValues){
         for(int r : rValues) {
-            if( !(n >= r) ) throw new RuntimeException( getErrorStringForRepeatedPermutation(n, rValues) );
-            if( !(r >= 0) ) throw new RuntimeException( getErrorStringForRepeatedPermutation(n, rValues) );
+            if( !(n >= r) ) throw new RepeatedPermutationException(n, rValues);
+            if( !(r >= 0) ) throw new RepeatedPermutationException(n, rValues);
         }
         int result = TMath.factorial(n);
         for(int r : rValues) result /= TMath.factorial(r);
@@ -82,12 +84,12 @@ public final class TMath {
     }
 
     public static int combination(int n, int r){
-        if( !(n>=r && r>=0) ) throw new RuntimeException(String.format("Invalid values for combination for comb(%d,%d)", n, r));
+        if( !(n>=r && r>=0) ) throw new CombinationException(n,r);
         return TMath.factorial(n) / (TMath.factorial( n - r ) * TMath.factorial(r));
     }
 
     public static int repeatedCombination(int n, int r){
-        if( !(n>=r && r>=0) ) throw new RuntimeException(String.format("Invalid values for repeated combination for comb(%d,%d)", n, r));
+        if( !(n>=r && r>=0) ) throw new RepeatedCombinationException(n,r);
         return combination(n+r-1, r);
     }
 
@@ -179,19 +181,6 @@ public final class TMath {
         final float c5 = c3 * c2;
         final float c7 = c5 * c2;
         return Math.copySign(0.7853981633974483f + (0.999215f * c - 0.3211819f * c3 + 0.1462766f * c5 - 0.0389929f * c7), i);
-    }
-
-
-
-    /*  HELPERS  */
-
-    private static String getErrorStringForRepeatedPermutation(int n, int... rValues){
-        StringBuilder sbError = new StringBuilder( String.format("Invalid values for repeated permutation for perm(%d,", n) );
-        for(int i = 0; i < rValues.length; i++) {
-            if(i+1 == rValues.length) sbError.append(rValues[i] + ")");
-            else sbError.append(rValues[i] + ",");
-        }
-        return sbError.toString();
     }
 
 
