@@ -17,28 +17,23 @@ public class LinearAlgebra {
 
         double[] answers = new double[equationCount];
 
-        for(int i = 0; i < equationCount; i++)
-            answers[i] = TMatrix.determinant(getMatrixForCramer(i, A, B)) / detA;
+        for(int i = 0; i < equationCount; i++){
+            // GET THE MATRIX
+            int mRowSize = TMatrix.getRowSize(A), mColSize = TMatrix.getColSize(A);
+            double[][] matrix = new double[mRowSize][mColSize];
+
+            for(int row = 0; row < mRowSize; row++)
+                for(int col = 0; col < mColSize; col++)
+                    matrix[row][col] = (col == i) ? B[row][0] : A[row][col];
+
+            // CALCULATE THE ANSWER
+            answers[i] = TMatrix.determinant(matrix) / detA;
+        }
 
         return answers;
     }
 
 
-
-
-    /*  HELPERS  */
-
-    private static double[][] getMatrixForCramer(int colToChange, double[][] matrixToChange, double[][] matrixToPutIn){
-        int mRowSize = TMatrix.getRowSize(matrixToChange);
-        int mColSize = TMatrix.getColSize(matrixToChange);
-        double[][] newMatrix = new double[mRowSize][mColSize];
-
-        for(int i = 0; i < mRowSize; i++)
-            for(int j = 0; j < mColSize; j++)
-                newMatrix[i][j] = (j == colToChange) ? matrixToPutIn[i][0] : matrixToChange[i][j];
-
-        return newMatrix;
-    }
 
 
 }

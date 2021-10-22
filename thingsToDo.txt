@@ -3,11 +3,16 @@
 Telekmath için module info eklemeye çalış
 
 TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
-
+    =>  EarClippingTriangulator
 
 
 Optimization apache ba
 Öbür apache şeylerine de bak
+
+
+BambooBandit ItemRandomizer gibi bir şey
+    https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
+
 
 Şu fonksiyon işlerini düzgünce yapmalıyım
 derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>

@@ -1,13 +1,10 @@
 package com.telek.telekmath.special;
 
+import static com.telek.telekmath.exceptions.TelekMathException.*;
 import com.telek.telekmath.core.constants.CryptoConstants;
-import static com.telek.telekmath.exceptions.TelekMathException.*;
-import com.telek.telekmath.exceptions.InvalidBaseException;
-import com.telek.telekmath.exceptions.InvalidValueException;
-import com.telek.telekmath.exceptions.NotAMultiplyOfNException;
-
+import com.telek.telekmath.exceptions.*;
 import java.util.*;
-import static com.telek.telekmath.exceptions.TelekMathException.*;
+
 
 // Crpytography
 public class Cryptography {
@@ -60,6 +57,7 @@ public class Cryptography {
         return answer.toString();
     }
 
+
     public static String decodeVigenereCipher(String text, String key) {
         if(vigenereError(text, key)) return "Invalid key, try entering a one-word key that is shorter than the text";
         StringBuilder answer = new StringBuilder();
@@ -86,6 +84,7 @@ public class Cryptography {
         return sb.toString();
     }
 
+
     public static String decodeAsciiCipher(String charSeq, int base){
         ArrayList<Integer> numArr = new ArrayList<>();
         for(int i = 0; i < charSeq.length(); i++) numArr.add(Integer.parseInt(getNumberInBase((int) charSeq.charAt(i), base)));
@@ -93,7 +92,6 @@ public class Cryptography {
         for(int i : numArr) sb.append( String.valueOf(i) + " ");
         return sb.toString();
     }
-
 
 
     public static String getInBase10(int numberStrInAnyBase, int baseOfTheNumber){
@@ -126,7 +124,6 @@ public class Cryptography {
 
 
     /*  HELPER  FUNCTIONS  */
-
 
     private static boolean vigenereError(String text, String key) {
         return key.length() >= text.length() || key.matches("^.*[^a-zA-Z0-9 ].*$") || key.contains(" ");

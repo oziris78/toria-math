@@ -1,5 +1,6 @@
 package com.telek.telekmath.helpers;
 
+import com.telek.telekmath.core.functions.general.TRange;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 import org.apache.commons.math3.special.*;
@@ -94,27 +95,38 @@ public final class TMath {
     }
 
 
+
+
     /**
-     * Takes oldX from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]
+     * Takes oldValue from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]
      * @param oldRangeLeft start value of old interval (left value)
      * @param oldRangeRight end value of old interval (right value)
      * @param newRangeLeft start value of new interval (left value)
      * @param newRangeRight end value of new interval (right value)
-     * @param oldX any value from the old interval aka [oldRangeLeft, oldRangeRight]
+     * @param oldValue any value from the old interval aka [oldRangeLeft, oldRangeRight]
      * @return The new value of oldX in the new interval aka [newRangeLeft, newRangeRight]
      */
-    public static double mapRange(double oldRangeLeft, double oldRangeRight, double newRangeLeft, double newRangeRight, double oldX){
-        return newRangeLeft + ( (oldX-oldRangeLeft) * (newRangeRight-newRangeLeft) ) / (oldRangeRight - oldRangeLeft);
+    public static double mapRange(double oldRangeLeft, double oldRangeRight, double newRangeLeft, double newRangeRight, double oldValue){
+        return newRangeLeft + ( (oldValue-oldRangeLeft) * (newRangeRight-newRangeLeft) ) / (oldRangeRight - oldRangeLeft);
     }
 
 
+    /**  @see #mapRange(double, double, double, double, double)  */
+    public static double mapRange(TRange oldRange, TRange newRange, double oldValue){
+        return mapRange(oldRange.left, oldRange.right, newRange.left, newRange.right, oldValue);
+    }
+
+
+
+
+
     /**
-     * Takes oldX from [-1,1] and returns what it would be in [0,1]
-     * @param oldX any value from [-1,1] interval
+     * Takes oldValue from [-1,1] and returns what it would be in [0,1]
+     * @param oldValue any value from [-1,1] interval
      * @return the value of oldX in [0,1] interval
      */
-    public static double mapRange(double oldX){
-        return mapRange(-1d, 1d, 0d, 1d, oldX);
+    public static double mapRange(double oldValue){
+        return mapRange(-1d, 1d, 0d, 1d, oldValue);
     }
 
 

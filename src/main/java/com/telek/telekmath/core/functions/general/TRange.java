@@ -21,6 +21,12 @@ public class TRange {
     }
 
 
+    /**  @return For a range [a,b] it returns b-a  */
+    public double size(){
+        return this.right - this.left;
+    }
+
+
     @Override
     public String toString() {
         return String.format("[%f, %f]", this.left, this.right);
