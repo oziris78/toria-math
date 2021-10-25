@@ -5,6 +5,7 @@ Telekmath için module info eklemeye çalış
 TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
     =>  EarClippingTriangulator
 
+numbers  =>  Fraction sınıfı
 
 Optimization apache ba
 Öbür apache şeylerine de bak
