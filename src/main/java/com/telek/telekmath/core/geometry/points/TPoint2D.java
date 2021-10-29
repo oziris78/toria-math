@@ -74,8 +74,15 @@ public class TPoint2D {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
     public static TPoint2D midPoint(TPoint2D point1, TPoint2D point2){
         return new TPoint2D( ( point1.x + point2.x ) / 2 , ( point1.y + point2.y ) / 2 );
+    }
+
+
+    /**  @see TLine2D#distanceBetweenPointAndLine(TPoint2D, TLine2D)  */
+    public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
+        return TLine2D.distanceBetweenPointAndLine(point, line);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

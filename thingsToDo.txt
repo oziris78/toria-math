@@ -5,17 +5,18 @@ Telekmath için module info eklemeye çalış
 TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
     =>  EarClippingTriangulator
 
-numbers  =>  Fraction sınıfı
 
 Optimization apache ba
 Öbür apache şeylerine de bak
 
+MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
 
 BambooBandit ItemRandomizer gibi bir şey
-    https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
+   https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
 
 
 Şu fonksiyon işlerini düzgünce yapmalıyım
+    --- Function interface'ini kalıt
 derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>
     =>  sonra toplama çıkarma çarpma ayarla, sonra türevleri ekle, sonra integralleri ekle
 
@@ -24,3 +25,6 @@ derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>
 
 Tline2d yeniden yazabilirim ve intersection point bulan static metot yaz
 
+
+do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
+    Fraction sınıfı test edildi

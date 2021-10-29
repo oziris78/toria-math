@@ -1,6 +1,8 @@
 package com.telek.telekmath.special;
 
 
+import com.telek.telekmath.core.constants.CryptoConstants;
+import com.telek.telekmath.exceptions.InvalidValueException;
 import java.util.HashMap;
 
 
@@ -53,6 +55,56 @@ public class DiscreteMath {
         }
         return num2;
     }
+
+
+
+    public static String getInBase10(int numberStrInAnyBase, int baseOfTheNumber){
+        return Integer.toString( numberStrInAnyBase, baseOfTheNumber ) ;
+    }
+
+
+    public static String getInBase10(String numberStrInAnyBase, int baseOfTheNumber){
+        return getInBase10(Integer.parseInt(numberStrInAnyBase), baseOfTheNumber);
+    }
+
+
+    public static String getNumberInBase(int numberInBase10, int base){
+        if(base == 10) return String.valueOf(numberInBase10);
+        HashMap<Integer, String> dict = getHashMapWithBase(base);
+        StringBuilder sb = new StringBuilder();
+        int num = numberInBase10;
+        int divided = (int) Math.floor( num / base );
+        int remainder = num - base * divided;
+        sb.append( dict.get(remainder) );
+        while(divided != 0){
+            num = divided;
+            divided = (int) Math.floor( num / base );
+            remainder = num - base * divided;
+            sb.append( dict.get(remainder) );
+        }
+        return sb.reverse().toString();
+    }
+
+
+
+
+    /*  HELPERS  */
+
+    private static HashMap<Integer, String> getHashMapWithBase(int base){
+        if(base <= 10){
+            HashMap<Integer, String> mapToReturn = new HashMap<>();
+            for(int i = 0; i < base; i++)  mapToReturn.put(i, String.valueOf(i));
+            return mapToReturn;
+        }
+        else if(base == 11) return CryptoConstants.baseEleven;
+        else if(base == 12) return CryptoConstants.baseTwelve;
+        else if(base == 13) return CryptoConstants.baseThirteen;
+        else if(base == 14) return CryptoConstants.baseFourteen;
+        else if(base == 15) return CryptoConstants.baseFifteen;
+        else if(base == 16) return CryptoConstants.baseSixteen;
+        else throw new InvalidValueException("base", base);
+    }
+
 
 
 

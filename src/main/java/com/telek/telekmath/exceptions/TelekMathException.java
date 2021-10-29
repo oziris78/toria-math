@@ -151,5 +151,24 @@ public class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class DivisionByZeroException extends RuntimeException {
+        public DivisionByZeroException() {
+            super("You can't divide by zero.");
+        }
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class VigenereCipherException extends RuntimeException {
+        public VigenereCipherException() {
+            super("Invalid key, try entering a one-word key that is shorter than the text");
+        }
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 }

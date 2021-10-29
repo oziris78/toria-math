@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -197,8 +197,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#mapRange-double-">mapRange</a></span>(double&nbsp;oldX)</code>
-<div class="block">Takes oldX from [-1,1] and returns what it would be in [0,1]</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#mapRange-double-">mapRange</a></span>(double&nbsp;oldValue)</code>
+<div class="block">Takes oldValue from [-1,1] and returns what it would be in [0,1]</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -207,28 +207,34 @@ extends java.lang.Object</pre>
         double&nbsp;oldRangeRight,
         double&nbsp;newRangeLeft,
         double&nbsp;newRangeRight,
-        double&nbsp;oldX)</code>
-<div class="block">Takes oldX from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]</div>
+        double&nbsp;oldValue)</code>
+<div class="block">Takes oldValue from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>static double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#mapRange-com.telek.telekmath.core.functions.general.TRange-com.telek.telekmath.core.functions.general.TRange-double-">mapRange</a></span>(<a href="../../../../com/telek/telekmath/core/functions/general/TRange.html" title="class in com.telek.telekmath.core.functions.general">TRange</a>&nbsp;oldRange,
+        <a href="../../../../com/telek/telekmath/core/functions/general/TRange.html" title="class in com.telek.telekmath.core.functions.general">TRange</a>&nbsp;newRange,
+        double&nbsp;oldValue)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#permutation-int-int-">permutation</a></span>(int&nbsp;n,
            int&nbsp;r)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#pow-int-int-">pow</a></span>(int&nbsp;base,
    int&nbsp;exponent)</code>
 <div class="block">Fast power function that only works with integers</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#repeatedCombination-int-int-">repeatedCombination</a></span>(int&nbsp;n,
                    int&nbsp;r)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/helpers/TMath.html#repeatedPermutation-int-int...-">repeatedPermutation</a></span>(int&nbsp;n,
                    int...&nbsp;rValues)</code>&nbsp;</td>
@@ -406,17 +412,32 @@ extends java.lang.Object</pre>
                               double&nbsp;oldRangeRight,
                               double&nbsp;newRangeLeft,
                               double&nbsp;newRangeRight,
-                              double&nbsp;oldX)</pre>
-<div class="block">Takes oldX from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]</div>
+                              double&nbsp;oldValue)</pre>
+<div class="block">Takes oldValue from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>oldRangeLeft</code> - start value of old interval (left value)</dd>
 <dd><code>oldRangeRight</code> - end value of old interval (right value)</dd>
 <dd><code>newRangeLeft</code> - start value of new interval (left value)</dd>
 <dd><code>newRangeRight</code> - end value of new interval (right value)</dd>
-<dd><code>oldX</code> - any value from the old interval aka [oldRangeLeft, oldRangeRight]</dd>
+<dd><code>oldValue</code> - any value from the old interval aka [oldRangeLeft, oldRangeRight]</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The new value of oldX in the new interval aka [newRangeLeft, newRangeRight]</dd>
+</dl>
+</li>
+</ul>
+<a name="mapRange-com.telek.telekmath.core.functions.general.TRange-com.telek.telekmath.core.functions.general.TRange-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mapRange</h4>
+<pre>public static&nbsp;double&nbsp;mapRange(<a href="../../../../com/telek/telekmath/core/functions/general/TRange.html" title="class in com.telek.telekmath.core.functions.general">TRange</a>&nbsp;oldRange,
+                              <a href="../../../../com/telek/telekmath/core/functions/general/TRange.html" title="class in com.telek.telekmath.core.functions.general">TRange</a>&nbsp;newRange,
+                              double&nbsp;oldValue)</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../com/telek/telekmath/helpers/TMath.html#mapRange-double-double-double-double-double-"><code>mapRange(double, double, double, double, double)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -426,11 +447,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>mapRange</h4>
-<pre>public static&nbsp;double&nbsp;mapRange(double&nbsp;oldX)</pre>
-<div class="block">Takes oldX from [-1,1] and returns what it would be in [0,1]</div>
+<pre>public static&nbsp;double&nbsp;mapRange(double&nbsp;oldValue)</pre>
+<div class="block">Takes oldValue from [-1,1] and returns what it would be in [0,1]</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>oldX</code> - any value from [-1,1] interval</dd>
+<dd><code>oldValue</code> - any value from [-1,1] interval</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the value of oldX in [0,1] interval</dd>
 </dl>

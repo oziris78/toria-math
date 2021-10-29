@@ -1,0 +1,108 @@
+package com.telek.telekmath.core.numbers;
+
+import com.telek.telekmath.helpers.TMath;
+import com.telek.telekmath.exceptions.TelekMathException;
+
+
+public class Fraction {
+
+    /*  FIELDS  */
+
+    private int numerator, denominator;
+
+    /*  CONSTRUCTORS  */
+
+    public Fraction(int numerator, int denominator){
+        if(denominator == 0) throw new TelekMathException.DivisionByZeroException();
+        this.numerator = numerator;
+        this.denominator = denominator;
+        this.simplifyAndSort();
+    }
+
+    /*  METHODS  */
+
+    public double getAsDouble(){
+        return ((double) this.numerator) / ((double) this.denominator);
+    }
+
+    public boolean isInteger(){
+        return this.numerator % this.denominator == 0;
+    }
+
+    public Fraction add(Fraction frac2){
+        return add(frac2.numerator, frac2.denominator);
+    }
+
+    public Fraction subtract(Fraction frac2){
+        return add(-frac2.numerator, frac2.denominator);
+    }
+
+    public Fraction multiply(Fraction frac2){
+        return multiply(frac2.numerator, frac2.denominator);
+    }
+
+    public Fraction divide(Fraction frac2){
+        return multiply(frac2.denominator, frac2.numerator);
+    }
+
+    public Fraction pow(int exponent){
+        Fraction frac = new Fraction(TMath.pow(this.numerator, exponent), TMath.pow(this.denominator, exponent));
+        return frac;
+    }
+
+
+    /*  GETTERS AND SETTERS  */
+
+    public int getNumerator() {return numerator;}
+    public int getDenominator() {return denominator;}
+
+
+    /*  HELPERS  */
+
+    private Fraction multiply(int num2, int denom2){
+        Fraction frac = new Fraction(this.numerator * num2, this.denominator * denom2);
+        return frac;
+    }
+
+    private Fraction add(int num2, int denom2){
+        // a/b + c/d = (ad+bc) / bd
+        if(this.denominator == denom2){
+            return new Fraction(this.numerator + num2, this.denominator);
+        }
+        else{
+            int b = this.denominator;
+            int d = denom2;
+            return new Fraction(this.numerator * d + b * num2, b * d);
+        }
+    }
+
+
+    private void simplifyAndSort(){
+        // SORT
+        if( (this.denominator < 0 && this.numerator < 0) || (this.numerator > 0 && this.denominator < 0) ){
+            this.denominator *= -1;
+            this.numerator *= -1;
+        }
+
+        // SIMPLIFY
+        int gcd = TMath.gcd(this.numerator, this.denominator);
+        this.numerator /= gcd;
+        this.denominator /= gcd;
+    }
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public String toString() {
+        if(!this.isInteger())
+            return String.format("%d / %d", numerator, denominator);
+        else
+            return String.valueOf(this.numerator / this.denominator);
+    }
+
+
+}

@@ -28,6 +28,7 @@ public class TLine2D {
     }
 
 
+
     public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){
         double x1 = pointOneOnLine.x; double x2 = pointTwoOnLine.x;
         double y1 = pointOneOnLine.y; double y2 = pointTwoOnLine.y;
@@ -192,6 +193,16 @@ public class TLine2D {
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
         if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
         return Math.abs(line1.getConstant() - line2.getConstant()) / line1.size();
+    }
+
+
+    /**
+     * @param point any point
+     * @param line any line
+     * @return The orthogonal distance between point and line
+     */
+    public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
+        return Math.abs( point.y - line.getSlope() * point.x - line.getConstant() )  / line.size();
     }
 
 

@@ -84,15 +84,27 @@ public final class TMath {
         return result;
     }
 
+
     public static int combination(int n, int r){
         if( !(n>=r && r>=0) ) throw new CombinationException(n,r);
         return TMath.factorial(n) / (TMath.factorial( n - r ) * TMath.factorial(r));
     }
 
+
     public static int repeatedCombination(int n, int r){
         if( !(n>=r && r>=0) ) throw new RepeatedCombinationException(n,r);
         return combination(n+r-1, r);
     }
+
+
+    public static long gcd(long a, long b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+
+    public static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+
 
 
 
@@ -115,9 +127,6 @@ public final class TMath {
     public static double mapRange(TRange oldRange, TRange newRange, double oldValue){
         return mapRange(oldRange.left, oldRange.right, newRange.left, newRange.right, oldValue);
     }
-
-
-
 
 
     /**
