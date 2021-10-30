@@ -21,6 +21,7 @@ BambooBandit ItemRandomizer gibi bir şey
 
 Şu fonksiyon işlerini düzgünce yapmalıyım
     --- Function interface'ini kalıt
+    Function<Double, Double> v = new TSin()::value;    !!!!
 derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>
     =>  sonra toplama çıkarma çarpma ayarla, sonra türevleri ekle, sonra integralleri ekle
 

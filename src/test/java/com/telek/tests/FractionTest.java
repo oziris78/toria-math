@@ -1,6 +1,9 @@
 package com.telek.tests;
 
+import com.telek.telekmath.core.functions.trig.TSin;
 import com.telek.telekmath.core.numbers.Fraction;
+
+import java.util.function.Function;
 
 public class FractionTest {
 
@@ -43,5 +46,6 @@ public class FractionTest {
 
 
     }
+
 
 }
