@@ -1,6 +1,6 @@
 package com.telek.telekmath.core.geometry.lines;
 
-import com.telek.telekmath.core.constants.LineConstants;
+import com.telek.telekmath.core.constants.InternalConstants;
 import com.telek.telekmath.core.geometry.points.TPoint3D;
 import com.telek.telekmath.core.geometry.vectors.TVector3D;
 
@@ -59,7 +59,7 @@ public class TLine3D {
     /*  HELPER METHODS  */
 
     private static boolean areSame(double d1, double d2){
-        return (Math.abs( d2 - d1 ) <= LineConstants.threshhold) ? true : false;
+        return Math.abs( d2 - d1 ) <= InternalConstants.LINE_THRESHHOLD;
     }
 
 

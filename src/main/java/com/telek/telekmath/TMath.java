@@ -1,9 +1,11 @@
-package com.telek.telekmath.helpers;
+package com.telek.telekmath;
 
 import com.telek.telekmath.core.functions.general.TRange;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 import org.apache.commons.math3.special.*;
+
+import java.util.HashMap;
 
 
 /**
@@ -11,6 +13,12 @@ import org.apache.commons.math3.special.*;
  * atn(), atan2(), acos(), asin() methods were written by Tommy Ettinger, https://github.com/tommyettinger
  */
 public final class TMath {
+
+
+
+    /*  ------------  */
+    /*  MATH METHODS  */
+    /*  ------------  */
 
 
     /**
@@ -23,6 +31,7 @@ public final class TMath {
     }
 
 
+
     /**
      * Uses Apache Common Math's Beta.logBeta function to evaluate beta(a,b)
      * @param a any double value
@@ -32,6 +41,7 @@ public final class TMath {
     public static double beta(double a, double b){
         return Math.exp( Beta.logBeta(a,b) ); //
     }
+
 
 
     /**
@@ -47,6 +57,7 @@ public final class TMath {
     }
 
 
+
     /**
      * Fast power function that only works with integers
      * @param base any integer
@@ -56,6 +67,7 @@ public final class TMath {
     public static int pow(int base, int exponent){
         return (exponent != 0) ? base * pow(base,exponent-1) : 1;
     }
+
 
 
     /**
@@ -107,8 +119,6 @@ public final class TMath {
 
 
 
-
-
     /**
      * Takes oldValue from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]
      * @param oldRangeLeft start value of old interval (left value)
@@ -123,10 +133,12 @@ public final class TMath {
     }
 
 
+
     /**  @see #mapRange(double, double, double, double, double)  */
     public static double mapRange(TRange oldRange, TRange newRange, double oldValue){
         return mapRange(oldRange.left, oldRange.right, newRange.left, newRange.right, oldValue);
     }
+
 
 
     /**
@@ -149,7 +161,6 @@ public final class TMath {
         int xi = (int) x;
         return (x < xi) ? (xi - 1) : xi;
     }
-
 
 
     public static float acos(float a) {
@@ -204,5 +215,23 @@ public final class TMath {
         return Math.copySign(0.7853981633974483f + (0.999215f * c - 0.3211819f * c3 + 0.1462766f * c5 - 0.0389929f * c7), i);
     }
 
+
+
+    /*  ---------------  */
+    /*  SPECIAL METHODS  */
+    /*  ---------------  */
+
+
+
+    /**
+     * Stringifies the output of {@link com.telek.telekmath.special.DiscreteMath#primeFactorization(long)}
+     * @param factors output of DiscreteMath.primeFactorization(long)
+     * @return factors in a string form
+     */
+    public static String stringifyFactors(HashMap<Long,Long> factors){
+        StringBuilder sb = new StringBuilder();
+        for(Long key : factors.keySet()) sb.append(String.format("%d^%d * ", key, factors.get(key)));
+        return sb.substring(0, sb.length()-2);
+    }
 
 }

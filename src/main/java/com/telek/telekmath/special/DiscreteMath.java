@@ -1,6 +1,7 @@
 package com.telek.telekmath.special;
 
 
+import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.constants.CryptoConstants;
 import com.telek.telekmath.exceptions.InvalidValueException;
 import java.util.HashMap;
@@ -36,11 +37,13 @@ public class DiscreteMath {
     }
 
 
+
     /**
-     * Returns gcd(a,b) using the Euclidean Algorithm
+     * This functions exists only for educational purposes. <br>
+     * If you want a gcd(a,b) function use {@link TMath#gcd(int, int)}
      * @param a any integer
      * @param b any integer
-     * @return greatest common divisor of a and b using the Euclidean Algorithm
+     * @return gcd(a,b) using the euclidean algorithm
      */
     public static int euclideanAlgorithm(int a, int b){
         int num1 = Math.max(a,b);

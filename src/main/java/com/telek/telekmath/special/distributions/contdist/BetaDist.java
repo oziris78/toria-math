@@ -5,7 +5,7 @@ import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 import com.telek.telekmath.core.functions.general.TRange;
 import com.telek.telekmath.special.distributions.ContinuousDistribution;
-import com.telek.telekmath.helpers.TMath;
+import com.telek.telekmath.TMath;
 
 public class BetaDist extends ContinuousDistribution {
 

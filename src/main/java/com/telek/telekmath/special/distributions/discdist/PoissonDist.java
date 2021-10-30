@@ -4,7 +4,7 @@ package com.telek.telekmath.special.distributions.discdist;
 import com.telek.telekmath.core.functions.general.TRange;
 import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.special.distributions.DiscreteDistribution;
-import com.telek.telekmath.helpers.TMath;
+import com.telek.telekmath.TMath;
 
 public class PoissonDist extends DiscreteDistribution {
 

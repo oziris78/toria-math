@@ -1,44 +1,29 @@
 package com.telek.telekmath.core.constants;
 
 
-import com.telek.telekutils.singular.TCollectionUtils;
-
+import com.telek.telekutils.plain.TStringUtils;
 import java.util.HashMap;
+
 
 public final class CryptoConstants {
 
     public static final StringBuilder ENGLISH_ALPHABET = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
+    public static final HashMap<Integer, String> baseEleven = getBaseHashMap(11);
+    public static final HashMap<Integer, String> baseTwelve = getBaseHashMap(12);
+    public static final HashMap<Integer, String> baseThirteen = getBaseHashMap(13);
+    public static final HashMap<Integer, String> baseFourteen = getBaseHashMap(14);
+    public static final HashMap<Integer, String> baseFifteen = getBaseHashMap(15);
+    public static final HashMap<Integer, String> baseSixteen = getBaseHashMap(16);
 
-    public static final HashMap<Integer, String> baseEleven = TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A"}
-    );
 
-    public static final HashMap<Integer, String> baseTwelve = TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B"}
-    );
+    /*  HELPERS  */
 
-    public static final HashMap<Integer, String> baseThirteen = TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C"}
-    );
-
-    public static final HashMap<Integer, String> baseFourteen = TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D"}
-    );
-
-    public static final HashMap<Integer, String> baseFifteen =  TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E"}
-    );
-
-    public static final HashMap<Integer, String> baseSixteen = TCollectionUtils.createHashMap(
-            new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-            new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"}
-    );
+    private static HashMap<Integer, String> getBaseHashMap(int base){
+        HashMap<Integer, String> map = new HashMap<>();
+        for(int i = 0; i < base; i++)  map.put(i, TStringUtils.convertNumberToUppercaseBaseString(i));
+        return map;
+    }
 
 
 }

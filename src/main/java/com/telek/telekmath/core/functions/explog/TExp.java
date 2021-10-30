@@ -1,9 +1,9 @@
 package com.telek.telekmath.core.functions.explog;
 
 
-import com.telek.telekmath.core.constants.MathConstants;
 import com.telek.telekmath.core.functions.general.TFunction;
 import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.TMath;
 
 
 /**
@@ -28,11 +28,11 @@ public class TExp extends TFunction {
     }
 
     public TExp(TRange range, double m) {
-        this(range, 1d, MathConstants.E, m);
+        this(range, 1d, TMath.E, m);
     }
 
     public TExp(TRange range) {
-        this(range, 1d, MathConstants.E, 1d);
+        this(range, 1d, TMath.E, 1d);
     }
 
     public TExp(double a, double b, double m) {
@@ -44,11 +44,11 @@ public class TExp extends TFunction {
     }
 
     public TExp(double m) {
-        this(TRange.REEL_NUMBERS, 1d, MathConstants.E, m);
+        this(TRange.REEL_NUMBERS, 1d, TMath.E, m);
     }
 
     public TExp() {
-        this(TRange.REEL_NUMBERS, 1d, MathConstants.E, 1d);
+        this(TRange.REEL_NUMBERS, 1d, TMath.E, 1d);
     }
 
 
@@ -65,8 +65,8 @@ public class TExp extends TFunction {
 
     @Override
     public TFunction derivative() {
-        if( Math.abs(b - MathConstants.E) <= 0.0005 )
-            return new TExp(this.range, a*m, MathConstants.E, m);
+        if( Math.abs(b - TMath.E) <= 0.0005 )
+            return new TExp(this.range, a*m, TMath.E, m);
         return new TExp(this.range, a * m * Math.log(b), b, m);
     }
 

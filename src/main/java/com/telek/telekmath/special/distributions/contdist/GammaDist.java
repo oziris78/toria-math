@@ -2,7 +2,7 @@ package com.telek.telekmath.special.distributions.contdist;
 
 
 import com.telek.telekmath.special.distributions.ContinuousDistribution;
-import com.telek.telekmath.helpers.TMath;
+import com.telek.telekmath.TMath;
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 

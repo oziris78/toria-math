@@ -1,6 +1,6 @@
 package com.telek.telekmath.core.geometry.lines;
 
-import com.telek.telekmath.core.constants.LineConstants;
+import com.telek.telekmath.core.constants.InternalConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 
 import static com.telek.telekmath.exceptions.TelekMathException.*;
@@ -83,7 +83,7 @@ public class TLine2D {
         boolean isOrthogonal = false;
         if( !this.isParallelToYAxis && !line2.isParallelToYAxis ){
             double multipliedSlope = this.getSlope() * line2.getSlope();
-            isOrthogonal = ( multipliedSlope <= -1d + LineConstants.threshhold && multipliedSlope >= -1d - LineConstants.threshhold );  // -0.9 >= multipliedSlope >= -1.1
+            isOrthogonal = ( multipliedSlope <= -1d + InternalConstants.LINE_THRESHHOLD && multipliedSlope >= -1d - InternalConstants.LINE_THRESHHOLD );  // -0.9 >= multipliedSlope >= -1.1
         }
         else if( this.isParallelToYAxis && !line2.isParallelToYAxis)
             isOrthogonal = (line2.getSlope() == 0) ;

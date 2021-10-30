@@ -1,4 +1,4 @@
-package com.telek.telekutils.singular;
+package com.telek.telekutils.plain;
 
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 

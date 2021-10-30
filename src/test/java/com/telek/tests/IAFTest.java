@@ -1,8 +1,9 @@
 package com.telek.tests;
 
 
-import com.telek.telekmath.core.constants.MathConstants;
-import com.telek.telekutils.singular.TCollectionUtils;
+import com.telek.telekmath.TMath;
+import com.telek.telekmath.core.constants.TMathConstants;
+import com.telek.telekutils.plain.TCollectionUtils;
 import com.telek.telekmath.special.IAF;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public class IAFTest {
 
 
         ArrayList<double[]> resTriangle1 = IAF.mastersFormula(TCollectionUtils.doubleArr(10,20,30,40,50,60));
-        ArrayList<double[]> resTriangle2 = IAF.mastersFormula(TCollectionUtils.doubleArr(MathConstants.PI, MathConstants.E, MathConstants.GOLDEN_RATIO));
+        ArrayList<double[]> resTriangle2 = IAF.mastersFormula(TCollectionUtils.doubleArr(TMathConstants.PI, TMathConstants.E, TMathConstants.GOLDEN_RATIO));
         ArrayList<double[]> resTriangle3 = IAF.mastersFormula(TCollectionUtils.doubleArr(789,29814,30650,484851,591981));
         ArrayList<double[]> resTriangle4 = IAF.mastersFormula(TCollectionUtils.doubleArr(1,4,9,16,25,36,49,64,81));
 

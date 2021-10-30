@@ -6,6 +6,10 @@ TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
     =>  EarClippingTriangulator
 
 
+take apache common's gammaLog method and remove apache commons as a dependency
+
+swing'deki live templates  ile TSwing sınıflarını yazabilirim
+
 Optimization apache ba
 Öbür apache şeylerine de bak
 

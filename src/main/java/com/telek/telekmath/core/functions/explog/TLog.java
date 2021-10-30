@@ -1,8 +1,8 @@
 package com.telek.telekmath.core.functions.explog;
 
-import com.telek.telekmath.core.constants.MathConstants;
 import com.telek.telekmath.core.functions.general.TFunction;
 import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.TMath;
 
 
 /**
@@ -31,7 +31,7 @@ public class TLog extends TFunction {
     }
 
     public TLog(TRange range) {
-        this(range, 1d, MathConstants.E, 1d);
+        this(range, 1d, TMath.E, 1d);
     }
 
     public TLog(double a, double b, double m) {
@@ -47,7 +47,7 @@ public class TLog extends TFunction {
     }
 
     public TLog() {
-        this(TRange.REEL_NUMBERS, 1d, MathConstants.E, 1d);
+        this(TRange.REEL_NUMBERS, 1d, TMath.E, 1d);
     }
 
 

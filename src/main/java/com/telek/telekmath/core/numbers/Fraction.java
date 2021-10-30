@@ -1,6 +1,6 @@
 package com.telek.telekmath.core.numbers;
 
-import com.telek.telekmath.helpers.TMath;
+import com.telek.telekmath.TMath;
 import com.telek.telekmath.exceptions.TelekMathException;
 
 
