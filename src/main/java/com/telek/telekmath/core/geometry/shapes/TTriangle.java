@@ -37,6 +37,15 @@ public class TTriangle {
     }
 
 
+    public double[] getAsDoubleArray(){
+        return new double[]{ p1.x, p1.y, p2.x, p2.y, p3.x, p3.y };
+    }
+
+    public float[] getAsFloatArray(){
+        return new float[]{ (float) p1.x, (float) p1.y, (float) p2.x, (float) p2.y, (float) p3.x, (float) p3.y };
+    }
+
+
     /*  GETTERS AND SETTERS  */
 
     public void setPoint1(TPoint2D point) { this.p1 = point; }

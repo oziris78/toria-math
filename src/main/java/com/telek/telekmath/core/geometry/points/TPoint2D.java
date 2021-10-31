@@ -2,6 +2,9 @@ package com.telek.telekmath.core.geometry.points;
 
 import com.telek.telekmath.core.geometry.lines.TLine2D;
 import com.telek.telekmath.core.geometry.vectors.TVector2D;
+
+import java.util.Objects;
+
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 public class TPoint2D {
@@ -21,6 +24,11 @@ public class TPoint2D {
 
     public double distanceFromOrigin() {
         return Math.sqrt( this.x * this.x + this.y * this.y );
+    }
+
+    public void scale(double scale){
+        this.x *= scale;
+        this.y *= scale;
     }
 
     public void moveBy(double xAmount, double yAmount){
@@ -91,7 +99,6 @@ public class TPoint2D {
     public String toString() {
         return String.format("( %.5f , %.5f )", this.x, this.y);
     }
-
 
 
 }

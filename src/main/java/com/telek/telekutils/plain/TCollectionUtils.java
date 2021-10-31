@@ -83,5 +83,12 @@ public final class TCollectionUtils {
 
 
 
+    public static <T> void shuffleArray(T[] arr){
+        List<T> list = Arrays.asList(arr);
+        Collections.shuffle(list);
+        list.toArray(arr);
+    }
+
+
 
 }

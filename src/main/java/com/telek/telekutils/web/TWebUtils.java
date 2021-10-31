@@ -1,4 +1,4 @@
-package com.telek.telekutils.singular;
+package com.telek.telekutils.web;
 
 import java.awt.Desktop;
 import java.net.URI;

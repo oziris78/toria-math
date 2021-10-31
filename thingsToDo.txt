@@ -2,15 +2,12 @@
 
 Telekmath için module info eklemeye çalış
 
+
 TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
     =>  EarClippingTriangulator
 
 
-take apache common's gammaLog method and remove apache commons as a dependency
-
-swing'deki live templates  ile TSwing sınıflarını yazabilirim
-
-Optimization apache ba
+Optimization apache bak
 Öbür apache şeylerine de bak
 
 MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir

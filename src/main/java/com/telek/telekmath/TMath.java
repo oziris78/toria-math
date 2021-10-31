@@ -1,15 +1,16 @@
 package com.telek.telekmath;
 
+import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.general.TRange;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
-import org.apache.commons.math3.special.*;
-
 import java.util.HashMap;
+
 
 
 /**
  * A class that has a lot of utility functions.
+ * beta(a,b) and logGamma(x) methods are taken from Apache Commons Math.
  * atn(), atan2(), acos(), asin() methods were written by Tommy Ettinger, https://github.com/tommyettinger
  */
 public final class TMath {
@@ -27,10 +28,8 @@ public final class TMath {
      * @return gamma(x)
      */
     public static double gamma(double x){
-        return Math.exp( Gamma.logGamma(x) );
+        return Math.exp( logGamma(x) );
     }
-
-
 
     /**
      * Uses Apache Common Math's Beta.logBeta function to evaluate beta(a,b)
@@ -39,8 +38,9 @@ public final class TMath {
      * @return beta(a,b)
      */
     public static double beta(double a, double b){
-        return Math.exp( Beta.logBeta(a,b) ); //
+        return Math.exp( logBeta(a,b) ); //
     }
+
 
 
 
@@ -233,5 +233,71 @@ public final class TMath {
         for(Long key : factors.keySet()) sb.append(String.format("%d^%d * ", key, factors.get(key)));
         return sb.substring(0, sb.length()-2);
     }
+
+
+
+    /*  -------  */
+    /*  HELPERS  */
+    /*  -------  */
+
+
+    // APACHE COMMONS MATH
+    private static final double[] LANCZOS = {
+            0.99999999999999709182,
+            57.156235665862923517,
+            -59.597960355475491248,
+            14.136097974741747174,
+            -0.49191381609762019978,
+            .33994649984811888699e-4,
+            .46523628927048575665e-4,
+            -.98374475304879564677e-4,
+            .15808870322491248884e-3,
+            -.21026444172410488319e-3,
+            .21743961811521264320e-3,
+            -.16431810653676389022e-3,
+            .84418223983852743293e-4,
+            -.26190838401581408670e-4,
+            .36899182659531622704e-5,
+    };
+
+
+    // APACHE COMMONS MATH
+    private static double logBeta(double a, double b) {
+        double ret;
+
+        if (Double.isNaN(a) || Double.isNaN(b) || a <= 0.0 || b <= 0.0) {
+            ret = Double.NaN;
+        }
+        else {
+            ret = logGamma(a) + logGamma(b) - logGamma(a + b);
+        }
+
+        return ret;
+    }
+
+
+    // APACHE COMMONS MATH
+    private static double logGamma(double x) {
+        double ret;
+
+        if (Double.isNaN(x) || (x <= 0.0)) {
+            ret = Double.NaN;
+        } else {
+            double g = 607.0 / 128.0;
+
+            double sum = 0.0;
+            for (int i = LANCZOS.length - 1; i > 0; --i) {
+                sum = sum + (LANCZOS[i] / (x + i));
+            }
+            sum = sum + LANCZOS[0];
+
+            double tmp = x + g + .5;
+            ret = ( (x + .5) * Math.log(tmp) ) - tmp + TMathConstants.HALF_LOG_2_PI + Math.log(sum / x);
+        }
+
+        return ret;
+    }
+
+
 
 }

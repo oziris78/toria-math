@@ -1,7 +1,6 @@
 package com.telek.tests;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.TMathSpecial;
 import com.telek.telekmath.special.DiscreteMath;
 
 import java.util.HashMap;

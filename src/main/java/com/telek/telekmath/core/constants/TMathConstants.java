@@ -13,6 +13,6 @@ public final class TMathConstants {
     public static final double SQRT3 = 1.732050807568877293527d;
     public static final double SQRT5 = 2.23606797749978969640d;
 
-
+    public static final double HALF_LOG_2_PI = 0.9189385332046727417803d;
 
 }

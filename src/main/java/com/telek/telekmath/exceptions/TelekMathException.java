@@ -10,6 +10,9 @@ public class TelekMathException extends RuntimeException {
         super(message);
     }
 
+
+
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static class InvalidExtensionException extends RuntimeException {

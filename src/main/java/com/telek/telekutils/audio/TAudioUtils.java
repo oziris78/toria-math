@@ -1,4 +1,4 @@
-package com.telek.telekutils.singular;
+package com.telek.telekutils.audio;
 
 import javax.sound.sampled.*;
 

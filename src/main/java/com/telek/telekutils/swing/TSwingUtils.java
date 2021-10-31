@@ -1,11 +1,11 @@
-package com.telek.telekutils.singular;
+package com.telek.telekutils.swing;
 
 
 import javax.swing.*;
 import java.awt.*;
 
 
-public final class TSwingUtils {
+public class TSwingUtils {
 
 
     public static void hideAll(Component... components) { for(Component c : components) c.setVisible(false); }
