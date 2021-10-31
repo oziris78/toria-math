@@ -11,6 +11,8 @@ import java.util.Arrays;
 public class TMatrix {
 
 
+    private TMatrix(){}
+
     /*  CONSTRUCTORS  */
 
     public static double[][] createIdentityMatrix(int dimension){

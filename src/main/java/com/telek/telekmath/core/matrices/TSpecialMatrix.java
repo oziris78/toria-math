@@ -3,6 +3,8 @@ package com.telek.telekmath.core.matrices;
 public class TSpecialMatrix {
 
 
+    private TSpecialMatrix(){}
+
     /*  CONSTRUCTORS  */
 
 

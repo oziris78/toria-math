@@ -8,6 +8,7 @@ import com.telek.telekmath.exceptions.TelekMathException.InvalidEquationCountExc
 
 public class TMatrixUtils {
 
+    private TMatrixUtils(){}
 
     public static double[] cramerMethod(int equationCount, double[][] A, double[][] B){
         if( TMatrix.getRowSize(B) != equationCount || TMatrix.getColSize(B) != 1 || TMatrix.getRowSize(A) != equationCount)

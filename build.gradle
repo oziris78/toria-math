@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
-    testImplementation group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
+    testImplementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
 
 }
 
