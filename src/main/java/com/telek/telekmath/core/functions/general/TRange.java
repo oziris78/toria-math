@@ -10,7 +10,7 @@ public class TRange {
     public static final TRange REEL_NUMBERS = new TRange(Double.MIN_VALUE, Double.MAX_VALUE);
     public static final TRange ZERO_TO_ONE = new TRange(0d, 1d);
     public static final TRange MONE_TO_ONE = new TRange(-1d, 1d);
-    public static final TRange BYTE_RANGE = new TRange(-128d, 127d);
+    public static final TRange BYTE_RANGE = new TRange(Byte.MIN_VALUE, Byte.MAX_VALUE);
 
 
     public TRange(double inclusiveLeft, double inclusiveRight){

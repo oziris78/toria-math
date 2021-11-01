@@ -1,4 +1,4 @@
-package com.telek.tests;
+package com.telek.tests.sound;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.functions.general.TRange;
@@ -6,7 +6,7 @@ import com.telek.telekutils.audio.TWavUtils;
 
 import java.io.*;
 
-public class WavFileTest {
+public class CreateWavFileTest {
 
 
     public static void main(String[] args) throws IOException {

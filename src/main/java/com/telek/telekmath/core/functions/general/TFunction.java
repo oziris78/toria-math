@@ -30,5 +30,7 @@ public abstract class TFunction {
             throw new NotInRangeException(range, x);
     }
 
-
+    public TRange getRange() {
+        return range;
+    }
 }

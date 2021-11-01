@@ -1,5 +1,8 @@
 
 
+TELEK MATH yerine JTelek ???
+
+
 Telekmath için module info eklemeye çalış
 
 
