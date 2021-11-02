@@ -1,10 +1,12 @@
 package com.telek.telekmath.core.functions;
 
 
+import com.telek.telekmath.core.functions.trig.TSin;
+
 import java.util.ArrayList;
 
 
-public class TFunction {
+public class TFunction extends AbstractFunction {
 
     private ArrayList<AbstractFunction[]> innerProducts; // (f11 * f21 * ...) + (f21 * f22 * ...) + (f31 * f32 * ...) + ...
 
@@ -12,6 +14,7 @@ public class TFunction {
     /*  CONSTRUCTORS  */
 
     public TFunction(ArrayList<AbstractFunction[]> innerProducts){
+        super(TRange.REEL_NUMBERS);
         this.innerProducts = innerProducts;
     }
 
@@ -40,6 +43,7 @@ public class TFunction {
      * @param x any double
      * @return the value of ( f11(x) * f12(x) * ... ) + ( f21(x) * f22(x) * ... ) + ...
      */
+    @Override
     public double value(double x){
         double result = 0;
         for(int j = 0; j < this.innerProducts.size(); j++){
@@ -54,7 +58,6 @@ public class TFunction {
         if( Math.abs(result) < 1e-6) return 0d;
         else return result;
     }
-
 
 
     //////////////////////////////////////////////////////////////////////
@@ -77,6 +80,8 @@ public class TFunction {
         }
         return sb.toString();
     }
+
+
 
 
 }

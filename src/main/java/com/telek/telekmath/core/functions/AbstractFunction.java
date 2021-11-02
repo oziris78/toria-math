@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.functions;
 
 
+import com.telek.telekmath.core.numbers.ComplexNumber;
+
 
 public abstract class AbstractFunction {
 
@@ -17,6 +19,9 @@ public abstract class AbstractFunction {
     /*  METHODS  */
 
     public abstract double value(double x);
+//    public abstract double value(ComplexNumber z);
+
+
 
     /*  GETTERS AND SETTERS  */
 

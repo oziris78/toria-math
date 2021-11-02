@@ -67,34 +67,7 @@ public class TCos extends AbstractFunction {
 
     @Override
     public String toString() {
-        if(A == 0) return "0";
-        if( A == 1 ){
-            if(n == 0){
-                if( m == 1) return "cos(x)";
-                if( m == -1) return "cos(-x)";
-                return String.format("cos(%.3fx)", this.m);
-            }
-            else{
-                if( m == 1) return String.format("cos(x+%.3f)", this.n);
-                if( m == -1) return String.format("cos(-x+%.3f)", this.n);
-                return String.format("cos(%.3fx+.3f)", this.m, this.n);
-            }
-        }
-        else if( A == -1 ){
-            if(n == 0){
-                if( m == 1) return "-cos(x)";
-                if( m == -1) return "-cos(-x)";
-                return String.format("-cos(%.3fx)", this.m);
-            }
-            else{
-                if( m == 1) return String.format("-cos(x+%.3f)", this.n);
-                if( m == -1) return String.format("-cos(-x+%.3f)", this.n);
-                return String.format("-cos(%.3fx+.3f)", this.m, this.n);
-            }
-
-        }
-
-        return String.format("%.3f cos(%.3fx+%.3f)", this.A, this.m, this.n);
+        return ZTrigFuncStr.getTrigString("cos", A, m, n);
     }
 
 
