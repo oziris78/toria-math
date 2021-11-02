@@ -196,6 +196,7 @@ public class TLine2D {
     }
 
 
+
     /**
      * @param point any point
      * @param line any line
@@ -204,6 +205,7 @@ public class TLine2D {
     public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
         return Math.abs( point.y - line.getSlope() * point.x - line.getConstant() )  / line.size();
     }
+
 
 
     /**
@@ -227,6 +229,10 @@ public class TLine2D {
             result = 0;
         return result;
     }
+
+
+
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

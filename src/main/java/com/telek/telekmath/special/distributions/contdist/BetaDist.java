@@ -3,7 +3,7 @@ package com.telek.telekmath.special.distributions.contdist;
 
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.special.distributions.ContinuousDistribution;
 import com.telek.telekmath.TMath;
 

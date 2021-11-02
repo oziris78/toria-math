@@ -1,14 +1,14 @@
 package com.telek.telekmath.core.functions.trig;
 
 import com.telek.telekmath.exceptions.WrongFunctionException;
-import com.telek.telekmath.core.functions.general.TFunction;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TRange;
 
 
 /**
  * Defines  A * cos(mx+n)
  */
-public class TCos extends TFunction {
+public class TCos extends AbstractFunction {
 
     private final double A, m, n;
 
@@ -43,8 +43,8 @@ public class TCos extends TFunction {
         this(TRange.REEL_NUMBERS, A, m, 0d);
     }
 
-    public TCos(double A) {
-        this(TRange.REEL_NUMBERS, A, 1d, 0d);
+    public TCos(double m) {
+        this(TRange.REEL_NUMBERS, 1d, m, 0d);
     }
 
     public TCos() {
@@ -62,19 +62,39 @@ public class TCos extends TFunction {
     }
 
 
-    @Override
-    public TSin derivative() {
-        // Acos(mx+n)  =>  derivative is  -A*m * sin(mx+n)
-        return new TSin(this.range, -A*m, m, n);
-
-    }
-
 
     /*  HELPERS  */
 
     @Override
     public String toString() {
-        return String.format("%f cos(%fx+%f)", this.A, this.m, this.n);
+        if(A == 0) return "0";
+        if( A == 1 ){
+            if(n == 0){
+                if( m == 1) return "cos(x)";
+                if( m == -1) return "cos(-x)";
+                return String.format("cos(%.3fx)", this.m);
+            }
+            else{
+                if( m == 1) return String.format("cos(x+%.3f)", this.n);
+                if( m == -1) return String.format("cos(-x+%.3f)", this.n);
+                return String.format("cos(%.3fx+.3f)", this.m, this.n);
+            }
+        }
+        else if( A == -1 ){
+            if(n == 0){
+                if( m == 1) return "-cos(x)";
+                if( m == -1) return "-cos(-x)";
+                return String.format("-cos(%.3fx)", this.m);
+            }
+            else{
+                if( m == 1) return String.format("-cos(x+%.3f)", this.n);
+                if( m == -1) return String.format("-cos(-x+%.3f)", this.n);
+                return String.format("-cos(%.3fx+.3f)", this.m, this.n);
+            }
+
+        }
+
+        return String.format("%.3f cos(%.3fx+%.3f)", this.A, this.m, this.n);
     }
 
 

@@ -1,6 +1,6 @@
 package com.telek.telekmath.exceptions;
 
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 
 public class NotInRangeException extends RuntimeException {
 

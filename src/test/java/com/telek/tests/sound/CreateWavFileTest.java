@@ -1,7 +1,7 @@
 package com.telek.tests.sound;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekutils.audio.TWavUtils;
 
 import java.io.*;

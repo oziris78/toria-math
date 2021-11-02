@@ -1,13 +1,14 @@
 package com.telek.telekmath.core.functions.trig;
 
+import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.WrongFunctionException;
-import com.telek.telekmath.core.functions.general.*;
 
 
 /**
  * Defines  A * sin(mx+n)
  */
-public class TSin extends TFunction {
+public class TSin extends AbstractFunction {
 
     private final double A, m, n;
 
@@ -42,8 +43,8 @@ public class TSin extends TFunction {
         this(TRange.REEL_NUMBERS, A, m, 0d);
     }
 
-    public TSin(double A) {
-        this(TRange.REEL_NUMBERS, A, 1d, 0d);
+    public TSin(double m) {
+        this(TRange.REEL_NUMBERS, 1d, m, 0d);
     }
 
     public TSin() {
@@ -55,25 +56,47 @@ public class TSin extends TFunction {
     /*  METHODS  */
 
     @Override
-    public double value(double x) {
-        if( !this.range.isInRange(x) ) return 0;
-        return this.A * Math.sin(this.m * x + this.n); // A * sin(mx+n)
+    public double value(double degInRadians) {
+        if( !this.range.isInRange(degInRadians) ) return 0;
+        return this.A * Math.sin(this.m * degInRadians + this.n); // A * sin(mx+n)
     }
 
-
-    @Override
-    public TCos derivative() {
-        // A sin(mx+n)  =>  derivative is  A*m cos(mx+n)
-        return new TCos(this.range, A*m, m, n);
-    }
 
 
     /*  HELPERS  */
 
     @Override
     public String toString() {
-        return String.format("%f sin(%fx+%f)", this.A, this.m, this.n);
+        if(A == 0) return "0";
+        if( A == 1 ){
+            if(n == 0){
+                if( m == 1) return "sin(x)";
+                if( m == -1) return "sin(-x)";
+                return String.format("sin(%.3fx)", this.m);
+            }
+            else{
+                if( m == 1) return String.format("sin(x+%.3f)", this.n);
+                if( m == -1) return String.format("sin(-x+%.3f)", this.n);
+                return String.format("sin(%.3fx+.3f)", this.m, this.n);
+            }
+        }
+        else if( A == -1 ){
+            if(n == 0){
+                if( m == 1) return "-sin(x)";
+                if( m == -1) return "-sin(-x)";
+                return String.format("-sin(%.3fx)", this.m);
+            }
+            else{
+                if( m == 1) return String.format("-sin(x+%.3f)", this.n);
+                if( m == -1) return String.format("-sin(-x+%.3f)", this.n);
+                return String.format("-sin(%.3fx+.3f)", this.m, this.n);
+            }
+
+        }
+
+        return String.format("%.3f sin(%.3fx+%.3f)", this.A, this.m, this.n);
     }
+
 
 
 

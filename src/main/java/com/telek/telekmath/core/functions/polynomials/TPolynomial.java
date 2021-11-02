@@ -1,13 +1,13 @@
 package com.telek.telekmath.core.functions.polynomials;
 
-import com.telek.telekmath.core.functions.general.TFunction;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TRange;
 
 import java.util.*;
 
 
 
-public class TPolynomial extends TFunction {
+public class TPolynomial extends AbstractFunction {
 
     private ArrayList<PolynomialTerm> terms;
 
@@ -104,19 +104,20 @@ public class TPolynomial extends TFunction {
     }
 
 
-    /**
-     * @return the derivative of this polynomial, dP/dx or P'(x)
-     */
-    @Override
-    public TPolynomial derivative(){
-        TPolynomial newPoly = new TPolynomial();
-        for(PolynomialTerm term : this.terms){
-            PolynomialTerm derivedTerm = new PolynomialTerm( term.getCoefficient() * term.getDegree(), term.getDegree() - 1 );
-            if(derivedTerm.getCoefficient() != 0)
-                newPoly.terms.add(derivedTerm);
-        }
-        return getSortedPolynomial(newPoly);
-    }
+    // TODO: 02/11/2021 uncomment this for derivatives
+//    /**
+//     * @return the derivative of this polynomial, dP/dx or P'(x)
+//     */
+//    @Override
+//    public TPolynomial derivative(){
+//        TPolynomial newPoly = new TPolynomial();
+//        for(PolynomialTerm term : this.terms){
+//            PolynomialTerm derivedTerm = new PolynomialTerm( term.getCoefficient() * term.getDegree(), term.getDegree() - 1 );
+//            if(derivedTerm.getCoefficient() != 0)
+//                newPoly.terms.add(derivedTerm);
+//        }
+//        return getSortedPolynomial(newPoly);
+//    }
 
 
 

@@ -1,7 +1,7 @@
 package com.telek.telekutils.image;
 
 
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.NotInRangeException;
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 

@@ -26,8 +26,9 @@ public class NumericalAnalTest {
         System.out.println("bisectionMethod: " + NumericalAnalysis.bisectionMethod(p1, -1, 2, 500));
         System.out.println("bisectionMethod: " + NumericalAnalysis.bisectionMethod(p1, -1, -2, 500));
 
-        System.out.println("newtonMethod: " + NumericalAnalysis.newtonsMethod(p1, 0, 2, 500));
-        System.out.println("newtonMethod: " + NumericalAnalysis.newtonsMethod(p1, -1, -2, 500));
+        // TODO: 02/11/2021
+//        System.out.println("newtonMethod: " + NumericalAnalysis.newtonsMethod(p1, 0, 2, 500));
+//        System.out.println("newtonMethod: " + NumericalAnalysis.newtonsMethod(p1, -1, -2, 500));
 
     }
 

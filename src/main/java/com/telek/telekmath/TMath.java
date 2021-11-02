@@ -1,7 +1,7 @@
 package com.telek.telekmath;
 
 import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 import java.util.HashMap;

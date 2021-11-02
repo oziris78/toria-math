@@ -1,7 +1,7 @@
 package com.telek.telekmath.special.distributions.contdist;
 
 
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.special.distributions.ContinuousDistribution;
 
 

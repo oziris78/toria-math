@@ -1,7 +1,7 @@
-package com.telek.telekmath.core.functions.explog;
+package com.telek.telekmath.core.functions.others;
 
-import com.telek.telekmath.core.functions.general.TFunction;
-import com.telek.telekmath.core.functions.general.TRange;
+import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
 
 
@@ -9,7 +9,7 @@ import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
 /**
  *  Defines  1 / (a * x^n)
  */
-public class TInverseFunc extends TFunction {
+public class TInverseFunc extends AbstractFunction {
 
     private final PolynomialTerm term;
 
@@ -47,19 +47,32 @@ public class TInverseFunc extends TFunction {
 
     @Override
     public double value(double x) {
+        if( !this.range.isInRange(x) ) return 0;
         return 1d / (term.getCoefficient() * Math.pow(x, term.getDegree()) ) ; // 1 / (a * x^n)
     }
 
 
-    @Override
-    public TFunction derivative() {
-        return new TInverseFunc(this.range, - term.getCoefficient() / term.getDegree(), term.getDegree() + 1);
-    }
 
 
     @Override
     public String toString() {
-        return String.format("%f / x^%d", 1d / term.getCoefficient(), term.getDegree());
+        double a = 1d / term.getCoefficient();
+        int n = term.getDegree();
+
+        if( a == 0) return "0";
+
+        if( a == 1 ){
+            if(n == -1) return String.format("%.3fx", a);
+            if(n == 0) return String.format("%.3f", a);
+            if(n == 1) return String.format("%.3f / x", a);
+        }
+        else if (a == -1){
+            if(n == -1) return String.format("-%.3fx", a);
+            if(n == 0) return String.format("-%.3f", a);
+            if(n == 1) return String.format("-%.3f / x", a);
+        }
+
+        return String.format("%f / x^%d", a, n);
     }
 
 }

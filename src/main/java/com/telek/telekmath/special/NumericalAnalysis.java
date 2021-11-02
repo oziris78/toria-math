@@ -1,12 +1,12 @@
 package com.telek.telekmath.special;
 
-import com.telek.telekmath.core.functions.general.TFunction;
+import com.telek.telekmath.core.functions.AbstractFunction;
 
 
 public class NumericalAnalysis {
 
 
-    public static double regulaFalse(TFunction f, double a, double b, int iterationCount){
+    public static double regulaFalse(AbstractFunction f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
         double smallNum = Math.min(a,b);
         double c = 0;
@@ -26,7 +26,7 @@ public class NumericalAnalysis {
     }
 
 
-    public static double bisectionMethod(TFunction f, double a, double b, int iterationCount){
+    public static double bisectionMethod(AbstractFunction f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
         double smallNum = Math.min(a,b);
         double c = 0;
@@ -46,14 +46,18 @@ public class NumericalAnalysis {
     }
 
 
-    public static double newtonsMethod(TFunction f, double a, double b, int iterationCount){
-        TFunction df = f.derivative();
+    // TODO: 02/11/2021 uncomment this when you have derivatives in telekMath
+    /*
+    public static double newtonsMethod(AbstractFunction f, double a, double b, int iterationCount){
+        AbstractFunction df = f.derivative();
         double xn1 = Math.min(a,b);
         for(int i = 0; i < iterationCount; i++){
             xn1 = xn1 - ( f.value(xn1) / df.value(xn1) );
         }
         return xn1;
     }
+
+     */
 
 
 }

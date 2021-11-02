@@ -1,4 +1,4 @@
-package com.telek.telekmath.core.functions.general;
+package com.telek.telekmath.core.functions;
 
 
 public class TRange {

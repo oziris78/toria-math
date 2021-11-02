@@ -1,7 +1,16 @@
 
 
-TELEK MATH yerine JTelek ???
 
+!!!!!!!!!!!!!
+    need to add more functions
+    need to test all functions before I continue
+        do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
+            Fraction sınıfı test edildi
+    add derivatives to functions
+
+
+
+TELEK MATH yerine JTelek ???
 
 Telekmath için module info eklemeye çalış
 
@@ -19,17 +28,34 @@ BambooBandit ItemRandomizer gibi bir şey
    https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
 
 
-Şu fonksiyon işlerini düzgünce yapmalıyım
-    --- Function interface'ini kalıt
-    Function<Double, Double> v = new TSin()::value;    !!!!
-derivative filan sil şimdilik ve umursama, Fonk. Tanımlarını yap  =>
-    =>  sonra toplama çıkarma çarpma ayarla, sonra türevleri ekle, sonra integralleri ekle
-
-İstatistik ve lpt gelecek diye düşün to do içine yaz
 
 
 Tline2d yeniden yazabilirim ve intersection point bulan static metot yaz
 
+DİKEY DOĞRU OLUP OLMADIĞINA DA BAKMALIYIM
+DİKEY && DİKEY
+DİKEY && YATAY
+YATAY && YATAY
+    - PARALEL
+    - PARALEL DEĞİL
 
-do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
-    Fraction sınıfı test edildi
+/**
+ * Finds the intersection point of two lines, returns null if lines do not intersect. (Parallel lines)
+ * @param line1 any line
+ * @param line2 any line
+ * @return Returns the intersection point or null if it doesn't exists
+ */
+public static TPoint2D intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
+    TPoint2D intersectionPoint = null;
+    if( !line1.isParallelTo(line2) ){
+        double m1 = line1.
+        double x =
+    }
+    return intersectionPoint;
+}
+
+
+
+
+gelecekte eklenecek dersler: İstatistik, Lineer Programlama Teorisi
+
