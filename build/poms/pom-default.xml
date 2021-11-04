@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.oziris78</groupId>
   <artifactId>telek-math</artifactId>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <dependencies>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-math3</artifactId>
-      <version>3.0</version>
-      <scope>runtime</scope>
+      <version>3.6.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

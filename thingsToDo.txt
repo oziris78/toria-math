@@ -2,9 +2,12 @@
 
 
 !!!!!!!!!!!!!
-    yazdığım fonksiyonların hepsini bitireyim
+    wave fonksiyonları yazılacak
     need to test all functions before I continue
         do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
+            testleri yaparken buraya bir txt gibi bir şey açayım TESTED şeyleri listelerim
+            ekleme yapınca test de yaparım artık doğrudan, yalnızca fonksiyonları test etsem
+            gelecekte öbürlerine de testler yapılabilir
             Fraction sınıfı test edildi
     add derivatives to functions
 
