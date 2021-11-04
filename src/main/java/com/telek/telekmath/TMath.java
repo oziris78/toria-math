@@ -163,58 +163,6 @@ public final class TMath {
     }
 
 
-    public static float acos(float a) {
-        float a2 = a * a;  // a squared
-        float a3 = a * a2; // a cubed
-        if (a >= 0f) {
-            return (float) Math.sqrt(1f - a) *
-                    (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
-        }
-        else {
-            return 3.14159265358979323846f - (float) Math.sqrt(1f + a) *
-                    (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
-        }
-    }
-
-
-    public static float asin(float a) {
-        float a2 = a * a;  // a squared
-        float a3 = a * a2; // a cubed
-        if (a >= 0f) {
-            return 1.5707963267948966f - (float) Math.sqrt(1f - a) * (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
-        }
-        else {
-            return -1.5707963267948966f + (float) Math.sqrt(1f + a) * (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
-        }
-    }
-
-
-    public static float atan2(final float y, float x) {
-        float n = y / x;
-        if(n != n) n = (y == x ? 1f : -1f); // if both y and x are infinite, n would be NaN
-        else if(n - n != n - n) x = 0f; // if n is infinite, y is infinitely larger than x.
-        if(x > 0)
-            return atn(n);
-        else if(x < 0) {
-            if(y >= 0) return atn(n) + 3.14159265358979323846f;
-            else return atn(n) - 3.14159265358979323846f;
-        }
-        else if(y > 0) return x + 1.5707963267948966f;
-        else if(y < 0) return x - 1.5707963267948966f;
-        else return x + y; // returns 0 for 0,0 or NaN if either y or x is NaN
-    }
-
-
-    private static float atn(final float i) {
-        final float n = Math.abs(i);
-        final float c = (n - 1f) / (n + 1f);
-        final float c2 = c * c;
-        final float c3 = c * c2;
-        final float c5 = c3 * c2;
-        final float c7 = c5 * c2;
-        return Math.copySign(0.7853981633974483f + (0.999215f * c - 0.3211819f * c3 + 0.1462766f * c5 - 0.0389929f * c7), i);
-    }
-
 
 
     /*  ---------------  */

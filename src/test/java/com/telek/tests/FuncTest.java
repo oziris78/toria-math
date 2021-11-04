@@ -3,7 +3,7 @@ package com.telek.tests;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TFunction;
-import com.telek.telekmath.core.functions.others.TLogFunc;
+import com.telek.telekmath.core.functions.explog.TLogFunc;
 import com.telek.telekmath.core.functions.trig.TCos;
 import com.telek.telekmath.core.functions.trig.TSin;
 

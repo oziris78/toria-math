@@ -14,5 +14,7 @@ public final class TMathConstants {
     public static final double SQRT5 = 2.23606797749978969640d;
 
     public static final double HALF_LOG_2_PI = 0.9189385332046727417803d;
+    public static final double PI_OVER_TWO = PI / 2d;
+    public static final double MPI_OVER_TWO = -PI_OVER_TWO;
 
 }

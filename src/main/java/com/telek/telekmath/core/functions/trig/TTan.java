@@ -1,55 +1,25 @@
 package com.telek.telekmath.core.functions.trig;
 
-import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.exceptions.WrongFunctionException;
+
 
 
 /**
  * Defines  A * tan(mx+n)
  */
-public class TTan extends AbstractFunction {
-
-    private final double A, m, n;
+public class TTan extends AbsTrigFunc {
 
 
     /*  CONSTRUCTORS  */
 
-
-    public TTan(TRange range, double A, double m, double n) {
-        super(range);
-        if(A == 0) throw new WrongFunctionException("A", "Asin(mx+n)", "0");
-        if(m == 0) throw new WrongFunctionException("m", "Asin(mx+n)", "0");
-        this.A = A;  this.m = m;  this.n = n;
-    }
-
-    public TTan(TRange range, double A, double m) {
-        this(range, A, m, 0d);
-    }
-
-    public TTan(TRange range, double A) {
-        this(range, A, 1d, 0d);
-    }
-
-    public TTan(TRange range) {
-        this(range, 1d, 1d, 0d);
-    }
-
-    public TTan(double A, double m, double n) {
-        this(TRange.REEL_NUMBERS, A, m, n);
-    }
-
-    public TTan(double A, double m) {
-        this(TRange.REEL_NUMBERS, A, m, 0d);
-    }
-
-    public TTan(double m) {
-        this(TRange.REEL_NUMBERS, 1d, m, 0d);
-    }
-
-    public TTan() {
-        this(TRange.REEL_NUMBERS, 1d, 1d, 0d);
-    }
+    public TTan(TRange range, double A, double m, double n) {super(TrigType.TAN, range, A, m, n);}
+    public TTan(TRange range, double A, double m) {super(TrigType.TAN, range, A, m);}
+    public TTan(TRange range, double A) {super(TrigType.TAN, range, A);}
+    public TTan(TRange range) {super(TrigType.TAN, range);}
+    public TTan(double A, double m, double n) {super(TrigType.TAN, A, m, n);}
+    public TTan(double A, double m) {super(TrigType.TAN, A, m);}
+    public TTan(double m) {super(TrigType.TAN, m);}
+    public TTan(){super(TrigType.TAN);}
 
 
 
@@ -63,14 +33,5 @@ public class TTan extends AbstractFunction {
 
 
 
-    /*  HELPERS  */
-
-    @Override
-    public String toString() {
-        return ZTrigFuncStr.getTrigString("tan", A, m, n);
-    }
-
-
-
-
 }
+

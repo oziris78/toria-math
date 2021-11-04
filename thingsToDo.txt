@@ -2,7 +2,7 @@
 
 
 !!!!!!!!!!!!!
-    need to add more functions
+    yazdığım fonksiyonların hepsini bitireyim
     need to test all functions before I continue
         do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
             Fraction sınıfı test edildi
@@ -10,7 +10,7 @@
 
 
 
-TELEK MATH yerine JTelek ???
+TELEK MATH yerine JTelek ???  bence değil ...
 
 Telekmath için module info eklemeye çalış
 

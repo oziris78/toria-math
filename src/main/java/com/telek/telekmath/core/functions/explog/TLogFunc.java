@@ -1,4 +1,4 @@
-package com.telek.telekmath.core.functions.others;
+package com.telek.telekmath.core.functions.explog;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.AbstractFunction;

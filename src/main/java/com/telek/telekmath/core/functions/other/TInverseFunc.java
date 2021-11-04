@@ -1,4 +1,4 @@
-package com.telek.telekmath.core.functions.others;
+package com.telek.telekmath.core.functions.other;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TRange;
