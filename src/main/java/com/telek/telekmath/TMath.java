@@ -164,6 +164,43 @@ public final class TMath {
 
 
 
+    /**
+     * This method was written by Tommy Ettinger.
+     * @param a any float
+     * @return arcsin(a), it is faster than Math.asin(a) but not as accurate
+     */
+    public static float asin(float a) {
+        float a2 = a * a;  // a squared
+        float a3 = a * a2; // a cubed
+        if (a >= 0f) {
+            return 1.5707963267948966f - (float) Math.sqrt(1f - a) * (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
+        }
+        else {
+            return -1.5707963267948966f + (float) Math.sqrt(1f + a) * (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
+        }
+    }
+
+
+    /**
+     * This method was written by Tommy Ettinger.
+     * @param a any float
+     * @return arccos(a), it is faster than Math.acos(a) but not as accurate
+     */
+    public static float acos(float a) {
+        float a2 = a * a;  // a squared
+        float a3 = a * a2; // a cubed
+        if (a >= 0f) {
+            return (float) Math.sqrt(1f - a) *
+                    (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
+        }
+        else {
+            return 3.14159265358979323846f - (float) Math.sqrt(1f + a) *
+                    (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
+        }
+    }
+
+
+
 
     /*  ---------------  */
     /*  SPECIAL METHODS  */

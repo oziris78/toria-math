@@ -3,9 +3,9 @@ package com.telek.tests;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TFunction;
-import com.telek.telekmath.core.functions.explog.TLogFunc;
-import com.telek.telekmath.core.functions.trig.TCos;
-import com.telek.telekmath.core.functions.trig.TSin;
+import com.telek.telekmath.core.functions.other.TLogFunc;
+import com.telek.telekmath.core.functions.amnfuncs.TCos;
+import com.telek.telekmath.core.functions.amnfuncs.TSin;
 
 public class FuncTest {
 

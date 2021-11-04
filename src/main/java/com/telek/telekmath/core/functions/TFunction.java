@@ -1,8 +1,6 @@
 package com.telek.telekmath.core.functions;
 
 
-import com.telek.telekmath.core.functions.trig.TSin;
-
 import java.util.ArrayList;
 
 
