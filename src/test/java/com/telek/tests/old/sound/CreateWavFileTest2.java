@@ -1,4 +1,4 @@
-package com.telek.tests.sound;
+package com.telek.tests.old.sound;
 
 
 public class CreateWavFileTest2 {

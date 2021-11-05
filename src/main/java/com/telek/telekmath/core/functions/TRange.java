@@ -14,8 +14,8 @@ public class TRange {
 
 
     public TRange(double inclusiveLeft, double inclusiveRight){
-        this.left = inclusiveLeft;
-        this.right = inclusiveRight;
+        this.left = Math.min(inclusiveLeft, inclusiveRight);
+        this.right = Math.max(inclusiveLeft, inclusiveRight);
     }
 
 
@@ -32,7 +32,7 @@ public class TRange {
 
     @Override
     public String toString() {
-        return String.format("[%f, %f]", this.left, this.right);
+        return String.format("[%.3f, %.3f]", this.left, this.right);
     }
 
 }

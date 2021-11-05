@@ -4,7 +4,8 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 import java.util.*;
-
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 
 public class TPolynomial extends AbstractFunction {
@@ -21,7 +22,7 @@ public class TPolynomial extends AbstractFunction {
 
     public TPolynomial(TRange range, PolynomialTerm... termsOfPolynomial){
         super(range);
-        this.terms = new ArrayList<PolynomialTerm>();
+        this.terms = new ArrayList<>();
         for(PolynomialTerm term : termsOfPolynomial)
             this.terms.add(term);
         this.sortPolynomial();
@@ -59,7 +60,8 @@ public class TPolynomial extends AbstractFunction {
                 newPoly.terms.add(termToAdd);
             }
         }
-        return getSortedPolynomial(newPoly);
+        newPoly.sortPolynomial();
+        return newPoly;
     }
 
 
@@ -74,7 +76,8 @@ public class TPolynomial extends AbstractFunction {
             TPolynomial curPoly = multiplyTermWithPoly(p2, curTerm);
             newPoly = curPoly.add(newPoly);
         }
-        return getSortedPolynomial(newPoly);
+        newPoly.sortPolynomial();
+        return newPoly;
     }
 
     /**
@@ -157,17 +160,24 @@ public class TPolynomial extends AbstractFunction {
         return maxDegree;
     }
 
-    private TPolynomial getSortedPolynomial(TPolynomial poly){
-        poly.terms.sort(new Comparator<PolynomialTerm>() {
-            @Override
-            public int compare(PolynomialTerm o1, PolynomialTerm o2) {
-                return o1.getDegree() - o2.getDegree();
-            }
-        });
-        return poly;
+    private void removeDuplicateTerms(){
+        HashSet<String> existingTerms = new HashSet<>();
+        LinkedList<PolynomialTerm> willBeRemovedTerms = new LinkedList<>();
+        for(PolynomialTerm term : this.terms){
+            String termStr = term.toString();
+            if(!existingTerms.contains(termStr))
+                existingTerms.add(termStr);
+            else
+                willBeRemovedTerms.add(term);
+        }
+        for(PolynomialTerm term : willBeRemovedTerms)
+            this.terms.remove(term);
+
     }
 
+
     private void sortPolynomial(){
+        this.removeDuplicateTerms();
         this.terms.sort(new Comparator<PolynomialTerm>() {
             @Override
             public int compare(PolynomialTerm o1, PolynomialTerm o2) {
@@ -189,9 +199,9 @@ public class TPolynomial extends AbstractFunction {
             if(curTerm.getDegree() == 0)
                 content.append( getFormattedStringForTPolynomial(curTerm.getCoefficient(), -78) ); // special case
             else if(curTerm.getDegree() == 1)
-                content.append( " " + getFormattedStringForTPolynomial(curTerm.getCoefficient(), 5) + " x" );
+                content.append( " " + getFormattedStringForTPolynomial(curTerm.getCoefficient(), 3) + " x" );
             else
-                content.append( " " + getFormattedStringForTPolynomial(curTerm.getCoefficient(), 5) + " x^" + curTerm.getDegree() );
+                content.append( " " + getFormattedStringForTPolynomial(curTerm.getCoefficient(), 3) + " x^" + curTerm.getDegree() );
             if(i+1 != arrSize) {
                 if( this.getTerms().get(i+1).getCoefficient() > 0) content.append(" +");
                 else content.append("");
@@ -212,6 +222,9 @@ public class TPolynomial extends AbstractFunction {
         else return ( (decsAfterComma <= 0) ? "- " + String.valueOf(-valToFormat) :
                 "- " + String.format("%."+decsAfterComma+"f", -valToFormat) );
     }
+
+
+
 
 
 }

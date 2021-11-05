@@ -19,7 +19,9 @@ public abstract class AbstractFunction {
     /*  METHODS  */
 
     public abstract double value(double x);
-//    public abstract double value(ComplexNumber z);
+//    public abstract TFunction derivative();
+//    public abstract TFunction integral(double C);
+//    public abstract TFunction integral(double knownIntegratedFuncX, double knownIntegratedFuncY);
 
 
 

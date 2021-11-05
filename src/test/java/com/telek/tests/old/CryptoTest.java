@@ -1,4 +1,4 @@
-package com.telek.tests;
+package com.telek.tests.old;
 
 import com.telek.telekmath.special.DiscreteMath;
 import com.telek.telekmath.special.cryptography.AsciiCipher;

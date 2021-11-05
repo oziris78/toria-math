@@ -30,4 +30,10 @@ public class PolynomialTerm{
     public double getCoefficient() { return coefficient; }
     public void setCoefficient(double coefficient) { this.coefficient = coefficient; }
 
+    @Override
+    public String toString() {
+        return String.format("pTerm[%f,%d]", coefficient, degree);
+    }
+
+
 }
