@@ -2,7 +2,10 @@ package com.telek.telekmath.core.functions.amnfuncs;
 
 
 import com.telek.telekmath.core.constants.InternalConstants;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
+import com.telek.telekmath.core.functions.polynomials.TPolynomial;
 
 
 /**
@@ -41,6 +44,19 @@ public class TDiracDeltaFunc extends AbstractAMNFunction{
         else
             return 0d;
     }
+
+
+    /**
+     * See <a href="https://dsp.stackexchange.com/a/68777">stackexchange link</a> for more info.
+     * @return df/dx
+     */
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TPolynomial( new PolynomialTerm(-A * m, 0) )
+        );
+    }
+
 
 
 

@@ -29,6 +29,7 @@ public class FuncTest {
         System.out.println(myFunc.value(TMathConstants.PI / 10d)); // 0
 
 
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 
@@ -31,6 +32,13 @@ public class TCosh extends AbstractAMNFunction {
         return this.A * Math.cosh(this.m * degInRadians + this.n); // A * cosh(mx+n)
     }
 
+
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TSinh(this.range, A * m, m, n)
+        );
+    }
 
 
 }

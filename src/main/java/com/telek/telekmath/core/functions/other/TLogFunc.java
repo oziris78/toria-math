@@ -2,6 +2,7 @@ package com.telek.telekmath.core.functions.other;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 
@@ -64,6 +65,12 @@ public class TLogFunc extends AbstractFunction {
     }
 
 
+    @Override
+    public TFunction derivative() {
+        return new TFunction( // 1/a x^n  =  1 / ((lnb / a) x)
+            new TInverseFunc(this.range, Math.log(b) / a, 1)
+        );
+    }
 
     @Override
     public String toString() {

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -180,24 +180,28 @@ extends <a href="../../../../../../com/telek/telekmath/core/functions/AbstractFu
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#add-com.telek.telekmath.core.functions.polynomials.TPolynomial-">add</a></span>(<a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html" title="class in com.telek.telekmath.core.functions.polynomials">TPolynomial</a>&nbsp;p2)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../com/telek/telekmath/core/functions/TFunction.html" title="class in com.telek.telekmath.core.functions">TFunction</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#derivative--">derivative</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#getCoefficientOfDegree-int-">getCoefficientOfDegree</a></span>(int&nbsp;degree)</code>
 <div class="block">This method searches if the polynomial term "m x^degree" exists in the polynomial.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="../../../../../../com/telek/telekmath/core/functions/polynomials/PolynomialTerm.html" title="class in com.telek.telekmath.core.functions.polynomials">PolynomialTerm</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#getTerms--">getTerms</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html" title="class in com.telek.telekmath.core.functions.polynomials">TPolynomial</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#multiply-com.telek.telekmath.core.functions.polynomials.TPolynomial-">multiply</a></span>(<a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html" title="class in com.telek.telekmath.core.functions.polynomials">TPolynomial</a>&nbsp;p2)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/core/functions/polynomials/TPolynomial.html#value-double-">value</a></span>(double&nbsp;x)</code>&nbsp;</td>
 </tr>
@@ -318,6 +322,19 @@ extends <a href="../../../../../../com/telek/telekmath/core/functions/AbstractFu
 <dd><code><a href="../../../../../../com/telek/telekmath/core/functions/AbstractFunction.html#value-double-">value</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/telek/telekmath/core/functions/AbstractFunction.html" title="class in com.telek.telekmath.core.functions">AbstractFunction</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>P(x = value) which is the value of this polynomial</dd>
+</dl>
+</li>
+</ul>
+<a name="derivative--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>derivative</h4>
+<pre>public&nbsp;<a href="../../../../../../com/telek/telekmath/core/functions/TFunction.html" title="class in com.telek.telekmath.core.functions">TFunction</a>&nbsp;derivative()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/telek/telekmath/core/functions/AbstractFunction.html#derivative--">derivative</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/telek/telekmath/core/functions/AbstractFunction.html" title="class in com.telek.telekmath.core.functions">AbstractFunction</a></code></dd>
 </dl>
 </li>
 </ul>

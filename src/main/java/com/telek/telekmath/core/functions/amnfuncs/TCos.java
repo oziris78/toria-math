@@ -1,5 +1,6 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 
@@ -32,6 +33,12 @@ public class TCos extends AbstractAMNFunction {
     }
 
 
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TSin(this.range, -A*m, m, n)
+        );
+    }
 
 }
 

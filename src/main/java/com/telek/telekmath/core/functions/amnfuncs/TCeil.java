@@ -1,6 +1,9 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
+import com.telek.telekmath.core.functions.polynomials.TPolynomial;
 
 
 /**
@@ -31,6 +34,18 @@ public class TCeil extends AbstractAMNFunction {
     }
 
 
+    /**
+     * The ceil function has a derivative of 0 everywhere but the jumps and the derivative simply doesn't
+     * exist at the jumps since the function isn't continuous at those points.
+     * This method returns f(x) = 0 on purpose instead of returning null.
+     * @return f(x) = 0 on purpose
+     */
+    @Override
+    public TFunction derivative() {
+        return new TFunction( // 0
+                new TPolynomial( new PolynomialTerm() )
+        );
+    }
 
 
 

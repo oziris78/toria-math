@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.polynomials;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 import java.util.*;
@@ -93,6 +94,26 @@ public class TPolynomial extends AbstractFunction {
         return sum;
     }
 
+
+
+    @Override
+    public TFunction derivative() {
+        // get arraylist for new poly
+        ArrayList<PolynomialTerm> newTerms = new ArrayList<>();
+        for(PolynomialTerm term : this.terms){
+            PolynomialTerm derivedTerm = new PolynomialTerm( term.getCoefficient() * term.getDegree(), term.getDegree() - 1 );
+            if(derivedTerm.getCoefficient() != 0)
+                newTerms.add(derivedTerm);
+        }
+
+        // create new poly and return it
+        return new TFunction(
+            new TPolynomial(this.range, newTerms)
+        );
+    }
+
+
+
     /**
      * This method searches if the polynomial term "m x^degree" exists in the polynomial.
      * If it does, it returns m. If it doesn't it returns 0
@@ -107,20 +128,7 @@ public class TPolynomial extends AbstractFunction {
     }
 
 
-    // TODO: 02/11/2021 uncomment this for derivatives
-//    /**
-//     * @return the derivative of this polynomial, dP/dx or P'(x)
-//     */
-//    @Override
-//    public TPolynomial derivative(){
-//        TPolynomial newPoly = new TPolynomial();
-//        for(PolynomialTerm term : this.terms){
-//            PolynomialTerm derivedTerm = new PolynomialTerm( term.getCoefficient() * term.getDegree(), term.getDegree() - 1 );
-//            if(derivedTerm.getCoefficient() != 0)
-//                newPoly.terms.add(derivedTerm);
-//        }
-//        return getSortedPolynomial(newPoly);
-//    }
+
 
 
 

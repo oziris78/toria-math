@@ -1,7 +1,9 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-
+import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
+import com.telek.telekmath.core.functions.polynomials.TPolynomial;
 
 
 /**
@@ -31,6 +33,19 @@ public class TTan extends AbstractAMNFunction {
         return this.A * Math.tan(this.m * degInRadians + this.n); // A * tan(mx+n)
     }
 
+
+    @Override
+    public TFunction derivative() {
+        // Am tan^2(mx+n)  + Am
+        TFunction df = new TFunction();
+        df.addProduct(
+            new TTan(this.range, A, m, n), // A tan(mx+n)
+            new TTan(this.range, m, m, n)  // m tan(mx+n)
+                                           // Am tan^2(mx+n)
+        );
+        df.addProduct( new TPolynomial( new PolynomialTerm(A * m, 0))); // Am
+        return df;
+    }
 
 
 }

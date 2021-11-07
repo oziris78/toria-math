@@ -3,6 +3,8 @@ package com.telek.telekmath.core.geometry.lines;
 import com.telek.telekmath.core.constants.InternalConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 
+import javax.xml.crypto.dom.DOMCryptoContext;
+
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 
@@ -183,6 +185,48 @@ public class TLine2D {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    /**
+     * Finds the intersection point of two lines, returns null if lines do not intersect. (Parallel lines)
+     * @param line1 any line
+     * @param line2 any line
+     * @return Returns the intersection point or null if it doesn't exists
+     */
+    public static TPoint2D intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
+        TPoint2D intersectionPoint = null;
+        if( !line1.isParallelTo(line2) ){
+            if( !line1.isParallelToYAxis && !line2.isParallelToYAxis ){
+                // y1 = m1 x + n1
+                // y2 = m2 x + n2
+                double m1 = line1.getSlope();
+                double m2 = line2.getSlope();
+                double n1 = line1.getConstant();
+                double n2 = line2.getConstant();
+
+                double resX = (n2 - n1) / (m1 - m2);
+                double resY = m1 * resX + n1;
+                intersectionPoint = new TPoint2D(resX, resY);
+            }
+            if( !line1.isParallelToYAxis && line2.isParallelToYAxis ){
+                // y1 = m1 x + n1
+                // x = x0
+                double resX = line2.getX0();
+                double resY = line1.getSlope() * resX + line1.getConstant();
+                intersectionPoint = new TPoint2D(resX, resY);
+            }
+            if( line1.isParallelToYAxis && !line2.isParallelToYAxis ){
+                // x = x0
+                // y2 = m2 x + n2
+                double resX = line1.getX0();
+                double resY = line2.getSlope() * resX + line2.getConstant();
+                intersectionPoint = new TPoint2D(resX, resY);
+            }
+        }
+        return intersectionPoint;
+    }
+
 
 
     /** Returns the distance between two parallel lines

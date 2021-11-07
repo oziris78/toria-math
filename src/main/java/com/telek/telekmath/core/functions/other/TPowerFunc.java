@@ -64,6 +64,12 @@ public class TPowerFunc extends AbstractFunction {
     }
 
 
+    @Override
+    public TFunction derivative() {
+        return new TFunction(  // a' b'^m'x  =  a*m*lnb * b^mx
+            new TPowerFunc(this.range, a * m * Math.log(b), b, m)
+        );
+    }
 
 
     @Override

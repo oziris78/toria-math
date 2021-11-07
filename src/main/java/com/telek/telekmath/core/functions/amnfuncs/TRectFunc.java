@@ -2,8 +2,10 @@ package com.telek.telekmath.core.functions.amnfuncs;
 
 
 import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-
+import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
+import com.telek.telekmath.core.functions.polynomials.TPolynomial;
 
 
 /**
@@ -43,6 +45,12 @@ public class TRectFunc extends AbstractAMNFunction {
     }
 
 
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TPolynomial( new PolynomialTerm() )
+        );
+    }
 
 
 

@@ -1,71 +1,51 @@
 
 
 
-!!!!!!!!!!!!!
-    add derivatives to functions
-    add integrals to functions
 
+ŞU ANDA YAPILANLAR {
 
+    TFunction  =>  chain rule
+    TPolygon   =>  triangulation
 
-ad değişimi???
-    - jTelek?
-    - telek-lib | TelekLib | Teleklib
-
-
-Telekmath için module info eklemeye çalış
-
-
-TPolygon ekle ve üçgenlere bölme metodu yazabilirsin TPoint[] olacak içinde
-    =>  EarClippingTriangulator
-
-
-Optimization apache bak
-Öbür apache şeylerine de bak
-
-MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
-
-BambooBandit ItemRandomizer gibi bir şey
-   https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
-
-
-
-
-Tline2d yeniden yazabilirim ve intersection point bulan static metot yaz
-    ax + by + c = 0  şeklinde tek bir TLine2D yazabilirim!!
-
-
-DİKEY DOĞRU OLUP OLMADIĞINA DA BAKMALIYIM
-DİKEY && DİKEY
-DİKEY && YATAY
-YATAY && YATAY
-    - PARALEL
-    - PARALEL DEĞİL
-
-/**
- * Finds the intersection point of two lines, returns null if lines do not intersect. (Parallel lines)
- * @param line1 any line
- * @param line2 any line
- * @return Returns the intersection point or null if it doesn't exists
- */
-public static TPoint2D intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
-    TPoint2D intersectionPoint = null;
-    if( !line1.isParallelTo(line2) ){
-        double m1 = line1.
-        double x =
-    }
-    return intersectionPoint;
 }
 
 
-need to test all functions before I continue
-        do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
-            testleri yaparken buraya bir txt gibi bir şey açayım TESTED şeyleri listelerim
-            ekleme yapınca test de yaparım artık doğrudan, yalnızca fonksiyonları test etsem
-            gelecekte öbürlerine de testler yapılabilir
-            Fraction sınıfı test edildi
+
+
+YAKIN ZAMANDA YAPILACAKLAR {
+
+    ad değişimi???
+        - jTelek?
+        - telek-lib | TelekLib | Teleklib
+
+    Telekmath için module info eklemeye çalış
+
+
+    need to test all functions before I continue
+            do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
+                testleri yaparken buraya bir txt gibi bir şey açayım TESTED şeyleri listelerim
+                ekleme yapınca test de yaparım artık doğrudan, yalnızca fonksiyonları test etsem
+                gelecekte öbürlerine de testler yapılabilir
+                Fraction sınıfı test edildi
+
+
+    BambooBandit ItemRandomizer gibi bir şey
+       https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
+
+}
 
 
 
 
-gelecekte eklenecek dersler: İstatistik, Lineer Programlama Teorisi
+GELECEK PLANLARI {
+
+    İstatistik eklemeleri yap
+
+    Lineer Programlama Teorisi eklemeleri yap
+
+    MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
+
+}
+
+
 

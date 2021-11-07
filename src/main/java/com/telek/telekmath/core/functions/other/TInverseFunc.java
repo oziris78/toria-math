@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.other;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
 
@@ -52,6 +53,13 @@ public class TInverseFunc extends AbstractFunction {
     }
 
 
+
+    @Override
+    public TFunction derivative() {
+        return new TFunction( //  1 / a'x^n' =  1 / ( (-a/n) x^n+1 )
+            new TInverseFunc(this.range, - term.getCoefficient() / term.getDegree(), term.getDegree() + 1)
+        );
+    }
 
 
     @Override

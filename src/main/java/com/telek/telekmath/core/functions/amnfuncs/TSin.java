@@ -1,5 +1,6 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
 
@@ -30,6 +31,13 @@ public class TSin extends AbstractAMNFunction {
         return this.A * Math.sin(this.m * degInRadians + this.n); // A * sin(mx+n)
     }
 
+
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TCos(this.range, A * m, m, n)
+        );
+    }
 
 
 }

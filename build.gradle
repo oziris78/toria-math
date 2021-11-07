@@ -1,13 +1,19 @@
 
 
+// ----------------------- \\
+// ---- TELEK STUDIOS ---- \\
+// ----------------------- \\
+
 apply plugin: 'java'
 apply plugin: 'maven'
 
 group 'com.github.oziris78'
 version '0.6.1'
 
+
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
+
 
 repositories {
     mavenCentral()
@@ -15,17 +21,19 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
-    testImplementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
-
 }
+
+
 
 test{
     useJUnitPlatform()
 }
+
+
 
 if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
@@ -35,6 +43,8 @@ if (JavaVersion.current().isJava8Compatible()) {
     }
 }
 
+
+
 if(JavaVersion.current().isJava9Compatible()) {
     allprojects {
         tasks.withType(JavaCompile) {
@@ -42,6 +52,8 @@ if(JavaVersion.current().isJava9Compatible()) {
         }
     }
 }
+
+
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'

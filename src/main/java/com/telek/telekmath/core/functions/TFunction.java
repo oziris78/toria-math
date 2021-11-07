@@ -58,6 +58,16 @@ public class TFunction extends AbstractFunction {
     }
 
 
+    @Override
+    public TFunction derivative() {
+
+        return null;
+    }
+
+
+
+
+
     //////////////////////////////////////////////////////////////////////
 
 

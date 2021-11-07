@@ -1,6 +1,9 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
+import com.telek.telekmath.core.functions.polynomials.TPolynomial;
 
 
 /**
@@ -33,6 +36,18 @@ public class TSign extends AbstractAMNFunction {
         else return A;
     }
 
+
+
+    /**
+     * The derivative of the sign function is just equal to zero, except at zero, where the derivative does not exist
+     * @return f(x) = 0 on purpose
+     */
+    @Override
+    public TFunction derivative() {
+        return new TFunction( // 0
+                new TPolynomial( new PolynomialTerm() )
+        );
+    }
 
 
 

@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
+import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.WrongFunctionException;
 
@@ -34,7 +35,16 @@ public class THeavisideFunc extends AbstractAMNFunction {
     }
 
 
-//    @Override
+    @Override
+    public TFunction derivative() {
+        return new TFunction(
+            new TDiracDeltaFunc(this.range, A * m, m, n)
+        );
+    }
+
+
+
+    //    @Override
 //    public String toString() {
 //        String hStepSide = (n != 0) ? String.format("u(x+%f)", n) : "u(x)";
 //        if(A == 1) return hStepSide;
