@@ -9,47 +9,49 @@ import com.telek.telekmath.core.functions.TRange;
 /**
  * Defines a * log_b_(mx)
  */
-public class TLogFunc extends AbstractFunction {
+public class TLog extends AbstractFunction {
 
     private final double a,b,m;
 
 
     /*  CONSTRUCTORS  */
 
-    public TLogFunc(TRange range, double a, double b, double m) {
+    public TLog(TRange range, double a, double b, double m) {
         super(range);
         this.a = a;
         this.b = b;
         this.m = m;
     }
 
-    public TLogFunc(TRange range, double b, double m) {
+    public TLog(TRange range, double b, double m) {
         this(range, 1d, b, m);
     }
 
-    public TLogFunc(TRange range, double b) {
+    public TLog(TRange range, double b) {
         this(range, 1d, b, 1d);
     }
 
-    public TLogFunc(TRange range) {
+    public TLog(TRange range) {
         this(range, 1d, TMathConstants.E, 1d);
     }
 
-    public TLogFunc(double a, double b, double m) {
+    public TLog(double a, double b, double m) {
         this(TRange.REEL_NUMBERS, a, b, m);
     }
 
-    public TLogFunc(double b, double m) {
+    public TLog(double b, double m) {
         this(TRange.REEL_NUMBERS, 1d, b, m);
     }
 
-    public TLogFunc(double b) {
-        this(TRange.REEL_NUMBERS, 1d, b, 1d);
+
+    /**  Defines ln(mx)  */
+    public TLog(double m) {
+        this(TRange.REEL_NUMBERS, 1d, TMathConstants.E, m);
     }
 
 
     /**  Natural logarithm, ln(x)  */
-    public TLogFunc() {
+    public TLog() {
         this(TRange.REEL_NUMBERS, 1d, TMathConstants.E, 1d);
     }
 
@@ -74,29 +76,13 @@ public class TLogFunc extends AbstractFunction {
 
     @Override
     public String toString() {
-        if( a == 0 ) return "0";
-
-        if( a == 1 ){
-            if( m == 1){
-                if( b == TMathConstants.E) return "ln(x)";
-                else return String.format("log_%.3f_(x)", b);
-            }
-            else if (m == -1){
-                if( b == TMathConstants.E) return "ln(-x)";
-                else return String.format("log_%.3f_(-x)", b);
-            }
-        }
-        else if ( a == -1){
-            if( m == 1){
-                if( b == TMathConstants.E) return "-ln(x)";
-                else return String.format("-log_%.3f_(x)", b);
-            }
-            else if (m == -1){
-                if( b == TMathConstants.E) return "-ln(-x)";
-                else return String.format("-log_%.3f_(-x)", b);
-            }
-        }
-        return String.format("%.3f log_%.3f_(%.3fx)", a, b, m);
+        String str = String.format("%.3f log_%.3f_(%.3fx)", a, b, m);
+        if(str.startsWith("1.000 ")) str.replaceFirst("1.000 ", "");
+        if(str.startsWith("-1.000 ")) str.replaceFirst("-1.000 ", "-");
+        if(str.contains("log_2.718_")) str.replaceFirst("log_2.718_", "ln");
+        if(str.contains("1.000x")) str.replaceFirst("1.000x", "x");
+        if(str.contains("-1.000x")) str.replaceFirst("-1.000x", "-x");
+        return str;
     }
 
 

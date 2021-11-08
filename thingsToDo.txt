@@ -4,11 +4,9 @@
 
 ŞU ANDA YAPILANLAR {
 
-    TFunction  =>  chain rule
     TPolygon   =>  triangulation
 
 }
-
 
 
 
@@ -20,6 +18,7 @@ YAKIN ZAMANDA YAPILACAKLAR {
 
     Telekmath için module info eklemeye çalış
 
+    TFunction  =>  rewrite all string methods
 
     need to test all functions before I continue
             do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey

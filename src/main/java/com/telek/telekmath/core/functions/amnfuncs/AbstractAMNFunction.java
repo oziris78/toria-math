@@ -13,7 +13,6 @@ abstract class AbstractAMNFunction extends AbstractFunction {
     protected enum FuncType {
         SIN("sin"), COS("cos"), TAN("tan"),
         SINH("sinh"), COSH("cosh"),
-        ARCSIN("arcsin"), ARCCOS("arccos"), ARCTAN("arctan"),
         CEIL("ceil"), FLOOR("floor"), SIGN("sign"),
         HEAVISIDE("u"), DIRAC("\u03B4"), RECT("rect");
 
