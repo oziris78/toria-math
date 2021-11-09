@@ -92,6 +92,14 @@ public class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class UnnecessaryZeroException extends RuntimeException {
+        public UnnecessaryZeroException() {
+            super("Your array has an unnecessary 0 at the end.");
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static class HasNonLetterCharactersException extends RuntimeException {
         public HasNonLetterCharactersException() {
             super("Write the code without non-letter characters");

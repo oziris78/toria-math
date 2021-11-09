@@ -3,7 +3,6 @@ package com.telek.telekmath.core.functions.other;
 import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
 
 
 
@@ -12,15 +11,16 @@ import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
  */
 public class TInverseFunc extends AbstractFunction {
 
-    private final PolynomialTerm term;
-
+    private double coef;
+    private int degree;
 
     /*  CONSTRUCTORS  */
 
 
-    public TInverseFunc(TRange range, double coefficient, int degree) {
+    public TInverseFunc(TRange range, double coef, int degree) {
         super(range);
-        this.term = new PolynomialTerm(coefficient, degree);
+        this.coef = coef;
+        this.degree = degree;
     }
 
     public TInverseFunc(TRange range, double coefficient) {
@@ -49,7 +49,7 @@ public class TInverseFunc extends AbstractFunction {
     @Override
     public double value(double x) {
         if( !this.range.isInRange(x) ) return 0;
-        return 1d / (term.getCoefficient() * Math.pow(x, term.getDegree()) ) ; // 1 / (a * x^n)
+        return 1d / (this.coef * Math.pow(x, this.degree) ) ; // 1 / (a * x^n)
     }
 
 
@@ -57,15 +57,15 @@ public class TInverseFunc extends AbstractFunction {
     @Override
     public TFunction derivative() {
         return new TFunction( //  1 / a'x^n' =  1 / ( (-a/n) x^n+1 )
-            new TInverseFunc(this.range, - term.getCoefficient() / term.getDegree(), term.getDegree() + 1)
+            new TInverseFunc(this.range, - this.coef / this.degree, this.degree + 1)
         );
     }
 
 
     @Override
     public String toString() {
-        double a = 1d / term.getCoefficient();
-        int n = term.getDegree();
+        double a = 1d / this.coef;
+        int n = this.degree;
 
         if( a == 0) return "0";
 

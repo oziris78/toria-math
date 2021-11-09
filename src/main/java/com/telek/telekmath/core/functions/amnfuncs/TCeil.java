@@ -2,8 +2,8 @@ package com.telek.telekmath.core.functions.amnfuncs;
 
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
-import com.telek.telekmath.core.functions.polynomials.TPolynomial;
+import com.telek.telekmath.core.functions.other.TConstantFunc;
+import com.telek.telekmath.core.functions.other.TPolynomial;
 
 
 /**
@@ -42,9 +42,7 @@ public class TCeil extends AbstractAMNFunction {
      */
     @Override
     public TFunction derivative() {
-        return new TFunction( // 0
-                new TPolynomial( new PolynomialTerm() )
-        );
+        return new TFunction(  new TConstantFunc(0d));
     }
 
 

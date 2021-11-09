@@ -2,8 +2,7 @@ package com.telek.telekmath.core.functions.amnfuncs;
 
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
-import com.telek.telekmath.core.functions.polynomials.TPolynomial;
+import com.telek.telekmath.core.functions.other.TConstantFunc;
 
 
 /**
@@ -43,7 +42,7 @@ public class TTan extends AbstractAMNFunction {
             new TTan(this.range, m, m, n)  // m tan(mx+n)
                                            // Am tan^2(mx+n)
         );
-        df.addProduct( new TPolynomial( new PolynomialTerm(A * m, 0))); // Am
+        df.addProduct( new TConstantFunc(A * m) ); // Am
         return df;
     }
 

@@ -30,6 +30,22 @@ public class TRange {
     }
 
 
+    /////////////////////////////////////////////////////////////////
+
+
+    /**
+     * Uses {@link TRange#size()} and returns the range with the bigger size.
+     * @param range1 any range
+     * @param range2 any range
+     * @return the range with the bigger size
+     */
+    public static TRange getBiggerRange(TRange range1, TRange range2){
+        return (range1.size() > range2.size()) ? range1 : range2;
+    }
+
+
+    /////////////////////////////////////////////////////////////////
+
     @Override
     public String toString() {
         return String.format("[%.3f, %.3f]", this.left, this.right);

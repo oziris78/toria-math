@@ -1,21 +1,18 @@
 package com.telek.tests.old;
 
 
-import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
-import com.telek.telekmath.core.functions.polynomials.TPolynomial;
+import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.special.NumericalAnalysis;
+import com.telek.telekutils.plain.TCollectionUtils;
 
 
 public class NumericalAnalTest {
 
     public static void main(String[] args) {
 
-        TPolynomial p1 = new TPolynomial(
-            PolynomialTerm.term(1d, 4),
-            PolynomialTerm.term(-2d, 0),
-            PolynomialTerm.term(2d, 1),
-            PolynomialTerm.term(1d, 2)
-        );
+        TPolynomial p1 = new TPolynomial(TCollectionUtils.doubleArr(
+           -2, 2, 1, 0, 1
+        ));
 
         // -2.0 + 2.0 x + 1.0 x^2 + 1.0 x^4
         // zeros are 0.6721, -1.3057

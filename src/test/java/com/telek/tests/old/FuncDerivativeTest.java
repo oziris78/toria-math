@@ -4,8 +4,8 @@ import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.amnfuncs.TCos;
 import com.telek.telekmath.core.functions.amnfuncs.TSin;
 import com.telek.telekmath.core.functions.other.TLog;
-import com.telek.telekmath.core.functions.polynomials.PolynomialTerm;
-import com.telek.telekmath.core.functions.polynomials.TPolynomial;
+import com.telek.telekmath.core.functions.other.TPolynomial;
+import com.telek.telekutils.plain.TCollectionUtils;
 
 
 public class FuncDerivativeTest {
@@ -15,15 +15,7 @@ public class FuncDerivativeTest {
         TFunction func = new TFunction();
         func.addProduct(new TLog(), new TSin(), new TCos(50));
         func.addProduct(new TLog(10), new TSin(10), new TCos(2));
-        func.addProduct(new TPolynomial(
-                PolynomialTerm.term(1,6),
-                PolynomialTerm.term(1,5),
-                PolynomialTerm.term(1,4),
-                PolynomialTerm.term(1,3),
-                PolynomialTerm.term(1,2),
-                PolynomialTerm.term(1,1),
-                PolynomialTerm.term(1,0)
-        ), new TLog());
+        func.addProduct(new TPolynomial(TCollectionUtils.doubleArr(1, 1, 1, 1, 1, 1, 1)), new TLog());
 
         TFunction f1 = func.derivative();
         TFunction f2 = f1.derivative();
