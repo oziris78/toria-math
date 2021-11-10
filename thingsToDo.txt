@@ -6,18 +6,6 @@
 
     TPolygon   =>  triangulation
 
-}
-
-
-
-YAKIN ZAMANDA YAPILACAKLAR {
-
-    ad değişimi???
-        - jTelek?
-        - telek-lib | TelekLib | Teleklib
-
-    Telekmath için module info eklemeye çalış
-
     TFunction  =>  rewrite all string methods
 
     need to test all functions before I continue
@@ -27,6 +15,16 @@ YAKIN ZAMANDA YAPILACAKLAR {
                 gelecekte öbürlerine de testler yapılabilir
                 Fraction sınıfı test edildi
 
+    ad değişimi???
+        - jTelek?
+        - telek-lib | TelekLib | Teleklib
+}
+
+
+
+YAKIN ZAMANDA YAPILACAKLAR {
+
+    Telekmath için module info eklemeye çalış
 
     BambooBandit ItemRandomizer gibi bir şey
        https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
