@@ -1,5 +1,6 @@
 package com.telek.telekutils.plain;
 
+
 public class TStringUtils {
 
 
@@ -12,6 +13,20 @@ public class TStringUtils {
     public static String convertNumberToUppercaseBaseString(int x){
         if( 0 <= x && x <= 9 ) return String.valueOf(x);
         return String.valueOf( (char) (65 + x - 10) );
+    }
+
+
+
+    /**
+     * Returns a string that is the given string repeated n times.
+     * @param str any string
+     * @param n any integer
+     * @return the given string repeated n times
+     */
+    public static String repeat(String str, int n){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) sb.append(str);
+        return sb.toString();
     }
 
 

@@ -4,22 +4,53 @@
 
 ŞU ANDA YAPILANLAR {
 
-    TPolygon   =>  triangulation
-
     TFunction  =>  rewrite all string methods
 
-    need to test all functions before I continue
-            do tests!  =>  jUnit vb. öğreneyim ell yapılmaz böyle bir şey
-                testleri yaparken buraya bir txt gibi bir şey açayım TESTED şeyleri listelerim
-                ekleme yapınca test de yaparım artık doğrudan, yalnızca fonksiyonları test etsem
-                gelecekte öbürlerine de testler yapılabilir
-                Fraction sınıfı test edildi
+    Arc trig fonksiyonları eklenecek
 
-    ad değişimi???
-        - jTelek?
-        - telek-lib | TelekLib | Teleklib
+    TLine2D yeniden yazılacak
+
+    Matrix kopya olayını çözmeliyim
+        90deg döndürme metodu yaz
+
+    TEarClippingTriangulator
+
+    MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
+
 }
 
+
+testing{
+
+    telekmath.core.functions package
+        amnfuncs
+        other
+        TFunction.java
+        TRange.java
+
+    telekmath.core.geometry package
+        lines
+        points
+        shapes
+        vectors
+
+    telekmath.core.matrices package
+
+    telekmath.core.numbers package
+
+    telekmath.special package
+        cryptography
+        distributions
+            contdist
+            discdist
+        random
+        DiscreteMath.java
+        IAF.java
+        NumericalAnalysis.java
+
+    TMath.java
+
+}
 
 
 YAKIN ZAMANDA YAPILACAKLAR {
@@ -40,9 +71,20 @@ GELECEK PLANLARI {
 
     Lineer Programlama Teorisi eklemeleri yap
 
-    MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
+
+    ad değişimi???
+            - jTelek? | telek-lib | TelekLib
 
 }
+
+
+
+
+
+
+
+
+
 
 
 

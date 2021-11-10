@@ -11,23 +11,6 @@ import java.nio.*;
 public class TWavUtils {
 
 
-//	public static byte[] sampleFunction(TSin function, int sampleAmount){
-//		byte[] arr = new byte[sampleAmount];
-//		final TRange range = function.getRange();
-//		final double startX = range.left;
-//		final double rangeSize = range.size();
-//		final double delta = rangeSize / (sampleAmount-1);
-//		for (int i = 0; i < sampleAmount; i++) {
-//			double curX = startX + i * delta;
-//			double value = function.value(curX);
-//			byte mappedValue = (byte) TMath.mapRange(TRange.MONE_TO_ONE, TRange.BYTE_RANGE, value);
-//			arr[i] = mappedValue;
-//		}
-//		return arr;
-//	}
-
-
-
 	/*  ARRAY <-> WAV FILE  */
 
 	/**

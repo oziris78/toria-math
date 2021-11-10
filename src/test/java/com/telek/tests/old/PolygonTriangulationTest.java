@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Line2D;
+import java.util.Random;
 
 public class PolygonTriangulationTest {
 
@@ -64,13 +66,14 @@ public class PolygonTriangulationTest {
         }
 
         @Override
-        public void paint(Graphics g) {
-            super.paint(g);
+        public void paint(Graphics g1d) {
+            super.paint(g1d);
 
-            Graphics2D g2d = (Graphics2D) g;
+            Graphics2D g2d = (Graphics2D) g1d;
 
             g2d.setColor(Color.BLACK);
             TPoint2D[] points = polygon.getPoints();
+            Random rand = new Random();
             for (int i = 0; i < points.length; i++) {
                 TPoint2D currentPoint = points[i];
                 TPoint2D nextPoint = points[ (i+1) % points.length ];
@@ -80,15 +83,20 @@ public class PolygonTriangulationTest {
 
 
             if(drawTriangulation){
-                g2d.setColor(Color.RED);
                 for (int i = 0; i < triangles.length; i++) {
+                    int r = 200 - rand.nextInt(200);
+                    int g = 200 - rand.nextInt(200);
+                    int b = 200 - rand.nextInt(200);
+                    g2d.setColor(new Color(r,g,b, 255));
                     TTriangle currentTriangle = triangles[i];
                     TPoint2D p1 = currentTriangle.getPoint1();
                     TPoint2D p2 = currentTriangle.getPoint2();
                     TPoint2D p3 = currentTriangle.getPoint3();
-                    g2d.drawLine( (int) p1.x,(int)  p1.y, (int) p2.x, (int) p2.y  );
-                    g2d.drawLine( (int) p1.x,(int)  p1.y, (int) p3.x, (int) p3.y  );
-                    g2d.drawLine( (int) p3.x,(int)  p3.y, (int) p2.x, (int) p2.y  );
+                    g2d.fillPolygon(
+                            new int[]{ (int) p1.x, (int) p2.x, (int) p3.x },
+                            new int[]{ (int) p1.y, (int) p2.y, (int) p3.y },
+                            3
+                    );
                 }
             }
 

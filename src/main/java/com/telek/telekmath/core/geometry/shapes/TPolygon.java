@@ -48,7 +48,9 @@ public class TPolygon {
             points[i].moveBy(xAmount, yAmount);
     }
 
-    public TTriangle[] triangulate(){
+
+
+    public TTriangle[] triangulate() {
         int len = this.points.length;
         ArrayList<TTriangle> triangulatedTriangles = new ArrayList<>(); // returns n-2 triangles
 
@@ -77,6 +79,7 @@ public class TPolygon {
 
         return triangles;
     }
+
 
 
 
