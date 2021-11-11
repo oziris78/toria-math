@@ -1,16 +1,18 @@
 package com.telek.telekmath.core.functions.other;
 
-import com.telek.telekmath.core.functions.AbstractFunction;
-import com.telek.telekmath.core.functions.TFunction;
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.functions.*;
 import com.telek.telekmath.exceptions.TelekMathException.*;
-import com.telek.telekutils.plain.TCollectionUtils;
-
 import java.util.Arrays;
 
 
 public class TPolynomial extends AbstractFunction {
 
+
+    /*  CONSTANTS  */
+    public static final TPolynomial CRC_12 = new TPolynomial(new double[]{1d, 1d, 0d, 1d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 1d, 1d});
+    public static final TPolynomial CRC_16 = new TPolynomial(new double[]{1d, 0d, 1d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 1d, 1d});
+    public static final TPolynomial CRC_ITU = new TPolynomial(new double[]{1d, 0d, 0d, 0d, 0d, 1d, 0d, 0d, 0d, 0d, 0d, 0d, 1d, 0d, 0d, 0d, 1d});
+    public static final TPolynomial CRC_32 = new TPolynomial(new double[]{1d, 1d, 1d, 0d, 1d, 1d, 0d, 1d, 1d, 0d, 1d, 1d, 1d, 0d, 0d, 0d, 1d, 0d, 0d, 0d, 0d, 0d, 1d, 1d, 0d, 0d, 1d, 0d, 0d, 0d, 0d, 0d, 1d});
 
     /*  FIELDS  */
     private double[] coefficients;

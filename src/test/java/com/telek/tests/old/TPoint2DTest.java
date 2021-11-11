@@ -1,5 +1,6 @@
 package com.telek.tests.old;
 
+import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 
 public class TPoint2DTest {

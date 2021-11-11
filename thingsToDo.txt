@@ -5,7 +5,6 @@
 ŞU ANDA YAPILANLAR {
 
     TFunction  =>  rewrite all string methods
-
     Arc trig fonksiyonları eklenecek
 
     TLine2D yeniden yazılacak
@@ -15,7 +14,7 @@
 
     TEarClippingTriangulator
 
-    MATLAB notlarına bakılarak bir sürü tasarım fikri ve fonksiyon telekMath'e eklenebilir
+    MATLAB notları
 
 }
 
@@ -83,8 +82,20 @@ GELECEK PLANLARI {
 
 
 
+vec = [ ... ]
+vec = first : last
+vec = first : step : last
+vec = [ vec1 vec2 vec3 ]
+
+vec = 1:10         =>  [1,2,...,10]
+vec = 1:2:10       =>  [1,3,5,7,9]
+vec = 1:0.2:1      =>  [0,0.2,0.4,0.6,0.8,1.0]
+
+vec = linspace(x1, x2, n)   =>  [x1,x2] arasında doğrusal bir şekilde n nokta alarak vektör döner (linearly spaced)
+
+vec = ones(m,n)       =>  her terimi 1 olan bir mxn boyutunda bir matris döner
+vec = zeros(m,n)      =>  her terimi 1 olan bir mxn boyutunda bir matris döner
 
 
 
-
-
+roots  =>  polynomial
