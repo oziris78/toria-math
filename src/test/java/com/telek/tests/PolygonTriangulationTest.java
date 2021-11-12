@@ -1,4 +1,4 @@
-package com.telek.tests.old;
+package com.telek.tests;
 
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.core.geometry.shapes.TPolygon;
@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.geom.Line2D;
 import java.util.Random;
 
 public class PolygonTriangulationTest {

@@ -50,6 +50,27 @@ public class Fraction {
         return frac;
     }
 
+    public boolean isGreaterThan(Fraction other){
+        return this.getAsDouble() > other.getAsDouble();
+    }
+
+    public boolean isGreaterOrEqualTo(Fraction other){
+        return this.getAsDouble() >= other.getAsDouble();
+    }
+
+    public boolean isLessOrEqualTo(Fraction other){
+        return this.getAsDouble() <= other.getAsDouble();
+    }
+
+    public boolean isLessThan(Fraction other){
+        return this.getAsDouble() < other.getAsDouble();
+    }
+
+    public boolean isEqualTo(Fraction other){
+        return this.getAsDouble() == other.getAsDouble();
+    }
+
+
 
     /*  GETTERS AND SETTERS  */
 

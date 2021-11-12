@@ -1,16 +1,16 @@
-package com.telek.tests.old;
+package com.telek.tests;
 
 
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.special.NumericalAnalysis;
-import com.telek.telekutils.plain.TCollectionUtils;
+import com.telek.telekutils.plain.TCollections;
 
 
 public class NumericalAnalTest {
 
     public static void main(String[] args) {
 
-        TPolynomial p1 = new TPolynomial(TCollectionUtils.doubleArr(
+        TPolynomial p1 = new TPolynomial(TCollections.doubleArr(
            -2, 2, 1, 0, 1
         ));
 

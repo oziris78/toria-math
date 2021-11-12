@@ -1,4 +1,4 @@
-package com.telek.tests.old;
+package com.telek.tests;
 
 import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.core.matrices.TSpecialMatrix;
