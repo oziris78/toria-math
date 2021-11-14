@@ -4,7 +4,7 @@ package com.telek.telekmath.core.functions;
 public abstract class AbstractFunction {
 
     /*  FIELDS  */
-    protected final TRange range;
+    protected TRange range;
 
 
     /*  CONSTRUCTORS  */
@@ -17,6 +17,7 @@ public abstract class AbstractFunction {
 
 
     /*  GETTERS AND SETTERS  */
+    public void setRange(TRange range) {this.range = range;}
     public TRange getRange() { return range; }
 
 }

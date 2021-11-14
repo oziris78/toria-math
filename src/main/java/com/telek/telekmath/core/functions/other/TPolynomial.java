@@ -156,8 +156,20 @@ public class TPolynomial extends AbstractFunction {
     }
 
 
-    //////////////////////////////////////////////////////////////////////////////
+    public static TPolynomial getTPolynomial(TRange range, double... roots){
+        TPolynomial P = new TPolynomial(range, new double[]{1d}); // P(x) = 1
+        for (int i = 0; i < roots.length; i++) {
+            TPolynomial newPoly = new TPolynomial(range, new double[]{ -roots[i], 1d });
+            P = P.multiply(newPoly);
+        }
+        return P;
+    }
 
+    public static TPolynomial getTPolynomial(double... roots){
+        return getTPolynomial(TRange.REEL_NUMBERS, roots);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
 
     @Override
     public String toString() {

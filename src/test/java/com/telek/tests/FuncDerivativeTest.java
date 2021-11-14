@@ -1,16 +1,17 @@
 package com.telek.tests;
 
-import com.telek.telekmath.core.functions.TFunction;
-import com.telek.telekmath.core.functions.amnfuncs.TCos;
-import com.telek.telekmath.core.functions.amnfuncs.TSin;
-import com.telek.telekmath.core.functions.other.TLog;
+import com.telek.telekmath.core.functions.*;
+import com.telek.telekmath.core.functions.other.*;
+import com.telek.telekmath.core.functions.amnfuncs.*;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekutils.plain.TCollections;
+
 
 
 public class FuncDerivativeTest {
 
     public static void main(String[] args) {
+
 
         TFunction func = new TFunction();
         func.addProduct(new TLog(), new TSin(), new TCos(50));
@@ -27,6 +28,8 @@ public class FuncDerivativeTest {
         System.out.println(f2.value(10));
         System.out.println(f3.value(10));
         System.out.println(f4.value(10));
+
+
 
     }
 

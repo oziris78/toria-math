@@ -1,5 +1,6 @@
 package com.telek.telekutils.plain;
 
+
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 import java.util.*;
 
@@ -75,6 +76,7 @@ public final class TCollections {
     ///// CONSTRUCTOR METHODS //////
     ////////////////////////////////
 
+
     public static double[] doubleArr(double... nums){
         double[] arrToReturn = new double[nums.length];
         for(int i = 0; i < nums.length; i++) arrToReturn[i] = nums[i];
@@ -88,12 +90,119 @@ public final class TCollections {
         return arrToReturn;
     }
 
-    public static double[][] doubleArr2(double[]... nums){
-        double[][] arrToReturn = new double[nums.length][nums.length];
-        for(int i = 0; i < nums.length; i++)
-            arrToReturn[i] = nums[i];
+
+
+    public static double[][] doubleArr2(double[]... numArrays){
+        double[][] arrToReturn = new double[numArrays.length][numArrays.length];
+        for(int i = 0; i < numArrays.length; i++)
+            arrToReturn[i] = numArrays[i];
         return arrToReturn;
     }
+
+    public static int[][] intArr2(int[]... numArrays){
+        int[][] arrToReturn = new int[numArrays.length][numArrays.length];
+        for(int i = 0; i < numArrays.length; i++)
+            arrToReturn[i] = numArrays[i];
+        return arrToReturn;
+    }
+
+
+
+
+    /**
+     * @param start first value (inclusive)
+     * @param end last value (inclusive)
+     * @param elemCountIncludingBothEnds element count (size of the array)
+     * @return an array in form start, start+delta, start+2delta, ..., end
+     */
+    public static double[] linearlySpacedArr(double start, double end, int elemCountIncludingBothEnds){
+        double min = Math.min(start, end);
+        double max = Math.max(start, end);
+        int elemCount = Math.abs(elemCountIncludingBothEnds - 2);
+
+        int len = 2 + elemCount;
+        double[] arr = new double[len];
+
+        final double range = max - min;
+        final double delta = range / (double) (len-1);
+
+        arr[0] = min; // first elem
+        arr[len-1] = max; // last elem
+        for (int i = 1; i < len-1; i++) { // elems in the middle
+            arr[i] = min + i * delta;
+        }
+
+        return arr;
+    }
+
+
+
+
+    /**
+     * @param start first value (inclusive)
+     * @param end last value (inclusive)
+     * @param step increment value
+     * @return an array containing start, start+step, start+2step, ...
+     */
+    public static double[] doubleArr(double start, double end, double step){
+        double min = Math.min(start, end);
+        double max = Math.max(start, end);
+        double inc = Math.abs(step);
+
+        int len = 1 + (int) ((max - min) / inc);
+        if( Math.abs((min + len * inc) - max) < 0.000000000000001d )
+            len++; // make end inclusive for doubles
+
+        double[] arr = new double[len];
+
+        for (int i = 0; i < len; i++)
+            arr[i] = min + i * inc;
+
+        return arr;
+    }
+
+    /**
+     * @param start first value (inclusive)
+     * @param end last value (inclusive)
+     * @param step increment value
+     * @return an array containing start, start+step, start+2step, ...
+     */
+    public static int[] intArr(int start, int end, int step){
+        int min = Math.min(start, end);
+        int max = Math.max(start, end);
+        int inc = Math.abs(step);
+
+        int len = 1 + ((max - min) / inc);
+        int[] arr = new int[len];
+
+        for (int i = 0; i < len; i++)
+            arr[i] = min + i * inc;
+
+        return arr;
+    }
+
+
+
+
+    public static double[] doubleFilledArr(int size, double fillValue){
+        double[] arrToReturn = new double[size];
+        for(int i = 0; i < size; i++)
+            arrToReturn[i] = fillValue;
+        return arrToReturn;
+    }
+
+    public static int[] intFilledArr(int size, int fillValue){
+        int[] arrToReturn = new int[size];
+        for(int i = 0; i < size; i++)
+            arrToReturn[i] = fillValue;
+        return arrToReturn;
+    }
+
+
+
+
+
+
 
     public static <T1, T2> HashMap<T1,T2> createHashMap(T1[] keys, T2[] values){
         HashMap<T1, T2> newMap = new HashMap<T1, T2>();
@@ -105,20 +214,23 @@ public final class TCollections {
         return newMap;
     }
 
-    public static <T1> ArrayList<T1> createArrayList(T1... entries){
-        ArrayList<T1> newArrList = new ArrayList<T1>();
+
+    public static <T> ArrayList<T> createArrayList(T... entries){
+        ArrayList<T> newArrList = new ArrayList<T>();
         for(int i=0; i<entries.length; i++) newArrList.add(entries[i]);
         return newArrList;
     }
 
-    public static <T1> LinkedList<T1> createLinkedList(T1... entries){
-        LinkedList<T1> newLinkedList = new LinkedList<T1>();
+
+    public static <T> LinkedList<T> createLinkedList(T... entries){
+        LinkedList<T> newLinkedList = new LinkedList<T>();
         for(int i=0; i<entries.length; i++) newLinkedList.add(entries[i]);
         return newLinkedList;
     }
 
-    public static <T1> HashSet<T1> createHashSet(T1... entries){
-        HashSet<T1> newHashSet = new HashSet<T1>();
+
+    public static <T> HashSet<T> createHashSet(T... entries){
+        HashSet<T> newHashSet = new HashSet<T>();
         for(int i=0; i<entries.length; i++) newHashSet.add(entries[i]);
         return newHashSet;
     }
