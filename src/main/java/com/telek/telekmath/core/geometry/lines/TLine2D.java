@@ -2,13 +2,27 @@ package com.telek.telekmath.core.geometry.lines;
 
 import com.telek.telekmath.core.constants.InternalConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
-
-import javax.xml.crypto.dom.DOMCryptoContext;
-
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 
 public class TLine2D {
+
+    /*
+    değiştirmeye gerek olmayabilir öncelikle test ve düzenleme yapılmalı
+
+    * ax + by + c = 0 şeklinde yazarım
+    * y = mx + n  ya da  x = k şeklinde olur
+    *
+    * ax + by + c = 0
+    * a/b x + y + c/b = 0
+    * y = (-a/b) x + (-c/b)
+    * m = -a/b,  n = -c/b
+    *
+    *
+    * maybe like this???
+    private TPoint2D anyPoint;
+    private TVector2D direction;
+    */
 
     private boolean isParallelToYAxis; // for distinguishing lines
 
@@ -54,6 +68,10 @@ public class TLine2D {
         this.isParallelToYAxis = false;
     }
 
+
+    ///////////////
+    /*  METHODS  */
+    ///////////////
 
     /**
      * @param line2 any line
@@ -143,6 +161,7 @@ public class TLine2D {
         if(!verticalLine.isParallelToYAxis()) throw new NotAVerticalLineException(verticalLine);
         else return getSymmetricalLineToAVerticalLine( verticalLine.getX0() );  /*  y = -mx + (2km + n)  */
     }
+
 
     /**
      * @param k any double specifying any vertical line such as x = k

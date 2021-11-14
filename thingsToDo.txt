@@ -17,37 +17,11 @@
 }
 
 
+
 testing{
-
-    telekmath.core.functions package
-        amnfuncs
-        other
-        TFunction.java
-        TRange.java
-
-    telekmath.core.geometry package
-        lines
-        points
-        shapes
-        vectors
-
-    telekmath.core.matrices package
-
-    telekmath.core.numbers package
-
-    telekmath.special package
-        cryptography
-        distributions
-            contdist
-            discdist
-        random
-        DiscreteMath.java
-        IAF.java
-        NumericalAnalysis.java
-
-    TMath.java
-
+    yukarıdan aşağıya doğru her şeyi teker teker test edeceğim
 }
+
 
 
 YAKIN ZAMANDA YAPILACAKLAR {
