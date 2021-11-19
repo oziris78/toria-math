@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class IAF {
 
 
-    public static ArrayList<double[]> mastersFormula(double[] sequence){
+    public static ArrayList<double[]> mastersFormula(double... sequence){
         int elemCount = sequence.length;
         ArrayList<double[]> triangle = new ArrayList<>();
         triangle.add(sequence.clone());
