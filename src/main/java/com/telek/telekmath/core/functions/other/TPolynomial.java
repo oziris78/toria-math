@@ -173,7 +173,7 @@ public class TPolynomial extends AbstractFunction {
 
     @Override
     public String toString() {
-        return Arrays.toString(coefficients);
+        return "TPolynomial=" + Arrays.toString(coefficients);
     }
 
 }

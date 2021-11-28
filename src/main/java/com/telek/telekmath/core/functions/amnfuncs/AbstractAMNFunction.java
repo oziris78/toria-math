@@ -71,35 +71,13 @@ abstract class AbstractAMNFunction extends AbstractFunction {
 
     @Override
     public String toString() {
-        String funcName = this.funcType.funcName;
-        if(A == 0) return "0";
-        if( A == 1 ){
-            if(n == 0){
-                if( m == 1) return String.format("%s(x)", funcName);
-                if( m == -1) return String.format("%s(-x)", funcName);
-                return String.format("%s(%.3fx)", funcName, m);
-            }
-            else{
-                if( m == 1) return String.format("%s(x+%.3f)", funcName, n);
-                if( m == -1) return String.format("%s(-x+%.3f)", funcName, n);
-                return String.format("%s(%.3fx+.3f)", funcName, m, n);
-            }
-        }
-        else if( A == -1 ){
-            if(n == 0){
-                if( m == 1) return String.format("-%s(x)", funcName);
-                if( m == -1) return String.format("-%s(-x)", funcName);
-                return String.format("-%s(%.3fx)", funcName, m);
-            }
-            else{
-                if( m == 1) return String.format("-%s(x+%.3f)", funcName, n);
-                if( m == -1) return String.format("-%s(-x+%.3f)", funcName, n);
-                return String.format("-%s(%.3fx+.3f)", funcName, m, n);
-            }
-
-        }
-
-        return String.format("%.3f %s(%.3fx+%.3f)", A, funcName, m, n);
+        return String.format("%f * %s(%fx+%f)", A, this.funcType.funcName, m, n)
+                .replaceAll("1.000000 \\* ", "") // A => -1, 1
+                .replaceAll("1.000000x", "x") // M => -1, 1
+                .replaceAll("\\+\\-", "\\-")
+                .replaceAll("\\+0.000000", "")
+                .replaceAll("\\+1.000000", "\\+1")
+                .replaceAll("\\-1.000000", "\\-1");
     }
 
 

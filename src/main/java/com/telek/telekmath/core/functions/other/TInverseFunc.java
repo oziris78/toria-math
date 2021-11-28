@@ -67,20 +67,11 @@ public class TInverseFunc extends AbstractFunction {
         double a = 1d / this.coef;
         int n = this.degree;
 
-        if( a == 0) return "0";
-
-        if( a == 1 ){
-            if(n == -1) return String.format("%.3fx", a);
-            if(n == 0) return String.format("%.3f", a);
-            if(n == 1) return String.format("%.3f / x", a);
-        }
-        else if (a == -1){
-            if(n == -1) return String.format("-%.3fx", a);
-            if(n == 0) return String.format("-%.3f", a);
-            if(n == 1) return String.format("-%.3f / x", a);
-        }
-
-        return String.format("%f / x^%d", a, n);
+        return String.format("%f / x^%d", a, n)
+                .replaceAll("1.000000", "1")
+                .replaceAll("\\^1", "")
+                .replaceAll(" / x\\^0", "")
+                .replaceAll(" / x\\^-", " x^");
     }
 
 }

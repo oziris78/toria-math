@@ -178,8 +178,14 @@ public class TelekMathException extends RuntimeException {
     }
 
 
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class InvalidBaseException extends RuntimeException {
+        public InvalidBaseException() {
+            super("Base of a logarithm must be greater than 0 and not equal to 1");
+        }
+    }
 
 
 }

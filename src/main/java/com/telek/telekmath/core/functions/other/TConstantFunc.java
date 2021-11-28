@@ -29,4 +29,11 @@ public class TConstantFunc extends AbstractFunction {
     }
 
 
+    @Override
+    public String toString() {
+        return "y = " + constValue;
+    }
+
+
+
 }

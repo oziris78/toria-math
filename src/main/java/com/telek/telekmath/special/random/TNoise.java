@@ -52,7 +52,7 @@ public class TNoise {
      * @return a random number using the x,y values, returns a number in range (0, 1)
      */
     public static float canonicalRandom(Vec2 vec){
-        return fract( (( (float) Math.sin( 12.9898f * vec.x + 78.233 * vec.y ) ) * 43758.5453f) );
+        return canonicalRandom(vec.x, vec.y);
     }
 
 

@@ -48,7 +48,7 @@ public class TLine2D {
     public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){
         double x1 = pointOneOnLine.x; double x2 = pointTwoOnLine.x;
         double y1 = pointOneOnLine.y; double y2 = pointTwoOnLine.y;
-        if( x2 - x1 == 0){
+        if( x2 - x1 == 0 ){
             this.isParallelToYAxis = true; // means it is x = x0
             this.x0 = x1; // x = x1 or x = x2 is the same thing and the line
         }

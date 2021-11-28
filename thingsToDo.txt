@@ -4,9 +4,6 @@
 
 ŞU ANDA YAPILANLAR {
 
-    TFunction  =>  rewrite all string methods
-    Arc trig fonksiyonları eklenecek
-
     TLine2D yeniden yazılacak
 
     Matrix kopya olayını çözmeliyim
@@ -18,10 +15,24 @@
 
 
 
-testing{
+testing {
     yukarıdan aşağıya doğru her şeyi teker teker test edeceğim
 }
 
+
+optimization {
+
+    probabilisticPrimeTest  =>  https://www.youtube.com/watch?v=_MscGSN5J6o
+
+    millerRabinTest  =>  star witnesses
+        2,  3                     for  n < 1_373_653
+        2,3,5                     for  n < 25_326_001
+        31, 73                    for  n < 9_080_191
+        2, 13, 23, 1_662_803      for  n < 1_122_004_669_633
+        2,3,5,7,11                for  n < 2_152_302_898_747
+
+
+}
 
 
 YAKIN ZAMANDA YAPILACAKLAR {
@@ -41,9 +52,9 @@ YAKIN ZAMANDA YAPILACAKLAR {
 
 GELECEK PLANLARI {
 
-    İstatistik eklemeleri yap
+    TFunction => derivative fonksiyonunu unwrapping yapmalıyız, toString() metodu belki bundan sonra yeniden yazılmalı olacak
 
-    Lineer Programlama Teorisi eklemeleri yap
+    İstatistik eklemeleri yap
 
 
     ad değişimi???

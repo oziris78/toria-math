@@ -1,13 +1,15 @@
 package com.telek.telekmath.special.distributions.contdist;
 
 
-import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.special.distributions.ContinuousDistribution;
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 
 public class NormalDist extends ContinuousDistribution {
+
+    public static final double SNORMAL_MEAN = 0d;
+    public static final double SNORMAL_SIGMA = 1d;
 
     private double mean, sigma;
 
@@ -24,7 +26,7 @@ public class NormalDist extends ContinuousDistribution {
 
     /**  Standard Normal Distribution  */
     public NormalDist(){
-        this(0d, 1d);
+        this(SNORMAL_MEAN, SNORMAL_SIGMA);
     }
 
 

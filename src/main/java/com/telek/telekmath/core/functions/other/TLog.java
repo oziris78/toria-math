@@ -4,6 +4,9 @@ import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.exceptions.InvalidValueException;
+import com.telek.telekmath.exceptions.TelekMathException.InvalidBaseException;
+
 
 
 /**
@@ -18,6 +21,8 @@ public class TLog extends AbstractFunction {
 
     public TLog(TRange range, double a, double b, double m) {
         super(range);
+        if(b == 1 || b < 0) throw new InvalidBaseException();
+        if(m == 0) throw new InvalidValueException("m", m);
         this.a = a;
         this.b = b;
         this.m = m;
@@ -76,13 +81,24 @@ public class TLog extends AbstractFunction {
 
     @Override
     public String toString() {
-        String str = String.format("%.3f log_%.3f_(%.3fx)", a, b, m);
-        if(str.startsWith("1.000 ")) str.replaceFirst("1.000 ", "");
-        if(str.startsWith("-1.000 ")) str.replaceFirst("-1.000 ", "-");
-        if(str.contains("log_2.718_")) str.replaceFirst("log_2.718_", "ln");
-        if(str.contains("1.000x")) str.replaceFirst("1.000x", "x");
-        if(str.contains("-1.000x")) str.replaceFirst("-1.000x", "-x");
-        return str;
+
+        if(a == 0) return "0"; // a => 0
+
+        String text = String.format("%f funcName_%f_(%fx)", a, b, m)
+                .replaceAll("1.000000x", "x") // m => 1, -1
+                .replaceAll("1.000000 funcName", "funcName"); // a => 1, -1
+
+        // b => E, 2, 10
+        if( b == 2d )
+            text = text.replaceAll("funcName_2.000000_", "lg");
+        else if( b == TMathConstants.E )
+            text = text.replaceAll("funcName_2.718282_", "ln");
+        else if( b == 10d )
+            text = text.replaceAll("funcName_10.000000_", "log");
+        else
+            text = text.replaceAll("funcName", "log");
+
+        return text;
     }
 
 

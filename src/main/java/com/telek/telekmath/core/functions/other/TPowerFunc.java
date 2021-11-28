@@ -71,25 +71,27 @@ public class TPowerFunc extends AbstractFunction {
         );
     }
 
-
     @Override
     public String toString() {
-        if( a == 0 || b == 0 ) return "0";
-        if( m == 0 ) return String.valueOf(a);
 
-        if( a == 1 ){
-            if( b == 1) return "1";
-            else if (b == TMathConstants.E) return String.format("e^%fx", this.b, this.m);
-            else return String.format("%f^%fx", this.b, this.m);
-        }
-        else if( a == -1){
-            if( b == 1) return "-1";
-            else if (b == TMathConstants.E) return String.format("-e^%fx", this.b, this.m);
-            else return String.format("-%f^%fx", this.b, this.m);
-        }
+        if(a == 0 || b == 0) return "0";
+        if(m == 0 || b == 1) return String.valueOf(a);
 
-        return String.format("%f %f^%fx", this.a, this.b, this.m);
+        // * a * b^mx
+        String text = String.format("%f * %f^%fx", a, b, m)
+                .replaceAll("1.000000 \\*", "1 \\*") // a => 1 || -1
+                .replaceAll("1.000000\\^", "1\\^") // b => 1, -1
+                .replaceAll("1.000000x", "x"); // m => 1, -1
+
+        if( Math.abs(a) == 1 && text.contains("-1^"))
+            text = text.substring(text.indexOf("-1^"));
+
+        if( Math.abs(a) == 1 && text.contains("1^") && !text.contains("-1^"))
+            text = text.substring(text.indexOf("1^"));
+
+        return text;
     }
+
 
 
 }
