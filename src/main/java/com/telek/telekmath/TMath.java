@@ -4,6 +4,8 @@ import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
+
+import java.math.BigInteger;
 import java.util.HashMap;
 
 
@@ -45,7 +47,7 @@ public final class TMath {
 
     /**
      * Works in linear time aka O(n)
-     * @param n any integer
+     * @param n any long
      * @return true if n is prime, else false
      */
     public static boolean isPrime(int n){
@@ -54,7 +56,6 @@ public final class TMath {
             if(n % i == 0) return false;
         return true;
     }
-
 
 
     /**

@@ -1,7 +1,7 @@
 package com.telek.telekmath.exceptions;
 
-import com.telek.telekmath.core.geometry.lines.TLine2D;
-import com.telek.telekmath.core.geometry.lines.TLine3D;
+import com.telek.telekmath.core.geometry.lines.*;
+
 
 public class TelekMathException extends RuntimeException {
 
@@ -9,8 +9,6 @@ public class TelekMathException extends RuntimeException {
     public TelekMathException(String message) {
         super(message);
     }
-
-
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,27 +104,6 @@ public class TelekMathException extends RuntimeException {
         }
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class NotAHorizontalLineException extends RuntimeException{
-        public NotAHorizontalLineException(TLine2D line) {
-            super("This line isn't horizontal line: " + line);
-        }
-        public NotAHorizontalLineException(TLine3D line) {
-            super("This line isn't horizontal line: " + line);
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class NotAVerticalLineException extends RuntimeException{
-        public NotAVerticalLineException(TLine2D line) {
-            super("This line isn't vertical line: " + line);
-        }
-        public NotAVerticalLineException(TLine3D line) {
-            super("This line isn't vertical line: " + line);
-        }
-    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

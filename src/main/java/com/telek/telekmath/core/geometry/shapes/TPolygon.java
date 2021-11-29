@@ -14,7 +14,7 @@ public class TPolygon {
     /*  FIELDS  */
 
     private TPoint2D[] points;
-    // edges???  default access modifier???
+
 
 
     /*  CONSTRUCTORS  */
@@ -47,39 +47,6 @@ public class TPolygon {
         for (int i = 0; i < points.length; i++)
             points[i].moveBy(xAmount, yAmount);
     }
-
-
-
-    public TTriangle[] triangulate() {
-        int len = this.points.length;
-        ArrayList<TTriangle> triangulatedTriangles = new ArrayList<>(); // returns n-2 triangles
-
-        for (int i = 0; i < len-1; i++) {
-
-            TPoint2D prePoint = this.points[ (i - 1 + len) % len ];
-            TPoint2D curPoint = this.points[ i ];
-            TPoint2D nextPoint = this.points[ (i+1) % len ];
-
-            TLine2D edge1 = new TLine2D(prePoint, curPoint);
-            TLine2D edge2 = new TLine2D(curPoint, nextPoint);
-
-            double angle = TLine2D.angleBetweenTwoLines(edge1, edge2);
-            boolean ear = angle < TMathConstants.PI;
-
-            if(ear){
-                triangulatedTriangles.add(new TTriangle(prePoint, curPoint, nextPoint));
-            }
-
-        }
-
-        TTriangle[] triangles = new TTriangle[len-2];
-        for (int i = 0; i < triangles.length; i++) {
-            triangles[i] = triangulatedTriangles.get(i);
-        }
-
-        return triangles;
-    }
-
 
 
 

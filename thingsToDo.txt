@@ -1,51 +1,59 @@
 
 
 
+üstten aşağıya doğru git:
 
-ŞU ANDA YAPILANLAR {
+testing{
 
-    Matrix kopya olayını çözmeliyim
+    TMath sınıfı
 
-    TEarClippingTriangulator
-        https://github.com/mrbaozi/triangulation
-        https://github.com/earcut4j/earcut4j
+    functions paketi
 
+    geometry.lines paketi
+    geometry.points paketi
+    geometry.shapes paketi
+    geometry.vectors paketi
 
-}
+    matrices paketi
 
+    numbers paketi
 
+    cryptography paketi
 
-testing {
-    yukarıdan aşağıya doğru her şeyi teker teker test edeceğim
-}
+    distributions paketi
 
+    random paketi
 
-optimization {
-
-    probabilisticPrimeTest  =>  https://www.youtube.com/watch?v=_MscGSN5J6o
-
-    millerRabinTest  =>  star witnesses
-        2,  3                     for  n < 1_373_653
-        2,3,5                     for  n < 25_326_001
-        31, 73                    for  n < 9_080_191
-        2, 13, 23, 1_662_803      for  n < 1_122_004_669_633
-        2,3,5,7,11                for  n < 2_152_302_898_747
-
+    DiscreteMath sınıfı
+    IAF sınıfı
+    NumericalAnalysis sınıfı
 
 }
 
 
-YAKIN ZAMANDA YAPILACAKLAR {
-
-    Telekmath için module info eklemeye çalış
-
-    BambooBandit ItemRandomizer gibi bir şey
-       https://discord.com/channels/348229412858101762/543469432509562910/898980637795561533
-
-    https://www.redblobgames.com/
-        https://www.redblobgames.com/x/1929-voronoi-percolation/
-
+görev1 {
+     Telekmath için module info eklemeye çalış
+        => javase+8 ile çalıştığından emin olmalısın
 }
+
+
+görev2 {
+     son bir release yap ve android studio & intellij projeleri ile çalıştığından emin ol
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
