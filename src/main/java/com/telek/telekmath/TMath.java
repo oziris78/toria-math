@@ -16,7 +16,6 @@ import java.util.HashMap;
 public final class TMath {
 
 
-
     /*  ------------  */
     /*  MATH METHODS  */
     /*  ------------  */
@@ -206,6 +205,15 @@ public final class TMath {
     /*  SPECIAL METHODS  */
     /*  ---------------  */
 
+
+
+    public static boolean areEqual(float f1, float f2){
+        return Math.abs(f1 - f2) < TMathConstants.EPSILON;
+    }
+
+    public static boolean areEqual(double d1, double d2){
+        return Math.abs(d1 - d2) < TMathConstants.EPSILON;
+    }
 
 
     /**

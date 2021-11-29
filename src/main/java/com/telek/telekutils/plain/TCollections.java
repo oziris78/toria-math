@@ -1,6 +1,8 @@
 package com.telek.telekutils.plain;
 
 
+import com.telek.telekmath.TMath;
+
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 import java.util.*;
 
@@ -150,7 +152,7 @@ public final class TCollections {
         double inc = Math.abs(step);
 
         int len = 1 + (int) ((max - min) / inc);
-        if( Math.abs((min + len * inc) - max) < 0.000000000000001d )
+        if(TMath.areEqual((min + len * inc), max))
             len++; // make end inclusive for doubles
 
         double[] arr = new double[len];

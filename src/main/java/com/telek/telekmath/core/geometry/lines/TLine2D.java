@@ -1,94 +1,94 @@
 package com.telek.telekmath.core.geometry.lines;
 
-import com.telek.telekmath.core.constants.InternalConstants;
+import com.telek.telekmath.TMath;
+import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
-import static com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.exceptions.TelekMathException;
 
 
+/**
+ * Defines a mathematical line in form  ax + by + c = 0
+ */
 public class TLine2D {
 
-    /*
-    değiştirmeye gerek olmayabilir öncelikle test ve düzenleme yapılmalı
-
-    * ax + by + c = 0 şeklinde yazarım
-    * y = mx + n  ya da  x = k şeklinde olur
+    /*   ax + by + c = 0   <=>   y = mx + n
+    *       =>  m = -a/b,  n = -c/b
     *
-    * ax + by + c = 0
-    * a/b x + y + c/b = 0
-    * y = (-a/b) x + (-c/b)
-    * m = -a/b,  n = -c/b
-    *
-    *
-    * maybe like this???
-    private TPoint2D anyPoint;
-    private TVector2D direction;
-    */
+     *    if b = 0 then it's in form x = k  (parallel to y axis)
+     *    ax + by + c = 0, b = 0   <=>   x = k
+     *       =>  k = -c/a
+     * */
 
-    private boolean isParallelToYAxis; // for distinguishing lines
-
-    // isParallelToYAxis = false, y = mx + n
-    private double slope; // m
-    private double constant; // n
-
-    // isParallelToYAxis = true, x = x0
-    private double x0; // x0
+    private final double a, b, c;
 
 
+    ////////////////////
     /*  CONSTRUCTORS  */
+    ////////////////////
 
+
+    public TLine2D(double a, double b, double c){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+
+
+    /**
+     * Defines a line in form  y = mx + n
+     * @param m specifies m
+     * @param n specifies n
+     */
     public TLine2D(double m, double n){
-        // means it is written as y = mx + n
-        this.slope = m;
-        this.constant = n;
-        isParallelToYAxis = false;
+        this(-m, 1d, -n);
     }
 
 
 
     public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){
-        double x1 = pointOneOnLine.x; double x2 = pointTwoOnLine.x;
-        double y1 = pointOneOnLine.y; double y2 = pointTwoOnLine.y;
-        if( x2 - x1 == 0 ){
-            this.isParallelToYAxis = true; // means it is x = x0
-            this.x0 = x1; // x = x1 or x = x2 is the same thing and the line
+        double x1 = pointOneOnLine.x;
+        double x2 = pointTwoOnLine.x;
+        double y1 = pointOneOnLine.y;
+        double y2 = pointTwoOnLine.y;
+
+        if( x1 == x2 ){ // x = k
+            this.a = 1d;
+            this.b = 0d;
+            this.c = -x1;
         }
-        else{
-            this.isParallelToYAxis = false; // means it is y = mx + n
-            double m = (y2 - y1) / (x2 - x1);
-            double n = y1 - m * x1;
-            this.slope = m;
-            this.constant = n;
+        else{ // ax+by+c=0
+            this.a = -(y1-y2)/(x1-x2);
+            this.b = 1d;
+            this.c = -this.a * x1 - y1;
         }
     }
 
-
-    public TLine2D(double m, TPoint2D point){
-        this.slope = m;
-        this.constant = point.y - m * point.x;
-        this.isParallelToYAxis = false;
-    }
 
 
     ///////////////
     /*  METHODS  */
     ///////////////
 
+
     /**
      * @param line2 any line
      * @return true if this line and line2 are parallel to each other if and only if  m1 = m2
      */
     public boolean isParallelTo(TLine2D line2){
-        boolean isParallel = false;
-        if( !this.isParallelToYAxis && !line2.isParallelToYAxis )
-            isParallel = this.getSlope() == line2.getSlope();
-        else if( this.isParallelToYAxis && !line2.isParallelToYAxis)
-            isParallel = false;
-        else if( !this.isParallelToYAxis && line2.isParallelToYAxis)
-            isParallel = false;
-        else if( this.isParallelToYAxis && line2.isParallelToYAxis)
-            isParallel = true;
-        return isParallel;
+        boolean firstParallel = this.isParallelToYAxis();
+        boolean secondParallel = line2.isParallelToYAxis();
+
+        if( firstParallel && secondParallel ) // x = k, x = k
+            return true;
+        else if( (!firstParallel && secondParallel) || (firstParallel && !secondParallel) ) // ax+by+c=0, x = k  or otherway around
+            return false;
+        else // ax+by+c=0, ax+by+c=0
+            return ( -a/b ) == ( -line2.a / line2.b ); // m1 == m2
     }
+
+
+
 
 
     /**
@@ -96,111 +96,50 @@ public class TLine2D {
      * @return true if this line and line2 are parallel to each other if and only if m1 = m2
      */
     public boolean isOrthogonalTo(TLine2D line2){
-        /*  if the lines are both NOT parallel to the y axis, then we must chech if m1 * m2 is -1
-        otherwise if one or both of them are parallel to the y axis then;
-        if the line that is NOT parallel to the y axis has a slope of m=0, they will be orthogonal because
-        one is x = x0 and other one is y = y0 which means they are always orthogonal in an orthogonal coordinate system  */
-        boolean isOrthogonal = false;
-        if( !this.isParallelToYAxis && !line2.isParallelToYAxis ){
-            double multipliedSlope = this.getSlope() * line2.getSlope();
-            isOrthogonal = ( multipliedSlope <= -1d + InternalConstants.LINE_THRESHHOLD && multipliedSlope >= -1d - InternalConstants.LINE_THRESHHOLD );  // -0.9 >= multipliedSlope >= -1.1
-        }
-        else if( this.isParallelToYAxis && !line2.isParallelToYAxis)
-            isOrthogonal = (line2.getSlope() == 0) ;
-        else if( !this.isParallelToYAxis && line2.isParallelToYAxis)
-            isOrthogonal = (this.getSlope() == 0) ;
-        else if( this.isParallelToYAxis && line2.isParallelToYAxis)
-            isOrthogonal = false;
-        return isOrthogonal;
-
+        return TMath.areEqual(angleBetweenTwoLines(this, line2), TMathConstants.PI_OVER_TWO);
     }
 
 
 
-
-    /** @return The symmetrical line according to the origin (0,0) */
-    public TLine2D getSymmetricalLineToOrigin(){
-        return new TLine2D(this.getSlope(), -this.getConstant());  /*  y = mx-n  */
+    public TLine2D getSymmetricalLineTo(boolean isSymmetricalToXAxis, boolean isSymmetricalToYAxis){
+        return new TLine2D(
+                isSymmetricalToYAxis ? -this.a : this.a,
+                isSymmetricalToXAxis ? -this.b : this.b,
+                this.c
+        );
     }
 
 
 
-    /** @return The symmetrical line according to the x-axis (y=0)  */
-    public TLine2D getSymmetricalLineToXAxis(){
-        return new TLine2D(-this.getSlope(), -this.getConstant());  /*  y = -mx-n  */
-    }
-
-
-    /** @return The symmetrical line according to the y-axis (x=0) */
-    public TLine2D getSymmetricalLineToYAxis(){
-        return new TLine2D(-this.getSlope(), this.getConstant());  /*  y= -mx + n  */
-    }
-
-
-    /** @return The symmetrical line according to y = x */
-    public TLine2D getSymmetricalLineToYEqualsX(){
-        /* -my+x-n=0,  if y=mx+n type then y=(1/m)x-(n/m) else if x=x0 type then y=x0 */
-        if(!this.isParallelToYAxis()) return new TLine2D( 1 / this.getSlope(), - this.getConstant() / this.getSlope());
-        else return new TLine2D(0, this.getX0());
-    }
-
-
-    /**  @return The symmetrical line according to y = -x  */
-    public TLine2D getSymmetricalLineToYEqualsMinusX(){
-        /*  my-x-n=0,  if y=mx+n type then y=(1/m)x+(n/m) else if x=x0 type then y=-x0  */
-        if(!this.isParallelToYAxis()) return new TLine2D( 1 / this.getSlope(), this.getConstant() / this.getSlope());
-        else return new TLine2D(0, -this.getX0());
-    }
 
 
     /**
-     * @param verticalLine any vertical line such as x = k
-     * @return The symmetrical line according to x = k
+     * sqrt(1 + m^2) = sqrt( (a^2 + b^2) / b^2 )
+     * @return The size of this line.
      */
-    public TLine2D getSymmetricalLineToAVerticalLine(TLine2D verticalLine){
-        if(!verticalLine.isParallelToYAxis()) throw new NotAVerticalLineException(verticalLine);
-        else return getSymmetricalLineToAVerticalLine( verticalLine.getX0() );  /*  y = -mx + (2km + n)  */
-    }
-
-
-    /**
-     * @param k any double specifying any vertical line such as x = k
-     * @return The symmetrical line according to x = k
-     */
-    public TLine2D getSymmetricalLineToAVerticalLine(double k){
-        return new TLine2D(-this.getSlope(), 2 * k * this.getSlope() + this.getConstant() );
-    }
-
-
-    /**
-     * @param horizontalLine any horizontal line y = k
-     * @return The symmetrical line according to y = k
-     */
-    public TLine2D getSymmetricalLineToAHorizontalLine(TLine2D horizontalLine){
-        if(horizontalLine.getSlope() != 0) throw new NotAHorizontalLineException(horizontalLine);
-        else return getSymmetricalLineToAHorizontalLine(horizontalLine.getConstant());  /*  y = -mx + (2k-n)  */
-    }
-
-
-    /**
-     * @param k the constant specifying the horizontal line y = k
-     * @return The symmetrical line according to y = k
-     */
-    public TLine2D getSymmetricalLineToAHorizontalLine(double k){
-        return new TLine2D(-this.getSlope(), 2 * k - this.getConstant() );
-    }
-
-
     public double size(){
-        return Math.sqrt( 1 + this.getSlope() * this.getSlope() ); // sqrt(1 + m^2)
+        double a2 = a * a;
+        double b2 = b * b;
+        double inside = (a2 + b2) / b2;
+        return Math.sqrt( inside );
     }
 
 
-    /*  GETTERS  */
-    public boolean isParallelToYAxis() { return isParallelToYAxis; }
-    public double getSlope() { return slope; }
-    public double getConstant() { return constant; }
-    public double getX0() { return x0; }
+    public boolean isEqualTo(TLine2D line2){
+        boolean b1 = this.a == line2.a && this.b == line2.b && this.c == line2.c;
+        boolean b2 = this.a == -line2.a && this.b == -line2.b && this.c == -line2.c;
+        return b1 || b2;
+    }
+
+
+    /**
+     * If b = 0 then this line is in form x = k, otherwise it's in the form y = mx + n
+     * @return True if this line is in form x = k.
+     */
+    public boolean isParallelToYAxis() {
+        return b == 0;
+    }
+
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -214,36 +153,41 @@ public class TLine2D {
      * @return Returns the intersection point or null if it doesn't exists
      */
     public static TPoint2D intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
-        TPoint2D intersectionPoint = null;
-        if( !line1.isParallelTo(line2) ){
-            if( !line1.isParallelToYAxis && !line2.isParallelToYAxis ){
-                // y1 = m1 x + n1
-                // y2 = m2 x + n2
-                double m1 = line1.getSlope();
-                double m2 = line2.getSlope();
-                double n1 = line1.getConstant();
-                double n2 = line2.getConstant();
+        boolean firstParallel = line1.isParallelToYAxis();
+        boolean secondParallel = line2.isParallelToYAxis();
+        if(firstParallel && secondParallel){ // x = k, x = k
+            double k1 = -line1.c / line1.a;
+            double k2 = -line2.c / line2.a;
+            // wont intersect here if they have different k values
+            if(k1 != k2) return null;
 
-                double resX = (n2 - n1) / (m1 - m2);
-                double resY = m1 * resX + n1;
-                intersectionPoint = new TPoint2D(resX, resY);
-            }
-            if( !line1.isParallelToYAxis && line2.isParallelToYAxis ){
-                // y1 = m1 x + n1
-                // x = x0
-                double resX = line2.getX0();
-                double resY = line1.getSlope() * resX + line1.getConstant();
-                intersectionPoint = new TPoint2D(resX, resY);
-            }
-            if( line1.isParallelToYAxis && !line2.isParallelToYAxis ){
-                // x = x0
-                // y2 = m2 x + n2
-                double resX = line1.getX0();
-                double resY = line2.getSlope() * resX + line2.getConstant();
-                intersectionPoint = new TPoint2D(resX, resY);
-            }
+            // infinitely many points here, just return one of them
+            return new TPoint2D(k1, 0d);
         }
-        return intersectionPoint;
+        else if(!firstParallel && secondParallel){ // ax+by+c=0, x = k
+            // always intersects here
+            double a = line1.a, b = line1.b, c = line1.c, k = -line2.c / line2.a;
+            return new TPoint2D(k, (-a*k-c) / b );
+        }
+        else if(firstParallel && !secondParallel){ // x = k, ax+by+c=0
+            // always intersects here
+            double a = line2.a, b = line2.b, c = line2.c, k = -line1.c / line1.a;
+            return new TPoint2D(k, (-a*k-c) / b );
+        }
+        else{ // ax+by+c=0, ax+by+c=0
+            double m1 = -line1.a / line1.b;
+            double m2 = -line2.a / line2.b;
+            double n1 = -line1.c / line1.b;
+            double n2 = -line2.c / line2.b;
+            // wont intersect here if they have the same m and different n
+            if(m1 == m2 && n1 != n2) return null;
+
+            // always intersects here
+            double x = - (n1-n2) / (m1-m2);
+            double y = m1 * x + n1;
+
+            return new TPoint2D(x, y);
+        }
     }
 
 
@@ -254,8 +198,8 @@ public class TLine2D {
      * @return The orthogonal distance between two parallel lines
      */
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
-        if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
-        return Math.abs(line1.getConstant() - line2.getConstant()) / line1.size();
+        if(!line1.isParallelTo(line2)) throw new TelekMathException.LinesAreNotParallelException(line1, line2);
+        return Math.abs(line2.c - line1.c) / Math.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
     }
 
 
@@ -266,31 +210,31 @@ public class TLine2D {
      * @return The orthogonal distance between point and line
      */
     public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
-        return Math.abs( point.y - line.getSlope() * point.x - line.getConstant() )  / line.size();
+        return Math.abs( line.a * point.x + line.b * point.y + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
     }
 
 
 
     /**
+     * This method will return the angle between the lines in range [-PI/2, PI/2], you might want to use <br>
+     * Math.abs(...) if you always want a positive angle.
      * @param line1 any line
      * @param line2 any line
      * @return The angle between line1 and line2
      */
     public static double angleBetweenTwoLines(TLine2D line1, TLine2D line2){
-        /* if both lines are NOT parallel to y axis, use (m1-m2)/(1+m1*m2) to find the tangent of angle
-        if both lines are parallel to y axis, the angle will be 0 because they're parallel to each other
-        if one of them are parallel to y axis, the angle will be equal to the angle between the y axis and
-        the other line so it will be (pi/2 - theta) where tan(theta) = m  */
-        double result = 0;
-        if( !line1.isParallelToYAxis() && !line2.isParallelToYAxis() )
-            result = Math.atan( (line1.getSlope() - line2.getSlope()) / ( 1 + (line1.getSlope() * line2.getSlope()) )  );
-        else if( line1.isParallelToYAxis() && !line2.isParallelToYAxis() )
-            result = (Math.PI / 2) - Math.atan( line2.getSlope() );
-        else if( !line1.isParallelToYAxis() && line2.isParallelToYAxis() )
-            result = (Math.PI / 2) - Math.atan( line1.getSlope() );
-        else if( line1.isParallelToYAxis() && line2.isParallelToYAxis() )
-            result = 0;
-        return result;
+        // https://www.cuemath.com/geometry/angle-between-two-lines/
+        boolean firstParallel = line1.isParallelToYAxis();
+        boolean secondParallel = line2.isParallelToYAxis();
+
+        if(firstParallel && secondParallel){ // x = k, x = k
+            return 0d;
+        }
+        else{
+            double a1 = line1.a, a2 = line2.a;
+            double b1 = line1.b, b2 = line2.b;
+            return Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) );
+        }
     }
 
 
@@ -302,12 +246,20 @@ public class TLine2D {
 
     @Override
     public String toString() {
-        if(this.isParallelToYAxis()) return String.format("x = %.5f", this.x0);
+        if(this.isParallelToYAxis()) return String.format("x = %f", -c/a).replaceAll("-0.000000", "0");
 
-        if(this.slope == 0 && this.constant == 0) return "y = 0";
-        else if(this.slope == 0 && this.constant != 0) return String.format("y = %.5f", this.constant);
-        else if(this.slope != 0 && this.constant == 0) return String.format("y = %.5f x", this.slope);
-        else return String.format("y = %.5f x + %.5f", this.slope, this.constant);
+
+        return String.format(" %fx + %fy + %f = 0", a, b, c)
+                .replaceAll(" 0.000000x \\+ ", "")
+                .replaceAll("0.000000y \\+ ", "")
+                .replaceAll("\\+ \\-", "- ")
+                .replaceAll("\\+ 0.000000 =", "=")
+                .replaceAll("\\- 0.000000 =", "=")
+                .replaceAll("1.000000y", "y")
+                .replaceAll("1.000000x", "x")
+                .replaceAll("-1.000000x", "x")
+                .replaceAll("-1.000000y", "y")
+                .trim();
     }
 
 

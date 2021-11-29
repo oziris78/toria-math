@@ -4,12 +4,12 @@
 
 ŞU ANDA YAPILANLAR {
 
-    TLine2D yeniden yazılacak
-
     Matrix kopya olayını çözmeliyim
-        90deg döndürme metodu yaz
 
     TEarClippingTriangulator
+        https://github.com/mrbaozi/triangulation
+        https://github.com/earcut4j/earcut4j
+
 
 }
 

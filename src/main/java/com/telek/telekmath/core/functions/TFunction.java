@@ -55,8 +55,6 @@ public class TFunction extends AbstractFunction {
             }
             result += productResult;
         }
-//        if( Math.abs(result) < 1e-6) return 0d;
-//        else
             return result;
     }
 

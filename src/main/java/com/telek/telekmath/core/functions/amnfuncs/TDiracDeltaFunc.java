@@ -1,11 +1,10 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
 
-import com.telek.telekmath.core.constants.InternalConstants;
+import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.core.functions.other.TConstantFunc;
-import com.telek.telekmath.core.functions.other.TPolynomial;
 
 
 /**
@@ -39,7 +38,7 @@ public class TDiracDeltaFunc extends AbstractAMNFunction{
     @Override
     public double value(double x) {
         if( !this.range.isInRange(x) ) return 0;
-        if(Math.abs(m * x + n) < InternalConstants.DIRAC_DELTA_THRESHHOLD) // is zero?
+        if(TMath.areEqual(m * x + n, 0)) // is zero?
             return this.range.right; // returns the biggest value in range
         else
             return 0d;

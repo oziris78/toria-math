@@ -50,11 +50,14 @@ public class TPoint2D {
 
     public TPoint2D rotateClockwise270(){ return new TPoint2D(-this.y, this.x); }
 
-    public TPoint2D getSymmetricalPointToXAxis(){ return new TPoint2D(this.x, -this.y); }
+    public TPoint2D getSymmetricalPointTo(boolean isSymmetricalToXAxis, boolean isSymmetricalToYAxis){
+        TPoint2D copyPoint = new TPoint2D(this.x, this.y);
+        if(isSymmetricalToXAxis) copyPoint.y *= -1;
+        if(isSymmetricalToYAxis) copyPoint.x *= -1;
+        return copyPoint;
+    }
 
-    public TPoint2D getSymmetricalPointToYAxis(){ return new TPoint2D(-this.x, this.y); }
 
-    public TPoint2D getSymmetricalPointToOrigin(){ return new TPoint2D(-this.x, -this.y); }
 
     /** @return the symmetrical point according to y = x */
     public TPoint2D getSymmetricalPointToYEqualsX(){
@@ -70,15 +73,6 @@ public class TPoint2D {
         return new TPoint2D( 2 * aPoint.x - this.x, 2 * aPoint.y - this.y);
     }
 
-    public TPoint2D getSymmetricalPointToVerticalLine(TLine2D verticalLine){
-        if(!verticalLine.isParallelToYAxis()) throw new NotAVerticalLineException(verticalLine);
-        else return new TPoint2D(2 * verticalLine.getX0() - this.x, this.y);
-    }
-
-    public TPoint2D getSymmetricalPointToHorizontalLine(TLine2D horizontalLine){
-        if(horizontalLine.getSlope() != 0) throw new NotAHorizontalLineException(horizontalLine);
-        else return new TPoint2D(this.x, 2 * horizontalLine.getConstant() - this.y);
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -97,7 +91,16 @@ public class TPoint2D {
 
     @Override
     public String toString() {
-        return String.format("( %.5f , %.5f )", this.x, this.y);
+        return String.format("(%f, %f)", this.x, this.y)
+                .replaceAll("0.000000,", "0,")
+                .replaceAll("-0.000000,", "0,")
+                .replaceAll(" -0.000000", " 0")
+                .replaceAll(" 0.000000", " 0")
+                .replaceAll("1.000000,", "1,")
+                .replaceAll("-1.000000,", "-1,")
+                .replaceAll(" -1.000000", " -1")
+                .replaceAll(" 1.000000", " 1")
+                .replaceAll("-0", "0");
     }
 
 

@@ -142,6 +142,12 @@ public class TMatrix {
 
 
 
+
+//        90deg döndürme metodu yaz
+//    Matrise clone metodu ya da copyMatrix metodu yazılmalı
+
+
+
     public static double determinant(double[][] matrix) {
         checkForSquareMatrix(matrix);
 
