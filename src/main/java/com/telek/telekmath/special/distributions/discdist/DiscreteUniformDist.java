@@ -13,7 +13,6 @@ public class DiscreteUniformDist extends DiscreteDistribution {
         if( n < 1 ) throw new InvalidValueException("n", n);
         this.n = n;
         this.E = (n+1)/2;
-        this.E2 = (n+1)*(2*n+1) / 6;
         this.Var = (n * n - 1 ) / 12;
     }
 

@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class DiscreteMath {
 
+    private DiscreteMath(){}
 
     /**
      * Returns the prime factorization of num as a HashMap object, use TUtils.stringifyFactors() to
@@ -16,12 +17,10 @@ public class DiscreteMath {
      * @param num any number
      * @return The prime factorization of num
      */
-    public static HashMap<Long, Long> primeFactorization(long num){
+    public static String primeFactorization(long num){
         HashMap<Long, Long> factors = new HashMap<Long, Long>();
-        if(num == 1) {
-            factors.put(1L,1L);
-            return factors;
-        }
+        if(num == 1) return "1";
+
         long myNum = num;
         while(myNum != 1){
             for(long i = 2; i <= myNum; i++){
@@ -33,8 +32,14 @@ public class DiscreteMath {
                 }
             }
         }
-        return factors;
+
+        StringBuilder sb = new StringBuilder();
+        for(Long key : factors.keySet()) sb.append(String.format("%d^%d * ", key, factors.get(key)));
+        String text = sb.substring(0, sb.length()-3);
+        return text.replaceAll("\\^1", "");
     }
+
+
 
 
 
@@ -61,13 +66,9 @@ public class DiscreteMath {
 
 
 
-    public static String getInBase10(int numberStrInAnyBase, int baseOfTheNumber){
-        return Integer.toString( numberStrInAnyBase, baseOfTheNumber ) ;
-    }
 
-
-    public static String getInBase10(String numberStrInAnyBase, int baseOfTheNumber){
-        return getInBase10(Integer.parseInt(numberStrInAnyBase), baseOfTheNumber);
+    public static int getInBase10(String numberStrInAnyBase, int baseOfTheNumber){
+        return Integer.parseInt(numberStrInAnyBase, baseOfTheNumber);
     }
 
 

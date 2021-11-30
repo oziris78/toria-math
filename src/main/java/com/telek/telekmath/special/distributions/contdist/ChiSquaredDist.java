@@ -13,21 +13,18 @@ public class ChiSquaredDist extends ContinuousDistribution {
         if( alpha <= 0 ) throw new NotGreaterThanZeroException("Alpha");
         this.v = 2d * alpha;
         this.E = v;
-        this.E2 = (2d * v) + (v * v);
         this.Var = 2d * v;
     }
 
 
     /*  METHODS  */
 
-    public static double calculateAlpha(double v){
-        return v / 2d;
-    }
-
-    @Override
-    public double probability(double x) {
-        if( x <= 0) return 0;
-        return ( 1d / ( Math.pow(2d, v/2d) * TMath.gamma(v/2d) ) ) * Math.pow(x, (v-2d)/2d ) * Math.exp(-x/2d);
+    /**
+     * @param degreeOfFreedom usually called v
+     * @return alpha
+     */
+    public static double calculateAlpha(double degreeOfFreedom){
+        return degreeOfFreedom / 2d;
     }
 
 

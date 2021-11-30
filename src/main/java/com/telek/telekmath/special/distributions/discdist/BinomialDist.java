@@ -16,7 +16,6 @@ public class BinomialDist extends DiscreteDistribution {
         this.n = n;
         this.p = p;
         this.E = n * p;
-        this.E2 = (n * n * p * p) + ( n * p * (1-p) );
         this.Var = n * p * (1-p);
     }
 

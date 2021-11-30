@@ -14,18 +14,9 @@ public class ExponentialDist extends ContinuousDistribution {
         if( beta <= 0) throw new NotGreaterThanZeroException("Beta");
         this.beta = beta;
         this.E = beta;
-        this.E2 = 2d * beta * beta;
         this.Var = beta * beta;
     }
 
-
-    /*  METHODS  */
-
-    @Override
-    public double probability(double x) {
-        if( x <= 0) return 0;
-        return Math.exp( - x / beta ) / beta;
-    }
 
 
 }

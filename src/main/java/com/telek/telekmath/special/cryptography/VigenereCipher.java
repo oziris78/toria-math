@@ -8,12 +8,12 @@ public class VigenereCipher {
 
 
 
-    public static String codeVigenereCipher(String text, String key) {
+    public static String encode(String text, String key) {
         return vigenereCipher(text, key, true);
     }
 
 
-    public static String decodeVigenereCipher(String text, String key) {
+    public static String decode(String text, String key) {
         return vigenereCipher(text, key, false);
     }
 

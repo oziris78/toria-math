@@ -1,6 +1,6 @@
 package com.telek.telekmath.exceptions;
 
-import com.telek.telekmath.core.geometry.lines.*;
+import com.telek.telekmath.core.geometry.TLine2D;
 
 
 public class TelekMathException extends RuntimeException {
@@ -46,11 +46,6 @@ public class TelekMathException extends RuntimeException {
     public static class LinesAreNotParallelException extends RuntimeException {
 
         public LinesAreNotParallelException(TLine2D line1, TLine2D line2) {
-            super("These lines aren't parallel to each other: " + line1.toString() + " , " + line2.toString());
-        }
-
-
-        public LinesAreNotParallelException(TLine3D line1, TLine3D line2) {
             super("These lines aren't parallel to each other: " + line1.toString() + " , " + line2.toString());
         }
 

@@ -15,7 +15,6 @@ public class PoissonDist extends DiscreteDistribution {
     public PoissonDist(double lambda){
         this.lambda = lambda;
         this.E = lambda;
-        this.E2 = lambda * (1 + lambda); // l + l^2 = l (l+1);
         this.Var = lambda;
     }
 

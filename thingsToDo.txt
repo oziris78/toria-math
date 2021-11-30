@@ -1,38 +1,13 @@
 
 
 
-üstten aşağıya doğru git:
 
-testing{
-
-    tpolynomial sınıfı kaldı
-
-    geometry.points paketi
-    geometry.vectors paketi
-    geometry.lines paketi
-    geometry.shapes paketi
+Telekmath için module info eklemeye çalış
+    => javase+8 ile çalıştığından emin olmalısın
 
 
-    cryptography paketi
-
-    distributions paketi
-
-    DiscreteMath sınıfı
-
-}
-
-
-görev1 {
-     Telekmath için module info eklemeye çalış
-        => javase+8 ile çalıştığından emin olmalısın
-}
-
-
-görev2 {
-    readme.md değiştirmeyi unutma
-     son bir release yap ve android studio & intellij projeleri ile çalıştığından emin ol
-}
-
+readme.md değiştirmeyi unutma
+        son bir release yap ve android studio & intellij projeleri ile çalıştığından emin ol
 
 
 
@@ -56,9 +31,8 @@ GELECEK PLANLARI {
 
     İstatistik eklemeleri yap
 
-
-    ad değişimi???
-            - jTelek? | telek-lib | TelekLib
+    kullanılmayacak ad önerileri:
+        - jTelek? | telek-lib | TelekLib
 
 }
 

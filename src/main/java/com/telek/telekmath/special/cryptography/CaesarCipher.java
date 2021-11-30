@@ -10,11 +10,11 @@ public class CaesarCipher {
 
     /*  METHODS  */
 
-    public static String codeCaesarCipher(String textToCode, int shift){
+    public static String encode(String textToCode, int shift){
         return caesarCipher(textToCode, shift, true);
     }
 
-    public static String decodeCaesarCipher(String textToDecode, int shift){
+    public static String decode(String textToDecode, int shift){
         return caesarCipher(textToDecode, shift, false);
     }
 

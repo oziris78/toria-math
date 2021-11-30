@@ -1,9 +1,11 @@
-package com.telek.telekmath.core.geometry.lines;
+package com.telek.telekmath.core.geometry;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.exceptions.TelekMathException;
+import java.util.Objects;
+
 
 
 /**
@@ -125,11 +127,6 @@ public class TLine2D {
     }
 
 
-    public boolean isEqualTo(TLine2D line2){
-        boolean b1 = this.a == line2.a && this.b == line2.b && this.c == line2.c;
-        boolean b2 = this.a == -line2.a && this.b == -line2.b && this.c == -line2.c;
-        return b1 || b2;
-    }
 
 
     /**
@@ -216,8 +213,8 @@ public class TLine2D {
 
 
     /**
-     * This method will return the angle between the lines in range [-PI/2, PI/2], you might want to use <br>
-     * Math.abs(...) if you always want a positive angle.
+     * This method will return the angle between the lines in range [0, PI/2]. <br>
+     * Use (180deg - angle) to find the obtuse angle.
      * @param line1 any line
      * @param line2 any line
      * @return The angle between line1 and line2
@@ -233,7 +230,7 @@ public class TLine2D {
         else{
             double a1 = line1.a, a2 = line2.a;
             double b1 = line1.b, b2 = line2.b;
-            return Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) );
+            return Math.abs(Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) ));
         }
     }
 
@@ -243,6 +240,7 @@ public class TLine2D {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     @Override
     public String toString() {
@@ -260,6 +258,26 @@ public class TLine2D {
                 .replaceAll("-1.000000x", "x")
                 .replaceAll("-1.000000y", "y")
                 .trim();
+    }
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TLine2D line2 = (TLine2D) o;
+        // -x + y = 0 and x - y = 0 are the same thing so check them both here:
+        boolean b1 = this.a == line2.a && this.b == line2.b && this.c == line2.c;
+        boolean b2 = this.a == -line2.a && this.b == -line2.b && this.c == -line2.c;
+        return b1 || b2;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b, c);
     }
 
 

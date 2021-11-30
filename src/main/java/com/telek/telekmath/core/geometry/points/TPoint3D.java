@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.geometry.points;
 
-import com.telek.telekmath.core.geometry.vectors.TVector3D;
+import com.telek.telekmath.TMath;
+import java.util.Objects;
+
 
 public class TPoint3D{
 
@@ -12,7 +14,7 @@ public class TPoint3D{
         this.z = z;
     }
 
-    public double distanceFromCenter() {
+    public double distanceFromOrigin() {
         return Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
     }
 
@@ -27,9 +29,16 @@ public class TPoint3D{
         );
     }
 
-    public TVector3D toTVector3D(){
-        return new TVector3D(this.x, this.y, this.z);
+
+    public TPoint3D scale(double scale){
+        return new TPoint3D(this.x * scale, this.y * scale, this.z * scale);
     }
+
+
+    public TPoint3D moveBy(double xAmount, double yAmount, double zAmount){
+        return new TPoint3D(this.x + xAmount, this.y + yAmount, this.z + zAmount);
+    }
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,12 +50,33 @@ public class TPoint3D{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
     @Override
     public String toString() {
-        return String.format("( %.5f, %.5f, %.5f )", this.x, this.y, this.z);
+        return String.format("(%f, %f, %f)", this.x, this.y, this.z)
+                .replaceAll("0.000000,", "0,")
+                .replaceAll("-0.000000,", "0,")
+                .replaceAll(" -0.000000", " 0")
+                .replaceAll(" 0.000000", " 0")
+                .replaceAll("1.000000,", "1,")
+                .replaceAll("-1.000000,", "-1,")
+                .replaceAll(" -1.000000", " -1")
+                .replaceAll(" 1.000000", " 1")
+                .replaceAll("-0", "0");
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TPoint3D tPoint3D = (TPoint3D) o;
+        return TMath.areEqual(tPoint3D.x, x) && TMath.areEqual(tPoint3D.y, y) && TMath.areEqual(tPoint3D.z, z);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z);
+    }
 }
 

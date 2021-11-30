@@ -9,7 +9,8 @@ import java.util.Locale;
 public class BaconCipher {
 
 
-    public static String decodeBaconCypher(String code){
+    // look here for more info: https://www.youtube.com/watch?v=ctA38iXUpYg
+    public static String decode(String code){
         final StringBuilder alphabetString = CryptoConstants.ENGLISH_ALPHABET;
         StringBuilder answer = new StringBuilder();
         String text = code.replaceAll("[^a-zA-Z]", ""); // remove all non-alphabetic words

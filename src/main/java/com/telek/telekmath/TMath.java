@@ -222,17 +222,6 @@ public final class TMath {
     }
 
 
-    /**
-     * Stringifies the output of {@link com.telek.telekmath.special.DiscreteMath#primeFactorization(long)}
-     * @param factors output of DiscreteMath.primeFactorization(long)
-     * @return factors in a string form
-     */
-    public static String stringifyFactors(HashMap<Long,Long> factors){
-        StringBuilder sb = new StringBuilder();
-        for(Long key : factors.keySet()) sb.append(String.format("%d^%d * ", key, factors.get(key)));
-        return sb.substring(0, sb.length()-2);
-    }
-
 
 
     /*  -------  */

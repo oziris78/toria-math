@@ -16,18 +16,9 @@ public class GammaDist extends ContinuousDistribution {
         this.alpha = alpha;
         this.beta = beta;
         this.E = alpha * beta;
-        this.E2 = alpha * (alpha+1) * beta * beta;
         this.Var = alpha * beta * beta;
     }
 
-
-    /*  METHODS  */
-
-    @Override
-    public double probability(double x) {
-        if( x <= 0) return 0;
-        return ( 1d / (Math.pow(beta,alpha) * TMath.gamma(alpha)) ) * Math.pow(x, alpha-1d) * Math.exp(-x / beta);
-    }
 
 
 

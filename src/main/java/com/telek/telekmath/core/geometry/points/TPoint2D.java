@@ -1,48 +1,45 @@
 package com.telek.telekmath.core.geometry.points;
 
-import com.telek.telekmath.core.geometry.lines.TLine2D;
-import com.telek.telekmath.core.geometry.vectors.TVector2D;
 
+import com.telek.telekmath.TMath;
 import java.util.Objects;
 
-import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 public class TPoint2D {
 
     public static final TPoint2D ZERO = new TPoint2D(0d,0d);
 
-    public double x,y;
+    public final double x,y;
 
+    
+    ////////////////////
+    /*  CONSTRUCTORS  */
+    ////////////////////
+    
     public TPoint2D(double x, double y){
         this.x = x;
         this.y = y;
     }
+    
 
-    public TVector2D toTVector2D(){
-        return new TVector2D(this.x, this.y);
-    }
-
+    ///////////////
+    /*  METHODS  */
+    ///////////////
+    
+    
     public double distanceFromOrigin() {
         return Math.sqrt( this.x * this.x + this.y * this.y );
     }
 
-    public void scale(double scale){
-        this.x *= scale;
-        this.y *= scale;
+
+    public TPoint2D moveBy(double xAmount, double yAmount){
+        return new TPoint2D(this.x + xAmount, this.y + yAmount);
     }
 
-    public void moveBy(double xAmount, double yAmount){
-        this.x += xAmount;
-        this.y += yAmount;
+    public TPoint2D scale(double scale){
+        return new TPoint2D(this.x * scale, this.y * scale);
     }
 
-    /**
-     * @param point2 any point
-     * @return The distance between this vector and the other specified vector
-     */
-    public double distance(TPoint2D point2){
-        return Math.sqrt( ((this.x - point2.x) * (this.x - point2.x)) + ((this.y - point2.y) * (this.y - point2.y)) );
-    }
 
     public TPoint2D rotateClockwise90(){ return new TPoint2D(this.y, -this.x); }
 
@@ -50,24 +47,14 @@ public class TPoint2D {
 
     public TPoint2D rotateClockwise270(){ return new TPoint2D(-this.y, this.x); }
 
-    public TPoint2D getSymmetricalPointTo(boolean isSymmetricalToXAxis, boolean isSymmetricalToYAxis){
-        TPoint2D copyPoint = new TPoint2D(this.x, this.y);
-        if(isSymmetricalToXAxis) copyPoint.y *= -1;
-        if(isSymmetricalToYAxis) copyPoint.x *= -1;
-        return copyPoint;
+
+    public TPoint2D getSymmetricalPointToTheAxes(boolean xAxis, boolean yAxis){
+        return new TPoint2D(
+                (yAxis ? -1d : 1d) * this.x,
+                (xAxis ? -1d : 1d) * this.y
+        );
     }
 
-
-
-    /** @return the symmetrical point according to y = x */
-    public TPoint2D getSymmetricalPointToYEqualsX(){
-        return new TPoint2D(this.y, this.x);
-    }
-
-    /** @return the symmetrical point according to y = -x */
-    public TPoint2D getSymmetricalPointToYEqualsMinusX(){
-        return new TPoint2D(-this.y, -this.x);
-    }
 
     public TPoint2D getSymmetricalPointToAnotherPoint(TPoint2D aPoint){
         return new TPoint2D( 2 * aPoint.x - this.x, 2 * aPoint.y - this.y);
@@ -77,15 +64,19 @@ public class TPoint2D {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+    /**
+     * @param point2 any point
+     * @return The distance between this vector and the other specified vector
+     */
+    public static double distanceBetweenTwoPoints(TPoint2D point1, TPoint2D point2){
+        return Math.sqrt( (point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y) );
+    }
+
+
     public static TPoint2D midPoint(TPoint2D point1, TPoint2D point2){
         return new TPoint2D( ( point1.x + point2.x ) / 2 , ( point1.y + point2.y ) / 2 );
     }
 
-
-    /**  @see TLine2D#distanceBetweenPointAndLine(TPoint2D, TLine2D)  */
-    public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
-        return TLine2D.distanceBetweenPointAndLine(point, line);
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,5 +94,16 @@ public class TPoint2D {
                 .replaceAll("-0", "0");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TPoint2D tPoint2D = (TPoint2D) o;
+        return TMath.areEqual(tPoint2D.x, x) && TMath.areEqual(tPoint2D.y, y);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 }

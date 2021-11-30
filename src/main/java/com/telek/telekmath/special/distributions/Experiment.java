@@ -3,10 +3,10 @@ package com.telek.telekmath.special.distributions;
 
 public abstract class Experiment {
 
-    protected double E, E2, Var;
+    protected double E, Var;
 
     public double getE() { return E; }
-    public double getE2() { return E2; }
+    public double getE2() { return (this.E * this.E) + this.Var; }
     public double getVAR() { return Var; }
 
 }

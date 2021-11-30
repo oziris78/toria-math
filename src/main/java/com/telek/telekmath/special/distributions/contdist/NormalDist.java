@@ -19,7 +19,6 @@ public class NormalDist extends ContinuousDistribution {
         this.mean = mean;
         this.sigma = sigma;
         this.E = mean;
-        this.E2 = mean * mean + sigma * sigma;
         this.Var = sigma * sigma;
     }
 
@@ -27,14 +26,6 @@ public class NormalDist extends ContinuousDistribution {
     /**  Standard Normal Distribution  */
     public NormalDist(){
         this(SNORMAL_MEAN, SNORMAL_SIGMA);
-    }
-
-
-    /*  METHODS  */
-
-    @Override
-    public double probability(double x) {
-        return ( 1d / ( sigma * Math.sqrt(2d * TMathConstants.PI) ) ) * Math.exp( (-0.5d) * ( (x-mean) / sigma ) * ( (x-mean) / sigma ) );
     }
 
 
