@@ -5,28 +5,19 @@
 
 testing{
 
-    TMath sınıfı
+    tpolynomial sınıfı kaldı
 
-    functions paketi
-
-    geometry.lines paketi
     geometry.points paketi
-    geometry.shapes paketi
     geometry.vectors paketi
+    geometry.lines paketi
+    geometry.shapes paketi
 
-    matrices paketi
-
-    numbers paketi
 
     cryptography paketi
 
     distributions paketi
 
-    random paketi
-
     DiscreteMath sınıfı
-    IAF sınıfı
-    NumericalAnalysis sınıfı
 
 }
 
@@ -38,6 +29,7 @@ görev1 {
 
 
 görev2 {
+    readme.md değiştirmeyi unutma
      son bir release yap ve android studio & intellij projeleri ile çalıştığından emin ol
 }
 

@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.functions;
 
 
+import java.util.Objects;
+
 public abstract class AbstractFunction {
 
     /*  FIELDS  */
@@ -19,5 +21,21 @@ public abstract class AbstractFunction {
     /*  GETTERS AND SETTERS  */
     public void setRange(TRange range) {this.range = range;}
     public TRange getRange() { return range; }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractFunction that = (AbstractFunction) o;
+        return Objects.equals(range, that.range);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(range);
+    }
+
 
 }

@@ -31,17 +31,17 @@ public class TDiracDeltaFunc extends AbstractAMNFunction{
 
 
     /**
-     * Returns dirac(x).
+     * Returns dirac(x). <br>
+     * This method is written so that it will return 1 instead of infinity when it receives 0. <br>
+     * Think of it as a unit impulse.
      * @param x any x value
      * @return dirac(x), if x=0 returns the max value of the defined range since TMath doesn't have a Inf constant
      */
     @Override
     public double value(double x) {
         if( !this.range.isInRange(x) ) return 0;
-        if(TMath.areEqual(m * x + n, 0)) // is zero?
-            return this.range.right; // returns the biggest value in range
-        else
-            return 0d;
+
+        return  TMath.areEqual(m * x + n, 0) ? 1d : 0d;
     }
 
 

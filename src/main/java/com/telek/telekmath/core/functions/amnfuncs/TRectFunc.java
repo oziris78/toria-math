@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
 
+import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.core.functions.other.TConstantFunc;
@@ -32,13 +33,16 @@ public class TRectFunc extends AbstractAMNFunction {
     public double value(double x) {
         if( !this.range.isInRange(x) ) return 0;
 
-        double rectX;
-        double absX = Math.abs(m * x + n);
-        if(absX > 0.5d) rectX = 0d;
-        else if(absX == 0.5d) rectX = 0.5d;
-        else rectX = 1d;
 
-        return A * rectX; // A * rect(mx+n)
+        double absX = Math.abs(m * x + n);
+
+        if(absX > 0.5d)
+            return A *  0d;
+        else if(TMath.areEqual(absX, 0.5d))
+            return A *  0.5d;
+        else
+            return A *  1d;
+
 
     }
 

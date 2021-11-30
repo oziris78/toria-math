@@ -7,6 +7,7 @@ import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.exceptions.TelekMathException.InvalidBaseException;
 
+import java.util.Objects;
 
 
 /**
@@ -67,8 +68,9 @@ public class TLog extends AbstractFunction {
     @Override
     public double value(double x) {
         // log_b_a = loga / logb = lna / lnb
-        if(x <= 0 || !this.range.isInRange(x)) return 0;
-        return a * Math.log(m * x) / Math.log(b); // a * log_b_(mx)
+        double mx = m * x;
+        if(mx <= 0 || !this.range.isInRange(x)) return 0;
+        return a * Math.log(mx) / Math.log(b); // a * log_b_(mx)
     }
 
 
@@ -101,5 +103,17 @@ public class TLog extends AbstractFunction {
         return text;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TLog tLog = (TLog) o;
+        return Double.compare(tLog.a, a) == 0 && Double.compare(tLog.b, b) == 0 && Double.compare(tLog.m, m) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), a, b, m);
+    }
 }

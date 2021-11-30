@@ -2,6 +2,7 @@ package com.telek.telekmath.core.functions;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class TFunction extends AbstractFunction {
@@ -120,7 +121,16 @@ public class TFunction extends AbstractFunction {
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TFunction tFunction = (TFunction) o;
+        return Objects.equals(innerProducts, tFunction.innerProducts);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(innerProducts);
+    }
 }

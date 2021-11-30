@@ -4,6 +4,8 @@ package com.telek.telekmath.core.functions.other;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.*;
 
+import java.util.Objects;
+
 
 /**
  * a * b^mx
@@ -92,6 +94,17 @@ public class TPowerFunc extends AbstractFunction {
         return text;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TPowerFunc that = (TPowerFunc) o;
+        return Double.compare(that.a, a) == 0 && Double.compare(that.b, b) == 0 && Double.compare(that.m, m) == 0;
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), a, b, m);
+    }
 }

@@ -4,6 +4,8 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
+import java.util.Objects;
+
 public class TConstantFunc extends AbstractFunction {
 
 
@@ -20,6 +22,7 @@ public class TConstantFunc extends AbstractFunction {
 
     @Override
     public double value(double x) {
+        if( !this.range.isInRange(x) ) return 0;
         return constValue;
     }
 
@@ -35,5 +38,17 @@ public class TConstantFunc extends AbstractFunction {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TConstantFunc that = (TConstantFunc) o;
+        return Double.compare(that.constValue, constValue) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), constValue);
+    }
 }

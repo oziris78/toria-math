@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.functions;
 
 
+import java.util.Objects;
+
 public class TRange {
 
     /**  BOTH ARE INCLUSIVE  */
@@ -51,4 +53,16 @@ public class TRange {
         return String.format("[%.3f, %.3f]", this.left, this.right);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TRange tRange = (TRange) o;
+        return Double.compare(tRange.left, left) == 0 && Double.compare(tRange.right, right) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
+    }
 }

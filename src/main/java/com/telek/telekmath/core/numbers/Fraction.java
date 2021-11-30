@@ -1,7 +1,9 @@
 package com.telek.telekmath.core.numbers;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.exceptions.TelekMathException;
+import com.telek.telekmath.exceptions.TelekMathException.*;
+
+import java.util.Objects;
 
 
 public class Fraction {
@@ -13,7 +15,7 @@ public class Fraction {
     /*  CONSTRUCTORS  */
 
     public Fraction(int numerator, int denominator){
-        if(denominator == 0) throw new TelekMathException.DivisionByZeroException();
+        if(denominator == 0) throw new DivisionByZeroException();
         this.numerator = numerator;
         this.denominator = denominator;
         this.simplifyAndSort();
@@ -74,8 +76,8 @@ public class Fraction {
 
     /*  GETTERS AND SETTERS  */
 
-    public int getNumerator() {return numerator;}
-    public int getDenominator() {return denominator;}
+    public int getNumerator() { return numerator;}
+    public int getDenominator() { return denominator;}
 
 
     /*  HELPERS  */
@@ -119,10 +121,25 @@ public class Fraction {
 
     @Override
     public String toString() {
-        if(!this.isInteger())
-            return String.format("%d / %d", numerator, denominator);
+        if(!this.isInteger()){
+            return String.format("%s%d / %d",
+                    numerator * denominator < 0 ? "-" : "", Math.abs(numerator), Math.abs(denominator));
+        }
         else
             return String.valueOf(this.numerator / this.denominator);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numerator == fraction.numerator && denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 
 

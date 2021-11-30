@@ -27,6 +27,13 @@ public class TPolynomial extends AbstractFunction {
     }
 
 
+
+
+    /**
+     * Unlike MATLAB, this constructor reads the values from small exponents to higher exponents. <br>
+     * For example [1,0,1,9] means 1 + x^2 + 9x^3, in MATLAB in would mean x^3+x+9...
+     * @param coefficients an array specifying the coefficient of the polynomial terms
+     */
     public TPolynomial(double[] coefficients) {
         this(TRange.REEL_NUMBERS, coefficients);
     }
@@ -176,4 +183,20 @@ public class TPolynomial extends AbstractFunction {
         return "TPolynomial=" + Arrays.toString(coefficients);
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TPolynomial that = (TPolynomial) o;
+        return Arrays.equals(coefficients, that.coefficients);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + Arrays.hashCode(coefficients);
+        return result;
+    }
 }

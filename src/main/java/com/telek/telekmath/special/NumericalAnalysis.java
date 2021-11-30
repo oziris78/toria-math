@@ -46,8 +46,6 @@ public class NumericalAnalysis {
     }
 
 
-    // TODO: 02/11/2021 uncomment this when you have derivatives in telekMath
-    /*
     public static double newtonsMethod(AbstractFunction f, double a, double b, int iterationCount){
         AbstractFunction df = f.derivative();
         double xn1 = Math.min(a,b);
@@ -56,8 +54,6 @@ public class NumericalAnalysis {
         }
         return xn1;
     }
-
-     */
 
 
 }

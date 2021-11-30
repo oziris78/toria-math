@@ -2,6 +2,7 @@ package com.telek.telekutils.plain;
 
 
 import com.telek.telekmath.TMath;
+import com.telek.telekmath.core.matrices.TMatrix;
 
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 import java.util.*;
@@ -202,7 +203,21 @@ public final class TCollections {
 
 
 
+    public static boolean areEqual(double[] arr1, double[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
 
+    public static boolean areEqual(int[] arr1, int[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static boolean areEqual(float[] arr1, float[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static boolean areEqual(long[] arr1, long[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
 
 
 

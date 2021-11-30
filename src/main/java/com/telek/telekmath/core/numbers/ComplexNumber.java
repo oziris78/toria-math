@@ -1,13 +1,17 @@
 package com.telek.telekmath.core.numbers;
 
 
+import com.telek.telekmath.TMath;
+
+import java.util.Objects;
+
 public class ComplexNumber {
 
-    private double real, imaginary;
+    private final double real, imaginary;
 
     public ComplexNumber(double real, double imaginary){
-        this.setReal(real);
-        this.setImaginary(imaginary);
+        this.real = real;
+        this.imaginary = imaginary;
     }
 
     public boolean hasImaginaryPart(){ return this.imaginary != 0; }
@@ -44,8 +48,6 @@ public class ComplexNumber {
     /*  GETTERS AND SETTERS  */
     public double getReal() { return real; }
     public double getImaginary() { return imaginary; }
-    public void setReal(double real) { this.real = real; }
-    public void setImaginary(double imaginary) { this.imaginary = imaginary; }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,6 +61,21 @@ public class ComplexNumber {
         else if(real == 0 && imag != 0) return String.format("%.5f i", imag);
         else return "0";
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ComplexNumber that = (ComplexNumber) o;
+        return TMath.areEqual(that.real, real) && TMath.areEqual(that.imaginary, imaginary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(real, imaginary);
+    }
+
 
 
 }

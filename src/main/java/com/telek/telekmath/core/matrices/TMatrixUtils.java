@@ -79,6 +79,11 @@ public class TMatrixUtils {
     }
 
 
+    public static TMatrix allValues(int dimension, double value){
+        return allValues(dimension, dimension, value);
+    }
+
+
     // same as ones() in MATLAB
     public static TMatrix allOnes(int rowSize, int colSize){
         return allValues(rowSize, colSize, 1d);
@@ -151,10 +156,7 @@ public class TMatrixUtils {
     public static boolean isSymmetrical(TMatrix matrix){
         if( matrix.getRowSize() != matrix.getColSize() ) return false;
 
-        TMatrix matrixTranspose = matrix.copy();
-        matrixTranspose.transpose();
-
-        return matrix.isEqualTo(matrixTranspose);
+        return matrix.equals(matrix.copy().transpose());
    }
 
 
@@ -165,12 +167,20 @@ public class TMatrixUtils {
     ////////////////////////////////
 
 
-    public static double[] cramerMethod(int equationCount, TMatrix A, TMatrix B){
-        if( B.getRowSize() != equationCount || B.getColSize() != 1 || A.getRowSize() != equationCount)
-            throw new TelekMathException.InvalidEquationCountException();
+    /**
+     * Solves AX = B and returns X matrix. <br>
+     * This method will return null if a solution doesn't exist.
+     * @param A any square matrix
+     * @param B any matrix
+     * @return The solution matrix X
+     */
+    public static TMatrix cramerMethod(TMatrix A, TMatrix B){
+        int equationCount = A.getRowSize();
+        if( B.getRowSize() != A.getRowSize() || B.getColSize() != 1)
+            return null;
 
         double detA = A.determinant();
-        if(detA == 0) throw new InvalidValueException("determinant", 0);
+        if(detA == 0) return null;
 
         double[] answers = new double[equationCount];
 
@@ -187,7 +197,7 @@ public class TMatrixUtils {
             answers[i] = new TMatrix(newMatrix).determinant() / detA;
         }
 
-        return answers;
+        return new TMatrix(new double[][]{ answers }).transpose();
     }
 
 

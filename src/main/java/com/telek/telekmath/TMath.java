@@ -2,6 +2,7 @@ package com.telek.telekmath;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 
@@ -16,6 +17,8 @@ import java.util.HashMap;
  * atn(), atan2(), acos(), asin() methods were written by Tommy Ettinger, https://github.com/tommyettinger
  */
 public final class TMath {
+
+    private TMath(){}
 
 
     /*  ------------  */
@@ -65,13 +68,15 @@ public final class TMath {
      * @return base ^ exponent
      */
     public static int pow(int base, int exponent){
+        if(exponent < 0) throw new InvalidValueException("exponent", exponent);
         return (exponent != 0) ? base * pow(base,exponent-1) : 1;
     }
 
 
 
     /**
-     * Fast factorial function that only works with integers
+     * Fast factorial function that only works with integers <br>
+     * This method only works for num < 14.
      * @param num any integer
      * @return factorial(num)
      */
@@ -237,59 +242,38 @@ public final class TMath {
 
     // APACHE COMMONS MATH
     private static final double[] LANCZOS = {
-            0.99999999999999709182,
-            57.156235665862923517,
-            -59.597960355475491248,
-            14.136097974741747174,
-            -0.49191381609762019978,
-            .33994649984811888699e-4,
-            .46523628927048575665e-4,
-            -.98374475304879564677e-4,
-            .15808870322491248884e-3,
-            -.21026444172410488319e-3,
-            .21743961811521264320e-3,
-            -.16431810653676389022e-3,
-            .84418223983852743293e-4,
-            -.26190838401581408670e-4,
-            .36899182659531622704e-5,
+        0.99999999999999709182, 57.156235665862923517, -59.597960355475491248,
+        14.136097974741747174, -0.49191381609762019978, .33994649984811888699e-4,
+        .46523628927048575665e-4, -.98374475304879564677e-4, .15808870322491248884e-3,
+        -.21026444172410488319e-3, .21743961811521264320e-3, -.16431810653676389022e-3,
+        .84418223983852743293e-4, -.26190838401581408670e-4, .36899182659531622704e-5,
     };
 
 
     // APACHE COMMONS MATH
     private static double logBeta(double a, double b) {
-        double ret;
-
-        if (Double.isNaN(a) || Double.isNaN(b) || a <= 0.0 || b <= 0.0) {
-            ret = Double.NaN;
-        }
-        else {
-            ret = logGamma(a) + logGamma(b) - logGamma(a + b);
-        }
-
-        return ret;
+        if (Double.isNaN(a) || Double.isNaN(b) || a <= 0.0 || b <= 0.0)
+            return Double.NaN;
+        else
+            return logGamma(a) + logGamma(b) - logGamma(a + b);
     }
 
 
     // APACHE COMMONS MATH
     private static double logGamma(double x) {
-        double ret;
-
         if (Double.isNaN(x) || (x <= 0.0)) {
-            ret = Double.NaN;
-        } else {
-            double g = 607.0 / 128.0;
-
+            return Double.NaN;
+        }
+        else {
             double sum = 0.0;
             for (int i = LANCZOS.length - 1; i > 0; --i) {
-                sum = sum + (LANCZOS[i] / (x + i));
+                sum += (LANCZOS[i] / (x + i));
             }
-            sum = sum + LANCZOS[0];
+            sum += LANCZOS[0];
 
-            double tmp = x + g + .5;
-            ret = ( (x + .5) * Math.log(tmp) ) - tmp + TMathConstants.HALF_LOG_2_PI + Math.log(sum / x);
+            double tmp = x + 4.7421875d + .5;
+            return ( (x + .5) * Math.log(tmp) ) - tmp + TMathConstants.HALF_LOG_2_PI + Math.log(sum / x);
         }
-
-        return ret;
     }
 
 

@@ -4,6 +4,7 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
 
+import java.util.Objects;
 
 
 /**
@@ -74,4 +75,17 @@ public class TInverseFunc extends AbstractFunction {
                 .replaceAll(" / x\\^-", " x^");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TInverseFunc that = (TInverseFunc) o;
+        return Double.compare(that.coef, coef) == 0 && degree == that.degree;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), coef, degree);
+    }
 }

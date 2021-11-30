@@ -4,6 +4,8 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.WrongFunctionException;
 
+import java.util.Objects;
+
 
 /**
  * Defines all the functions in the form  "A * f(mx+n)"
@@ -78,6 +80,20 @@ abstract class AbstractAMNFunction extends AbstractFunction {
                 .replaceAll("\\+0.000000", "")
                 .replaceAll("\\+1.000000", "\\+1")
                 .replaceAll("\\-1.000000", "\\-1");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        AbstractAMNFunction that = (AbstractAMNFunction) o;
+        return Double.compare(that.A, A) == 0 && Double.compare(that.m, m) == 0 && Double.compare(that.n, n) == 0 && funcType == that.funcType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), A, m, n, funcType);
     }
 
 

@@ -2,11 +2,9 @@ package com.telek.telekmath.core.matrices;
 
 
 import com.telek.telekutils.plain.TCollections;
-import jdk.nashorn.internal.runtime.regexp.joni.encoding.IntHolder;
-
-import static com.telek.telekmath.exceptions.TelekMathException.*;
-
+import com.telek.telekmath.exceptions.TelekMathException.*;
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class TMatrix {
@@ -79,25 +77,6 @@ public class TMatrix {
 
     public void setCell(int row, int col, double value){
         this.matrix[row][col] = value;
-    }
-
-
-
-    /**
-     * This method doesn't change any of the matrices.
-     * @param matrix2 a second matrix to check A == B
-     * @return true if all of the elements of both of these matrices are the same.
-     */
-    public boolean isEqualTo(TMatrix matrix2){
-        if( this.colSize != matrix2.colSize || this.rowSize != matrix2.rowSize )
-            return false;
-
-        for(int i = 0; i < this.rowSize; i++)
-            for(int j = 0; j < this.colSize; j++)
-                if(this.getCell(i,j) != matrix2.getCell(i,j))
-                    return false;
-
-        return true;
     }
 
 
@@ -289,6 +268,33 @@ public class TMatrix {
         for (int i = 0; i < this.rowSize; i++)
             sb.append(Arrays.toString(matrix[i]) + "\n");
         return sb.toString();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TMatrix matrix2 = (TMatrix) o;
+
+        if( this.colSize != matrix2.colSize || this.rowSize != matrix2.rowSize )
+            return false;
+
+        for(int i = 0; i < this.rowSize; i++)
+            for(int j = 0; j < this.colSize; j++)
+                if(this.getCell(i,j) != matrix2.getCell(i,j))
+                    return false;
+
+        return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(rowSize, colSize);
+        result = 31 * result + Arrays.hashCode(matrix);
+        return result;
     }
 
 

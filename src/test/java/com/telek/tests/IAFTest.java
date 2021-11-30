@@ -1,17 +1,17 @@
 package com.telek.tests;
 
-
 import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekutils.plain.TCollections;
 import com.telek.telekmath.special.IAF;
-import java.util.ArrayList;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 
 public class IAFTest {
 
-
-    public static void main(String[] args) throws Exception {
-
+    @Test
+    @DisplayName("iafTest")
+    void iafTest() {
 
         ArrayList<double[]> resTriangle1 = IAF.mastersFormula(10,20,30,40,50,60);
         ArrayList<double[]> resTriangle2 = IAF.mastersFormula(TMathConstants.PI, TMathConstants.E, TMathConstants.GOLDEN_RATIO);
@@ -27,6 +27,7 @@ public class IAFTest {
         System.out.println(res2);
         System.out.println(res3);
         System.out.println(res4);
+
 
 
     }
