@@ -4,22 +4,7 @@
 
 Telekmath için module info eklemeye çalış
     => javase+8 ile çalıştığından emin olmalısın
-
-
-readme.md değiştirmeyi unutma
-        son bir release yap ve android studio & intellij projeleri ile çalıştığından emin ol
-
-
-
-
-
-
-
-
-
-
-
-
+    => bunu yaptıktan sonra AS & intellij ile çalıştığından emin ol
 
 
 
@@ -31,10 +16,6 @@ GELECEK PLANLARI {
 
     İstatistik eklemeleri yap
 
-    kullanılmayacak ad önerileri:
-        - jTelek? | telek-lib | TelekLib
 
 }
-
-
 
