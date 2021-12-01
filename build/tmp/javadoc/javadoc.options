@@ -1,10 +1,10 @@
 -Xdoclint:none,-missing '-quiet'
 -classpath 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\build\\classes\\java\\main;C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\build\\resources\\main'
 -d 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\build\\docs\\javadoc'
--doctitle 'telek-math 0.7.2 API'
+-doctitle 'telek-math 0.7.3 API'
 -notimestamp 
 -quiet 
--windowtitle 'telek-math 0.7.2 API'
+-windowtitle 'telek-math 0.7.3 API'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\src\\main\\java\\com\\telek\\telekmath\\core\\constants\\CryptoConstants.java'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\src\\main\\java\\com\\telek\\telekmath\\core\\constants\\TMathConstants.java'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\pureJavaDev\\extensions\\p_telekMath\\telekMath\\src\\main\\java\\com\\telek\\telekmath\\core\\functions\\AbstractFunction.java'

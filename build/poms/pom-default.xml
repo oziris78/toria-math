@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.oziris78</groupId>
   <artifactId>telek-math</artifactId>
-  <version>0.7.2</version>
+  <version>0.7.3</version>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
