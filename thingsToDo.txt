@@ -2,14 +2,6 @@
 
 
 
-Telekmath için module info eklemeye çalış
-    => javase+8 ile çalıştığından emin olmalısın
-    => bunu yaptıktan sonra AS & intellij ile çalıştığından emin ol
-
-
-
-
-
 GELECEK PLANLARI {
 
     TFunction => derivative fonksiyonunu unwrapping yapmalıyız, toString() metodu belki bundan sonra yeniden yazılmalı olacak
