@@ -1,4 +1,4 @@
-package com.telek.telekmath.special.random;
+package com.telek.telekmath.advanced.random;
 
 import java.util.ArrayList;
 

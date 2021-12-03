@@ -1,4 +1,4 @@
-package com.telek.telekmath.special.distributions;
+package com.telek.telekmath.advanced.distributions;
 
 public abstract class DiscreteDistribution extends Experiment {
 

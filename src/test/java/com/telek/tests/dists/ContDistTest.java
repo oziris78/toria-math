@@ -1,7 +1,7 @@
 package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.special.distributions.contdist.*;
+import com.telek.telekmath.advanced.distributions.contdist.*;
 import org.apache.commons.math3.distribution.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

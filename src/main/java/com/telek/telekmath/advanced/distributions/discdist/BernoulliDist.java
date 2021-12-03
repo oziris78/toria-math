@@ -1,9 +1,9 @@
-package com.telek.telekmath.special.distributions.discdist;
+package com.telek.telekmath.advanced.distributions.discdist;
 
 
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.InvalidValueException;
-import com.telek.telekmath.special.distributions.DiscreteDistribution;
+import com.telek.telekmath.advanced.distributions.DiscreteDistribution;
 
 public class BernoulliDist extends DiscreteDistribution {
 

@@ -1,4 +1,4 @@
-package com.telek.telekmath.special.random;
+package com.telek.telekmath.advanced.random;
 
 
 import com.telek.telekmath.core.geometry.vectors.TVector2D;

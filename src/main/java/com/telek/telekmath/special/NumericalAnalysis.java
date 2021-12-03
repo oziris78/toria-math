@@ -18,8 +18,14 @@ public class NumericalAnalysis {
             else{
                 c = bigNum - ( fb * ( (bigNum-smallNum) / (fb - fa) ) );
                 fc = f.value(c);
-                if( fa * fc < 0){ smallNum = Math.min(smallNum,bigNum); bigNum = c; }
-                else if(fb * fc < 0){ smallNum = c; bigNum = Math.max(smallNum,bigNum);}
+                if( fa * fc < 0){
+                    smallNum = Math.min(smallNum, bigNum);
+                    bigNum = c;
+                }
+                else if(fb * fc < 0){
+                    smallNum = c;
+                    bigNum = Math.max(smallNum, bigNum);
+                }
             }
         }
         return c;
@@ -38,8 +44,14 @@ public class NumericalAnalysis {
             else{
                 c = (bigNum + smallNum)/2;
                 fc = f.value(c);
-                if( fa * fc < 0){ smallNum = Math.min(smallNum,bigNum); bigNum = c; }
-                else if(fb * fc < 0){ smallNum = c; bigNum = Math.max(smallNum,bigNum);}
+                if( fa * fc < 0){
+                    smallNum = Math.min(smallNum, bigNum);
+                    bigNum = c;
+                }
+                else if(fb * fc < 0){
+                    smallNum = c;
+                    bigNum = Math.max(smallNum, bigNum);
+                }
             }
         }
         return c;
@@ -49,9 +61,9 @@ public class NumericalAnalysis {
     public static double newtonsMethod(AbstractFunction f, double a, double b, int iterationCount){
         AbstractFunction df = f.derivative();
         double xn1 = Math.min(a,b);
-        for(int i = 0; i < iterationCount; i++){
+        for(int i = 0; i < iterationCount; i++)
             xn1 = xn1 - ( f.value(xn1) / df.value(xn1) );
-        }
+
         return xn1;
     }
 

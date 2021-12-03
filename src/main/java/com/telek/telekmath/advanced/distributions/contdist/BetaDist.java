@@ -1,11 +1,9 @@
-package com.telek.telekmath.special.distributions.contdist;
+package com.telek.telekmath.advanced.distributions.contdist;
 
 
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
-import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.special.distributions.ContinuousDistribution;
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.advanced.distributions.ContinuousDistribution;
 
 public class BetaDist extends ContinuousDistribution {
 

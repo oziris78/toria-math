@@ -6,8 +6,6 @@ import com.telek.telekmath.exceptions.InvalidValueException;
 import com.telek.telekmath.exceptions.RepeatedPermutationException;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 
-import java.math.BigInteger;
-import java.util.HashMap;
 
 
 
@@ -42,7 +40,7 @@ public final class TMath {
      * @return beta(a,b)
      */
     public static double beta(double a, double b){
-        return Math.exp( logBeta(a,b) ); //
+        return Math.exp( logBeta(a,b) );
     }
 
 

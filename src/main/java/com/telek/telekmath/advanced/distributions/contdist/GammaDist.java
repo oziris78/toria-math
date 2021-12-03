@@ -1,8 +1,8 @@
-package com.telek.telekmath.special.distributions.contdist;
+package com.telek.telekmath.advanced.distributions.contdist;
 
 
-import com.telek.telekmath.special.distributions.ContinuousDistribution;
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.advanced.distributions.ContinuousDistribution;
+
 import static com.telek.telekmath.exceptions.TelekMathException.*;
 
 
