@@ -4,9 +4,13 @@
 
 GELECEK PLANLARI {
 
-    TFunction => derivative fonksiyonunu unwrapping yapmalıyız, toString() metodu belki bundan sonra yeniden yazılmalı olacak
+    TFunction
+        - derivative fonksiyonunda unwrapping yapmalıyız
+        - toString() metodu belki bundan sonra yeniden yazılmalı olacak
 
     İstatistik eklemeleri yap
+        - yeni extension: telek-visualstat, telek-vis-stat, telek-vstat*
+        - buraya istatistik şeyleri yazılacak, yukarıdaki extension ise yalnızca görselleştirme için kullanılacak
 
 
 }
