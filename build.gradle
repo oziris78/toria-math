@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group 'com.github.oziris78'
-version '0.7.4'
+version '0.7.4.1'
 
 
 sourceCompatibility = 1.8 // java 8
@@ -73,7 +73,7 @@ artifacts {
 }
 
 wrapper {
-    gradleVersion = "6.9.2"
+    gradleVersion = "6.7.2"
     distributionType = Wrapper.DistributionType.ALL
 }
 
