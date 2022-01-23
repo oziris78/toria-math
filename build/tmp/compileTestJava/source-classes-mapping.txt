@@ -1,0 +1,39 @@
+com/telek/tests/numbers/FractionTest.java
+ com.telek.tests.numbers.FractionTest
+com/telek/tests/points/TPoint3DTest.java
+ com.telek.tests.points.TPoint3DTest
+com/telek/tests/DiscreteMathTest.java
+ com.telek.tests.DiscreteMathTest
+com/telek/tests/matrices/TMatrixUtilsTest.java
+ com.telek.tests.matrices.TMatrixUtilsTest
+com/telek/tests/dists/ContDistTest.java
+ com.telek.tests.dists.ContDistTest
+com/telek/tests/numbers/ComplexNumberTest.java
+ com.telek.tests.numbers.ComplexNumberTest
+com/telek/tests/matrices/TMatrixTest.java
+ com.telek.tests.matrices.TMatrixTest
+ com.telek.tests.matrices.TMatrixTest$1
+com/telek/tests/points/TPoint2DTest.java
+ com.telek.tests.points.TPoint2DTest
+com/telek/tests/vectors/TVector3DTest.java
+ com.telek.tests.vectors.TVector3DTest
+com/telek/tests/TMathTest.java
+ com.telek.tests.TMathTest
+com/telek/tests/CryptoTest.java
+ com.telek.tests.CryptoTest
+com/telek/tests/functions/TPolynomialTest.java
+ com.telek.tests.functions.TPolynomialTest
+com/telek/tests/vectors/TVector2DTest.java
+ com.telek.tests.vectors.TVector2DTest
+com/telek/tests/lines/TLine2DTest.java
+ com.telek.tests.lines.TLine2DTest
+com/telek/tests/IAFTest.java
+ com.telek.tests.IAFTest
+com/telek/tests/functions/FuncTest.java
+ com.telek.tests.functions.FuncTest
+com/telek/tests/color/ExportColor.java
+ com.telek.tests.color.ExportColor
+com/telek/tests/NumericalAnalysisTest.java
+ com.telek.tests.NumericalAnalysisTest
+com/telek/tests/dists/DiscDistTest.java
+ com.telek.tests.dists.DiscDistTest
