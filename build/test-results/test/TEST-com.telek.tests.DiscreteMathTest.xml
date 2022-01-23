@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.DiscreteMathTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-20T15:11:15" hostname="TUNERIKGEZGINI" time="0.027">
+<testsuite name="com.telek.tests.DiscreteMathTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-23T01:27:25" hostname="TUNERIKGEZGINI" time="0.027">
   <properties/>
   <testcase name="discreteMathTest()" classname="com.telek.tests.DiscreteMathTest" time="0.027"/>
   <system-out><![CDATA[]]></system-out>

@@ -73,8 +73,7 @@ artifacts {
 }
 
 wrapper {
-    // libGDX 7.2 (i think +6.9.2) can't use Gradle 6.9.2 so I'm using an old version of Gradle here on purpose
-    gradleVersion = "6.1.1"
+    gradleVersion = "6.9.2"  // was 6.1.1
     distributionType = Wrapper.DistributionType.ALL
 }
 

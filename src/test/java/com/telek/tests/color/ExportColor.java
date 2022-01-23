@@ -46,7 +46,7 @@ public class ExportColor {
         );
 
 
-        BufferedWriter bf = new BufferedWriter(new FileWriter("assets/gimpPalette.txt"));
+        BufferedWriter bf = new BufferedWriter(new FileWriter("assets/gimpPalette.gpl"));
         bf.write(myPalette.getFileContentForGIMP());
         bf.close();
     }
