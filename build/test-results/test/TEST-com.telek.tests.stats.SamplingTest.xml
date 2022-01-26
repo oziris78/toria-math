@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.stats.SamplingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-26T19:05:07" hostname="TUNERIKGEZGINI" time="0.016">
-  <properties/>
-  <testcase name="samplingTest" classname="com.telek.tests.stats.SamplingTest" time="0.016"/>
-  <system-out><![CDATA[[(UUUUU, 12, 160), (XXXXX, 18, 176), (JJJJJ, 50, 182), (ZZZZZ, 55, 166), (QQQQQ, 34, 158), (HHHHH, 18, 177), (LLLLL, 18, 178), (KKKKK, 18, 180), (VVVVV, 18, 190), (IIIII, 32, 167)]
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

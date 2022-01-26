@@ -12,6 +12,10 @@ GELECEK PLANLARI {
         - yeni extension: telek-visualstat, telek-vis-stat, telek-vstat*
         - buraya istatistik şeyleri yazılacak, yukarıdaki extension ise yalnızca görselleştirme için kullanılacak
 
+    frequency dist. table olayları
+    single regression
+    derste öğrendiğimiz testler
+
 
 }
 

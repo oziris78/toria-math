@@ -18,7 +18,7 @@ public class DataDescriptionTest {
         DataSet<Person> dataSet = new DataSet<>(population, Person.class);
 
         dataSet.sort((o1, o2) -> o1.height - o2.height);
-        DataDescription<Person, ?> heightDesc = dataSet.getDataDescription("height");
+        DataDescription<Person> heightDesc = dataSet.getDataDescription("height");
         Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
         Assertions.assertTrue(TMath.areEqual(heightDesc.min, 158));
         Assertions.assertTrue(TMath.areEqual(heightDesc.max, 203));
@@ -37,7 +37,7 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
 
         dataSet.sort((o1, o2) -> o1.age - o2.age);
-        DataDescription<Person, ?> ageDesc =  dataSet.getDataDescription("age");
+        DataDescription<Person> ageDesc =  dataSet.getDataDescription("age");
         Assertions.assertTrue(TMath.areEqual(ageDesc.count, 26));
         Assertions.assertTrue(TMath.areEqual(ageDesc.min, 12));
         Assertions.assertTrue(TMath.areEqual(ageDesc.max, 75));

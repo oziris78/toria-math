@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 
 
-public class DataDescription<T, FT extends Number> {
+public class DataDescription<T> {
 
     private final Field field;
     private final T[] sortedData;
@@ -114,7 +114,7 @@ public class DataDescription<T, FT extends Number> {
 
     private double getValue(int index) throws IllegalAccessException {
         T currentTerm = this.sortedData[index];
-        FT value = (FT) this.field.get(currentTerm);
+        Number value = (Number) this.field.get(currentTerm);
         return value.doubleValue();
     }
 

@@ -10,23 +10,23 @@ import java.util.HashMap;
 
 public class DataSet<T> {
 
-    HashMap<String, DataDescription<T, ?>> dataDescriptions;
+    HashMap<String, DataDescription<T>> dataDescriptions;
 
     private Class<T> clazz;
-    private T[] rawData, data;
+    private T[] rawData, sortedData;
 
 
-    public DataSet(T[] rawData, Class<T> clazz){
+    public DataSet(T[] population, Class<T> clazz){
         this.dataDescriptions = new HashMap<>();
-        this.rawData = rawData;
+        this.rawData = population;
         this.clazz = clazz;
-        this.data = (T[]) Array.newInstance(this.clazz, rawData.length);
-        System.arraycopy(this.rawData, 0, this.data, 0, rawData.length);
+        this.sortedData = (T[]) Array.newInstance(this.clazz, population.length);
+        System.arraycopy(this.rawData, 0, this.sortedData, 0, population.length);
     }
 
 
     public void sort(Comparator<T> comparator){
-        Arrays.sort(this.data, comparator);
+        Arrays.sort(this.sortedData, comparator);
     }
 
 
@@ -34,11 +34,11 @@ public class DataSet<T> {
     /*  METHODS  */
     ///////////////
 
-    public DataDescription<T, ?> getDataDescription(String fieldName){
+    public DataDescription<T> getDataDescription(String fieldName){
         if(!this.dataDescriptions.containsKey(fieldName)){
             try{
                 Field field = clazz.getField(fieldName);
-                DataDescription<T, ?> dataDescription = new DataDescription(this, field);
+                DataDescription<T> dataDescription = new DataDescription(this, field);
                 dataDescriptions.put(fieldName, dataDescription);
             }
             catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }
@@ -48,7 +48,7 @@ public class DataSet<T> {
     }
 
     public T[] getSortedData() {
-        return data;
+        return sortedData;
     }
 
 
