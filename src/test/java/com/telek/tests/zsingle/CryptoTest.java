@@ -1,4 +1,4 @@
-package com.telek.tests;
+package com.telek.tests.zsingle;
 
 import com.telek.telekmath.special.cryptography.AsciiCipher;
 import com.telek.telekmath.special.cryptography.BaconCipher;

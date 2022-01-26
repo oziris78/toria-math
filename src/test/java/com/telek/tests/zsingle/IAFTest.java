@@ -1,4 +1,4 @@
-package com.telek.tests;
+package com.telek.tests.zsingle;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.special.IAF;

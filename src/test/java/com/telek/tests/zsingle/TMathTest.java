@@ -1,4 +1,4 @@
-package com.telek.tests;
+package com.telek.tests.zsingle;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.matrices.TMatrix;
