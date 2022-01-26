@@ -24,19 +24,21 @@ public class DataSet<T> {
         System.arraycopy(this.rawData, 0, this.data, 0, rawData.length);
     }
 
+
     public void sort(Comparator<T> comparator){
         Arrays.sort(this.data, comparator);
     }
+
 
     ///////////////
     /*  METHODS  */
     ///////////////
 
-    public DataDescription<T, ?> getDataDescription(String fieldName, Class<?> fieldClass){
+    public DataDescription<T, ?> getDataDescription(String fieldName){
         if(!this.dataDescriptions.containsKey(fieldName)){
             try{
                 Field field = clazz.getField(fieldName);
-                DataDescription<T, ?> dataDescription = new DataDescription(this, fieldClass, field);
+                DataDescription<T, ?> dataDescription = new DataDescription(this, field);
                 dataDescriptions.put(fieldName, dataDescription);
             }
             catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }

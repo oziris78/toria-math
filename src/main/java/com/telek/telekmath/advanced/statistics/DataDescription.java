@@ -6,19 +6,34 @@ import java.util.HashMap;
 
 public class DataDescription<T, FT extends Number> {
 
-    private final DataSet<T> dataSet;
-    private final Class<FT> fieldClass;
     private final Field field;
     private final T[] sortedData;
 
-    public double count, mean, geomean, sum, median,
-            mode, modeCount, max, min, range, stddev, variance;
+    // values without javadocs (self-explanatory variable names)
+    public double count, mean, geomean, sum, interquartileRange, mode, modeCount;
+
+    /** The value that divides the whole data set into 2 equal parts, also it's equal to {@link #quartile2}. */
+    public double median;
+
+    /** Quartiles are calculated with exclusive percentages. <br> Same as QUARTILE.EXC(arr, i) in Excel. */
+    public double quartile1, quartile2, quartile3;
+
+    /** Maximum value */
+    public double min;
+
+    /** Minimum value */
+    public double max;
+
+    /** Specifies (maxValue - minValue) value. */
+    public double range;
+
+    /** Standard deviation */
+    public double stddev;
+    public double variance;
 
 
-    public DataDescription(DataSet<T> dataSet, Class<FT> fieldClass, Field field) throws IllegalAccessException {
+    public DataDescription(DataSet<T> dataSet, Field field) throws IllegalAccessException {
         // references
-        this.dataSet = dataSet;
-        this.fieldClass = fieldClass;
         this.field = field;
         this.sortedData = dataSet.getSortedData();
 
@@ -71,23 +86,35 @@ public class DataDescription<T, FT extends Number> {
         }
         modeCount = frequencyMap.get(mode);
 
-
-
-
-        // dataset'te bulunan her terim için bu field değerine ulaşmam gerek
-
-        // https://stackoverflow.com/questions/2127197/java-how-can-i-access-a-classs-field-by-a-name-stored-in-a-variable
-
+        // median and quartile stuff
+        quartile1 = getQuartile(1d);
+        quartile2 = getQuartile(2d);
+        quartile3 = getQuartile(3d);
+        median = quartile2;
+        interquartileRange = quartile3 - quartile1;
 
     }
 
 
 
+    ///////////////
+    /*  HELPERS  */
+    ///////////////
+
+
+    private double getQuartile(double quartileNumber) throws IllegalAccessException {
+        double quartileIndex = (count + 1d) * quartileNumber / 4d;
+        double percentage = quartileIndex % 1;
+        int lowIndex = (int) Math.floor(quartileIndex);
+        double lowValue = getValue(lowIndex - 1); // -1 because in statistics we have 1-based indexes but in Java it's 0-based
+        double highValue = getValue(lowIndex); // also -1 here...
+        return lowValue + (highValue - lowValue) * percentage;
+    }
 
 
     private double getValue(int index) throws IllegalAccessException {
-        T currentTerm = sortedData[index];
-        FT value = (FT) field.get(currentTerm);
+        T currentTerm = this.sortedData[index];
+        FT value = (FT) this.field.get(currentTerm);
         return value.doubleValue();
     }
 

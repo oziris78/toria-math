@@ -23,6 +23,16 @@ public class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class SampleSizeIsGreaterThanPopulationSizeException extends RuntimeException {
+
+        public SampleSizeIsGreaterThanPopulationSizeException() {
+            super("Sample size has to be less than population size.");
+        }
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static class NotEqualKeyAndValueException extends RuntimeException {
 
         public NotEqualKeyAndValueException() {
