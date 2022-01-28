@@ -1,6 +1,8 @@
 package com.telek.telekmath.advanced.statistics;
 
 
+import com.telek.telekutils.plain.TCollections;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -34,10 +36,12 @@ public class DataSet<T> {
     /*  METHODS  */
     ///////////////
 
+
     public DataDescription<T> getDataDescription(String fieldName){
         if(!this.dataDescriptions.containsKey(fieldName)){
             try{
-                Field field = clazz.getField(fieldName);
+                Field field = clazz.getDeclaredField(fieldName);
+                field.setAccessible(true);
                 DataDescription<T> dataDescription = new DataDescription(this, field);
                 dataDescriptions.put(fieldName, dataDescription);
             }

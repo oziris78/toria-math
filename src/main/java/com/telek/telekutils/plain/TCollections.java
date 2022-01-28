@@ -281,4 +281,34 @@ public final class TCollections {
     }
 
 
+    /**
+     * Changing anything in the Integer[] array WILL change stuff in the int[]
+     * @param arr any array
+     * @return that array in class form
+     */
+    public static Integer[] getAsClassArray(int[] arr){
+        return Arrays.stream(arr).boxed().toArray(Integer[]::new);
+    }
+
+
+    /**
+     * Changing anything in the Long[] array WILL change stuff in the long[]
+     * @param arr any array
+     * @return that array in class form
+     */
+    public static Long[] getAsClassArray(long[] arr){
+        return Arrays.stream(arr).boxed().toArray(Long[]::new);
+    }
+
+
+    /**
+     * Changing anything in the Double[] array WILL change stuff in the double[]
+     * @param arr any array
+     * @return that array in class form
+     */
+    public static Double[] getAsClassArray(double[] arr){
+        return Arrays.stream(arr).boxed().toArray(Double[]::new);
+    }
+
+
 }

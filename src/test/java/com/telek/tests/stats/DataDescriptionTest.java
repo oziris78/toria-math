@@ -3,19 +3,19 @@ package com.telek.tests.stats;
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.statistics.DataDescription;
 import com.telek.telekmath.advanced.statistics.DataSet;
-import org.apache.commons.math3.stat.descriptive.moment.Kurtosis;
+import com.telek.telekutils.plain.TCollections;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.tree.FixedHeightLayoutCache;
 
 
 public class DataDescriptionTest {
 
+
     @Test
-    @DisplayName("dataDescriptionTest")
-    void dataDescriptionTest() {
+    @DisplayName("dataDescriptionClassTest")
+    void dataDescriptionClassTest() {
 
 
         Person[] population = Person.createPopulation();
@@ -66,6 +66,39 @@ public class DataDescriptionTest {
     }
 
 
+    @Test
+    @DisplayName("dataDescriptionPrimitiveTest")
+    void dataDescriptionPrimitiveTest() {
+        int[] heights = new int[]{
+                160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+        };
+        Integer[] population = TCollections.getAsClassArray(heights);
+        DataSet<Integer> dataSet = new DataSet<>(population, Integer.class);
+
+        dataSet.sort((o1, o2) -> o1 - o2);
+        DataDescription<Integer> heightDesc = dataSet.getDataDescription("value");
+        Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.min, 158));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.max, 203));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.range, 45));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.sum, 4571));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.mean, 175.80769230769));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.geomean, 175.52108614845));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.variance, 102.38609467456));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.stddev, 10.11860141889956));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.mode, 176));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.modeCount, 4));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.quartile1, 169.25));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.quartile2, 176));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.quartile3, 180.5));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.median, 176));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.bowleySkewCoef, -0.2));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.pearsonSkewCoef, -0.057));
+
+
+    }
 
 
 }

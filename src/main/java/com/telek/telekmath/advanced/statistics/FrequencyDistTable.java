@@ -4,6 +4,10 @@ import java.lang.reflect.Field;
 
 
 public class FrequencyDistTable<T> {
+    /*
+
+     */
+
 
     private class FrequencyClass<T> {
 
@@ -34,7 +38,7 @@ public class FrequencyDistTable<T> {
 
 
     private final T[] population;
-    private final Class<T> clazz;
+    private final Class<?> clazz;
     private Field field;
     private final int classCount;
 
@@ -47,9 +51,6 @@ public class FrequencyDistTable<T> {
     /*  CONSTRUCTORS AND FILLERS */
     ///////////////////////////////
 
-    /*
-
-     */
 
 
     public FrequencyDistTable(T[] population, Class<T> clazz, String fieldName, int classCount) {
@@ -58,11 +59,11 @@ public class FrequencyDistTable<T> {
         this.clazz = clazz;
         this.classCount = classCount;
         try{
-            this.field = this.clazz.getField(fieldName);
+            this.field = this.clazz.getDeclaredField(fieldName);
+            this.field.setAccessible(true);
         }
         catch (NoSuchFieldException e) {e.printStackTrace();}
     }
-
 
     public void fillTheTable(){
         try{

@@ -1,47 +1,47 @@
-com/telek/tests/zsingle/IAFTest.java
- com.telek.tests.zsingle.IAFTest
-com/telek/tests/color/ExportColor.java
- com.telek.tests.color.ExportColor
 com/telek/tests/zsingle/DiscreteMathTest.java
  com.telek.tests.zsingle.DiscreteMathTest
 com/telek/tests/numbers/FractionTest.java
  com.telek.tests.numbers.FractionTest
 com/telek/tests/points/TPoint3DTest.java
  com.telek.tests.points.TPoint3DTest
-com/telek/tests/matrices/TMatrixUtilsTest.java
- com.telek.tests.matrices.TMatrixUtilsTest
+com/telek/tests/zsingle/TMathTest.java
+ com.telek.tests.zsingle.TMathTest
 com/telek/tests/dists/ContDistTest.java
  com.telek.tests.dists.ContDistTest
-com/telek/tests/dists/DiscDistTest.java
- com.telek.tests.dists.DiscDistTest
+com/telek/tests/color/ExportColor.java
+ com.telek.tests.color.ExportColor
 com/telek/tests/numbers/ComplexNumberTest.java
  com.telek.tests.numbers.ComplexNumberTest
-com/telek/tests/matrices/TMatrixTest.java
- com.telek.tests.matrices.TMatrixTest
- com.telek.tests.matrices.TMatrixTest$1
+com/telek/tests/zsingle/IAFTest.java
+ com.telek.tests.zsingle.IAFTest
 com/telek/tests/points/TPoint2DTest.java
  com.telek.tests.points.TPoint2DTest
 com/telek/tests/zsingle/CryptoTest.java
  com.telek.tests.zsingle.CryptoTest
-com/telek/tests/vectors/TVector3DTest.java
- com.telek.tests.vectors.TVector3DTest
+com/telek/tests/functions/FuncTest.java
+ com.telek.tests.functions.FuncTest
 com/telek/tests/functions/TPolynomialTest.java
  com.telek.tests.functions.TPolynomialTest
 com/telek/tests/stats/Person.java
  com.telek.tests.stats.Person
 com/telek/tests/vectors/TVector2DTest.java
  com.telek.tests.vectors.TVector2DTest
-com/telek/tests/functions/FuncTest.java
- com.telek.tests.functions.FuncTest
+com/telek/tests/vectors/TVector3DTest.java
+ com.telek.tests.vectors.TVector3DTest
+com/telek/tests/dists/DiscDistTest.java
+ com.telek.tests.dists.DiscDistTest
 com/telek/tests/zsingle/NumericalAnalysisTest.java
  com.telek.tests.zsingle.NumericalAnalysisTest
 com/telek/tests/lines/TLine2DTest.java
  com.telek.tests.lines.TLine2DTest
-com/telek/tests/zsingle/TMathTest.java
- com.telek.tests.zsingle.TMathTest
-com/telek/tests/stats/SamplingTest.java
- com.telek.tests.stats.SamplingTest
-com/telek/tests/stats/FrequencyDistTableTest.java
- com.telek.tests.stats.FrequencyDistTableTest
 com/telek/tests/stats/DataDescriptionTest.java
  com.telek.tests.stats.DataDescriptionTest
+com/telek/tests/matrices/TMatrixUtilsTest.java
+ com.telek.tests.matrices.TMatrixUtilsTest
+com/telek/tests/matrices/TMatrixTest.java
+ com.telek.tests.matrices.TMatrixTest
+ com.telek.tests.matrices.TMatrixTest$1
+com/telek/tests/stats/SamplingTest.java
+ com.telek.tests.stats.SamplingTest
+com/telek/tests/stats/FreqDistTableTest.java
+ com.telek.tests.stats.FreqDistTableTest

@@ -8,8 +8,8 @@ com/telek/telekmath/core/geometry/points/TPoint2D.java
  com.telek.telekmath.core.geometry.points.TPoint2D
 com/telek/telekutils/swing/TSwingUtils.java
  com.telek.telekutils.swing.TSwingUtils
-com/telek/telekmath/core/matrices/TMatrix.java
- com.telek.telekmath.core.matrices.TMatrix
+com/telek/telekmath/advanced/statistics/DataDescription.java
+ com.telek.telekmath.advanced.statistics.DataDescription
 com/telek/telekmath/core/functions/amnfuncs/TSin.java
  com.telek.telekmath.core.functions.amnfuncs.TSin
 com/telek/telekutils/swing/TSwingComponents.java
@@ -109,8 +109,8 @@ com/telek/telekmath/exceptions/NotAMultiplyOfNException.java
  com.telek.telekmath.exceptions.NotAMultiplyOfNException
 com/telek/telekmath/advanced/distributions/contdist/NormalDist.java
  com.telek.telekmath.advanced.distributions.contdist.NormalDist
-com/telek/telekmath/advanced/statistics/Sampler.java
- com.telek.telekmath.advanced.statistics.Sampler
+com/telek/telekutils/plain/TCollections.java
+ com.telek.telekutils.plain.TCollections
 com/telek/telekutils/audio/TClipUtils.java
  com.telek.telekutils.audio.TClipUtils
 com/telek/telekmath/core/geometry/TLine2D.java
@@ -143,8 +143,8 @@ com/telek/telekmath/core/functions/other/TPolynomial.java
  com.telek.telekmath.core.functions.other.TPolynomial
 com/telek/telekmath/advanced/distributions/contdist/BetaDist.java
  com.telek.telekmath.advanced.distributions.contdist.BetaDist
-com/telek/telekutils/plain/TCollections.java
- com.telek.telekutils.plain.TCollections
+com/telek/telekmath/advanced/statistics/DataSet.java
+ com.telek.telekmath.advanced.statistics.DataSet
 com/telek/telekmath/special/cryptography/AsciiCipher.java
  com.telek.telekmath.special.cryptography.AsciiCipher
 com/telek/telekmath/exceptions/RepeatedPermutationException.java
@@ -160,14 +160,14 @@ com/telek/telekmath/exceptions/InvalidValueException.java
  com.telek.telekmath.exceptions.InvalidValueException
 com/telek/telekmath/core/functions/amnfuncs/TCeil.java
  com.telek.telekmath.core.functions.amnfuncs.TCeil
+com/telek/telekmath/advanced/random/TRandom.java
+ com.telek.telekmath.advanced.random.TRandom
+com/telek/telekmath/core/functions/other/TLog.java
+ com.telek.telekmath.core.functions.other.TLog
+com/telek/telekmath/core/matrices/TMatrix.java
+ com.telek.telekmath.core.matrices.TMatrix
+com/telek/telekmath/advanced/statistics/Sampler.java
+ com.telek.telekmath.advanced.statistics.Sampler
 com/telek/telekmath/advanced/statistics/FrequencyDistTable.java
  com.telek.telekmath.advanced.statistics.FrequencyDistTable
  com.telek.telekmath.advanced.statistics.FrequencyDistTable$FrequencyClass
-com/telek/telekmath/core/functions/other/TLog.java
- com.telek.telekmath.core.functions.other.TLog
-com/telek/telekmath/advanced/random/TRandom.java
- com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/advanced/statistics/DataSet.java
- com.telek.telekmath.advanced.statistics.DataSet
-com/telek/telekmath/advanced/statistics/DataDescription.java
- com.telek.telekmath.advanced.statistics.DataDescription

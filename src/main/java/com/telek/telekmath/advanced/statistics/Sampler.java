@@ -11,6 +11,11 @@ import java.util.Random;
 
 public class Sampler<T> {
 
+    /*
+    Her şeyi static yap ve constructor'ı private yap
+    T[], int[], float[], double[], long[] için metotlar yaz gerisi gereksiz
+    * */
+
     private T[] population;
     private Class<T> clazz;
 
