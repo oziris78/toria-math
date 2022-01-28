@@ -41,7 +41,7 @@ com/telek/tests/zsingle/TMathTest.java
  com.telek.tests.zsingle.TMathTest
 com/telek/tests/stats/SamplingTest.java
  com.telek.tests.stats.SamplingTest
-com/telek/tests/stats/DataDescriptionTest.java
- com.telek.tests.stats.DataDescriptionTest
 com/telek/tests/stats/FrequencyDistTableTest.java
  com.telek.tests.stats.FrequencyDistTableTest
+com/telek/tests/stats/DataDescriptionTest.java
+ com.telek.tests.stats.DataDescriptionTest

@@ -38,8 +38,8 @@ com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
 com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
-com/telek/telekmath/advanced/statistics/DataDescription.java
- com.telek.telekmath.advanced.statistics.DataDescription
+com/telek/telekmath/exceptions/WrongFunctionException.java
+ com.telek.telekmath.exceptions.WrongFunctionException
 com/telek/telekmath/advanced/distributions/discdist/DiscreteUniformDist.java
  com.telek.telekmath.advanced.distributions.discdist.DiscreteUniformDist
 com/telek/telekmath/core/functions/TFunction.java
@@ -119,8 +119,8 @@ com/telek/telekutils/plain/TStringUtils.java
  com.telek.telekutils.plain.TStringUtils
 com/telek/telekmath/core/functions/amnfuncs/TTan.java
  com.telek.telekmath.core.functions.amnfuncs.TTan
-com/telek/telekmath/advanced/statistics/DataSet.java
- com.telek.telekmath.advanced.statistics.DataSet
+com/telek/telekmath/advanced/distributions/discdist/BernoulliDist.java
+ com.telek.telekmath.advanced.distributions.discdist.BernoulliDist
 com/telek/telekmath/core/constants/TMathConstants.java
  com.telek.telekmath.core.constants.TMathConstants
 com/telek/telekmath/advanced/distributions/Experiment.java
@@ -160,13 +160,14 @@ com/telek/telekmath/exceptions/InvalidValueException.java
  com.telek.telekmath.exceptions.InvalidValueException
 com/telek/telekmath/core/functions/amnfuncs/TCeil.java
  com.telek.telekmath.core.functions.amnfuncs.TCeil
-com/telek/telekmath/advanced/distributions/discdist/BernoulliDist.java
- com.telek.telekmath.advanced.distributions.discdist.BernoulliDist
+com/telek/telekmath/advanced/statistics/FrequencyDistTable.java
+ com.telek.telekmath.advanced.statistics.FrequencyDistTable
+ com.telek.telekmath.advanced.statistics.FrequencyDistTable$FrequencyClass
 com/telek/telekmath/core/functions/other/TLog.java
  com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/exceptions/WrongFunctionException.java
- com.telek.telekmath.exceptions.WrongFunctionException
-com/telek/telekmath/advanced/statistics/FrequencyDistTable.java
- com.telek.telekmath.advanced.statistics.FrequencyDistTable
+com/telek/telekmath/advanced/statistics/DataSet.java
+ com.telek.telekmath.advanced.statistics.DataSet
+com/telek/telekmath/advanced/statistics/DataDescription.java
+ com.telek.telekmath.advanced.statistics.DataDescription

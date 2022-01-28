@@ -3,9 +3,12 @@ package com.telek.tests.stats;
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.statistics.DataDescription;
 import com.telek.telekmath.advanced.statistics.DataSet;
+import org.apache.commons.math3.stat.descriptive.moment.Kurtosis;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import javax.swing.tree.FixedHeightLayoutCache;
 
 
 public class DataDescriptionTest {
@@ -13,6 +16,7 @@ public class DataDescriptionTest {
     @Test
     @DisplayName("dataDescriptionTest")
     void dataDescriptionTest() {
+
 
         Person[] population = Person.createPopulation();
         DataSet<Person> dataSet = new DataSet<>(population, Person.class);
@@ -35,6 +39,8 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(heightDesc.quartile3, 180.5));
         Assertions.assertTrue(TMath.areEqual(heightDesc.median, 176));
         Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.bowleySkewCoef, -0.2));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.pearsonSkewCoef, -0.057));
 
         dataSet.sort((o1, o2) -> o1.age - o2.age);
         DataDescription<Person> ageDesc =  dataSet.getDataDescription("age");
@@ -54,6 +60,9 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(ageDesc.quartile3, 38));
         Assertions.assertTrue(TMath.areEqual(ageDesc.median, 20));
         Assertions.assertTrue(TMath.areEqual(ageDesc.interquartileRange, 20));
+        Assertions.assertTrue(TMath.areEqual(ageDesc.bowleySkewCoef, 0.8));
+        Assertions.assertTrue(TMath.areEqual(ageDesc.pearsonSkewCoef, 1.5281));
+
     }
 
 

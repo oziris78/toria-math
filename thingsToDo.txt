@@ -12,10 +12,18 @@ GELECEK PLANLARI {
         - yeni extension: telek-visualstat, telek-vis-stat, telek-vstat*
         - buraya istatistik şeyleri yazılacak, yukarıdaki extension ise yalnızca görselleştirme için kullanılacak
 
-    frequency dist. table olayları
-    single regression
     derste öğrendiğimiz testler
+    single regression
+
 
 
 }
 
+telek-vstat{
+    dot plots?
+    stem and leaf plots?
+    - frequency dist. table visualization
+    line plots?
+    - histograms
+    - boxplots
+}

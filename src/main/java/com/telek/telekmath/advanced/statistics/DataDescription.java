@@ -32,6 +32,15 @@ public class DataDescription<T> {
     public double variance;
 
 
+    /** A value in range [-1,1] to estimate the skewness of this data set. <br>
+     * skewness > 0 means it's skewed to right. <br>
+     * skewness = 0 means it's symmetrical. <br>
+     * skewness < 0 means it's skewed to left.
+     * */
+    public double pearsonSkewCoef, bowleySkewCoef;
+
+
+
     public DataDescription(DataSet<T> dataSet, Field field) throws IllegalAccessException {
         // references
         this.field = field;
@@ -60,9 +69,8 @@ public class DataDescription<T> {
         // stddev, variance
         for (int i = 0; i < count; i++) {
             double val = getValue(i);
-
-            double xiMinusMean = (val - mean);
-            variance += xiMinusMean * xiMinusMean;
+            double ximean = val - mean;
+            variance += ximean * ximean;
         }
         variance /= count;
         stddev = Math.sqrt(variance);
@@ -92,6 +100,10 @@ public class DataDescription<T> {
         quartile3 = getQuartile(3d);
         median = quartile2;
         interquartileRange = quartile3 - quartile1;
+
+        // skewness coefficients
+        pearsonSkewCoef = 3 * (mean - median) / stddev;
+        bowleySkewCoef = (quartile3 + quartile1 - 2 * quartile2) / (quartile3 - quartile1);
 
     }
 
