@@ -1,14 +1,16 @@
 package com.telek.tests.stats;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.advanced.statistics.FrequencyDistTable;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekmath.advanced.statistics.descriptive.FreqDistTable;
+import com.telek.telekmath.advanced.statistics.descriptive.GenericFreqDistTable;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
+
 public class FreqDistTableTest {
-    
+
     @Test
     @DisplayName("freqDistTableClass")
     void freqDistTableClass() {
@@ -37,7 +39,7 @@ public class FreqDistTableTest {
 
         // PREPERATION OF DATA
         Person[] population = Person.createPopulation();
-        FrequencyDistTable<Person> freqDistTable = new FrequencyDistTable<>(population, Person.class, "height", 6);
+        GenericFreqDistTable<Person> freqDistTable = new GenericFreqDistTable<>(population, Person.class, "height", 6);
         freqDistTable.fillTheTable();
 
         System.out.println(freqDistTable.getTableAsString());
@@ -98,68 +100,91 @@ public class FreqDistTableTest {
     @Test
     @DisplayName("freqDistTablePrimitive")
     void freqDistTablePrimitive() {
-        // PREPERATION OF DATA
+        for (int type = 0; type < 4; type++) {
+            FreqDistTable freqDistTable = null;
+            if(type == 0){
+                int[] heights = new int[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                freqDistTable = new FreqDistTable(heights, 6);
+            }
+            if(type == 1){
+                double[] heights = new double[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                freqDistTable = new FreqDistTable(heights, 6);
+            }
+            if(type == 2){
+                float[] heights = new float[]{
+                    160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                    177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                freqDistTable = new FreqDistTable(heights, 6);
+            }
+            if(type == 3){
+                long[] heights = new long[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                freqDistTable = new FreqDistTable(heights, 6);
+            }
+            freqDistTable.fillTheTable();
 
-        int[] heights = new int[]{
-                160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
-                177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
-        };
 
-        Integer[] population = TCollections.getAsClassArray(heights);
+            // TESTS
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(0), 158));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(1), 166));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(2), 174));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(3), 182));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(4), 190));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(5), 198));
 
-        FrequencyDistTable<?> freqDistTable = new FrequencyDistTable(heights, 6);
-        freqDistTable.fillTheTable();
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(0), 166));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(1), 174));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(2), 182));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(3), 190));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(4), 198));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(5), 206));
 
-        // TESTS
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(0), 158));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(1), 166));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(2), 174));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(3), 182));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(4), 190));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalLeft(5), 198));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(0), 162));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(1), 170));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(2), 178));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(3), 186));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(4), 194));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(5), 202));
 
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(0), 166));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(1), 174));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(2), 182));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(3), 190));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(4), 198));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIntervalRight(5), 206));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(0), 4));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(1), 7));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(2), 9));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(3), 3));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(4), 2));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(5), 1));
 
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(0), 162));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(1), 170));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(2), 178));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(3), 186));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(4), 194));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getMidpoint(5), 202));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(0), 0.153846153846));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(1), 0.269230769231));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(2), 0.346153846154));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(3), 0.115384615385));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(4), 0.0769230769231));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(5), 0.0384615384615));
 
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(0), 4));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(1), 7));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(2), 9));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(3), 3));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(4), 2));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getFrequency(5), 1));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(0), 4));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(1), 11));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(2), 20));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(3), 23));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(4), 25));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(5), 26));
 
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(0), 0.153846153846));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(1), 0.269230769231));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(2), 0.346153846154));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(3), 0.115384615385));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(4), 0.0769230769231));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getRelativeFreq(5), 0.0384615384615));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(0), 0.153846153846));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(1), 0.423076923077));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(2), 0.769230769231));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(3), 0.884615384616));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(4), 0.961538461539));
+            Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(5), 1));
 
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(0), 4));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(1), 11));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(2), 20));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(3), 23));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(4), 25));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncCumFreq(5), 26));
-
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(0), 0.153846153846));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(1), 0.423076923077));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(2), 0.769230769231));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(3), 0.884615384616));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(4), 0.961538461539));
-        Assertions.assertTrue(TMath.areEqual(freqDistTable.getIncRelFreq(5), 1));
-
+        }
     }
+
 
 }
