@@ -1,13 +1,12 @@
 package com.telek.tests.stats;
 
 import com.telek.telekmath.TMath;
+import com.telek.telekmath.advanced.random.TNoise;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DataSet;
-import com.telek.telekmath.advanced.statistics.descriptive.FreqDistTable;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 
 
 public class DataDescriptionTest {
@@ -129,5 +128,90 @@ public class DataDescriptionTest {
 
 
     }
+
+
+    @Test
+    @DisplayName("test1")
+    void test1() {
+        final int SIZE = 10000;
+        double[] population = new double[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            population[i] = TNoise.canonicalRandom(i, i * 2);
+        }
+
+
+        DataDescription dataDesc = DataSet.getDataDescription(population);
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 0.5018593d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.median, 0.5d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode, 0.2929687d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.modeCount, 41d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.max, 0.9995d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.min, 0d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.range, 0.9995d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.count, 10000d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.sum, 5018.5938d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.variance, 0.0829d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.stddev, 0.2880d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile1, 0.2578d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile2, 0.5d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile3, 0.75d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.bowleySkewCoef, 0.01587d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.pearsonSkewCoef, 0.0193d));
+    }
+
+
+    static class MyClass{
+        double theMostImportantFieldInTheWorld;
+        int junk;
+        String otherJunk;
+        Person literalFuckingJunk;
+        public MyClass(double value){
+            this.theMostImportantFieldInTheWorld = value;
+            junk = 0;
+            otherJunk = "test";
+            literalFuckingJunk = new Person("who cares", -1, 9999);
+        }
+    }
+
+    @Test
+    @DisplayName("test2")
+    void test2() {
+
+        final int SIZE = 10000;
+        MyClass[] classPopulation = new MyClass[SIZE];
+        double[] doublePopulation = new double[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            doublePopulation[i] = TNoise.canonicalRandom(i, i * 2);
+            classPopulation[i] = new MyClass(TNoise.canonicalRandom(i, i * 2));
+        }
+
+
+        // data desc 1
+        DataDescription dataDesc = DataSet.getDataDescription(doublePopulation);
+
+        // data desc 2
+        DataSet<MyClass> dataSet = new DataSet<>(classPopulation, MyClass.class);
+        dataSet.sort(((o1, o2) -> (int) (o1.theMostImportantFieldInTheWorld - o2.theMostImportantFieldInTheWorld)));
+        DataDescription dataDesc2 = dataSet.getDataDescription("theMostImportantFieldInTheWorld");
+
+        // tests
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.mean, dataDesc.mean));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.median, dataDesc.median));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.mode, dataDesc.mode));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.modeCount, dataDesc.modeCount));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.max, dataDesc.max));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.min, dataDesc.min));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.range, dataDesc.range));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.count, dataDesc.count));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.sum, dataDesc.sum));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.variance, dataDesc.variance));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.stddev, dataDesc.stddev));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.quartile1, dataDesc.quartile1));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.quartile2, dataDesc.quartile2));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.quartile3, dataDesc.quartile3));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.bowleySkewCoef, dataDesc.bowleySkewCoef));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.pearsonSkewCoef, dataDesc.pearsonSkewCoef));
+    }
+
 
 }

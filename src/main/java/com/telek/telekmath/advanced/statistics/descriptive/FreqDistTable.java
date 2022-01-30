@@ -1,6 +1,7 @@
 package com.telek.telekmath.advanced.statistics.descriptive;
 
 
+import java.util.ArrayList;
 
 public class FreqDistTable {
 

@@ -39,14 +39,14 @@ com/telek/telekmath/special/NumericalAnalysis.java
  com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
-com/telek/telekmath/exceptions/WrongFunctionException.java
- com.telek.telekmath.exceptions.WrongFunctionException
+com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
+ com.telek.telekmath.advanced.statistics.descriptive.DataDescription
 com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/advanced/distributions/discdist/DiscreteUniformDist.java
  com.telek.telekmath.advanced.distributions.discdist.DiscreteUniformDist
-com/telek/telekmath/advanced/distributions/discdist/BernoulliDist.java
- com.telek.telekmath.advanced.distributions.discdist.BernoulliDist
+com/telek/telekmath/advanced/statistics/descriptive/DataSet.java
+ com.telek.telekmath.advanced.statistics.descriptive.DataSet
 com/telek/telekmath/core/functions/TFunction.java
  com.telek.telekmath.core.functions.TFunction
 com/telek/telekmath/core/functions/amnfuncs/THeavisideFunc.java
@@ -170,7 +170,7 @@ com/telek/telekmath/core/functions/other/TLog.java
  com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/advanced/statistics/descriptive/DataSet.java
- com.telek.telekmath.advanced.statistics.descriptive.DataSet
-com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
- com.telek.telekmath.advanced.statistics.descriptive.DataDescription
+com/telek/telekmath/exceptions/WrongFunctionException.java
+ com.telek.telekmath.exceptions.WrongFunctionException
+com/telek/telekmath/advanced/distributions/discdist/BernoulliDist.java
+ com.telek.telekmath.advanced.distributions.discdist.BernoulliDist
