@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.stats.DataDescriptionTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-01-30T01:08:07" hostname="TUNERIKGEZGINI" time="0.042">
+<testsuite name="com.telek.tests.stats.DataDescriptionTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2022-01-30T22:56:54" hostname="TUNERIKGEZGINI" time="0.042">
   <properties/>
-  <testcase name="test2" classname="com.telek.tests.stats.DataDescriptionTest" time="0.042">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:162)
-	at com.telek.tests.stats.DataDescriptionTest.test2(DataDescriptionTest.java:199)
+  <testcase name="dataDescGenericTest" classname="com.telek.tests.stats.DataDescriptionTest" time="0.018"/>
+  <testcase name="randomTest1" classname="com.telek.tests.stats.DataDescriptionTest" time="0.017"/>
+  <testcase name="randomTest2" classname="com.telek.tests.stats.DataDescriptionTest" time="0.003">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.telek.telekmath.advanced.statistics.cop.DataSet.getDataDesc(DataSet.java:128)
+	at com.telek.telekmath.advanced.statistics.cop.DataSet.&lt;init&gt;(DataSet.java:22)
+	at com.telek.tests.stats.DataDescriptionTest.randomTest2(DataDescriptionTest.java:210)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -100,6 +100,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
+  <testcase name="dataDescPrimitiveTest" classname="com.telek.tests.stats.DataDescriptionTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -2,9 +2,8 @@ package com.telek.telekutils.plain;
 
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.core.matrices.TMatrix;
-
-import static com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.exceptions.TelekMathException.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -57,6 +56,20 @@ public final class TCollections {
         return newArray;
     }
 
+    public static Number[] getCopyOf(Number[] arrToCopy){
+        int size = arrToCopy.length;
+        Number[] newArray = new Number[size];
+        System.arraycopy(arrToCopy, 0, newArray, 0, size);
+        return newArray;
+    }
+
+    public static <T> T[] getCopyOf(T[] arrToCopy, Class<T> clazz){
+        int size = arrToCopy.length;
+        T[] newArray = (T[]) Array.newInstance(clazz, size);
+        System.arraycopy(arrToCopy, 0, newArray, 0, size);
+        return newArray;
+    }
+
     public static <T> ArrayList<T> getCopyOf(ArrayList<T> arrayListToCopy){
         return new ArrayList<T>(arrayListToCopy);
     }
@@ -74,10 +87,57 @@ public final class TCollections {
     }
 
 
+    ////////////////////////////////////
+    /////// SORT & COPY METHODS ////////
+    ////////////////////////////////////
 
-    ////////////////////////////////
-    ///// CONSTRUCTOR METHODS //////
-    ////////////////////////////////
+
+    public static <T> T[] getSortedCopy(T[] arrToCopyAndSort, Class<T> clazz, Comparator<T> comparator){
+        T[] newArray = getCopyOf(arrToCopyAndSort, clazz);
+        Arrays.sort(newArray, comparator);
+        return newArray;
+    }
+
+    public static int[] getSortedCopy(int[] arrToCopyAndSort){
+        int[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static float[] getSortedCopy(float[] arrToCopyAndSort){
+        float[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static double[] getSortedCopy(double[] arrToCopyAndSort){
+        double[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static long[] getSortedCopy(long[] arrToCopyAndSort){
+        long[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static byte[] getSortedCopy(byte[] arrToCopyAndSort){
+        byte[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static short[] getSortedCopy(short[] arrToCopyAndSort){
+        short[] newArray = getCopyOf(arrToCopyAndSort);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+
+    ////////////////////////////////////
+    ///// ARRAY CREATION METHODS //////
+    ////////////////////////////////////
 
 
     public static double[] doubleArr(double... nums){
@@ -92,7 +152,6 @@ public final class TCollections {
             arrToReturn[i] = nums[i];
         return arrToReturn;
     }
-
 
 
     public static double[][] doubleArr2(double[]... numArrays){
@@ -202,23 +261,9 @@ public final class TCollections {
     }
 
 
-
-    public static boolean areEqual(double[] arr1, double[] arr2){
-        return Arrays.equals(arr1, arr2);
-    }
-
-    public static boolean areEqual(int[] arr1, int[] arr2){
-        return Arrays.equals(arr1, arr2);
-    }
-
-    public static boolean areEqual(float[] arr1, float[] arr2){
-        return Arrays.equals(arr1, arr2);
-    }
-
-    public static boolean areEqual(long[] arr1, long[] arr2){
-        return Arrays.equals(arr1, arr2);
-    }
-
+    ////////////////////////////////////////
+    ///// COLLECTION CREATION METHODS //////
+    ////////////////////////////////////////
 
 
     public static <T1, T2> HashMap<T1,T2> createHashMap(T1[] keys, T2[] values){
@@ -254,6 +299,29 @@ public final class TCollections {
 
 
 
+    /////////////////////////////////
+    ///// MATHEMATICAL METHODS //////
+    /////////////////////////////////
+
+
+    public static boolean areEqual(double[] arr1, double[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static boolean areEqual(int[] arr1, int[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static boolean areEqual(float[] arr1, float[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static boolean areEqual(long[] arr1, long[] arr2){
+        return Arrays.equals(arr1, arr2);
+    }
+
+
+
     ////////////////////////////////
     /////// UTILITY METHODS ////////
     ////////////////////////////////
@@ -281,6 +349,8 @@ public final class TCollections {
     }
 
 
+
+
     /**
      * Changing anything in the Integer[] array WILL change stuff in the int[]
      * @param arr any array
@@ -289,6 +359,7 @@ public final class TCollections {
     public static Integer[] getAsClassArray(int[] arr){
         return Arrays.stream(arr).boxed().toArray(Integer[]::new);
     }
+
 
 
     /**

@@ -1,4 +1,4 @@
-package com.telek.telekmath.special.cryptography;
+package com.telek.telekmath.advanced.cryptography;
 
 
 import com.telek.telekmath.core.constants.CryptoConstants;

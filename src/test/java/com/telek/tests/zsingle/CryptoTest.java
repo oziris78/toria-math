@@ -1,9 +1,9 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.special.cryptography.AsciiCipher;
-import com.telek.telekmath.special.cryptography.BaconCipher;
-import com.telek.telekmath.special.cryptography.CaesarCipher;
-import com.telek.telekmath.special.cryptography.VigenereCipher;
+import com.telek.telekmath.advanced.cryptography.AsciiCipher;
+import com.telek.telekmath.advanced.cryptography.BaconCipher;
+import com.telek.telekmath.advanced.cryptography.CaesarCipher;
+import com.telek.telekmath.advanced.cryptography.VigenereCipher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.advanced.statistics.descriptive.Sampler;
+import com.telek.telekmath.advanced.statistics.util.Sampler;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

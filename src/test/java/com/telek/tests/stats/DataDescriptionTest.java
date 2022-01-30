@@ -2,12 +2,14 @@ package com.telek.tests.stats;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DataSet;
+import com.telek.telekmath.advanced.statistics.measures.DataDescription;
+import com.telek.telekmath.advanced.statistics.measures.DataSet;
+import com.telek.telekutils.plain.TCollections;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
 
 public class DataDescriptionTest {
 
@@ -17,13 +19,16 @@ public class DataDescriptionTest {
     void dataDescGenericTest() {
         // data
         Person[] population = Person.createPopulation();
-        DataSet<Person> dataSet = new DataSet<>(population, Person.class);
+        // get sorted data
+        Person[] sortedWithHeight = TCollections.getSortedCopy(population, Person.class, (o1, o2) -> o1.height - o2.height);
+        Person[] sortedWithAge = TCollections.getSortedCopy(population, Person.class, (o1, o2) -> o1.age - o2.age);
 
-        // get data descriptions after doing a sort
-        dataSet.sort((o1, o2) -> o1.height - o2.height);
-        DataDescription heightDesc = dataSet.getDataDescription("height");
-        dataSet.sort((o1, o2) -> o1.age - o2.age);
-        DataDescription ageDesc =  dataSet.getDataDescription("age");
+        // get data sets and desc
+        DataSet heightDataSet = new DataSet(sortedWithHeight, Person.class, "height");
+        DataDescription heightDesc = heightDataSet.getDataDesc();
+
+        DataSet ageDataSet = new DataSet(sortedWithAge, Person.class, "age");
+        DataDescription ageDesc = ageDataSet.getDataDesc();
 
         // TESTS
         Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
@@ -63,45 +68,45 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(ageDesc.interquartileRange, 20));
         Assertions.assertTrue(TMath.areEqual(ageDesc.bowleySkewCoef, 0.8));
         Assertions.assertTrue(TMath.areEqual(ageDesc.pearsonSkewCoef, 1.5281));
-
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Test
     @DisplayName("dataDescPrimitiveTest")
     void dataDescPrimitiveTest() {
 
-        for (int type = 0; type < 4; type++) {
+        for (int type = 0; type < 3; type++) {
+            // GET DATA DESCRIPTIONS
             DataDescription heightDesc = null;
             if(type == 0){
                 int[] population = new int[]{
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                heightDesc = DataSet.getDataDescription(population);
+                int[] sorted = TCollections.getSortedCopy(population);
+                Integer[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = new DataSet(param).getDataDesc();
             }
             if(type == 1){
                 double[] population = new double[]{
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                heightDesc = DataSet.getDataDescription(population);
+                double[] sorted = TCollections.getSortedCopy(population);
+                Double[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = new DataSet(param).getDataDesc();
             }
             if(type == 2){
-                float[] population = new float[]{
-                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
-                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
-                };
-                heightDesc = DataSet.getDataDescription(population);
-            }
-            if(type == 3){
                 long[] population = new long[]{
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                heightDesc = DataSet.getDataDescription(population);
+                long[] sorted = TCollections.getSortedCopy(population);
+                Long[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = new DataSet(param).getDataDesc();
             }
-
 
             // TESTS
             Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
@@ -122,25 +127,28 @@ public class DataDescriptionTest {
             Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
             Assertions.assertTrue(TMath.areEqual(heightDesc.bowleySkewCoef, -0.2));
             Assertions.assertTrue(TMath.areEqual(heightDesc.pearsonSkewCoef, -0.057));
-
         }
-
-
 
     }
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Test
-    @DisplayName("test1")
-    void test1() {
+    @DisplayName("randomTest1")
+    void randomTest1() {
+        // DATA
         final int SIZE = 10000;
         double[] population = new double[SIZE];
         for (int i = 0; i < SIZE; i++) {
             population[i] = TNoise.canonicalRandom(i, i * 2);
         }
+        double[] sorted = TCollections.getSortedCopy(population);
+        Double[] param = TCollections.getAsClassArray(sorted);
+        DataDescription dataDesc = new DataSet(param).getDataDesc();
 
-
-        DataDescription dataDesc = DataSet.getDataDescription(population);
+        // TESTS
         Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 0.5018593d));
         Assertions.assertTrue(TMath.areEqual(dataDesc.median, 0.5d));
         Assertions.assertTrue(TMath.areEqual(dataDesc.mode, 0.2929687d));
@@ -159,49 +167,61 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(dataDesc.pearsonSkewCoef, 0.0193d));
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    static class MyClass{
-        double theMostImportantFieldInTheWorld;
+
+    static class TestClass {
+        double theField;
         int junk;
         String otherJunk;
         Person literalFuckingJunk;
-        public MyClass(double value){
-            this.theMostImportantFieldInTheWorld = value;
+        public TestClass(double value){
+            this.theField = value;
             junk = 0;
             otherJunk = "test";
-            literalFuckingJunk = new Person("who cares", -1, 9999);
+            literalFuckingJunk = new Person("joe momma", -1, 9999);
         }
     }
 
-    @Test
-    @DisplayName("test2")
-    void test2() {
 
-        final int SIZE = 10000;
-        MyClass[] classPopulation = new MyClass[SIZE];
+    @Test
+    @DisplayName("randomTest2")
+    void randomTest2() {
+        // DATA
+        final int SIZE = 1000;
+        TestClass[] classPopulation = new TestClass[SIZE];
         double[] doublePopulation = new double[SIZE];
+        Random r = new Random();
         for (int i = 0; i < SIZE; i++) {
-            doublePopulation[i] = TNoise.canonicalRandom(i, i * 2);
-            classPopulation[i] = new MyClass(TNoise.canonicalRandom(i, i * 2));
+            double val = r.nextDouble();
+            doublePopulation[i] = val;
+            classPopulation[i] = new TestClass(val);
         }
 
+        double[] sorted = TCollections.getSortedCopy(doublePopulation);
+        Double[] param = TCollections.getAsClassArray(sorted);
+
+        TestClass[] sortedPop = TCollections.getSortedCopy(classPopulation, TestClass.class,
+                (o1, o2) -> (int) (o1.theField - o2.theField));
 
         // data desc 1
-        DataDescription dataDesc = DataSet.getDataDescription(doublePopulation);
+        DataDescription dataDesc = new DataSet(param).getDataDesc();
+        System.out.println(dataDesc);
 
         // data desc 2
-        DataSet<MyClass> dataSet = new DataSet<>(classPopulation, MyClass.class);
-        dataSet.sort(((o1, o2) -> (int) (o1.theMostImportantFieldInTheWorld - o2.theMostImportantFieldInTheWorld)));
-        DataDescription dataDesc2 = dataSet.getDataDescription("theMostImportantFieldInTheWorld");
+        DataDescription dataDesc2 = new DataSet(sortedPop, TestClass.class, "theField").getDataDesc();
+        System.out.println(dataDesc2);
+
 
         // tests
         Assertions.assertTrue(TMath.areEqual(dataDesc2.mean, dataDesc.mean));
-        Assertions.assertTrue(TMath.areEqual(dataDesc2.median, dataDesc.median));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.mode, dataDesc.mode));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.modeCount, dataDesc.modeCount));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.max, dataDesc.max));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.min, dataDesc.min));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.range, dataDesc.range));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.median, dataDesc.median));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.count, dataDesc.count));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.sum, dataDesc.sum));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.variance, dataDesc.variance));
@@ -212,6 +232,5 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(dataDesc2.bowleySkewCoef, dataDesc.bowleySkewCoef));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.pearsonSkewCoef, dataDesc.pearsonSkewCoef));
     }
-
 
 }

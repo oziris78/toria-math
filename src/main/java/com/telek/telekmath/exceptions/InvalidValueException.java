@@ -18,6 +18,9 @@ public class InvalidValueException extends IllegalArgumentException{
         super("Invalid value for " + fieldStr + " = " + value);
     }
 
+    public InvalidValueException(String fieldStr) {
+        super("Invalid value for " + fieldStr + " = " + "null");
+    }
 
 
 

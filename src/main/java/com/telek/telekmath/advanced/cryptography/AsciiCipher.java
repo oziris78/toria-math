@@ -1,4 +1,4 @@
-package com.telek.telekmath.special.cryptography;
+package com.telek.telekmath.advanced.cryptography;
 
 import com.telek.telekmath.special.DiscreteMath;
 
@@ -11,7 +11,7 @@ public class AsciiCipher {
     public static String decode(String numberSeq, int base){
         String[] strArr = numberSeq.split("\\s+");
         ArrayList<Integer> numArr = new ArrayList<>();
-        for(String s : strArr) numArr.add( DiscreteMath.getInBase10(s, base) );
+        for(String s : strArr) numArr.add(DiscreteMath.getInBase10(s, base));
         StringBuilder sb = new StringBuilder();
         for(int i : numArr) sb.append( ((char) i) + " ");
         return sb.toString().trim();

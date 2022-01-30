@@ -1,4 +1,4 @@
-package com.telek.telekmath.advanced.statistics.descriptive;
+package com.telek.telekmath.advanced.statistics.util;
 
 
 import com.telek.telekmath.core.functions.TRange;
@@ -8,13 +8,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 
-public class Sampler<T> {
-
-    /*
-    Her şeyi static yap ve constructor'ı private yap
-    T[], int[], float[], double[], long[] için metotlar yaz gerisi gereksiz
-    * */
-
+public class Sampler {
 
     private static Random random = new Random();
 
@@ -126,7 +120,6 @@ public class Sampler<T> {
     /*  PRIMITIVE METHODS  */
     /////////////////////////
 
-    /** @see Sampler#simpleRandomSampling(Object[], Class, int) */
     public static int[] simpleRandomSampling(int[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -148,7 +141,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#systematicSampling(Object[], Class, int) */
     public static int[] systematicSampling(int[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -174,7 +166,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#clusterSampling(Object[], Class, int) */
     public static int[] clusterSampling(int[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -205,7 +196,6 @@ public class Sampler<T> {
 
     //////////////
 
-    /** @see Sampler#simpleRandomSampling(Object[], Class, int) */
     public static float[] simpleRandomSampling(float[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -227,7 +217,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#systematicSampling(Object[], Class, int) */
     public static float[] systematicSampling(float[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -253,7 +242,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#clusterSampling(Object[], Class, int) */
     public static float[] clusterSampling(float[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -284,7 +272,6 @@ public class Sampler<T> {
 
     //////////////
 
-    /** @see Sampler#simpleRandomSampling(Object[], Class, int) */
     public static double[] simpleRandomSampling(double[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -306,7 +293,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#systematicSampling(Object[], Class, int) */
     public static double[] systematicSampling(double[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -332,7 +318,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#clusterSampling(Object[], Class, int) */
     public static double[] clusterSampling(double[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -363,7 +348,6 @@ public class Sampler<T> {
 
     //////////////
 
-    /** @see Sampler#simpleRandomSampling(Object[], Class, int) */
     public static long[] simpleRandomSampling(long[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -385,7 +369,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#systematicSampling(Object[], Class, int) */
     public static long[] systematicSampling(long[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -411,7 +394,6 @@ public class Sampler<T> {
     }
 
 
-    /** @see Sampler#clusterSampling(Object[], Class, int) */
     public static long[] clusterSampling(long[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 

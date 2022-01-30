@@ -216,6 +216,9 @@ public final class TMath {
     }
 
     public static boolean areEqual(double d1, double d2){
+        if(Double.isNaN(d1) && Double.isNaN(d2)) return true;
+        if(Double.isNaN(d1) && !Double.isNaN(d2)) return false;
+        if(!Double.isNaN(d1) && Double.isNaN(d2)) return false;
         return Math.abs(d1 - d2) < TMathConstants.EPSILON;
     }
 

@@ -45,4 +45,4 @@ com/telek/tests/color/ExportColor.java
  com.telek.tests.color.ExportColor
 com/telek/tests/stats/DataDescriptionTest.java
  com.telek.tests.stats.DataDescriptionTest
- com.telek.tests.stats.DataDescriptionTest$MyClass
+ com.telek.tests.stats.DataDescriptionTest$TestClass
