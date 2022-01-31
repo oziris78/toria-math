@@ -8,12 +8,10 @@ GELECEK PLANLARI {
         - derivative fonksiyonunda unwrapping yapmalıyız
         - toString() metodu belki bundan sonra yeniden yazılmalı olacak
 
-    İstatistik eklemeleri yap
-        - yeni extension: telek-visualstat, telek-vis-stat, telek-vstat*
-        - buraya istatistik şeyleri yazılacak, yukarıdaki extension ise yalnızca görselleştirme için kullanılacak
-
-    derste öğrendiğimiz testler
-    single regression
+    İstatistik:
+        DataDescription içine birden çok mod olma durumunu koyabilirim, multimodal veriler için birden çok mod bulur
+        derste öğrendiğimiz testler
+        single regression
 
 
 
