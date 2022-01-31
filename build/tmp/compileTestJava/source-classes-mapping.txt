@@ -1,3 +1,11 @@
+com/telek/tests/stats/SampleData.java
+ com.telek.tests.stats.SampleData
+com/telek/tests/color/ExportColor.java
+ com.telek.tests.color.ExportColor
+com/telek/tests/zsingle/IAFTest.java
+ com.telek.tests.zsingle.IAFTest
+com/telek/tests/stats/Person.java
+ com.telek.tests.stats.Person
 com/telek/tests/zsingle/DiscreteMathTest.java
  com.telek.tests.zsingle.DiscreteMathTest
 com/telek/tests/numbers/FractionTest.java
@@ -19,20 +27,19 @@ com/telek/tests/points/TPoint2DTest.java
  com.telek.tests.points.TPoint2DTest
 com/telek/tests/zsingle/CryptoTest.java
  com.telek.tests.zsingle.CryptoTest
-com/telek/tests/stats/SampleData.java
- com.telek.tests.stats.SampleData
 com/telek/tests/vectors/TVector3DTest.java
  com.telek.tests.vectors.TVector3DTest
 com/telek/tests/functions/TPolynomialTest.java
  com.telek.tests.functions.TPolynomialTest
-com/telek/tests/stats/Person.java
- com.telek.tests.stats.Person
 com/telek/tests/vectors/TVector2DTest.java
  com.telek.tests.vectors.TVector2DTest
 com/telek/tests/stats/FreqDistTableTest.java
  com.telek.tests.stats.FreqDistTableTest
 com/telek/tests/dists/DiscDistTest.java
  com.telek.tests.dists.DiscDistTest
+com/telek/tests/stats/DataDescriptionTest.java
+ com.telek.tests.stats.DataDescriptionTest
+ com.telek.tests.stats.DataDescriptionTest$TestClass
 com/telek/tests/zsingle/NumericalAnalysisTest.java
  com.telek.tests.zsingle.NumericalAnalysisTest
 com/telek/tests/lines/TLine2DTest.java
@@ -41,10 +48,6 @@ com/telek/tests/zsingle/TMathTest.java
  com.telek.tests.zsingle.TMathTest
 com/telek/tests/functions/FuncTest.java
  com.telek.tests.functions.FuncTest
-com/telek/tests/zsingle/IAFTest.java
- com.telek.tests.zsingle.IAFTest
-com/telek/tests/color/ExportColor.java
- com.telek.tests.color.ExportColor
-com/telek/tests/stats/DataDescriptionTest.java
- com.telek.tests.stats.DataDescriptionTest
- com.telek.tests.stats.DataDescriptionTest$TestClass
+com/telek/tests/stats/RegressionTest.java
+ com.telek.tests.stats.RegressionTest
+ com.telek.tests.stats.RegressionTest$YearResult

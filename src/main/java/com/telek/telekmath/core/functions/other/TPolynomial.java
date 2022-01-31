@@ -180,7 +180,15 @@ public class TPolynomial extends AbstractFunction {
 
     @Override
     public String toString() {
-        return "TPolynomial=" + Arrays.toString(coefficients);
+        StringBuilder sb = new StringBuilder(String.format("%f", coefficients[0]));
+        if(coefficients.length != 1) sb.append(" + ");
+        for (int i = 1; i < coefficients.length; i++) {
+            double val = coefficients[i];
+            if(val == 0) continue;
+            sb.append(String.format("%f x^%d", val, i));
+            if(i+1 != coefficients.length) sb.append(" + ");
+        }
+        return sb.toString().replaceAll("\\+ \\-", "- ").replaceAll("\\^1", "");
     }
 
 

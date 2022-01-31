@@ -5,7 +5,7 @@ public class FrequencyClass {
 
     public final double cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq;
 
-    public FrequencyClass(double cl, double cr, double mid, double f, double rf, double icf, double irf) {
+    FrequencyClass(double cl, double cr, double mid, double f, double rf, double icf, double irf) {
         this.cLeft = cl;
         this.cRight = cr;
         this.midpoint = mid;

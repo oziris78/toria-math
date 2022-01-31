@@ -247,6 +247,19 @@ public class TLine2D {
         if(this.isParallelToYAxis()) return String.format("x = %f", -c/a).replaceAll("-0.000000", "0");
 
 
+        // ax+by+c = 0
+        // a/b x + y + c/b = 0
+        // y = -a/b x -c/b
+
+        return String.format(" y = %fx + %f", -a/b, -c/b)
+                .replaceAll(" 0.000000x \\+ ", "")
+                .replaceAll("\\+ \\-", "- ")
+                .replaceAll("\\+ 0.000000 =", "=")
+                .replaceAll("\\- 0.000000 =", "=")
+                .replaceAll("1.000000x", "x")
+                .replaceAll("-1.000000x", "x")
+                .trim();
+        /* was like this:
         return String.format(" %fx + %fy + %f = 0", a, b, c)
                 .replaceAll(" 0.000000x \\+ ", "")
                 .replaceAll("0.000000y \\+ ", "")
@@ -258,6 +271,7 @@ public class TLine2D {
                 .replaceAll("-1.000000x", "x")
                 .replaceAll("-1.000000y", "y")
                 .trim();
+        */
     }
 
 

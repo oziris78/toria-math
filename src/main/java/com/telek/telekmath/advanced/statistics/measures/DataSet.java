@@ -81,7 +81,6 @@ public class DataSet {
      */
 
     private DataDescription getDataDesc(Number[] sortedData){
-        int check = 0;
         // count
         double count = sortedData.length;
 
