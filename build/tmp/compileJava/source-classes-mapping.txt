@@ -147,8 +147,8 @@ com/telek/telekutils/plain/TCollections.java
  com.telek.telekutils.plain.TCollections
 com/telek/telekmath/advanced/statistics/util/Sampler.java
  com.telek.telekmath.advanced.statistics.util.Sampler
-com/telek/telekmath/advanced/statistics/cop/DataDescription.java
- com.telek.telekmath.advanced.statistics.cop.DataDescription
+com/telek/telekmath/exceptions/WrongFunctionException.java
+ com.telek.telekmath.exceptions.WrongFunctionException
 com/telek/telekmath/exceptions/RepeatedPermutationException.java
  com.telek.telekmath.exceptions.RepeatedPermutationException
 com/telek/telekmath/advanced/cryptography/CaesarCipher.java
@@ -168,7 +168,7 @@ com/telek/telekmath/core/functions/other/TLog.java
  com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/exceptions/WrongFunctionException.java
- com.telek.telekmath.exceptions.WrongFunctionException
-com/telek/telekmath/advanced/statistics/cop/DataSet.java
- com.telek.telekmath.advanced.statistics.cop.DataSet
+com/telek/telekmath/advanced/statistics/measures/DataDescription.java
+ com.telek.telekmath.advanced.statistics.measures.DataDescription
+com/telek/telekmath/advanced/statistics/measures/DataSet.java
+ com.telek.telekmath.advanced.statistics.measures.DataSet

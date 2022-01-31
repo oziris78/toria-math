@@ -1,7 +1,10 @@
 package com.telek.telekmath.advanced.statistics.measures;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 
 public class DataSet {
@@ -78,6 +81,7 @@ public class DataSet {
      */
 
     private DataDescription getDataDesc(Number[] sortedData){
+        int check = 0;
         // count
         double count = sortedData.length;
 
@@ -111,6 +115,8 @@ public class DataSet {
         // mode
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
         double maxModeFrequency  = 1, mode = 0;
+        boolean hasMode = false;
+
         for (int i = 0; i < count; i++) {
             double dbl = sortedData[i].doubleValue();
 
@@ -121,11 +127,14 @@ public class DataSet {
                 if(current > maxModeFrequency) {
                     maxModeFrequency  = current;
                     mode = dbl;
+                    hasMode = true;
                 }
             }
             else frequencyMap.put(dbl, 1);
         }
-        double modeCount = frequencyMap.get(mode);
+        mode = hasMode ? mode : Double.NaN;
+        double modeCount = hasMode ? frequencyMap.get(mode) : 0;
+
 
         // median and quartile stuff
         double quartile1 = getQuartile(sortedData, 1d);
@@ -139,9 +148,12 @@ public class DataSet {
         double bowleySkewCoef = (quartile3 + quartile1 - 2 * quartile2) / (quartile3 - quartile1);
 
         return new DataDescription(variance, mean, geomean, sum, interquartileRange,
-                count, quartile1,  mode,  median,  modeCount,
+                count, quartile1, mode,  median,  modeCount,
                 quartile2,  quartile3,  min,  max, range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
+
+
+
 
     private <T> DataDescription getDataDesc(T[] sortedData, Field field) throws IllegalAccessException {
         // count
@@ -176,6 +188,8 @@ public class DataSet {
         // mode
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
         double maxModeFrequency  = 1, mode = 0;
+        boolean hasMode = false;
+
         for (int i = 0; i < count; i++) {
             double dbl = getValue(sortedData, field, i);
 
@@ -186,11 +200,14 @@ public class DataSet {
                 if(current > maxModeFrequency) {
                     maxModeFrequency  = current;
                     mode = dbl;
+                    hasMode = true;
                 }
             }
             else frequencyMap.put(dbl, 1);
         }
-        double modeCount = frequencyMap.get(mode);
+        mode = hasMode ? mode : Double.NaN;
+        double modeCount = hasMode ? frequencyMap.get(mode) : 0;
+
 
         // median and quartile stuff
         double quartile1 = getQuartile(sortedData, field, 1d);

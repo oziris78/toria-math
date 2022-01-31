@@ -9,7 +9,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
+
 
 public class DataDescriptionTest {
 
@@ -182,6 +185,15 @@ public class DataDescriptionTest {
             otherJunk = "test";
             literalFuckingJunk = new Person("joe momma", -1, 9999);
         }
+
+        public double getField() {
+            return theField;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(theField);
+        }
     }
 
 
@@ -189,29 +201,22 @@ public class DataDescriptionTest {
     @DisplayName("randomTest2")
     void randomTest2() {
         // DATA
-        final int SIZE = 1000;
-        TestClass[] classPopulation = new TestClass[SIZE];
-        double[] doublePopulation = new double[SIZE];
-        Random r = new Random();
-        for (int i = 0; i < SIZE; i++) {
-            double val = r.nextDouble();
-            doublePopulation[i] = val;
-            classPopulation[i] = new TestClass(val);
-        }
-
+        double[] doublePopulation = SampleData.sampleData();
         double[] sorted = TCollections.getSortedCopy(doublePopulation);
         Double[] param = TCollections.getAsClassArray(sorted);
 
-        TestClass[] sortedPop = TCollections.getSortedCopy(classPopulation, TestClass.class,
-                (o1, o2) -> (int) (o1.theField - o2.theField));
-
         // data desc 1
         DataDescription dataDesc = new DataSet(param).getDataDesc();
-        System.out.println(dataDesc);
 
         // data desc 2
+        int index = 0;
+        TestClass[] classPopulation = new TestClass[doublePopulation.length];
+        for(double i : doublePopulation){
+            classPopulation[index++] = new TestClass(i);
+        }
+        TestClass[] sortedPop = TCollections.getSortedCopy(classPopulation, TestClass.class,
+                Comparator.comparingDouble(TestClass::getField));
         DataDescription dataDesc2 = new DataSet(sortedPop, TestClass.class, "theField").getDataDesc();
-        System.out.println(dataDesc2);
 
 
         // tests
@@ -232,5 +237,50 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(dataDesc2.bowleySkewCoef, dataDesc.bowleySkewCoef));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.pearsonSkewCoef, dataDesc.pearsonSkewCoef));
     }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    @Test
+    @DisplayName("noiseTest1")
+    void noiseTest1() {
+        // DATA
+        final int SIZE = 100_000;
+        double[] arr = new double[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            arr[i] = TNoise.valueNoise(i * i, (i + 2) * (i * i - 2) ) * 10000d;
+        }
+        double[] sorted = TCollections.getSortedCopy(arr);
+        Double[] param = TCollections.getAsClassArray(sorted);
+
+        // data desc 1
+        DataDescription dataDesc = new DataSet(param).getDataDesc();
+
+        // TEST
+        Assertions.assertTrue(TMath.areEqual(dataDesc.count, 100000.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 5010.927765458822));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.geomean, 0.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.sum, 5.010927765458822E8));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.interquartileRange, 4980.46875));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode, 1132.8125));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.modeCount, 309.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.variance, 8309992.238762693));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.median, 5019.53125));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile1, 2519.53125));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile2, 5019.53125));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile3, 7500.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.min, 0.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.max, 9997.55859375));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.range, 9997.55859375));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.stddev, 2882.7057149079046));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.pearsonSkewCoef, -0.008953551342426166));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.bowleySkewCoef, -0.00392156862745098));
+
+
+    }
+
 
 }

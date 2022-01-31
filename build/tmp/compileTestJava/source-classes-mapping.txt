@@ -19,6 +19,8 @@ com/telek/tests/points/TPoint2DTest.java
  com.telek.tests.points.TPoint2DTest
 com/telek/tests/zsingle/CryptoTest.java
  com.telek.tests.zsingle.CryptoTest
+com/telek/tests/stats/SampleData.java
+ com.telek.tests.stats.SampleData
 com/telek/tests/vectors/TVector3DTest.java
  com.telek.tests.vectors.TVector3DTest
 com/telek/tests/functions/TPolynomialTest.java
