@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.stats.RegressionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-31T22:42:23" hostname="TUNERIKGEZGINI" time="0.013">
-  <properties/>
-  <testcase name="regressionTest" classname="com.telek.tests.stats.RegressionTest" time="0.013"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
