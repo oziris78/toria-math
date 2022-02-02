@@ -1,18 +1,10 @@
-package com.telek.telekmath.advanced.distributions.continuous;
+package com.telek.telekmath.advanced.distributions.continuous.normal;
 
 
 import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanZeroException;
 
 
 public class NormalDist  {
-
-
-    //////////////
-    /*  FIELDS  */
-    //////////////
-
-    public static final double SNORMAL_MEAN = 0d, SNORMAL_SIGMA = 1d;
-
 
     /* No constructor */
     private NormalDist(){}

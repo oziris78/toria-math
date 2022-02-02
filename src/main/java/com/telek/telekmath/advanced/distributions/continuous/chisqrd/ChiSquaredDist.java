@@ -1,4 +1,4 @@
-package com.telek.telekmath.advanced.distributions.continuous;
+package com.telek.telekmath.advanced.distributions.continuous.chisqrd;
 
 
 import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanZeroException;
@@ -15,7 +15,6 @@ public class ChiSquaredDist  {
         return degOfFreedom;
     }
 
-
     public static double variance(double degOfFreedom){
         return 2d * degOfFreedom;
     }
@@ -23,7 +22,6 @@ public class ChiSquaredDist  {
     public static double getAlpha(double degOfFreedom){
         return degOfFreedom / 2d;
     }
-
 
     public static double getDegreeOfFreedom(double alpha){
         return 2d * alpha;

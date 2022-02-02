@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.dists.SNormalDistTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-02-02T21:12:35" hostname="TUNERIKGEZGINI" time="0.015">
+  <properties/>
+  <testcase name="snormalTest" classname="com.telek.tests.dists.SNormalDistTest" time="0.014"/>
+  <testcase name="snormalTest2" classname="com.telek.tests.dists.SNormalDistTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

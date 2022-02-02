@@ -2,6 +2,8 @@ package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.distributions.continuous.*;
+import com.telek.telekmath.advanced.distributions.continuous.chisqrd.ChiSquaredDist;
+import com.telek.telekmath.advanced.distributions.continuous.normal.NormalDist;
 import org.apache.commons.math3.distribution.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

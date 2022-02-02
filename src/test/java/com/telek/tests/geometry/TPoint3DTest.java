@@ -1,4 +1,4 @@
-package com.telek.tests.points;
+package com.telek.tests.geometry;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;

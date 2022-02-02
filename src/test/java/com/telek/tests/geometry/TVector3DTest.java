@@ -1,4 +1,4 @@
-package com.telek.tests.vectors;
+package com.telek.tests.geometry;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.vectors.TVector3D;
