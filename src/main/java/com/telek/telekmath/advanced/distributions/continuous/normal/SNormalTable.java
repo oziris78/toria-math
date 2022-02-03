@@ -6,6 +6,7 @@ class SNormalTable {
 
     static HashMap<Double, Double> table;
 
+    // fill the table
     static{
         table = new HashMap<>();
         table.put(0.01, 0.00398935);
@@ -846,6 +847,7 @@ class SNormalTable {
         table.put(8.36, 0.49999999);
         table.put(8.37, 0.49999999);
     }
+
 
     static double areaFromZeroTo(double val){
         if(val <= 0) return 0d;

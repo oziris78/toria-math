@@ -2,6 +2,7 @@ package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.distributions.continuous.normal.StandardNormalDist;
+import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ public class SNormalDistTest {
         double val = 0.0d;
         int index = 0;
         while (index != vals.length){
-            Assertions.assertTrue(TMath.areEqual(vals[index++], StandardNormalDist.areaFromZeroTo(val)));
+            Assertions.assertTrue(TMath.areEqual(vals[index++], StandardNormalDist.areaUnder(val) - 0.5d));
             val += 0.01;
         }
     }

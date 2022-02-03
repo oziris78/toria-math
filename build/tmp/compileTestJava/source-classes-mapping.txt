@@ -48,10 +48,12 @@ com/telek/tests/zsingle/NumericalAnalysisTest.java
  com.telek.tests.zsingle.NumericalAnalysisTest
 com/telek/tests/functions/FuncTest.java
  com.telek.tests.functions.FuncTest
-com/telek/tests/dists/SNormalDistTest.java
- com.telek.tests.dists.SNormalDistTest
-com/telek/tests/dists/ContDistTest.java
- com.telek.tests.dists.ContDistTest
 com/telek/tests/stats/DataDescriptionTest.java
  com.telek.tests.stats.DataDescriptionTest
  com.telek.tests.stats.DataDescriptionTest$TestClass
+com/telek/tests/dists/ContDistTest.java
+ com.telek.tests.dists.ContDistTest
+com/telek/tests/dists/SNormalDistTest.java
+ com.telek.tests.dists.SNormalDistTest
+com/telek/tests/dists/Test.java
+ com.telek.tests.dists.Test
