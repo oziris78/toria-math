@@ -2,28 +2,36 @@ package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.distributions.continuous.normal.StandardNormalDist;
-import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.time.Duration;
+import java.time.Instant;
+
 
 
 public class SNormalDistTest {
 
+
     @Test
-    @DisplayName("snormalTest")
+    @DisplayName("tableValueTest")
     void snormalTest() {
         double[] vals = getTable();
         double val = 0.0d;
         int index = 0;
+        Instant start = Instant.now();
         while (index != vals.length){
-            Assertions.assertTrue(TMath.areEqual(vals[index++], StandardNormalDist.areaUnder(val) - 0.5d));
+            Assertions.assertTrue(TMath.areEqual(vals[index], StandardNormalDist.areaBetween(0, val)));
+            index++;
             val += 0.01;
         }
+        Instant end = Instant.now();
+        System.out.println("Milisec: " + Duration.between(start, end).toMillis());
     }
 
+
     @Test
-    @DisplayName("snormalTest2")
+    @DisplayName("differentIntervalTest")
     void snormalTest2() {
         // used this site:  https://onlinestatbook.com/2/calculators/normal_dist.html
         Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(0, 1.15), 0.3749));

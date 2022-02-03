@@ -1,7 +1,7 @@
 package com.telek.tests.dists;
 
 
-public class Test {
+public class ErfFunction {
 
 
     public static double erf(double z) {
@@ -37,12 +37,11 @@ public class Test {
 
 
     public static void main(String[] args) {
-        double x = 0.1d;
+        double x = 0.000001d;
 
         System.out.println("erf(" + x + ")  = " + erf(x));
         System.out.println("erf2(" + x + ") = " + erf2(x));
         System.out.println("Phi(" + x + ")  = " + Phi(x));
-        System.out.println();
     }
 
 }
