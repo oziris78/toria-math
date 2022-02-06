@@ -60,6 +60,49 @@ public final class TMath {
     }
 
 
+    /**
+     * This uses an algorithm by Peter John Acklam, as implemented by Sherali Karimov.
+     * <a href="https://web.archive.org/web/20150910002142/http://home.online.no/~pjacklam/notes/invnorm/impl/karimov/StatUtil.java">
+     *     Original source</a>.
+     * <a href="https://web.archive.org/web/20151030215612/http://home.online.no/~pjacklam/notes/invnorm/">
+     *     Information on the algorithm</a>.
+     * <a href="https://en.wikipedia.org/wiki/Probit_function">Wikipedia's page on the probit function</a> may help, but
+     * is more likely to just be confusing.
+     * <br>
+     *
+     * @param d should be between 0 and 1, exclusive, but other values are tolerated
+     * @return a normal-distributed double centered on 0.0; all results will be between -38.5 and 38.5, both inclusive
+     */
+    public static double probit(double d) {
+        if (d <= 0 || d >= 1) {
+            return Math.copySign(38.5, d - 0.5);
+        }
+        else if (d < 0.02425) {
+            final double q = Math.sqrt(-2.0 * Math.log(d));
+            return (((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
+                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
+                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
+                            q + 3.754408661907416e+00) * q + 1.0);
+        }
+        else if (0.97575 < d) {
+            final double q = Math.sqrt(-2.0 * Math.log(1 - d));
+            return -(((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
+                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
+                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
+                            q + 3.754408661907416e+00) * q + 1.0);
+        }
+        else {
+            final double q = d - 0.5;
+            final double r = q * q;
+            return (((((-3.969683028665376e+01 * r + 2.209460984245205e+02) * r + -2.759285104469687e+02)
+                    * r + 1.383577518672690e+02) * r + -3.066479806614716e+01) * r + 2.506628277459239e+00) * q / (
+                    ((((-5.447609879822406e+01 * r + 1.615858368580409e+02) * r + -1.556989798598866e+02)
+                            * r + 6.680131188771972e+01) * r + -1.328068155288572e+01) * r + 1.0);
+        }
+    }
+
+
+
 
     /**
      * Works in linear time aka O(n)
@@ -146,7 +189,8 @@ public final class TMath {
      * @param oldValue any value from the old interval aka [oldRangeLeft, oldRangeRight]
      * @return The new value of oldX in the new interval aka [newRangeLeft, newRangeRight]
      */
-    public static double mapRange(double oldRangeLeft, double oldRangeRight, double newRangeLeft, double newRangeRight, double oldValue){
+    public static double mapRange(double oldRangeLeft, double oldRangeRight,
+                                  double newRangeLeft, double newRangeRight, double oldValue){
         return newRangeLeft + ( (oldValue-oldRangeLeft) * (newRangeRight-newRangeLeft) ) / (oldRangeRight - oldRangeLeft);
     }
 
@@ -191,10 +235,12 @@ public final class TMath {
         float a2 = a * a;  // a squared
         float a3 = a * a2; // a cubed
         if (a >= 0f) {
-            return 1.5707963267948966f - (float) Math.sqrt(1f - a) * (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
+            return 1.5707963267948966f - (float) Math.sqrt(1f - a) *
+                    (1.5707288f - 0.2121144f * a + 0.0742610f * a2 - 0.0187293f * a3);
         }
         else {
-            return -1.5707963267948966f + (float) Math.sqrt(1f + a) * (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
+            return -1.5707963267948966f + (float) Math.sqrt(1f + a) *
+                    (1.5707288f + 0.2121144f * a + 0.0742610f * a2 + 0.0187293f * a3);
         }
     }
 
@@ -280,6 +326,7 @@ public final class TMath {
             return ( (x + .5) * Math.log(tmp) ) - tmp + TMathConstants.HALF_LOG_2_PI + Math.log(sum / x);
         }
     }
+
 
 
 

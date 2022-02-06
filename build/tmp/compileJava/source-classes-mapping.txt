@@ -14,8 +14,6 @@ com/telek/telekutils/swing/TSwingComponents.java
  com.telek.telekutils.swing.TSwingComponents
 com/telek/telekmath/core/functions/other/TConstantFunc.java
  com.telek.telekmath.core.functions.other.TConstantFunc
-com/telek/telekmath/advanced/distributions/continuous/BetaDist.java
- com.telek.telekmath.advanced.distributions.continuous.BetaDist
 com/telek/telekmath/core/functions/amnfuncs/TCosh.java
  com.telek.telekmath.core.functions.amnfuncs.TCosh
 com/telek/telekutils/image/TBufImgUtils.java
@@ -32,12 +30,12 @@ com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
  com.telek.telekmath.advanced.distributions.discrete.GeometricDist
-com/telek/telekmath/advanced/distributions/continuous/normal/StandardNormalDist.java
- com.telek.telekmath.advanced.distributions.continuous.normal.StandardNormalDist
-com/telek/telekmath/advanced/distributions/continuous/normal/NormalDist.java
- com.telek.telekmath.advanced.distributions.continuous.normal.NormalDist
+com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
+ com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
 com/telek/telekmath/advanced/statistics/measures/DataDescription.java
  com.telek.telekmath.advanced.statistics.measures.DataDescription
+com/telek/telekmath/advanced/distributions/cont/TDist.java
+ com.telek.telekmath.advanced.distributions.cont.TDist
 com/telek/telekmath/core/functions/TFunction.java
  com.telek.telekmath.core.functions.TFunction
 com/telek/telekmath/core/functions/amnfuncs/THeavisideFunc.java
@@ -48,10 +46,10 @@ com/telek/telekmath/core/functions/amnfuncs/TRectFunc.java
  com.telek.telekmath.core.functions.amnfuncs.TRectFunc
 com/telek/telekmath/advanced/statistics/freqtable/FrequencyClass.java
  com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass
+com/telek/telekmath/advanced/distributions/cont/ZDist.java
+ com.telek.telekmath.advanced.distributions.cont.ZDist
 com/telek/telekmath/TMath.java
  com.telek.telekmath.TMath
-com/telek/telekmath/advanced/distributions/continuous/ExponentialDist.java
- com.telek.telekmath.advanced.distributions.continuous.ExponentialDist
 com/telek/telekmath/core/functions/amnfuncs/AbstractAMNFunction.java
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction$FuncType
@@ -87,8 +85,6 @@ com/telek/telekutils/swing/TDesktopUtils.java
  com.telek.telekutils.swing.TDesktopUtils
 com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
  com.telek.telekmath.advanced.statistics.regression.RegressionResult
-com/telek/telekmath/advanced/distributions/continuous/ContinuousUniformDist.java
- com.telek.telekmath.advanced.distributions.continuous.ContinuousUniformDist
 com/telek/telekmath/exceptions/TelekMathException.java
  com.telek.telekmath.exceptions.TelekMathException
  com.telek.telekmath.exceptions.TelekMathException$CombinationException
@@ -134,8 +130,6 @@ com/telek/telekmath/core/geometry/vectors/TVector2D.java
  com.telek.telekmath.core.geometry.vectors.TVector2D
 com/telek/telekmath/core/geometry/points/TPoint3D.java
  com.telek.telekmath.core.geometry.points.TPoint3D
-com/telek/telekmath/advanced/distributions/continuous/GammaDist.java
- com.telek.telekmath.advanced.distributions.continuous.GammaDist
 com/telek/telekmath/core/matrices/TMatrixUtils.java
  com.telek.telekmath.core.matrices.TMatrixUtils
 com/telek/telekmath/special/IAF.java
@@ -163,8 +157,6 @@ com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
  com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
 com/telek/telekmath/exceptions/InvalidValueException.java
  com.telek.telekmath.exceptions.InvalidValueException
-com/telek/telekmath/advanced/distributions/continuous/chisqrd/ChiSquaredDist.java
- com.telek.telekmath.advanced.distributions.continuous.chisqrd.ChiSquaredDist
 com/telek/telekmath/core/functions/amnfuncs/TCeil.java
  com.telek.telekmath.core.functions.amnfuncs.TCeil
 com/telek/telekmath/core/functions/other/TLog.java

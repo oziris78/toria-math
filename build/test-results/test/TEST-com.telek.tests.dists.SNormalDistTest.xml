@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.dists.SNormalDistTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-02-03T23:07:30" hostname="TUNERIKGEZGINI" time="0.009">
-  <properties/>
-  <testcase name="tableValueTest" classname="com.telek.tests.dists.SNormalDistTest" time="0.008"/>
-  <testcase name="differentIntervalTest" classname="com.telek.tests.dists.SNormalDistTest" time="0.0"/>
-  <system-out><![CDATA[Milisec: 3
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

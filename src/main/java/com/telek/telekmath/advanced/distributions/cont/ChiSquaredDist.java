@@ -1,4 +1,4 @@
-package com.telek.telekmath.advanced.distributions.continuous.chisqrd;
+package com.telek.telekmath.advanced.distributions.cont;
 
 
 import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanZeroException;
@@ -32,9 +32,6 @@ public class ChiSquaredDist  {
     /*  HELPERS  */
     ///////////////
 
-    private static void checkForInput(double alpha){
-        if(alpha <= 0) throw new NotGreaterThanZeroException("Alpha");
-    }
 
 
 

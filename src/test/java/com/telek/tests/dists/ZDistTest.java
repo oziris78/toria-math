@@ -1,7 +1,8 @@
 package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
-import com.telek.telekmath.advanced.distributions.continuous.normal.StandardNormalDist;
+import com.telek.telekmath.advanced.distributions.cont.ZDist;
+import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ import java.time.Instant;
 
 
 
-public class SNormalDistTest {
+public class ZDistTest {
 
 
     @Test
@@ -21,7 +22,7 @@ public class SNormalDistTest {
         int index = 0;
         Instant start = Instant.now();
         while (index != vals.length){
-            Assertions.assertTrue(TMath.areEqual(vals[index], StandardNormalDist.areaBetween(0, val)));
+            Assertions.assertTrue(TMath.areEqual(vals[index], ZDist.areaBetween(0, val)));
             index++;
             val += 0.01;
         }
@@ -34,14 +35,40 @@ public class SNormalDistTest {
     @DisplayName("differentIntervalTest")
     void snormalTest2() {
         // used this site:  https://onlinestatbook.com/2/calculators/normal_dist.html
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(0, 1.15), 0.3749));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(0, -1.15), 0));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(-2.16, 0), 0.4846));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(2.16, 0), 0));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(2.16, -5.15), 0));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(-2.16, 1.15), 0.8595));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(-2.16, -1.15), 0.1097));
-        Assertions.assertTrue(TMath.areEqual(StandardNormalDist.areaBetween(2.16, 5.15), 0.0154));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(0, 1.15), 0.3749));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(0, -1.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, 0), 0.4846));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, 0), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, -5.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, 1.15), 0.8595));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, -1.15), 0.1097));
+        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, 5.15), 0.0154));
+    }
+
+
+
+    @Test
+    @DisplayName("inverseCumulativeProbFuncTest")
+    void inverseCumulativeProbFuncTest() {
+        NormalDistribution nd = new NormalDistribution(0, 1);
+
+        double area = 0.01d;
+        while(area <= 1d){
+            double val1 = nd.inverseCumulativeProbability(area);
+            double val2 = ZDist.invCumLeftToRight(area);
+            Assertions.assertTrue(TMath.areEqual(val1, val2));
+            area += 0.01d;
+        }
+
+    }
+
+    @Test
+    @DisplayName("invCumZeroToRightTest")
+    void invCumZeroToRightTest() {
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.17d), 0.44d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.499d), 3.0902d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.5d - 0.05d / 2d), 1.96d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.5d - 0.01d / 2d), 2.5758d));
     }
 
 
