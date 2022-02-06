@@ -17,7 +17,10 @@ public class TPolynomial extends AbstractFunction {
     /*  FIELDS  */
     private double[] coefficients;
 
+
+    ////////////////////
     /*  CONSTRUCTORS  */
+    ////////////////////
 
     public TPolynomial(TRange range, double[] coefficients) {
         super(range);
@@ -34,13 +37,17 @@ public class TPolynomial extends AbstractFunction {
      * For example [1,0,1,9] means 1 + x^2 + 9x^3, in MATLAB in would mean x^3+x+9...
      * @param coefficients an array specifying the coefficient of the polynomial terms
      */
-    public TPolynomial(double[] coefficients) {
+    public TPolynomial(double... coefficients) {
         this(TRange.REEL_NUMBERS, coefficients);
     }
 
 
 
+
+    ///////////////
     /*  METHODS  */
+    ///////////////
+
 
     public TPolynomial add(TPolynomial other){
         int thisLen = this.coefficients.length;
@@ -88,6 +95,7 @@ public class TPolynomial extends AbstractFunction {
 
         return new TPolynomial(TRange.getBiggerRange(this.range, other.range), result);
     }
+
 
 
 

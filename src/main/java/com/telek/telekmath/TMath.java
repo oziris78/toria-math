@@ -1,3 +1,19 @@
+/*
+* Licensed to the Apache Software Foundation (ASF) under one or more
+* contributor license agreements.  See the NOTICE file distributed with
+* this work for additional information regarding copyright ownership.
+* The ASF licenses this file to You under the Apache License, Version 2.0
+* (the "License"); you may not use this file except in compliance with
+* the License.  You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.telek.telekmath;
 
 import com.telek.telekmath.core.constants.TMathConstants;
@@ -16,6 +32,17 @@ import com.telek.telekmath.exceptions.TelekMathException.*;
  */
 public final class TMath {
 
+
+    //////////////
+    /*  FIELDS  */
+    //////////////
+
+    /** Defines how many terms from the Taylor expansion will be used to calculate {@link #hypergeometric(double, double, double, double)}.
+     * Increase this value to get more accurate results.
+     */
+    public static int HYPERGEO_FUNC_ITERATIONS = 200;
+
+    /* No constructor */
     private TMath(){}
 
 
@@ -103,6 +130,39 @@ public final class TMath {
 
 
 
+    /**
+     * This method has around 1e-8 error. <br>
+     * Written by <a href="https://www.github.com/oziris78">Oğuzhan Topaloğlu</a> <br>
+     * Look here for more info: <a href="https://en.wikipedia.org/wiki/Hypergeometric_function">
+     *     Wikipedia</a> <br>
+     * @param a any value
+     * @param b any value
+     * @param c any positive value
+     * @param z any value in range [-1,1]
+     * @return <sub>2</sub>F<sub>1</sub>(a,b;c;z)
+     */
+    public static double hypergeometric(double a, double b, double c, double z){
+        if(!(Math.abs(z) < 1) || c <= 0) {
+            return Double.NaN;
+        }
+
+        double res = 1d;
+        double last = a * b * z / c;
+        int i = 2;
+        res += last;
+        while(i < HYPERGEO_FUNC_ITERATIONS){
+            last *= (a+i-1) * (b+i-1) * z;
+            last /= (c+i-1);
+            last /= i; // for factorial
+            res += last;
+            i++;
+        }
+        return res;
+    }
+
+
+
+
 
     /**
      * Works in linear time aka O(n)
@@ -139,6 +199,8 @@ public final class TMath {
     public static int factorial(int num){
         return (num != 0) ? num * factorial(num-1) : 1;
     }
+
+
 
 
     public static int permutation(int n, int r){
