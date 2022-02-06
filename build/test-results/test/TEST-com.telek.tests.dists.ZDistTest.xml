@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.dists.ZDistTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-02-06T00:56:55" hostname="TUNERIKGEZGINI" time="0.011">
+<testsuite name="com.telek.tests.dists.ZDistTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-02-06T01:16:12" hostname="TUNERIKGEZGINI" time="0.012">
   <properties/>
   <testcase name="tableValueTest" classname="com.telek.tests.dists.ZDistTest" time="0.005"/>
-  <testcase name="probTest" classname="com.telek.tests.dists.ZDistTest" time="0.001"/>
+  <testcase name="probTest" classname="com.telek.tests.dists.ZDistTest" time="0.0"/>
   <testcase name="invCumZeroToRightTest" classname="com.telek.tests.dists.ZDistTest" time="0.0"/>
-  <testcase name="inverseCumulativeProbFuncTest" classname="com.telek.tests.dists.ZDistTest" time="0.003"/>
+  <testcase name="inverseCumulativeProbFuncTest" classname="com.telek.tests.dists.ZDistTest" time="0.005"/>
   <testcase name="differentIntervalTest" classname="com.telek.tests.dists.ZDistTest" time="0.0"/>
-  <system-out><![CDATA[Milisec: 15
+  <system-out><![CDATA[Milisec: 16
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
