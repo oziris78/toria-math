@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.stats.SamplingTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-02-06T00:56:56" hostname="TUNERIKGEZGINI" time="0.003">
+  <properties/>
+  <testcase name="samplingTestPrimitiveFloat" classname="com.telek.tests.stats.SamplingTest" time="0.001"/>
+  <testcase name="samplingTestClass" classname="com.telek.tests.stats.SamplingTest" time="0.0"/>
+  <testcase name="samplingTestPrimitiveINT" classname="com.telek.tests.stats.SamplingTest" time="0.001"/>
+  <system-out><![CDATA[[162.0, 180.0, 166.0, 172.0, 158.0, 167.0, 177.0, 165.0, 203.0, 173.0, 182.0, 160.0, 190.0, 178.0, 170.0]
+[180.0, 170.0, 180.0, 190.0, 173.0, 192.0, 167.0, 203.0, 171.0, 160.0]
+[Lcom.telek.tests.stats.Person;@631ace82
+[Lcom.telek.tests.stats.Person;@5609e80a
+[171, 158, 166, 183, 180, 177, 176, 180, 172, 178, 176, 203, 160, 190, 188]
+[176, 176, 166, 158, 183, 165, 188, 177, 178, 170]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
