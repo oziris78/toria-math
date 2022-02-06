@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.dists.TDistTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-02-06T00:56:55" hostname="TUNERIKGEZGINI" time="0.014">
+  <properties/>
+  <testcase name="tDistTest" classname="com.telek.tests.dists.TDistTest" time="0.009"/>
+  <testcase name="densityTest" classname="com.telek.tests.dists.TDistTest" time="0.005"/>
+  <system-out><![CDATA[-2.306004135204205
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.stats.FreqDistTableTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-02-06T00:56:56" hostname="TUNERIKGEZGINI" time="0.003">
+  <properties/>
+  <testcase name="freqDistTableClass" classname="com.telek.tests.stats.FreqDistTableTest" time="0.003"/>
+  <testcase name="freqDistTablePrimitive" classname="com.telek.tests.stats.FreqDistTableTest" time="0.0"/>
+  <system-out><![CDATA[class intervals | midpoints | freq. | relative freq. | inc. cum. freq. | inc. rel. freq.
+[158.000, 166.000)     162.000     4.000     0.154     4.000     0.154
+[166.000, 174.000)     170.000     7.000     0.269     11.000     0.423
+[174.000, 182.000)     178.000     9.000     0.346     20.000     0.769
+[182.000, 190.000)     186.000     3.000     0.115     23.000     0.885
+[190.000, 198.000)     194.000     2.000     0.077     25.000     0.962
+[198.000, 206.000)     202.000     1.000     0.038     26.000     1.000
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
