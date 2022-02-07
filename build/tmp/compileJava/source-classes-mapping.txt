@@ -20,8 +20,8 @@ com/telek/telekutils/image/TBufImgUtils.java
  com.telek.telekutils.image.TBufImgUtils
 com/telek/telekmath/advanced/cryptography/AsciiCipher.java
  com.telek.telekmath.advanced.cryptography.AsciiCipher
-com/telek/telekmath/special/NumericalAnalysis.java
- com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekmath/advanced/statistics/regression/Regression.java
+ com.telek.telekmath.advanced.statistics.regression.Regression
 com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
 com/telek/telekmath/advanced/statistics/measures/DataSet.java
@@ -30,8 +30,8 @@ com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/special/DiscreteMath.java
  com.telek.telekmath.special.DiscreteMath
-com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
- com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
+com/telek/telekmath/special/NumericalAnalysis.java
+ com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekmath/advanced/statistics/measures/DataDescription.java
  com.telek.telekmath.advanced.statistics.measures.DataDescription
 com/telek/telekmath/exceptions/WrongFunctionException.java
@@ -131,8 +131,6 @@ com/telek/telekmath/core/functions/other/TPolynomial.java
  com.telek.telekmath.core.functions.other.TPolynomial
 com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
  com.telek.telekmath.advanced.statistics.regression.RegressionResult
-com/telek/telekmath/advanced/statistics/regression/Regression.java
- com.telek.telekmath.advanced.statistics.regression.Regression
 com/telek/telekmath/core/geometry/points/TPoint3D.java
  com.telek.telekmath.core.geometry.points.TPoint3D
 com/telek/telekmath/core/geometry/points/TPoint2D.java
@@ -165,3 +163,5 @@ com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
  com.telek.telekmath.advanced.distributions.discrete.GeometricDist
 com/telek/telekmath/advanced/distributions/discrete/BinomialDist.java
  com.telek.telekmath.advanced.distributions.discrete.BinomialDist
+com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
+ com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist

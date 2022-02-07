@@ -2,14 +2,17 @@ package com.telek.tests.dists;
 
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.advanced.distributions.cont.TDist;
+import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.Random;
 
+
 public class TDistTest {
+
+    static final int TIMES = 100_000;
 
 
     @Test
@@ -18,10 +21,19 @@ public class TDistTest {
         Random random = new Random();
         final int TIMES = 1000;
         for (int i = 0; i < TIMES; i++) {
-            double v = random.nextDouble();
-            double x = random.nextDouble();
+            double v = (int) (random.nextDouble() * random.nextInt(1000));
+            double x = random.nextDouble() * random.nextInt(1000);
             TDistribution td = new TDistribution(v);
-            Assertions.assertTrue(TMath.areEqual(TDist.density(v, x), td.density(x)));
+            double val1 = td.density(x);
+            double val2 = TDist.density(v, x);
+            boolean b = TMath.areEqual(val1, val2);
+            if(!b){
+                System.out.println("v: " + v);
+                System.out.println("x: " + x);
+                System.out.println("val1: " + val1);
+                System.out.println("val2: " + val2);
+            }
+            Assertions.assertTrue(b);
         }
     }
 
@@ -31,25 +43,37 @@ public class TDistTest {
     void cumProbTest() {
         Random random = new Random();
 
-        double val11 = new TDistribution(106.0).cumulativeProbability(5.170182555744066);
-        double val21 = TDist.cumulativeProbability(106.0, 5.170182555744066);
-        System.out.println(val11);
-        System.out.println(val21);
-        Assertions.assertTrue(TMath.areEqual(val11, val21));
+        for (int i = 0; i < TIMES; i++) {
+            double x = (random.nextInt(80) * random.nextDouble()) + 1;
+            double v = (int) (random.nextInt(10000) * random.nextDouble()) + 10001;
 
-        for (int i = 0; i < 1000; i++) {
-            double x = random.nextInt(10) * random.nextDouble();
-            double v = (int) (100 + random.nextInt(10) * random.nextDouble());
-            // for hypergeometric func |z| < 1  <=>  |-x^2/v| < 1   <=>  x^2/v < 1  <=>   x^2 < v
-            if(x * x >= v)
-                continue;
             double val1 = new TDistribution(v).cumulativeProbability(x);
             double val2 = TDist.cumulativeProbability(v, x);
-            System.out.println("x: " + x);
-            System.out.println("v: " + v);
-            System.out.println("val1: " + val1);
-            System.out.println("val2: " + val2);
-            Assertions.assertTrue(TMath.areEqual(val1, val2));
+            boolean res = TMath.areEqual(val1, val2);
+            if(!res){
+                System.out.println("x: " + x);
+                System.out.println("v: " + v);
+                System.out.println("val1: " + val1);
+                System.out.println("val2: " + val2);
+            }
+            Assertions.assertTrue(res);
+        }
+
+
+        for (int i = 0; i < TIMES; i++) {
+            double x = (random.nextInt(10000) * random.nextDouble());
+            double v = 1 + (int) (random.nextInt(10000) * random.nextDouble());
+
+            double val1 = new TDistribution(v).cumulativeProbability(x);
+            double val2 = TDist.cumulativeProbability(v, x);
+            boolean res = TMath.areEqual(val1, val2);
+            if(!res){
+                System.out.println("x: " + x);
+                System.out.println("v: " + v);
+                System.out.println("val1: " + val1);
+                System.out.println("val2: " + val2);
+            }
+            Assertions.assertTrue(res);
         }
     }
 

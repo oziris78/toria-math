@@ -2,6 +2,8 @@ package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
 
+import java.util.function.Function;
+
 
 public class NumericalAnalysis {
 
@@ -32,6 +34,7 @@ public class NumericalAnalysis {
     }
 
 
+
     public static double bisectionMethod(AbstractFunction f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
         double smallNum = Math.min(a,b);
@@ -56,6 +59,7 @@ public class NumericalAnalysis {
         }
         return c;
     }
+
 
 
     public static double newtonsMethod(AbstractFunction f, double a, double b, int iterationCount){

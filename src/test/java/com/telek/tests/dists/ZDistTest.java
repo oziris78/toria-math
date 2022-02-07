@@ -48,6 +48,28 @@ public class ZDistTest {
 
 
     @Test
+    @DisplayName("cdfTest")
+    void cdfTest() {
+        NormalDistribution nd = new NormalDistribution(0, 1);
+        Random random = new Random();
+
+        final int TIMES = 10_000_000;
+
+        for (int unused = 0; unused < TIMES; unused++) {
+            double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(1000000);
+            double val1 = nd.cumulativeProbability(x);
+            double val2 = ZDist.areaUnder(x);
+            Assertions.assertTrue(TMath.areEqual(val1, val2));
+        }
+
+
+
+
+    }
+
+
+
+    @Test
     @DisplayName("inverseCumulativeProbFuncTest")
     void inverseCumulativeProbFuncTest() {
         NormalDistribution nd = new NormalDistribution(0, 1);
@@ -73,13 +95,13 @@ public class ZDistTest {
 
 
     @Test
-    @DisplayName("probTest")
-    void probTest() {
+    @DisplayName("densityTest")
+    void densityTest() {
         NormalDistribution nd = new NormalDistribution(0, 1);
         Random random = new Random();
-        final int TIMES = 1000;
+        final int TIMES = 10_000_000;
         for (int i = 0; i < TIMES; i++) {
-            double val = random.nextDouble();
+            double val = random.nextDouble() * random.nextInt(1000000);
             Assertions.assertTrue(TMath.areEqual(ZDist.density(val), nd.density(val)));
         }
     }

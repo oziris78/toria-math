@@ -4,6 +4,7 @@ package com.telek.telekmath.advanced.distributions.cont;
 import com.telek.telekmath.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.other.TPolynomial;
+import com.telek.telekmath.special.NumericalAnalysis;
 
 
 /**
@@ -41,26 +42,15 @@ public class TDist {
      * @return cumulative probability function result for v and x
      */
     public static double cumulativeProbability(double v, double x){
-        double v1over2 = (v+1)/2d;
-        return 0.5d + x * TMath.gamma(v1over2) * TMath.hypergeometric(0.5d, v1over2, 1.5d, -x*x/v)
-                / TMath.gamma(v/2d) / Math.sqrt(v * TMathConstants.PI);
+        if (x == 0)
+            return 0.5d;
+
+        double t = TMath.regularizedBeta(v / (v + (x * x)), 0.5 * v, 0.5);
+        return (x < 0.0d) ? 0.5d * t : 1.0d - 0.5d * t;
     }
 
 
 
-    public static double inverseCumulativeProbability(double v, double x){
-        TPolynomial g1 = new TPolynomial(0, 0.25d, 0, 0.25d);
-        TPolynomial g2 = new TPolynomial(0, 3d / 96d, 0, 16d / 96d, 0, 5 / 96d);
-        TPolynomial g3 = new TPolynomial(0, -15d / 384d, 0, 17d / 384d, 0, 19d / 384d, 0, 3d / 384d);
-        TPolynomial g4 = new TPolynomial(0, -945d / 92160d, 0, -1920d / 92160d, 0, 1482d / 92160d,
-                0, 776d / 92160d, 0, 79d / 92160d);
-
-        double xalpha = Math.pow(v/2d, v/2d) * TMath.gamma((v-1)/2d) / x / Math.sqrt(2 * Math.PI) / Math.pow(2, (1-v)/2d)
-                / TMath.gamma(v/2d);
-        xalpha = Math.pow(xalpha, 1d/v);
-
-        return xalpha + (g1.value(xalpha) / v) + (g2.value(xalpha) / v) + (g3.value(xalpha) / v) + (g4.value(xalpha) / v);
-    }
 
 
 
@@ -68,6 +58,60 @@ public class TDist {
     ///////////////
     /*  HELPERS  */
     ///////////////
+
+
+
+
+    public static double inverseCumulativeProbability(double v, double p){
+        if (p < 0.0 || p > 1.0) {
+//            throw new OutOfRangeException(p, 0, 1);
+        }
+
+        if (p == 0d) return Double.NEGATIVE_INFINITY;
+        if (p == 1d) return Double.POSITIVE_INFINITY;
+
+        double lowerBound;
+        double upperBound;
+
+
+        final double sig = (v > 2) ? Math.sqrt(v / (v-2)) : Double.POSITIVE_INFINITY;
+        final boolean chebyshevApplies = !(Double.isInfinite(sig) || Double.isNaN(sig));
+
+        if (chebyshevApplies) {
+            lowerBound = -sig * Math.sqrt((1. - p) / p);
+        }
+        else {
+            lowerBound = -1.0;
+            while (cumulativeProbability(v, lowerBound) >= p) {
+                lowerBound *= 2.0;
+            }
+        }
+
+        if (chebyshevApplies) {
+            upperBound = sig * Math.sqrt(p / (1. - p));
+        } else {
+            upperBound = 1.0;
+            while (cumulativeProbability(v, upperBound) < p) {
+                upperBound *= 2.0;
+            }
+        }
+
+
+
+        //  function.value()  =>  cumulativeProbability(v, x) - p
+
+        return 0; // sil bunu da
+//        return solve(toSolve, lowerBound, upperBound, 1E-8);
+    }
+
+//    public static double solve(UnivariateFunction function,
+//                               double x0, double x1) {
+//        return new BrentSolver(1E-8).solve(Integer.MAX_VALUE, function, x0, x1);
+//    }
+
+
+
+
 
 
 

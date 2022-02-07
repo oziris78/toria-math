@@ -16,61 +16,47 @@
 */
 package com.telek.telekmath;
 
+
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.exceptions.InvalidValueException;
-import com.telek.telekmath.exceptions.RepeatedPermutationException;
+import com.telek.telekmath.exceptions.*;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 
 
 
 
 /**
- * A class that has a lot of utility functions.
- * beta(a,b) and logGamma(x) methods are taken from Apache Commons Math.
- * atn(), atan2(), acos(), asin() methods were written by Tommy Ettinger, https://github.com/tommyettinger
+ * A class that has a lot of utility functions. <br>
+ * Few methods in this class were written by <a href="https://github.com/tommyettinger">Tommy Ettinger</a>. <br>
+ * Few methods in this class were taken from Apache Commons Math, most of these methods were <b>CHANGED</b> in
+ * many ways to fit telek-math. <br>
+ * To see every method that wasn't written by <a href="https://github.com/oziris78">me</a>, see the
+ * sections below in this class that were seperated by big multiline comments.
  */
 public final class TMath {
+
 
 
     //////////////
     /*  FIELDS  */
     //////////////
 
-    /** Defines how many terms from the Taylor expansion will be used to calculate {@link #hypergeometric(double, double, double, double)}.
-     * Increase this value to get more accurate results.
-     */
-    public static int HYPERGEO_FUNC_ITERATIONS = 200;
+    // empty for now
+
+
+
+    ////////////////////
+    /*  CONSTRUCTORS  */
+    ////////////////////
+
 
     /* No constructor */
     private TMath(){}
 
 
-    /*  ------------  */
+    ////////////////////
     /*  MATH METHODS  */
-    /*  ------------  */
-
-
-    /**
-     * Uses Apache Common Math's Gamma.logGamma function to evaluate gamma(x)
-     * @param x any double value
-     * @return gamma(x)
-     */
-    public static double gamma(double x){
-        return Math.exp( logGamma(x) );
-    }
-
-
-
-    /**
-     * Uses Apache Common Math's Beta.logBeta function to evaluate beta(a,b)
-     * @param a any double value
-     * @param b any double value
-     * @return beta(a,b)
-     */
-    public static double beta(double a, double b){
-        return Math.exp( logBeta(a,b) );
-    }
+    ////////////////////
 
 
 
@@ -87,81 +73,6 @@ public final class TMath {
     }
 
 
-    /**
-     * This uses an algorithm by Peter John Acklam, as implemented by Sherali Karimov.
-     * <a href="https://web.archive.org/web/20150910002142/http://home.online.no/~pjacklam/notes/invnorm/impl/karimov/StatUtil.java">
-     *     Original source</a>.
-     * <a href="https://web.archive.org/web/20151030215612/http://home.online.no/~pjacklam/notes/invnorm/">
-     *     Information on the algorithm</a>.
-     * <a href="https://en.wikipedia.org/wiki/Probit_function">Wikipedia's page on the probit function</a> may help, but
-     * is more likely to just be confusing.
-     * <br>
-     *
-     * @param d should be between 0 and 1, exclusive, but other values are tolerated
-     * @return a normal-distributed double centered on 0.0; all results will be between -38.5 and 38.5, both inclusive
-     */
-    public static double probit(double d) {
-        if (d <= 0 || d >= 1) {
-            return Math.copySign(38.5, d - 0.5);
-        }
-        else if (d < 0.02425) {
-            final double q = Math.sqrt(-2.0 * Math.log(d));
-            return (((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
-                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
-                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
-                            q + 3.754408661907416e+00) * q + 1.0);
-        }
-        else if (0.97575 < d) {
-            final double q = Math.sqrt(-2.0 * Math.log(1 - d));
-            return -(((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
-                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
-                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
-                            q + 3.754408661907416e+00) * q + 1.0);
-        }
-        else {
-            final double q = d - 0.5;
-            final double r = q * q;
-            return (((((-3.969683028665376e+01 * r + 2.209460984245205e+02) * r + -2.759285104469687e+02)
-                    * r + 1.383577518672690e+02) * r + -3.066479806614716e+01) * r + 2.506628277459239e+00) * q / (
-                    ((((-5.447609879822406e+01 * r + 1.615858368580409e+02) * r + -1.556989798598866e+02)
-                            * r + 6.680131188771972e+01) * r + -1.328068155288572e+01) * r + 1.0);
-        }
-    }
-
-
-
-    /**
-     * This method has around 1e-8 error. <br>
-     * Written by <a href="https://www.github.com/oziris78">Oğuzhan Topaloğlu</a> <br>
-     * Look here for more info: <a href="https://en.wikipedia.org/wiki/Hypergeometric_function">
-     *     Wikipedia</a> <br>
-     * @param a any value
-     * @param b any value
-     * @param c any positive value
-     * @param z any value in range [-1,1]
-     * @return <sub>2</sub>F<sub>1</sub>(a,b;c;z)
-     */
-    public static double hypergeometric(double a, double b, double c, double z){
-        if(!(Math.abs(z) < 1) || c <= 0) {
-            return Double.NaN;
-        }
-
-        double res = 1d;
-        double last = a * b * z / c;
-        int i = 2;
-        res += last;
-        while(i < HYPERGEO_FUNC_ITERATIONS){
-            last *= (a+i-1) * (b+i-1) * z;
-            last /= (c+i-1);
-            last /= i; // for factorial
-            res += last;
-            i++;
-        }
-        return res;
-    }
-
-
-
 
 
     /**
@@ -175,6 +86,7 @@ public final class TMath {
             if(n % i == 0) return false;
         return true;
     }
+
 
 
     /**
@@ -202,11 +114,11 @@ public final class TMath {
 
 
 
-
     public static int permutation(int n, int r){
         if( !(n>=r && r>=0) ) throw new PermutationException(n, r);
         return TMath.factorial(n) / TMath.factorial( n - r );
     }
+
 
 
     public static int repeatedPermutation(int n, int... rValues){
@@ -288,6 +200,45 @@ public final class TMath {
 
 
 
+    /*  ---------------  */
+    /*  SPECIAL METHODS  */
+    /*  ---------------  */
+
+
+
+    public static boolean areEqual(double d1, double d2){
+        boolean b1 = Double.isNaN(d1);
+        boolean b2 = Double.isNaN(d2);
+        if(b1 || b2) return b1 && b2;
+
+        boolean b3 = Double.isInfinite(d1);
+        boolean b4 = Double.isInfinite(d2);
+        if(b3 || b4) return b3 && b4;
+
+        return Math.abs(d1 - d2) < TMathConstants.EPSILON;
+    }
+
+
+
+
+    /*  -------  */
+    /*  HELPERS  */
+    /*  -------  */
+
+
+    // empty for now
+
+
+
+
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+    /*  METHODS TAKEN FROM TOMMY ETTINGER  */
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+
+
+
     /**
      * This method was written by Tommy Ettinger.
      * @param a any float
@@ -327,33 +278,57 @@ public final class TMath {
 
 
 
-
-    /*  ---------------  */
-    /*  SPECIAL METHODS  */
-    /*  ---------------  */
-
-
-
-    public static boolean areEqual(float f1, float f2){
-        return Math.abs(f1 - f2) < TMathConstants.EPSILON;
+    /**
+     * This uses an algorithm by Peter John Acklam, as implemented by Sherali Karimov.
+     * <a href="https://web.archive.org/web/20150910002142/http://home.online.no/~pjacklam/notes/invnorm/impl/karimov/StatUtil.java">
+     *     Original source</a>.
+     * <a href="https://web.archive.org/web/20151030215612/http://home.online.no/~pjacklam/notes/invnorm/">
+     *     Information on the algorithm</a>.
+     * <a href="https://en.wikipedia.org/wiki/Probit_function">Wikipedia's page on the probit function</a> may help, but
+     * is more likely to just be confusing.
+     * <br>
+     *
+     * @param d should be between 0 and 1, exclusive, but other values are tolerated
+     * @return a normal-distributed double centered on 0.0; all results will be between -38.5 and 38.5, both inclusive
+     */
+    public static double probit(double d) {
+        if (d <= 0 || d >= 1) {
+            return Math.copySign(38.5, d - 0.5);
+        }
+        else if (d < 0.02425) {
+            final double q = Math.sqrt(-2.0 * Math.log(d));
+            return (((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
+                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
+                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
+                            q + 3.754408661907416e+00) * q + 1.0);
+        }
+        else if (0.97575 < d) {
+            final double q = Math.sqrt(-2.0 * Math.log(1 - d));
+            return -(((((-7.784894002430293e-03 * q + -3.223964580411365e-01) * q + -2.400758277161838e+00) *
+                    q + -2.549732539343734e+00) * q + 4.374664141464968e+00) * q + 2.938163982698783e+00) / (
+                    (((7.784695709041462e-03 * q + 3.224671290700398e-01) * q + 2.445134137142996e+00) *
+                            q + 3.754408661907416e+00) * q + 1.0);
+        }
+        else {
+            final double q = d - 0.5;
+            final double r = q * q;
+            return (((((-3.969683028665376e+01 * r + 2.209460984245205e+02) * r + -2.759285104469687e+02)
+                    * r + 1.383577518672690e+02) * r + -3.066479806614716e+01) * r + 2.506628277459239e+00) * q / (
+                    ((((-5.447609879822406e+01 * r + 1.615858368580409e+02) * r + -1.556989798598866e+02)
+                            * r + 6.680131188771972e+01) * r + -1.328068155288572e+01) * r + 1.0);
+        }
     }
 
-    public static boolean areEqual(double d1, double d2){
-        if(Double.isNaN(d1) && Double.isNaN(d2)) return true;
-        if(Double.isNaN(d1) && !Double.isNaN(d2)) return false;
-        if(!Double.isNaN(d1) && Double.isNaN(d2)) return false;
-        return Math.abs(d1 - d2) < TMathConstants.EPSILON;
-    }
 
 
 
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+    /*  METHODS TAKEN FROM APACHE COMMONS MATH  */
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
 
-    /*  -------  */
-    /*  HELPERS  */
-    /*  -------  */
 
-
-    // APACHE COMMONS MATH
     private static final double[] LANCZOS = {
         0.99999999999999709182, 57.156235665862923517, -59.597960355475491248,
         14.136097974741747174, -0.49191381609762019978, .33994649984811888699e-4,
@@ -363,8 +338,90 @@ public final class TMath {
     };
 
 
-    // APACHE COMMONS MATH
-    private static double logBeta(double a, double b) {
+    public static double gamma(double x){
+        return Math.exp( logGamma(x) );
+    }
+
+
+    public static double beta(double a, double b){
+        return Math.exp( logBeta(a,b) );
+    }
+
+
+    public static double regularizedBeta(double x, double regA, double regB) {
+
+        if (Double.isNaN(x) || Double.isNaN(regA) || Double.isNaN(regB) || x < 0 || x > 1 || regA <= 0.0 || regB <= 0.0)
+            return Double.NaN;
+
+        if (x > (regA + 1d) / (regA + regB + 2d)) {
+            return 1d - regularizedBeta(1d - x, regB, regA);
+        }
+
+        // start of evaluate function
+        double p0 = 1d, p1 = 1d, q0 = 0d, q1 = 1d;
+        double c = p1 / q1;
+        int n = 0;
+        double relativeError = Double.MAX_VALUE;
+        while (n < Integer.MAX_VALUE && relativeError > 1E-8) {
+            ++n;
+
+            double b;
+            if (n % 2 == 0) {
+                double m = n / 2d;
+                b = (m * (regB - m) * x) / ((regA + (2 * m) - 1) * (regA + (2 * m)));
+            }
+            else {
+                double m = (n - 1.0) / 2.0;
+                b = -((regA + m) * (regA + regB + m) * x) / ((regA + (2 * m)) * (regA + (2 * m) + 1.0));
+            }
+
+            double p2 = p1 + b * p0;
+            double q2 = q1 + b * q0;
+            boolean infinite = false;
+            if (Double.isInfinite(p2) || Double.isInfinite(q2)) {
+                double scaleFactor = 1d;
+                double lastScaleFactor;
+                final int maxPower = 5;
+                final double scale = Math.max(1d, b);
+                for (int i = 0; i < maxPower; i++) {
+                    lastScaleFactor = scaleFactor;
+                    scaleFactor *= scale;
+                    if (1d > b) {
+                        p2 = p1 / lastScaleFactor + (b / scaleFactor * p0);
+                        q2 = q1 / lastScaleFactor + (b / scaleFactor * q0);
+                    } else if (b != 0) {
+                        p2 = (1d / scaleFactor * p1) + p0 / lastScaleFactor;
+                        q2 = (1d / scaleFactor * q1) + q0 / lastScaleFactor;
+                    }
+                    infinite = Double.isInfinite(p2) || Double.isInfinite(q2);
+                    if (!infinite) {
+                        break;
+                    }
+                }
+            }
+
+            if (infinite) throw new RuntimeException("ConvergenceException from Apache code");
+            double r = p2 / q2;
+            if (Double.isNaN(r)) throw new RuntimeException("ConvergenceException from Apache code");
+            relativeError = Math.abs(r / c - 1.0);
+
+            c = p2 / q2;
+            p0 = p1;
+            p1 = p2;
+            q0 = q1;
+            q1 = q2;
+        }
+
+        if (n >= Integer.MAX_VALUE) throw new RuntimeException("MaxCountExceededException from Apache code");
+        // end of eval
+
+        return Math.exp((regA * Math.log(x)) + (regB * Math.log(1.0 - x)) - Math.log(regA) - TMath.logBeta(regA, regB)) *
+                1d / c;
+
+    }
+
+
+    public static double logBeta(double a, double b) {
         if (Double.isNaN(a) || Double.isNaN(b) || a <= 0.0 || b <= 0.0)
             return Double.NaN;
         else
@@ -372,8 +429,7 @@ public final class TMath {
     }
 
 
-    // APACHE COMMONS MATH
-    private static double logGamma(double x) {
+    public static double logGamma(double x) {
         if (Double.isNaN(x) || (x <= 0.0)) {
             return Double.NaN;
         }
@@ -388,6 +444,7 @@ public final class TMath {
             return ( (x + .5) * Math.log(tmp) ) - tmp + TMathConstants.HALF_LOG_2_PI + Math.log(sum / x);
         }
     }
+
 
 
 
