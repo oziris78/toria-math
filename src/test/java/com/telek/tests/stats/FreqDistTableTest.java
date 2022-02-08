@@ -1,6 +1,6 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
 import com.telek.telekutils.plain.TCollections;

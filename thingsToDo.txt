@@ -14,10 +14,10 @@ GELECEK PLANLARI {
         single regression
 
 
-    ZDist   =>  completely done and tested (✅)(✅)(✅)
-
-    TDist   =>  density, cdf, inverse cdf  (❌)(✅)(❌)
-    ChiSq   =>  density, cdf, inverse cdf  (❌)(❌)(❌)
+                PDF  |  CDF  |  INV CDF
+    ZDist   =>  (✅)    (✅)      (✅)
+    TDist   =>  (✅)    (✅)      (❌)
+    ChiSq   =>  (✅)    (✅)      (❌)
 
 
 }

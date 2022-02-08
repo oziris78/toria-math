@@ -1,6 +1,6 @@
 package com.telek.tests.dists;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.distributions.discrete.BinomialDist;
 import com.telek.telekmath.advanced.distributions.discrete.PoissonDist;
 import org.apache.commons.math3.distribution.*;

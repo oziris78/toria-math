@@ -1,8 +1,7 @@
 package com.telek.tests.dists;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.distributions.cont.TDist;
-import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -19,10 +18,10 @@ public class TDistTest {
     @DisplayName("densityTest")
     void densityTest() {
         Random random = new Random();
-        final int TIMES = 1000;
+        final int TIMES = 10_000;
         for (int i = 0; i < TIMES; i++) {
-            double v = (int) (random.nextDouble() * random.nextInt(1000));
-            double x = random.nextDouble() * random.nextInt(1000);
+            double v = 1 + (int) (random.nextDouble() * random.nextInt(1000000));
+            double x = random.nextDouble() * random.nextInt(1000000);
             TDistribution td = new TDistribution(v);
             double val1 = td.density(x);
             double val2 = TDist.density(v, x);

@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.geometry.vectors;
 
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.matrices.TMatrix;
 
 import java.util.Objects;

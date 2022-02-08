@@ -1,6 +1,6 @@
 package com.telek.telekmath.core.geometry;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.exceptions.TelekMathException;

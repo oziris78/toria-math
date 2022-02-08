@@ -2,7 +2,7 @@ package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
 
-import java.util.function.Function;
+
 
 
 public class NumericalAnalysis {

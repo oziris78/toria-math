@@ -20,8 +20,11 @@ com/telek/telekutils/image/TBufImgUtils.java
  com.telek.telekutils.image.TBufImgUtils
 com/telek/telekmath/advanced/cryptography/AsciiCipher.java
  com.telek.telekmath.advanced.cryptography.AsciiCipher
-com/telek/telekmath/advanced/statistics/regression/Regression.java
- com.telek.telekmath.advanced.statistics.regression.Regression
+com/telek/telekmath/advanced/random/TNoise.java
+ com.telek.telekmath.advanced.random.TNoise
+ com.telek.telekmath.advanced.random.TNoise$Vec2
+com/telek/telekmath/special/NumericalAnalysis.java
+ com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
 com/telek/telekmath/advanced/statistics/measures/DataSet.java
@@ -30,8 +33,8 @@ com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/special/DiscreteMath.java
  com.telek.telekmath.special.DiscreteMath
-com/telek/telekmath/special/NumericalAnalysis.java
- com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekmath/core/matrices/TMatrixUtils.java
+ com.telek.telekmath.core.matrices.TMatrixUtils
 com/telek/telekmath/advanced/statistics/measures/DataDescription.java
  com.telek.telekmath.advanced.statistics.measures.DataDescription
 com/telek/telekmath/exceptions/WrongFunctionException.java
@@ -48,13 +51,11 @@ com/telek/telekmath/advanced/statistics/freqtable/FrequencyClass.java
  com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass
 com/telek/telekmath/exceptions/InvalidValueException.java
  com.telek.telekmath.exceptions.InvalidValueException
-com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
- com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
 com/telek/telekmath/core/functions/amnfuncs/AbstractAMNFunction.java
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction$FuncType
-com/telek/telekmath/core/matrices/TMatrixUtils.java
- com.telek.telekmath.core.matrices.TMatrixUtils
+com/telek/telekmath/advanced/statistics/regression/Regression.java
+ com.telek.telekmath.advanced.statistics.regression.Regression
 com/telek/telekmath/core/functions/amnfuncs/TFloor.java
  com.telek.telekmath.core.functions.amnfuncs.TFloor
 com/telek/telekmath/core/functions/amnfuncs/TSinh.java
@@ -71,9 +72,8 @@ com/telek/telekmath/core/functions/other/TPowerFunc.java
  com.telek.telekmath.core.functions.other.TPowerFunc
 com/telek/telekmath/advanced/statistics/util/Sampler.java
  com.telek.telekmath.advanced.statistics.util.Sampler
-com/telek/telekmath/advanced/random/TNoise.java
- com.telek.telekmath.advanced.random.TNoise
- com.telek.telekmath.advanced.random.TNoise$Vec2
+com/telek/telekmath/core/functions/other/TPolynomial.java
+ com.telek.telekmath.core.functions.other.TPolynomial
 com/telek/telekmath/advanced/distributions/discrete/BernoulliDist.java
  com.telek.telekmath.advanced.distributions.discrete.BernoulliDist
 com/telek/telekmath/special/IAF.java
@@ -84,8 +84,8 @@ com/telek/telekmath/core/functions/TRange.java
  com.telek.telekmath.core.functions.TRange
 com/telek/telekutils/swing/TDesktopUtils.java
  com.telek.telekutils.swing.TDesktopUtils
-com/telek/telekmath/core/functions/other/TLog.java
- com.telek.telekmath.core.functions.other.TLog
+com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
+ com.telek.telekmath.advanced.statistics.regression.RegressionResult
 com/telek/telekmath/exceptions/TelekMathException.java
  com.telek.telekmath.exceptions.TelekMathException
  com.telek.telekmath.exceptions.TelekMathException$CombinationException
@@ -119,6 +119,8 @@ com/telek/telekmath/advanced/cryptography/CaesarCipher.java
  com.telek.telekmath.advanced.cryptography.CaesarCipher
 com/telek/telekutils/plain/TStringUtils.java
  com.telek.telekutils.plain.TStringUtils
+com/telek/telekmath/utils/ApacheArrays.java
+ com.telek.telekmath.utils.ApacheArrays
 com/telek/telekmath/core/functions/amnfuncs/TTan.java
  com.telek.telekmath.core.functions.amnfuncs.TTan
 com/telek/telekmath/core/constants/TMathConstants.java
@@ -127,10 +129,10 @@ com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
  com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
 com/telek/telekmath/core/functions/amnfuncs/TCos.java
  com.telek.telekmath.core.functions.amnfuncs.TCos
-com/telek/telekmath/core/functions/other/TPolynomial.java
- com.telek.telekmath.core.functions.other.TPolynomial
-com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
- com.telek.telekmath.advanced.statistics.regression.RegressionResult
+com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
+ com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
+com/telek/telekmath/core/functions/other/TLog.java
+ com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/core/geometry/points/TPoint3D.java
  com.telek.telekmath.core.geometry.points.TPoint3D
 com/telek/telekmath/core/geometry/points/TPoint2D.java
@@ -141,10 +143,10 @@ com/telek/telekmath/core/functions/amnfuncs/TRectFunc.java
  com.telek.telekmath.core.functions.amnfuncs.TRectFunc
 com/telek/telekmath/advanced/distributions/cont/ZDist.java
  com.telek.telekmath.advanced.distributions.cont.ZDist
-com/telek/telekmath/TMath.java
- com.telek.telekmath.TMath
 com/telek/telekutils/plain/TCollections.java
  com.telek.telekutils.plain.TCollections
+com/telek/telekmath/utils/TMath.java
+ com.telek.telekmath.utils.TMath
 com/telek/telekmath/core/numbers/Fraction.java
  com.telek.telekmath.core.numbers.Fraction
 com/telek/telekmath/advanced/distributions/discrete/PoissonDist.java

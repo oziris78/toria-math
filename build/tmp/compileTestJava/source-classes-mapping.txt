@@ -51,7 +51,7 @@ com/telek/tests/functions/FuncTest.java
  com.telek.tests.functions.FuncTest
 com/telek/tests/geometry/TPoint3DTest.java
  com.telek.tests.geometry.TPoint3DTest
-com/telek/tests/color/ExportColor.java
- com.telek.tests.color.ExportColor
 com/telek/tests/dists/ZDistTest.java
  com.telek.tests.dists.ZDistTest
+com/telek/tests/color/ExportColor.java
+ com.telek.tests.color.ExportColor

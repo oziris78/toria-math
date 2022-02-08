@@ -1,9 +1,8 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.special.NumericalAnalysis;
-import com.telek.telekutils.plain.TCollections;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

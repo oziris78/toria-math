@@ -1,17 +1,19 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.util.Random;
 
 
 public class TMathTest {
 
+    static final int TIMES = 10_000;
+
     @Test
     @DisplayName("tmathTest")
     void tmathTest() {
-
         Assertions.assertEquals(TMath.floor(2d), 2d);
         Assertions.assertEquals(TMath.floor(2.1d), 2d);
         Assertions.assertEquals(TMath.floor(2.9999999d), 2d);
@@ -41,6 +43,24 @@ public class TMathTest {
         }
 
 
+        Random random = new Random();
+        for (int i = 0; i < TIMES; i++) {
+            double x = random.nextDouble() *  random.nextInt(999999999);
+            double y = random.nextDouble() *  random.nextInt(999999999);
+
+            double val1 = TMath.log(x);
+            double val2 = Math.log(x);
+            boolean b1 = TMath.areEqual(val1, val2);
+            if(!b1){
+                System.out.println("x: " + x);
+                System.out.println("val1: " + val1);
+                System.out.println("val2: " + val2);
+            }
+            Assertions.assertTrue(b1);
+
+
+
+        }
 
 
 

@@ -1,6 +1,6 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
 import com.telek.telekmath.advanced.statistics.measures.DataDescription;
 import com.telek.telekmath.advanced.statistics.measures.DataSet;
@@ -9,9 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Random;
 
 
 public class DataDescriptionTest {

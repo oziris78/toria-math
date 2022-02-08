@@ -2,7 +2,7 @@ package com.telek.telekmath.advanced.distributions.discrete;
 
 
 import com.telek.telekmath.exceptions.InvalidValueException;
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 
 
 public class BinomialDist {

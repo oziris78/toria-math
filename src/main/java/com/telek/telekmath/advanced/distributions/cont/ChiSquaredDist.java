@@ -1,9 +1,7 @@
 package com.telek.telekmath.advanced.distributions.cont;
 
 
-import com.telek.telekmath.TMath;
-import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanZeroException;
+import com.telek.telekmath.utils.TMath;
 
 
 public class ChiSquaredDist  {
@@ -42,7 +40,7 @@ public class ChiSquaredDist  {
     public static double density(double v, double x){
         if(x < 0) return 0;
         double alpha = v / 2d;
-        return Math.pow(x / 2d, alpha - 1) / 2d * Math.exp(-x / 2d) / TMath.gamma(alpha);
+        return TMath.pow(x / 2d, alpha - 1) / 2d * TMath.exp(-x / 2d) / TMath.gamma(alpha);
     }
 
 
@@ -54,11 +52,10 @@ public class ChiSquaredDist  {
      * @return cumulative probability function result for v and x
      */
     public static double cumulativeProbability(double v, double x){
-        if (x == 0)
-            return 0.5d;
+        if(x <= 0)
+            return 0;
 
-        double t = TMath.regularizedBeta(v / (v + (x * x)), 0.5 * v, 0.5);
-        return (x < 0.0d) ? 0.5d * t : 1.0d - 0.5d * t;
+        return TMath.regularizedGammaP(v / 2d, x / 2d);
     }
 
 

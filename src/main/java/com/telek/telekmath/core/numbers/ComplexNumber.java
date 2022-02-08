@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.numbers;
 
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 
 import java.util.Objects;
 

@@ -1,6 +1,6 @@
 package com.telek.tests.geometry;
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.TLine2D;
 import com.telek.telekmath.core.geometry.points.TPoint2D;

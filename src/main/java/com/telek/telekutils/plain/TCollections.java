@@ -1,7 +1,7 @@
 package com.telek.telekutils.plain;
 
 
-import com.telek.telekmath.TMath;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 import java.lang.reflect.Array;
 import java.util.*;
