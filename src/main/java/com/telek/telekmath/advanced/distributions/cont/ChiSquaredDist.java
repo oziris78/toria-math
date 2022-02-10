@@ -30,9 +30,6 @@ public class ChiSquaredDist  {
     }
 
 
-
-
-
     /**
      * Warning: this method doesn't work with very high x values. (higher than 130 is usually problematic)
      * @param v degrees of freedom
@@ -44,7 +41,6 @@ public class ChiSquaredDist  {
         double alpha = v / 2d;
         return TMath.pow(x / 2d, alpha - 1) / 2d * TMath.exp(-x / 2d) / TMath.gamma(alpha);
     }
-
 
 
     /**
@@ -61,51 +57,26 @@ public class ChiSquaredDist  {
     }
 
 
-
-    public static double inverseCumulativeProbability(double v, double p) {
-        if (p < 0.0 || p > 1.0) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);
-
-        double lowerBound = 0;
-        double upperBound = Double.POSITIVE_INFINITY;
-
-        if (p == 0.0) return lowerBound;
-        if (p == 1.0) return upperBound;
-
-
-        final double sig = Math.sqrt(2 * v);
-        final boolean chebyshevApplies;
-        chebyshevApplies = !(Double.isInfinite(v) || Double.isNaN(v) || Double.isInfinite(sig) || Double.isNaN(sig));
-
-        if (lowerBound == Double.NEGATIVE_INFINITY) {
-            if (chebyshevApplies) {
-                lowerBound = v - sig * Math.sqrt((1. - p) / p);
-            } else {
-                lowerBound = -1.0;
-                while (cumulativeProbability(v, lowerBound) >= p) {
-                    lowerBound *= 2.0;
-                }
-            }
-        }
-
-        if (upperBound == Double.POSITIVE_INFINITY) {
-            if (chebyshevApplies) {
-                upperBound = v + sig * Math.sqrt(p / (1. - p));
-            } else {
-                upperBound = 1.0;
-                while (cumulativeProbability(v, upperBound) < p) {
-                    upperBound *= 2.0;
-                }
-            }
-        }
-
-        return 0;
+    private static double invCum(double v, double p){
+        double val = ZDist.invCumLeftTailed(p) + Math.sqrt(2 * v);
+        return 0.5d * val * val;
     }
+
+
+
+
+
+
+
 
 
 
     ///////////////
     /*  HELPERS  */
     ///////////////
+
+
+
 
 
 

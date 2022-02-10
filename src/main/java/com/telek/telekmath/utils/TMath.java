@@ -74,33 +74,6 @@ public final class TMath {
 
 
 
-    public static double inverseRegularizedIncompleteBetaFunction(double alpha, double beta, double probability) {
-        final double EPSILON = 1E-18;
-
-        double t = TMath.exp(alpha * TMath.log(alpha / (alpha + beta))) / alpha;
-        double u = TMath.exp(beta * TMath.log(beta / (alpha + beta))) / beta;
-
-        double ret = probability < t / (t + u) ?
-                TMath.pow(alpha * (t + u) * probability, 1d / alpha) :
-                1d - TMath.pow(beta * (t + u) * (1d - probability), 1d / beta);
-
-        double logBeta = TMath.logBeta(alpha, beta);
-
-        double error;
-        double alphaMOne = alpha - 1d;
-        double betaMOne = beta - 1d;
-        for (int j = 0; j < 10; j++) {
-            if (ret == 0d || ret == 1d) return ret;
-            error = TMath.regularizedBeta(ret, alpha, beta) - probability;
-            t = TMath.exp(alphaMOne * TMath.log(ret) + betaMOne * TMath.log(1d - ret) - logBeta);
-            u = error / t;
-            ret -= (t = u / (1d - 0.5d * Math.min(1d, u * (alphaMOne / ret - betaMOne / (1d - ret)))));
-            if (ret <= 0d) ret = 0.5d * (ret + t);
-            if (ret >= 1d) ret = 0.5d * (ret + t + 1d);
-            if (TMath.abs(t) < EPSILON * ret && j > 0) break;
-        }
-        return ret;
-    }
 
 
 
@@ -139,6 +112,14 @@ public final class TMath {
      */
     public static int factorial(int num){
         return (num != 0) ? num * factorial(num-1) : 1;
+    }
+
+
+    public static double factorialDbl(int num){
+        double res = 1d;
+        for (int i = 2; i <= num; i++)
+            res *= i;
+        return res;
     }
 
 

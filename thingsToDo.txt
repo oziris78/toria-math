@@ -34,3 +34,6 @@ telek-vstat{
 }
 
 
+important books {
+    https://personal.math.ubc.ca/~cbm/aands/frameindex.htm
+}

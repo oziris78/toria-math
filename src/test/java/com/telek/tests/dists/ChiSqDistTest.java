@@ -5,16 +5,16 @@ import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
 import com.telek.telekutils.plain.TCollections;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
+import org.apache.commons.math3.distribution.FDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 
 public class ChiSqDistTest {
-
-    static final int TIMES = 10_000;
 
     @Test
     @DisplayName("densityTest")
@@ -80,6 +80,9 @@ public class ChiSqDistTest {
 
 
 
+    static final int TIMES = 10_000;
+
+
     /*
     @Test
     @DisplayName("invCumProbTest")
@@ -89,7 +92,7 @@ public class ChiSqDistTest {
         ArrayList<Integer> apacheTime = new ArrayList<>();
 
         for (int unused = 0; unused < TIMES; unused++) {
-            double v = 1 + (int) (random.nextInt(999999) * random.nextDouble());
+            double v = 1 + (int) (random.nextInt(1_000_000) * random.nextDouble());
             double p = random.nextDouble();
 
             long s1 = System.nanoTime();
@@ -104,6 +107,7 @@ public class ChiSqDistTest {
 
             boolean b = TMath.areEqual(val1, val2);
             if(!b){
+                System.out.println("i: " + unused);
                 System.out.println("v: " + v);
                 System.out.println("p: " + p);
                 System.out.println("apache: " + val1);
@@ -111,7 +115,6 @@ public class ChiSqDistTest {
             }
             Assertions.assertTrue(b);
         }
-
         Integer[] myTimeArr = myTime.toArray(new Integer[0]);
         Integer[] myTimeArr2 = TCollections.getSortedCopy(myTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
         DataSet myDataSet = new DataSet(myTimeArr2);
@@ -124,8 +127,15 @@ public class ChiSqDistTest {
         System.out.println("Apache results: " + apacheDataSet.getDataDesc());
 
     }
-    */
+     */
 
+    @Test
+    @DisplayName("test")
+    void test() {
+
+        ChiSquaredDistribution csd = new ChiSquaredDistribution(5);
+        System.out.println(csd.inverseCumulativeProbability(1d - 0.995));
+    }
 
 
 }

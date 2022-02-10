@@ -97,7 +97,7 @@ public class TDistTest {
             apacheTime.add((int) (e1 - s1));
 
             long s2 = System.nanoTime();
-            double val2 = TDist.inverseCumulativeProbability(v, p);
+            double val2 = TDist.invCumLeftTailed(v, p);
             long e2 = System.nanoTime();
             myTime.add((int) (e2 - s2));
 
@@ -155,7 +155,7 @@ public class TDistTest {
             double p = pVals[i % pVals.length];
             int v = vVals[i];
             double val1 = arr[i];
-            double val2 = TDist.invCumZeroToRight(v, p);
+            double val2 = TDist.invCumRightTailed(v, p);
 
             boolean b = TMath.areEqual(val1, val2);
             if(!b){

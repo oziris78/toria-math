@@ -25,6 +25,7 @@ public class TDist {
 
 
     /**
+     * Returns the PDF value for Student's T Distribution.
      * @param v degrees of freedom
      * @param x any value
      * @return probability density function result for v and x
@@ -38,7 +39,7 @@ public class TDist {
 
 
     /**
-     * Returns P(X <= x) <br>
+     * Returns P(X <= x) also known as the CDF value. <br>
      * @param v degrees of freedom
      * @param x any value
      * @return cumulative probability function result for v and x
@@ -54,19 +55,20 @@ public class TDist {
 
 
     /**
+     * Left tailed inverse cumulative probability function. <br>
      * Returns value for this equation:  p = P(X <= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
      * @return inverse cumulative probability function result
      */
-    public static double inverseCumulativeProbability(double v, double p) {
+    public static double invCumLeftTailed(double v, double p) {
         if(p < 0d || p > 1d) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);
         if(v < 1d) throw new InvalidValueException("degreesOfFreedom (v)", v);
 
         if(p == 0d) return Double.NEGATIVE_INFINITY;
         if(p == 1d) return Double.POSITIVE_INFINITY;
 
-        double ret = TMath.inverseRegularizedIncompleteBetaFunction(0.5d * v, 0.5d, 2d * Math.min(p, 1d - p));
+        double ret = iribfForTDist(0.5d * v, 0.5d, 2d * Math.min(p, 1d - p));
         ret = Math.sqrt(v * (1d - ret) / ret);
 
         return Math.copySign(ret, p - 0.5d);
@@ -75,14 +77,55 @@ public class TDist {
 
 
     /**
-     * This function is the right tailed version of the default inverse cumulative probability function. <br>
-     * Returns value for this equation:  p = P(X >= val) <br>
+     * Right tailed inverse cumulative probability function. <br>
+     * Returns value for this equation:  p = P(X >= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
      * @return inverse cumulative probability function result
      */
-    public static double invCumZeroToRight(double v, double p){
-        return TMath.abs(inverseCumulativeProbability(v, p));
+    public static double invCumRightTailed(double v, double p){
+        return TMath.abs(invCumLeftTailed(v, p));
+    }
+
+
+
+
+    ///////////////
+    /*  HELPERS  */
+    ///////////////
+
+
+    /*
+        Writing this function gave me cancer so im glad that it works hehe
+        For more information: https://core.ac.uk/download/pdf/82140723.pdf
+        inverse regularized incomplete beta function
+     */
+    private static double iribfForTDist(double alpha, double beta, double probability) {
+        final double EPSILON = 1E-18;
+
+        double t = TMath.exp(alpha * TMath.log(alpha / (alpha + beta))) / alpha;
+        double u = TMath.exp(beta * TMath.log(beta / (alpha + beta))) / beta;
+
+        double ret = probability < t / (t + u) ?
+                TMath.pow(alpha * (t + u) * probability, 1d / alpha) :
+                1d - TMath.pow(beta * (t + u) * (1d - probability), 1d / beta);
+
+        double logBeta = TMath.logBeta(alpha, beta);
+
+        double error;
+        double alphaMOne = alpha - 1d;
+        double betaMOne = beta - 1d;
+        for (int j = 0; j < 10; j++) {
+            if (ret == 0d || ret == 1d) return ret;
+            error = TMath.regularizedBeta(ret, alpha, beta) - probability;
+            t = TMath.exp(alphaMOne * TMath.log(ret) + betaMOne * TMath.log(1d - ret) - logBeta);
+            u = error / t;
+            ret -= (t = u / (1d - 0.5d * Math.min(1d, u * (alphaMOne / ret - betaMOne / (1d - ret)))));
+            if (ret <= 0d) ret = 0.5d * (ret + t);
+            if (ret >= 1d) ret = 0.5d * (ret + t + 1d);
+            if (TMath.abs(t) < EPSILON * ret && j > 0) break;
+        }
+        return ret;
     }
 
 

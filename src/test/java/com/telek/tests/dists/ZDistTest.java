@@ -22,7 +22,7 @@ public class ZDistTest {
         int index = 0;
         Instant start = Instant.now();
         while (index != vals.length){
-            Assertions.assertTrue(TMath.areEqual(vals[index], ZDist.areaBetween(0, val)));
+            Assertions.assertTrue(TMath.areEqual(vals[index], ZDist.cumulativeProbabilityBetween(0, val)));
             index++;
             val += 0.01;
         }
@@ -35,14 +35,14 @@ public class ZDistTest {
     @DisplayName("differentIntervalTest")
     void snormalTest2() {
         // used this site:  https://onlinestatbook.com/2/calculators/normal_dist.html
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(0, 1.15), 0.3749));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(0, -1.15), 0));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, 0), 0.4846));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, 0), 0));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, -5.15), 0));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, 1.15), 0.8595));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(-2.16, -1.15), 0.1097));
-        Assertions.assertTrue(TMath.areEqual(ZDist.areaBetween(2.16, 5.15), 0.0154));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, 1.15), 0.3749));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, -1.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 0), 0.4846));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 0), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, -5.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 1.15), 0.8595));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, -1.15), 0.1097));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 5.15), 0.0154));
     }
 
 
@@ -58,7 +58,7 @@ public class ZDistTest {
         for (int unused = 0; unused < TIMES; unused++) {
             double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(1000000);
             double val1 = nd.cumulativeProbability(x);
-            double val2 = ZDist.areaUnder(x);
+            double val2 = ZDist.cumulativeProbability(x);
             Assertions.assertTrue(TMath.areEqual(val1, val2));
         }
 
@@ -74,7 +74,7 @@ public class ZDistTest {
         double area = 0.01d;
         while(area <= 1d){
             double val1 = nd.inverseCumulativeProbability(area);
-            double val2 = ZDist.invCumLeftToRight(area);
+            double val2 = ZDist.invCumLeftTailed(area);
             Assertions.assertTrue(TMath.areEqual(val1, val2));
             area += 0.01d;
         }
@@ -84,10 +84,10 @@ public class ZDistTest {
     @Test
     @DisplayName("invCumZeroToRightTest")
     void invCumZeroToRightTest() {
-        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.17d), 0.44d));
-        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.499d), 3.0902d));
-        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.5d - 0.05d / 2d), 1.96d));
-        Assertions.assertTrue(TMath.areEqual(ZDist.invCumZeroToRight(0.5d - 0.01d / 2d), 2.5758d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.17d), 0.44d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.499d), 3.0902d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.05d / 2d), 1.96d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.01d / 2d), 2.5758d));
     }
 
 
