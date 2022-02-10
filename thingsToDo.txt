@@ -16,10 +16,6 @@ GELECEK PLANLARI {
         single regression
 
 
-                PDF  |  CDF  |  INV CDF
-    ZDist   =>  (✅)    (✅)      (✅)
-    TDist   =>  (✅)    (✅)      (✅)
-    ChiSq   =>  (✅)    (✅)      (❌)
 
 
 }
@@ -33,7 +29,3 @@ telek-vstat{
     - boxplots
 }
 
-
-important books {
-    https://personal.math.ubc.ca/~cbm/aands/frameindex.htm
-}

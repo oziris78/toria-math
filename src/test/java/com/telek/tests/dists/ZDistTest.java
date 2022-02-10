@@ -14,26 +14,40 @@ import java.util.Random;
 public class ZDistTest {
 
 
+    static final int TIMES = 250_000;
+
+
     @Test
-    @DisplayName("tableValueTest")
-    void snormalTest() {
+    @DisplayName("densityTest")
+    void densityTest() {
+        NormalDistribution nd = new NormalDistribution(0, 1);
+        Random random = new Random();
+        for (int i = 0; i < TIMES; i++) {
+            double x = random.nextDouble() * random.nextInt(999999999);
+            Assertions.assertTrue(TMath.areEqual(ZDist.density(x), nd.density(x)));
+        }
+    }
+
+
+
+    @Test
+    @DisplayName("cumulativeProbabilityBetweenTest")
+    void cumulativeProbabilityBetweenTest() {
         double[] vals = getTable();
         double val = 0.0d;
         int index = 0;
-        Instant start = Instant.now();
         while (index != vals.length){
             Assertions.assertTrue(TMath.areEqual(vals[index], ZDist.cumulativeProbabilityBetween(0, val)));
             index++;
             val += 0.01;
         }
-        Instant end = Instant.now();
-        System.out.println("Milisec: " + Duration.between(start, end).toMillis());
     }
 
 
+
     @Test
-    @DisplayName("differentIntervalTest")
-    void snormalTest2() {
+    @DisplayName("cumulativeProbabilityBetweenTest2")
+    void cumulativeProbabilityBetweenTest2() {
         // used this site:  https://onlinestatbook.com/2/calculators/normal_dist.html
         Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, 1.15), 0.3749));
         Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, -1.15), 0));
@@ -47,13 +61,12 @@ public class ZDistTest {
 
 
 
+
     @Test
-    @DisplayName("cdfTest")
-    void cdfTest() {
+    @DisplayName("cumulativeProbabilityTest")
+    void cumulativeProbabilityTest() {
         NormalDistribution nd = new NormalDistribution(0, 1);
         Random random = new Random();
-
-        final int TIMES = 10_000_000;
 
         for (int unused = 0; unused < TIMES; unused++) {
             double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(1000000);
@@ -67,8 +80,8 @@ public class ZDistTest {
 
 
     @Test
-    @DisplayName("inverseCumulativeProbFuncTest")
-    void inverseCumulativeProbFuncTest() {
+    @DisplayName("invCumLeftTailedTest")
+    void invCumLeftTailedTest() {
         NormalDistribution nd = new NormalDistribution(0, 1);
 
         double area = 0.01d;
@@ -82,8 +95,8 @@ public class ZDistTest {
     }
 
     @Test
-    @DisplayName("invCumZeroToRightTest")
-    void invCumZeroToRightTest() {
+    @DisplayName("invCumRightTailedTest")
+    void invCumRightTailedTest() {
         Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.17d), 0.44d));
         Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.499d), 3.0902d));
         Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.05d / 2d), 1.96d));
@@ -91,17 +104,7 @@ public class ZDistTest {
     }
 
 
-    @Test
-    @DisplayName("densityTest")
-    void densityTest() {
-        NormalDistribution nd = new NormalDistribution(0, 1);
-        Random random = new Random();
-        final int TIMES = 10_000_000;
-        for (int i = 0; i < TIMES; i++) {
-            double val = random.nextDouble() * random.nextInt(1000000);
-            Assertions.assertTrue(TMath.areEqual(ZDist.density(val), nd.density(val)));
-        }
-    }
+
 
 
     private double[] getTable(){

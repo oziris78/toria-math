@@ -6,14 +6,9 @@ import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.exceptions.InvalidValueException;
 
+
 public class ZDist {
 
-
-    //////////////
-    /*  FIELDS  */
-    //////////////
-
-    public static final double MEAN = 0, VARIANCE = 1;
 
 
     /* No constructor */
@@ -26,11 +21,10 @@ public class ZDist {
 
 
 
+
     /**
-     * Returns the probability of x <br>
-     * Probability function.
      * @param x any value
-     * @return f(x)
+     * @return probability density function (PDF) result
      */
     public static double density(double x){
         return 0.3989422804d * Math.exp(-0.5d * x * x);
@@ -41,7 +35,7 @@ public class ZDist {
     /**
      * Returns the shaded area created by P(X <= x). <br>
      * @param x any value
-     * @return P(X <= x)
+     * @return cumulative density function (CDF) result
      */
     public static double cumulativeProbability(double x)  {
         return 0.5d * (1 + TMath.erf(x / TMathConstants.SQRT2));
@@ -49,11 +43,12 @@ public class ZDist {
 
 
 
+
     /**
      * Returns the shaded area created by P(a <= X <= b). <br>
      * @param a any value
      * @param b any value
-     * @return P(a <= X <= b)
+     * @return cumulative density function (CDF) result
      */
     public static double cumulativeProbabilityBetween(double a, double b) {
         if(a == b) return 0;
@@ -63,31 +58,32 @@ public class ZDist {
 
 
 
+
+
+
     /**
-     * Left tailed inverse cumulative probability function. <br>
-     * Returns val for this equation:  p = P(X <= val)
-     * @param probability a value in range [0, 1]
-     * @return the point that corresponds to a shaded area
+     * Left tailed inverse cumulative density function (ICDF). <br>
+     * Returns the variable "val" for this equation:  p = P(X <= val)
+     * @param p any value in range [0,1]
+     * @return inverse cumulative density function (ICDF) result
      */
-    public static double invCumLeftTailed(double probability){
-        if(!TRange.ZERO_TO_ONE.isInRange(probability))
-            throw new InvalidValueException("probability", probability);
-        return TMath.probit(probability);
+    public static double invCumLeftTailed(double p){
+        if(!TRange.ZERO_TO_ONE.isInRange(p)) throw new InvalidValueException("p", p);
+        return TMath.probit(p);
     }
 
 
 
 
     /**
-     * Right tailed inverse cumulative probability function. <br>
-     * Returns val for this equation:  p = P(X >= val)
-     * @param probability a value in range [0, 0.5]
-     * @return the point that corresponds to a shaded area
-    */
-    public static double invCumRightTailed(double probability){
-        if( !(0d <= probability && probability <= 0.5d) )
-            throw new InvalidValueException("probability", probability);
-        return TMath.probit(probability + 0.5d);
+     * Right tailed inverse cumulative density function. (ICDF)<br>
+     * Returns the variable "val" for this equation:  p = P(X >= val)
+     * @param p a value in range [0, 0.5]
+     * @return inverse cumulative density function (ICDF) result
+     */
+    public static double invCumRightTailed(double p){
+        if( !(0d <= p && p <= 0.5d) ) throw new InvalidValueException("p", p);
+        return TMath.probit(p + 0.5d);
     }
 
 

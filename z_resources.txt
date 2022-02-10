@@ -1,0 +1,13 @@
+
+
+
+Abramowitz and Stegun. Handbook of Mathematical Functions {
+    https://personal.math.ubc.ca/~cbm/aands/frameindex.htm
+}
+
+
+APACHE COMMONS MATH3 RESOURCES {
+    download this one  =>  commons-math3-3.0-src.zip
+    https://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/
+}
+

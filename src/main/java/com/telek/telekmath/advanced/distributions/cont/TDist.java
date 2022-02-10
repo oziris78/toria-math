@@ -25,10 +25,9 @@ public class TDist {
 
 
     /**
-     * Returns the PDF value for Student's T Distribution.
      * @param v degrees of freedom
      * @param x any value
-     * @return probability density function result for v and x
+     * @return probability density function (PDF) result
      */
     public static double density(double v, double x){
         final double nPlus1Over2 = (v + 1d) / 2d;
@@ -39,10 +38,10 @@ public class TDist {
 
 
     /**
-     * Returns P(X <= x) also known as the CDF value. <br>
+     * Returns P(X <= x) <br>
      * @param v degrees of freedom
      * @param x any value
-     * @return cumulative probability function result for v and x
+     * @return cumulative density function (CDF) result
      */
     public static double cumulativeProbability(double v, double x){
         if (x == 0d)
@@ -54,12 +53,13 @@ public class TDist {
 
 
 
+
     /**
-     * Left tailed inverse cumulative probability function. <br>
-     * Returns value for this equation:  p = P(X <= val)
+     * Left tailed inverse cumulative density function (ICDF). <br>
+     * Returns the variable "val" for this equation:  p = P(X <= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
-     * @return inverse cumulative probability function result
+     * @return inverse cumulative density function (ICDF) result
      */
     public static double invCumLeftTailed(double v, double p) {
         if(p < 0d || p > 1d) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);
@@ -76,15 +76,17 @@ public class TDist {
 
 
 
+
+
     /**
-     * Right tailed inverse cumulative probability function. <br>
-     * Returns value for this equation:  p = P(X >= val)
+     * Right tailed inverse cumulative density function. (ICDF)<br>
+     * Returns the variable "val" for this equation:  p = P(X >= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
-     * @return inverse cumulative probability function result
+     * @return inverse cumulative density function (ICDF) result
      */
     public static double invCumRightTailed(double v, double p){
-        return TMath.abs(invCumLeftTailed(v, p));
+        return invCumLeftTailed(v, 1d - p);
     }
 
 

@@ -1,20 +1,17 @@
 package com.telek.tests.dists;
 
-import com.telek.telekmath.advanced.statistics.measures.DataSet;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.distributions.cont.TDist;
-import com.telek.telekutils.plain.TCollections;
 import org.apache.commons.math3.distribution.TDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 import java.util.Random;
 
 
 public class TDistTest {
 
-    static final int TIMES = 10_000;
+    static final int TIMES = 250_000;
 
 
     @Test
@@ -23,11 +20,12 @@ public class TDistTest {
         Random random = new Random();
 
         for (int i = 0; i < TIMES; i++) {
-            int v = 1 + (int) (random.nextDouble() * random.nextInt(1000000));
-            double x = random.nextDouble() * random.nextInt(1000000);
-            TDistribution td = new TDistribution(v);
-            double val1 = td.density(x);
+            double v = 1d + random.nextDouble() * random.nextInt(1000000);
+            double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(1000000);
+
+            double val1 = new TDistribution(v).density(x);
             double val2 = TDist.density(v, x);
+
             boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("v: " + v);
@@ -41,29 +39,13 @@ public class TDistTest {
 
 
 
+
     @Test
     @DisplayName("cumProbTest")
     void cumProbTest() {
         Random random = new Random();
         for (int i = 0; i < TIMES; i++) {
-            double x = (random.nextInt(99999999) * random.nextDouble());
-            int v = 1 + (int) (random.nextInt(99999999) * random.nextDouble());
-
-            double val1 = new TDistribution(v).cumulativeProbability(x);
-            double val2 = TDist.cumulativeProbability(v, x);
-            boolean res = TMath.areEqual(val1, val2);
-            if(!res){
-                System.out.println("x: " + x);
-                System.out.println("v: " + v);
-                System.out.println("val1: " + val1);
-                System.out.println("val2: " + val2);
-            }
-            Assertions.assertTrue(res);
-        }
-
-
-        for (int i = 0; i < TIMES; i++) {
-            double x = (random.nextInt(99999999) * random.nextDouble());
+            double x = (random.nextBoolean() ? -1 : 1) * (random.nextInt(99999999) * random.nextDouble());
             int v = 1 + (int) (random.nextInt(99999999) * random.nextDouble());
 
             double val1 = new TDistribution(v).cumulativeProbability(x);
@@ -80,26 +62,21 @@ public class TDistTest {
     }
 
 
+
+
+
+
     @Test
-    @DisplayName("invCumProbTest")
-    void invCumProbTest() {
+    @DisplayName("invCumLeftTailed")
+    void invCumLeftTailed() {
         Random random = new Random();
-        ArrayList<Integer> myTime = new ArrayList<>();
-        ArrayList<Integer> apacheTime = new ArrayList<>();
 
         for (int unused = 0; unused < TIMES; unused++) {
             int v = 1 + (int) (random.nextInt(99999999) * random.nextDouble());
             double p = random.nextDouble();
 
-            long s1 = System.nanoTime();
             double val1 = new TDistribution(v).inverseCumulativeProbability(p);
-            long e1 = System.nanoTime();
-            apacheTime.add((int) (e1 - s1));
-
-            long s2 = System.nanoTime();
             double val2 = TDist.invCumLeftTailed(v, p);
-            long e2 = System.nanoTime();
-            myTime.add((int) (e2 - s2));
 
             boolean b = TMath.areEqual(val1, val2);
             if(!b){
@@ -111,32 +88,20 @@ public class TDistTest {
             Assertions.assertTrue(b);
         }
 
-
-        Integer[] myTimeArr = myTime.toArray(new Integer[0]);
-        Integer[] myTimeArr2 = TCollections.getSortedCopy(myTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
-        DataSet myDataSet = new DataSet(myTimeArr2);
-        System.out.println("My results: " + myDataSet.getDataDesc());
-
-
-        Integer[] apacheTimeArr = apacheTime.toArray(new Integer[0]);
-        Integer[] apacheTimeArr2 = TCollections.getSortedCopy(apacheTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
-        DataSet apacheDataSet = new DataSet(apacheTimeArr2);
-        System.out.println("Apache results: " + apacheDataSet.getDataDesc());
-
     }
 
 
-    @Test
-    @DisplayName("invCumSameAsClassTable")
-    void invCumSameAsClassTable() {
 
+
+    @Test
+    @DisplayName("invCumRightTailed")
+    void invCumRightTailed() {
+        // single tests
+        Assertions.assertTrue(TMath.areEqual(TDist.invCumRightTailed(500, 0.75), -0.674980734036162));
+        Assertions.assertTrue(TMath.areEqual(TDist.invCumRightTailed(500, 0.32), 0.4679839324361787));
+
+        // big test
         double[] pVals = new double[]{0.40, 0.25, 0.10, 0.05, 0.025, 0.01, 0.005, 0.0005};
-        int[] vVals = new int[]{ // i was too lazy to code this lmao
-                1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,
-                4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,
-                7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,
-                10,10,10,10,10,10,10,10
-        };
         double[] arr = new double[]{
                 0.324920, 1.000000, 3.077684, 6.313752, 12.70620, 31.82052,
                 63.65674, 636.6192, 0.288675, 0.816497, 1.885618, 2.919986,
@@ -153,7 +118,7 @@ public class TDistTest {
         };
         for (int i = 0; i < arr.length; i++) {
             double p = pVals[i % pVals.length];
-            int v = vVals[i];
+            int v = 1 + (i / pVals.length);
             double val1 = arr[i];
             double val2 = TDist.invCumRightTailed(v, p);
 
@@ -167,6 +132,55 @@ public class TDistTest {
             Assertions.assertTrue(b);
 
         }
+
+
+        /*
+        @Test
+        @DisplayName("invCumLeftTailedBenchmark")
+        void invCumLeftTailedBenchmark() {
+            Random random = new Random();
+            ArrayList<Integer> myTime = new ArrayList<>();
+            ArrayList<Integer> apacheTime = new ArrayList<>();
+
+            for (int unused = 0; unused < TIMES; unused++) {
+                int v = 1 + (int) (random.nextInt(99999999) * random.nextDouble());
+                double p = random.nextDouble();
+
+                long s1 = System.nanoTime();
+                double val1 = new TDistribution(v).inverseCumulativeProbability(p);
+                long e1 = System.nanoTime();
+                apacheTime.add((int) (e1 - s1));
+
+                long s2 = System.nanoTime();
+                double val2 = TDist.invCumLeftTailed(v, p);
+                long e2 = System.nanoTime();
+                myTime.add((int) (e2 - s2));
+
+                boolean b = TMath.areEqual(val1, val2);
+                if(!b){
+                    System.out.println("v: " + v);
+                    System.out.println("p: " + p);
+                    System.out.println("apache: " + val1);
+                    System.out.println("my val: " + val2);
+                }
+                Assertions.assertTrue(b);
+            }
+
+
+            Integer[] myTimeArr = myTime.toArray(new Integer[0]);
+            Integer[] myTimeArr2 = TCollections.getSortedCopy(myTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
+            DataSet myDataSet = new DataSet(myTimeArr2);
+            System.out.println("My results: " + myDataSet.getDataDesc());
+
+
+            Integer[] apacheTimeArr = apacheTime.toArray(new Integer[0]);
+            Integer[] apacheTimeArr2 = TCollections.getSortedCopy(apacheTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
+            DataSet apacheDataSet = new DataSet(apacheTimeArr2);
+            System.out.println("Apache results: " + apacheDataSet.getDataDesc());
+
+        }
+         */
+
 
 
     }

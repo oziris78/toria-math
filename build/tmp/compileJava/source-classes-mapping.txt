@@ -130,6 +130,8 @@ com/telek/telekmath/core/functions/amnfuncs/TCos.java
  com.telek.telekmath.core.functions.amnfuncs.TCos
 com/telek/telekmath/core/geometry/vectors/TVector2D.java
  com.telek.telekmath.core.geometry.vectors.TVector2D
+com/telek/telekmath/exceptions/ThisLineIsNeverExecutedException.java
+ com.telek.telekmath.exceptions.ThisLineIsNeverExecutedException
 com/telek/telekmath/core/geometry/points/TPoint3D.java
  com.telek.telekmath.core.geometry.points.TPoint3D
 com/telek/telekmath/core/matrices/TMatrixUtils.java
