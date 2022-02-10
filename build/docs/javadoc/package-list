@@ -1,4 +1,3 @@
-com.telek.telekmath
 com.telek.telekmath.advanced.cryptography
 com.telek.telekmath.advanced.distributions.cont
 com.telek.telekmath.advanced.distributions.discrete
@@ -18,6 +17,7 @@ com.telek.telekmath.core.matrices
 com.telek.telekmath.core.numbers
 com.telek.telekmath.exceptions
 com.telek.telekmath.special
+com.telek.telekmath.utils
 com.telek.telekutils.audio
 com.telek.telekutils.colors
 com.telek.telekutils.image

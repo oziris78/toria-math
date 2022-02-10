@@ -23,6 +23,7 @@ import com.telek.telekmath.exceptions.*;
 import com.telek.telekmath.exceptions.TelekMathException.*;
 
 
+
 /**
  * A class that has a lot of utility functions. <br>
  * Few methods in this class were written by <a href="https://github.com/tommyettinger">Tommy Ettinger</a>. <br>
@@ -70,6 +71,36 @@ public final class TMath {
         return Math.copySign(ans, z);
     }
 
+
+
+
+    public static double inverseRegularizedIncompleteBetaFunction(double alpha, double beta, double probability) {
+        final double EPSILON = 1E-18;
+
+        double t = TMath.exp(alpha * TMath.log(alpha / (alpha + beta))) / alpha;
+        double u = TMath.exp(beta * TMath.log(beta / (alpha + beta))) / beta;
+
+        double ret = probability < t / (t + u) ?
+                TMath.pow(alpha * (t + u) * probability, 1d / alpha) :
+                1d - TMath.pow(beta * (t + u) * (1d - probability), 1d / beta);
+
+        double logBeta = TMath.logBeta(alpha, beta);
+
+        double error;
+        double alphaMOne = alpha - 1d;
+        double betaMOne = beta - 1d;
+        for (int j = 0; j < 10; j++) {
+            if (ret == 0d || ret == 1d) return ret;
+            error = TMath.regularizedBeta(ret, alpha, beta) - probability;
+            t = TMath.exp(alphaMOne * TMath.log(ret) + betaMOne * TMath.log(1d - ret) - logBeta);
+            u = error / t;
+            ret -= (t = u / (1d - 0.5d * Math.min(1d, u * (alphaMOne / ret - betaMOne / (1d - ret)))));
+            if (ret <= 0d) ret = 0.5d * (ret + t);
+            if (ret >= 1d) ret = 0.5d * (ret + t + 1d);
+            if (TMath.abs(t) < EPSILON * ret && j > 0) break;
+        }
+        return ret;
+    }
 
 
 
@@ -152,6 +183,25 @@ public final class TMath {
 
 
 
+    public static int abs(final int x) {
+        return (x < 0) ? -x : x;
+    }
+
+    public static long abs(final long x) {
+        return (x < 0L) ? -x : x;
+    }
+
+    public static float abs(final float x) {
+        return (x < 0.0f) ? -x : (x == 0.0f) ? 0.0f : x; // -0.0 => +0.0
+    }
+
+    public static double abs(double x) {
+        return (x < 0.0) ? -x : (x == 0.0) ? 0.0 : x; // -0.0 => +0.0
+    }
+
+
+
+
     /**
      * Takes oldValue from the range [oldA, oldB] and returns what it would represent if it was in range [newA, newB]
      * @param oldRangeLeft start value of old interval (left value)
@@ -195,6 +245,12 @@ public final class TMath {
         int xi = (int) x;
         return (x < xi) ? (xi - 1) : xi;
     }
+
+
+    public static double sqrt(double x) {
+        return Math.sqrt(x);
+    }
+
 
 
 
@@ -339,17 +395,17 @@ public final class TMath {
 
 
     public static double beta(double a, double b){
-        return Math.exp( logBeta(a,b) );
+        return exp( logBeta(a,b) );
     }
 
 
-    public static double regularizedBeta(double x, double regA, double regB) {
+    public static double regularizedBeta(double x, double funcAlpha, double funcBeta) {
 
-        if (Double.isNaN(x) || Double.isNaN(regA) || Double.isNaN(regB) || x < 0 || x > 1 || regA <= 0.0 || regB <= 0.0)
+        if (Double.isNaN(x) || Double.isNaN(funcAlpha) || Double.isNaN(funcBeta) || x < 0 || x > 1 || funcAlpha <= 0.0 || funcBeta <= 0.0)
             return Double.NaN;
 
-        if (x > (regA + 1d) / (regA + regB + 2d)) {
-            return 1d - regularizedBeta(1d - x, regB, regA);
+        if (x > (funcAlpha + 1d) / (funcAlpha + funcBeta + 2d)) {
+            return 1d - regularizedBeta(1d - x, funcBeta, funcAlpha);
         }
 
         // start of evaluate function
@@ -357,17 +413,17 @@ public final class TMath {
         double c = p1 / q1;
         int n = 0;
         double relativeError = Double.MAX_VALUE;
-        while (n < Integer.MAX_VALUE && relativeError > 1E-8) {
+        while (n < Integer.MAX_VALUE && relativeError > 10e-15) {
             ++n;
 
             double b;
             if (n % 2 == 0) {
                 double m = n / 2d;
-                b = (m * (regB - m) * x) / ((regA + (2 * m) - 1) * (regA + (2 * m)));
+                b = (m * (funcBeta - m) * x) / ((funcAlpha + (2 * m) - 1) * (funcAlpha + (2 * m)));
             }
             else {
                 double m = (n - 1.0) / 2.0;
-                b = -((regA + m) * (regA + regB + m) * x) / ((regA + (2 * m)) * (regA + (2 * m) + 1.0));
+                b = -((funcAlpha + m) * (funcAlpha + funcBeta + m) * x) / ((funcAlpha + (2 * m)) * (funcAlpha + (2 * m) + 1.0));
             }
 
             double p2 = p1 + b * p0;
@@ -410,7 +466,7 @@ public final class TMath {
         if (n >= Integer.MAX_VALUE) throw new RuntimeException("MaxCountExceededException from Apache code");
         // end of eval
 
-        return TMath.exp((regA * TMath.log(x)) + (regB * TMath.log(1.0 - x)) - TMath.log(regA) - TMath.logBeta(regA, regB)) *
+        return TMath.exp((funcAlpha * TMath.log(x)) + (funcBeta * TMath.log(1.0 - x)) - TMath.log(funcAlpha) - TMath.logBeta(funcAlpha, funcBeta)) *
                 1d / c;
 
     }
@@ -622,7 +678,6 @@ public final class TMath {
     }
 
 
-
     /* HELPERS FOR APACHE */
 
 
@@ -630,11 +685,6 @@ public final class TMath {
         double intPartA;
         double intPartB;
         int intVal;
-
-        /* Lookup exp(floor(x)).
-         * intPartA will have the upper 22 bits, intPartB will have the lower
-         * 52 bits.
-         */
         if (x < 0.0) {
             intVal = (int) -x;
 
@@ -647,7 +697,6 @@ public final class TMath {
             }
 
             if (intVal > 709) {
-                /* This will produce a subnormal output */
                 final double result = exp(x+40.19140625, extra, hiPrec) / 285040095144011776.0;
                 if (hiPrec != null) {
                     hiPrec[0] /= 285040095144011776.0;
@@ -657,7 +706,6 @@ public final class TMath {
             }
 
             if (intVal == 709) {
-                /* exp(1.494140625) is nearly a machine number... */
                 final double result = exp(x+1.494140625, extra, hiPrec) / 4.455505956692756620;
                 if (hiPrec != null) {
                     hiPrec[0] /= 4.455505956692756620;
@@ -687,45 +735,17 @@ public final class TMath {
             intPartB = ApacheArrays.EXP_INT_TABLE_B[EXP_INT_TABLE_MAX_INDEX+intVal];
         }
 
-        /* Get the fractional part of x, find the greatest multiple of 2^-10 less than
-         * x and look up the exp function of it.
-         * fracPartA will have the upper 22 bits, fracPartB the lower 52 bits.
-         */
         final int intFrac = (int) ((x - intVal) * 1024.0);
         final double fracPartA = ApacheArrays.EXP_FRAC_TABLE_A[intFrac];
         final double fracPartB = ApacheArrays.EXP_FRAC_TABLE_B[intFrac];
-
-        /* epsilon is the difference in x from the nearest multiple of 2^-10.  It
-         * has a value in the range 0 <= epsilon < 2^-10.
-         * Do the subtraction from x as the last step to avoid possible loss of percison.
-         */
         final double epsilon = x - (intVal + intFrac / 1024.0);
-
-        /* Compute z = exp(epsilon) - 1.0 via a minimax polynomial.  z has
-       full double precision (52 bits).  Since z < 2^-10, we will have
-       62 bits of precision when combined with the contant 1.  This will be
-       used in the last addition below to get proper rounding. */
-
-        /* Remez generated polynomial.  Converges on the interval [0, 2^-10], error
-       is less than 0.5 ULP */
         double z = 0.04168701738764507;
         z = z * epsilon + 0.1666666505023083;
         z = z * epsilon + 0.5000000000042687;
         z = z * epsilon + 1.0;
         z = z * epsilon + -3.940510424527919E-20;
-
-        /* Compute (intPartA+intPartB) * (fracPartA+fracPartB) by binomial
-       expansion.
-       tempA is exact since intPartA and intPartB only have 22 bits each.
-       tempB will have 52 bits of precision.
-         */
         double tempA = intPartA * fracPartA;
         double tempB = intPartA * fracPartB + intPartB * fracPartA + intPartB * fracPartB;
-
-        /* Compute the result.  (1+z)(tempA+tempB).  Order of operations is
-       important.  For accuracy add by increasing size.  tempA is exact and
-       much larger than the others.  If there are extra bits specified from the
-       pow() function, use them. */
         final double tempC = tempB + tempA;
         final double result;
         if (extra != 0.0) {
@@ -735,7 +755,6 @@ public final class TMath {
         }
 
         if (hiPrec != null) {
-            // If requesting high precision
             hiPrec[0] = tempA;
             hiPrec[1] = tempC*extra*z + tempC*extra + tempC*z + tempB;
         }
@@ -961,12 +980,6 @@ public final class TMath {
         } else {
             // create continued fraction
 
-
-            ////////////////////
-            ////////////////////
-            ////////////////////
-            ////////////////////
-
             // start of evaluate function
             {
                 double p0 = 1.0;
@@ -1028,20 +1041,13 @@ public final class TMath {
 
             // end of eval
 
-
-
-
-            ///////////////////
-            ///////////////////
-            ///////////////////
-            ///////////////////
-
-
             ret = exp(-x + (regA * log(x)) - logGamma(regA)) * ret;
         }
 
         return ret;
     }
+
+
 
 
 }

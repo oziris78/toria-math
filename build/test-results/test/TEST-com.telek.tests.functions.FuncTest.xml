@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.functions.FuncTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-08T21:29:56" hostname="TUNERIKGEZGINI" time="0.008">
+<testsuite name="com.telek.tests.functions.FuncTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-10T00:06:34" hostname="TUNERIKGEZGINI" time="0.009">
   <properties/>
-  <testcase name="amnTest" classname="com.telek.tests.functions.FuncTest" time="0.008"/>
+  <testcase name="amnTest" classname="com.telek.tests.functions.FuncTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

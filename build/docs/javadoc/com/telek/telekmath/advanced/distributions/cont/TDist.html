@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">TDist</span>
 extends java.lang.Object</pre>
+<div class="block">Student's T Distribution</div>
 </li>
 </ul>
 </div>
@@ -129,7 +130,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#cumulativeProbability--">cumulativeProbability</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#cumulativeProbability-double-double-">cumulativeProbability</a></span>(double&nbsp;v,
+                     double&nbsp;x)</code>
+<div class="block">Returns P(X <= x) <br></div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
@@ -138,7 +142,17 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#inverseCumulativeProbability--">inverseCumulativeProbability</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#invCumZeroToRight-double-double-">invCumZeroToRight</a></span>(double&nbsp;v,
+                 double&nbsp;p)</code>
+<div class="block">This function is the right tailed version of the default inverse cumulative probability function.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#inverseCumulativeProbability-double-double-">inverseCumulativeProbability</a></span>(double&nbsp;v,
+                            double&nbsp;p)</code>
+<div class="block">Returns value for this equation:  p = P(X <= val)</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -179,22 +193,59 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="cumulativeProbability--">
+<a name="cumulativeProbability-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>cumulativeProbability</h4>
-<pre>public static&nbsp;double&nbsp;cumulativeProbability()</pre>
+<pre>public static&nbsp;double&nbsp;cumulativeProbability(double&nbsp;v,
+                                           double&nbsp;x)</pre>
+<div class="block">Returns P(X <= x) <br></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - degrees of freedom</dd>
+<dd><code>x</code> - any value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>cumulative probability function result for v and x</dd>
+</dl>
 </li>
 </ul>
-<a name="inverseCumulativeProbability--">
+<a name="inverseCumulativeProbability-double-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>inverseCumulativeProbability</h4>
+<pre>public static&nbsp;double&nbsp;inverseCumulativeProbability(double&nbsp;v,
+                                                  double&nbsp;p)</pre>
+<div class="block">Returns value for this equation:  p = P(X <= val)</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - degrees of freedom</dd>
+<dd><code>p</code> - any value in range [0,1]</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>inverse cumulative probability function result</dd>
+</dl>
+</li>
+</ul>
+<a name="invCumZeroToRight-double-double-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>inverseCumulativeProbability</h4>
-<pre>public static&nbsp;double&nbsp;inverseCumulativeProbability()</pre>
+<h4>invCumZeroToRight</h4>
+<pre>public static&nbsp;double&nbsp;invCumZeroToRight(double&nbsp;v,
+                                       double&nbsp;p)</pre>
+<div class="block">This function is the right tailed version of the default inverse cumulative probability function. <br>
+ Returns value for this equation:  p = P(X >= val) <br></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - degrees of freedom</dd>
+<dd><code>p</code> - any value in range [0,1]</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>inverse cumulative probability function result</dd>
+</dl>
 </li>
 </ul>
 </li>

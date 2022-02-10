@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.dists.ZDistTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-02-08T21:29:55" hostname="TUNERIKGEZGINI" time="1.872">
+<testsuite name="com.telek.tests.dists.ZDistTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-02-10T00:06:32" hostname="TUNERIKGEZGINI" time="1.844">
   <properties/>
-  <testcase name="tableValueTest" classname="com.telek.tests.dists.ZDistTest" time="0.005"/>
-  <testcase name="invCumZeroToRightTest" classname="com.telek.tests.dists.ZDistTest" time="0.001"/>
+  <testcase name="tableValueTest" classname="com.telek.tests.dists.ZDistTest" time="0.003"/>
+  <testcase name="invCumZeroToRightTest" classname="com.telek.tests.dists.ZDistTest" time="0.0"/>
   <testcase name="inverseCumulativeProbFuncTest" classname="com.telek.tests.dists.ZDistTest" time="0.003"/>
-  <testcase name="cdfTest" classname="com.telek.tests.dists.ZDistTest" time="1.062"/>
-  <testcase name="differentIntervalTest" classname="com.telek.tests.dists.ZDistTest" time="0.001"/>
-  <testcase name="densityTest" classname="com.telek.tests.dists.ZDistTest" time="0.8"/>
-  <system-out><![CDATA[Milisec: 2
+  <testcase name="cdfTest" classname="com.telek.tests.dists.ZDistTest" time="1.041"/>
+  <testcase name="differentIntervalTest" classname="com.telek.tests.dists.ZDistTest" time="0.0"/>
+  <testcase name="densityTest" classname="com.telek.tests.dists.ZDistTest" time="0.796"/>
+  <system-out><![CDATA[Milisec: 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

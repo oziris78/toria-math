@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.zsingle.IAFTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-08T21:29:57" hostname="TUNERIKGEZGINI" time="0.001">
+<testsuite name="com.telek.tests.zsingle.IAFTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-10T00:06:34" hostname="TUNERIKGEZGINI" time="0.001">
   <properties/>
   <testcase name="iafTest" classname="com.telek.tests.zsingle.IAFTest" time="0.001"/>
   <system-out><![CDATA[10.000000 * nCr(n,0) + 10.000000 * nCr(n,1)

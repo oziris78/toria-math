@@ -4,6 +4,8 @@
 
 GELECEK PLANLARI {
 
+    TMathConstants.EPSILON değeri her yerde kullanılmadı, precision arttırılmalı ve tüm framework'e yeniden bir göz atılmalı
+
     TFunction
         - derivative fonksiyonunda unwrapping yapmalıyız
         - toString() metodu belki bundan sonra yeniden yazılmalı olacak
@@ -16,7 +18,7 @@ GELECEK PLANLARI {
 
                 PDF  |  CDF  |  INV CDF
     ZDist   =>  (✅)    (✅)      (✅)
-    TDist   =>  (✅)    (✅)      (❌)
+    TDist   =>  (✅)    (✅)      (✅)
     ChiSq   =>  (✅)    (✅)      (❌)
 
 
@@ -30,3 +32,5 @@ telek-vstat{
     - histograms
     - boxplots
 }
+
+

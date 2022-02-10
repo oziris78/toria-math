@@ -62,9 +62,6 @@ public class ZDistTest {
             Assertions.assertTrue(TMath.areEqual(val1, val2));
         }
 
-
-
-
     }
 
 

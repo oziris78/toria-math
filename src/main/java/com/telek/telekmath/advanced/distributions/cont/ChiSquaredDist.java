@@ -1,6 +1,8 @@
 package com.telek.telekmath.advanced.distributions.cont;
 
 
+import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.exceptions.NotInRangeException;
 import com.telek.telekmath.utils.TMath;
 
 
@@ -60,10 +62,50 @@ public class ChiSquaredDist  {
 
 
 
+    public static double inverseCumulativeProbability(double v, double p) {
+        if (p < 0.0 || p > 1.0) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);
+
+        double lowerBound = 0;
+        double upperBound = Double.POSITIVE_INFINITY;
+
+        if (p == 0.0) return lowerBound;
+        if (p == 1.0) return upperBound;
+
+
+        final double sig = Math.sqrt(2 * v);
+        final boolean chebyshevApplies;
+        chebyshevApplies = !(Double.isInfinite(v) || Double.isNaN(v) || Double.isInfinite(sig) || Double.isNaN(sig));
+
+        if (lowerBound == Double.NEGATIVE_INFINITY) {
+            if (chebyshevApplies) {
+                lowerBound = v - sig * Math.sqrt((1. - p) / p);
+            } else {
+                lowerBound = -1.0;
+                while (cumulativeProbability(v, lowerBound) >= p) {
+                    lowerBound *= 2.0;
+                }
+            }
+        }
+
+        if (upperBound == Double.POSITIVE_INFINITY) {
+            if (chebyshevApplies) {
+                upperBound = v + sig * Math.sqrt(p / (1. - p));
+            } else {
+                upperBound = 1.0;
+                while (cumulativeProbability(v, upperBound) < p) {
+                    upperBound *= 2.0;
+                }
+            }
+        }
+
+        return 0;
+    }
+
+
+
     ///////////////
     /*  HELPERS  */
     ///////////////
-
 
 
 
