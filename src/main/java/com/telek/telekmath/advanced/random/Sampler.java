@@ -1,4 +1,4 @@
-package com.telek.telekmath.advanced.statistics.util;
+package com.telek.telekmath.advanced.random;
 
 
 import com.telek.telekmath.core.functions.TRange;
@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.Random;
 
 
+
+/**
+ * Uses different algorithms to pick random values from an array
+ * and returns a new array containing those randomly selected values.
+ */
 public class Sampler {
 
     private static Random random = new Random();

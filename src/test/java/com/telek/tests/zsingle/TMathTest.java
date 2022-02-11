@@ -22,7 +22,7 @@ public class TMathTest {
         for (int i = 0; i < 13; i++) {
             double prod = 1;
             for (int j = 1; j <= i; j++) prod *= j;
-            Assertions.assertEquals(TMath.factorial(i), prod);
+            Assertions.assertEquals(TMath.ifactorial(i), prod);
         }
 
         Assertions.assertEquals(TMath.isPrime(3), true);
@@ -46,7 +46,6 @@ public class TMathTest {
         Random random = new Random();
         for (int i = 0; i < TIMES; i++) {
             double x = random.nextDouble() *  random.nextInt(999999999);
-            double y = random.nextDouble() *  random.nextInt(999999999);
 
             double val1 = TMath.log(x);
             double val2 = Math.log(x);
@@ -57,10 +56,15 @@ public class TMathTest {
                 System.out.println("val2: " + val2);
             }
             Assertions.assertTrue(b1);
-
-
-
         }
+
+
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(5d), 120));
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(4d), 24));
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(3d), 6));
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(2d), 2));
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(1d), 1));
+        Assertions.assertTrue(TMath.areEqual(TMath.factorial(0d), 1));
 
 
 

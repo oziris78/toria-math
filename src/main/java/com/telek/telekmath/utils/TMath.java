@@ -27,7 +27,7 @@ import com.telek.telekmath.exceptions.TelekMathException.*;
 /**
  * A class that has a lot of utility functions. <br>
  * Few methods in this class were written by <a href="https://github.com/tommyettinger">Tommy Ettinger</a>. <br>
- * Few methods in this class were taken from Apache Commons Math, most of these methods were <b>CHANGED</b> in
+ * Few methods in this class were taken from Apache Commons Math, most of these methods were <b>changed</b> in
  * many ways to fit telek-math. <br>
  * To see every method that wasn't written by <a href="https://github.com/oziris78">me</a>, see the
  * sections below in this class that were seperated by big multiline comments.
@@ -110,23 +110,27 @@ public final class TMath {
      * @param num any integer
      * @return factorial(num)
      */
-    public static int factorial(int num){
-        return (num != 0) ? num * factorial(num-1) : 1;
+    public static int ifactorial(int num){
+        return (num != 0) ? num * ifactorial(num-1) : 1;
     }
 
 
-    public static double factorialDbl(int num){
-        double res = 1d;
-        for (int i = 2; i <= num; i++)
-            res *= i;
-        return res;
+
+    /**
+     * Uses the {@link #gamma(double)} function to calculate the factorial.
+     * @param num any number
+     * @return factorial(num)
+     */
+    public static double factorial(double num){
+        return gamma(num + 1);
     }
+
 
 
 
     public static int permutation(int n, int r){
         if( !(n>=r && r>=0) ) throw new PermutationException(n, r);
-        return TMath.factorial(n) / TMath.factorial( n - r );
+        return TMath.ifactorial(n) / TMath.ifactorial(n - r);
     }
 
 
@@ -136,15 +140,15 @@ public final class TMath {
             if( !(n >= r) ) throw new RepeatedPermutationException(n, rValues);
             if( !(r >= 0) ) throw new RepeatedPermutationException(n, rValues);
         }
-        int result = TMath.factorial(n);
-        for(int r : rValues) result /= TMath.factorial(r);
+        int result = TMath.ifactorial(n);
+        for(int r : rValues) result /= TMath.ifactorial(r);
         return result;
     }
 
 
     public static int combination(int n, int r){
         if( !(n>=r && r>=0) ) throw new CombinationException(n,r);
-        return TMath.factorial(n) / (TMath.factorial( n - r ) * TMath.factorial(r));
+        return TMath.ifactorial(n) / (TMath.ifactorial( n - r ) * TMath.ifactorial(r));
     }
 
 

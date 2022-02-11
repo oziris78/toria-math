@@ -3,16 +3,20 @@ package com.telek.tests.stats;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
 import com.telek.telekmath.advanced.statistics.measures.DataDescription;
-import com.telek.telekmath.advanced.statistics.measures.DataSet;
+import com.telek.telekmath.advanced.statistics.measures.DescStats;
 import com.telek.telekutils.plain.TCollections;
+import com.telek.tests.stats.exampledata.Person;
+import com.telek.tests.stats.exampledata.SampleData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 
 public class DataDescriptionTest {
+
 
 
     @Test
@@ -25,11 +29,9 @@ public class DataDescriptionTest {
         Person[] sortedWithAge = TCollections.getSortedCopy(population, Person.class, (o1, o2) -> o1.age - o2.age);
 
         // get data sets and desc
-        DataSet heightDataSet = new DataSet(sortedWithHeight, Person.class, "height");
-        DataDescription heightDesc = heightDataSet.getDataDesc();
+        DataDescription heightDesc = DescStats.getDataDesc(sortedWithHeight, Person.class, "height");
 
-        DataSet ageDataSet = new DataSet(sortedWithAge, Person.class, "age");
-        DataDescription ageDesc = ageDataSet.getDataDesc();
+        DataDescription ageDesc = DescStats.getDataDesc(sortedWithAge, Person.class, "age");
 
         // TESTS
         Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
@@ -38,11 +40,10 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(heightDesc.range, 45));
         Assertions.assertTrue(TMath.areEqual(heightDesc.sum, 4571));
         Assertions.assertTrue(TMath.areEqual(heightDesc.mean, 175.80769230769));
-        Assertions.assertTrue(TMath.areEqual(heightDesc.geomean, 175.52108614845));
         Assertions.assertTrue(TMath.areEqual(heightDesc.variance, 102.38609467456));
         Assertions.assertTrue(TMath.areEqual(heightDesc.stddev, 10.11860141889956));
-        Assertions.assertTrue(TMath.areEqual(heightDesc.mode, 176));
-        Assertions.assertTrue(TMath.areEqual(heightDesc.modeCount, 4));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.mode.value, 176));
+        Assertions.assertTrue(TMath.areEqual(heightDesc.mode.count, 4));
         Assertions.assertTrue(TMath.areEqual(heightDesc.quartile1, 169.25));
         Assertions.assertTrue(TMath.areEqual(heightDesc.quartile2, 176));
         Assertions.assertTrue(TMath.areEqual(heightDesc.quartile3, 180.5));
@@ -57,11 +58,10 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(ageDesc.range, 63));
         Assertions.assertTrue(TMath.areEqual(ageDesc.sum, 766));
         Assertions.assertTrue(TMath.areEqual(ageDesc.mean, 29.461538461538));
-        Assertions.assertTrue(TMath.areEqual(ageDesc.geomean, 25.012805395149));
         Assertions.assertTrue(TMath.areEqual(ageDesc.variance, 345.01775147929));
         Assertions.assertTrue(TMath.areEqual(ageDesc.stddev, 18.574653468619));
-        Assertions.assertTrue(TMath.areEqual(ageDesc.mode, 18));
-        Assertions.assertTrue(TMath.areEqual(ageDesc.modeCount, 7));
+        Assertions.assertTrue(TMath.areEqual(ageDesc.mode.value, 18));
+        Assertions.assertTrue(TMath.areEqual(ageDesc.mode.count, 7));
         Assertions.assertTrue(TMath.areEqual(ageDesc.quartile1, 18));
         Assertions.assertTrue(TMath.areEqual(ageDesc.quartile2, 20));
         Assertions.assertTrue(TMath.areEqual(ageDesc.quartile3, 38));
@@ -71,102 +71,6 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(ageDesc.pearsonSkewCoef, 1.5281));
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @Test
-    @DisplayName("dataDescPrimitiveTest")
-    void dataDescPrimitiveTest() {
-
-        for (int type = 0; type < 3; type++) {
-            // GET DATA DESCRIPTIONS
-            DataDescription heightDesc = null;
-            if(type == 0){
-                int[] population = new int[]{
-                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
-                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
-                };
-                int[] sorted = TCollections.getSortedCopy(population);
-                Integer[] param = TCollections.getAsClassArray(sorted);
-                heightDesc = new DataSet(param).getDataDesc();
-            }
-            if(type == 1){
-                double[] population = new double[]{
-                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
-                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
-                };
-                double[] sorted = TCollections.getSortedCopy(population);
-                Double[] param = TCollections.getAsClassArray(sorted);
-                heightDesc = new DataSet(param).getDataDesc();
-            }
-            if(type == 2){
-                long[] population = new long[]{
-                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
-                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
-                };
-                long[] sorted = TCollections.getSortedCopy(population);
-                Long[] param = TCollections.getAsClassArray(sorted);
-                heightDesc = new DataSet(param).getDataDesc();
-            }
-
-            // TESTS
-            Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.min, 158));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.max, 203));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.range, 45));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.sum, 4571));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.mean, 175.80769230769));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.geomean, 175.52108614845));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.variance, 102.38609467456));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.stddev, 10.11860141889956));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.mode, 176));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.modeCount, 4));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile1, 169.25));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile2, 176));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile3, 180.5));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.median, 176));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.bowleySkewCoef, -0.2));
-            Assertions.assertTrue(TMath.areEqual(heightDesc.pearsonSkewCoef, -0.057));
-        }
-
-    }
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @Test
-    @DisplayName("randomTest1")
-    void randomTest1() {
-        // DATA
-        final int SIZE = 10000;
-        double[] population = new double[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            population[i] = TNoise.canonicalRandom(i, i * 2);
-        }
-        double[] sorted = TCollections.getSortedCopy(population);
-        Double[] param = TCollections.getAsClassArray(sorted);
-        DataDescription dataDesc = new DataSet(param).getDataDesc();
-
-        // TESTS
-        Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 0.5018593d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.median, 0.5d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.mode, 0.2929687d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.modeCount, 41d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.max, 0.9995d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.min, 0d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.range, 0.9995d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.count, 10000d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.sum, 5018.5938d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.variance, 0.0829d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.stddev, 0.2880d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile1, 0.2578d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile2, 0.5d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile3, 0.75d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.bowleySkewCoef, 0.01587d));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.pearsonSkewCoef, 0.0193d));
-    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +108,7 @@ public class DataDescriptionTest {
         Double[] param = TCollections.getAsClassArray(sorted);
 
         // data desc 1
-        DataDescription dataDesc = new DataSet(param).getDataDesc();
+        DataDescription dataDesc = DescStats.getDataDesc(param);
 
         // data desc 2
         int index = 0;
@@ -214,13 +118,14 @@ public class DataDescriptionTest {
         }
         TestClass[] sortedPop = TCollections.getSortedCopy(classPopulation, TestClass.class,
                 Comparator.comparingDouble(TestClass::getField));
-        DataDescription dataDesc2 = new DataSet(sortedPop, TestClass.class, "theField").getDataDesc();
+
+        DataDescription dataDesc2 = DescStats.getDataDesc(sortedPop, TestClass.class, "theField");
 
 
         // tests
         Assertions.assertTrue(TMath.areEqual(dataDesc2.mean, dataDesc.mean));
-        Assertions.assertTrue(TMath.areEqual(dataDesc2.mode, dataDesc.mode));
-        Assertions.assertTrue(TMath.areEqual(dataDesc2.modeCount, dataDesc.modeCount));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.mode.value, dataDesc.mode.value));
+        Assertions.assertTrue(TMath.areEqual(dataDesc2.mode.count, dataDesc.mode.count));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.max, dataDesc.max));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.min, dataDesc.min));
         Assertions.assertTrue(TMath.areEqual(dataDesc2.range, dataDesc.range));
@@ -237,9 +142,171 @@ public class DataDescriptionTest {
     }
 
 
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    @Test
+    @DisplayName("dataDescPrimitiveTest")
+    void dataDescPrimitiveTest() {
+        for (int type = 0; type < 3; type++) {
+            // GET DATA DESCRIPTIONS
+            DataDescription heightDesc = null;
+            if(type == 0){
+                int[] population = new int[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                int[] sorted = TCollections.getSortedCopy(population);
+                Integer[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = DescStats.getDataDesc(param);
+            }
+            if(type == 1){
+                double[] population = new double[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                double[] sorted = TCollections.getSortedCopy(population);
+                Double[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = DescStats.getDataDesc(param);
+            }
+            if(type == 2){
+                long[] population = new long[]{
+                        160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
+                        177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
+                };
+                long[] sorted = TCollections.getSortedCopy(population);
+                Long[] param = TCollections.getAsClassArray(sorted);
+                heightDesc = DescStats.getDataDesc(param);
+            }
+
+            // TESTS
+            Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.min, 158));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.max, 203));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.range, 45));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.sum, 4571));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.mean, 175.80769230769));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.variance, 102.38609467456));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.stddev, 10.11860141889956));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.mode.value, 176));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.mode.count, 4));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile1, 169.25));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile2, 176));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.quartile3, 180.5));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.median, 176));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.interquartileRange, 11.25));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.bowleySkewCoef, -0.2));
+            Assertions.assertTrue(TMath.areEqual(heightDesc.pearsonSkewCoef, -0.057));
+        }
+
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @Test
+    @DisplayName("dataDescPrimitiveWithoutConversionTest")
+    void dataDescPrimitiveWithoutConversionTest() {
+        double[] arr1 = TCollections.getSortedCopy(TCollections.doubleArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+        int[] arr2 = TCollections.getSortedCopy(TCollections.intArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+        float[] arr3 = TCollections.getSortedCopy(TCollections.floatArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+
+        // you need to sort it for some values
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        Arrays.sort(arr3);
+
+        double sum, count, mean;
+
+        // TESTS
+        count = DescStats.getCount(arr1);
+        Assertions.assertTrue(TMath.areEqual(count, 10));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMax(arr1), 100));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMin(arr1), -9));
+        sum = DescStats.getSum(arr1);
+        Assertions.assertTrue(TMath.areEqual(sum, 114));
+        mean = DescStats.getMean(sum, count);
+        Assertions.assertTrue(TMath.areEqual(mean, 11.4));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr1, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr1).value, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr1).count, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr1, 1), -2.25d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr1, 2), 2.5d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr1, 3), 7.75d));
+
+        count = DescStats.getCount(arr2);
+        Assertions.assertTrue(TMath.areEqual(count, 10));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMax(arr2), 100));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMin(arr2), -9));
+        sum = DescStats.getSum(arr2);
+        Assertions.assertTrue(TMath.areEqual(sum, 114));
+        mean = DescStats.getMean(sum, count);
+        Assertions.assertTrue(TMath.areEqual(mean, 11.4));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr2, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr2).value, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr2).count, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr2, 1), -2.25d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr2, 2), 2.5d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr2, 3), 7.75d));
+
+        count = DescStats.getCount(arr3);
+        Assertions.assertTrue(TMath.areEqual(count, 10));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMax(arr3), 100));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getMin(arr3), -9));
+        sum = DescStats.getSum(arr3);
+        Assertions.assertTrue(TMath.areEqual(sum, 114));
+        mean = DescStats.getMean(sum, count);
+        Assertions.assertTrue(TMath.areEqual(mean, 11.4));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr3, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr3).value, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr3).count, Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr3, 1), -2.25d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr3, 2), 2.5d));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr3, 3), 7.75d));
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Test
+    @DisplayName("randomTest1")
+    void randomTest1() {
+        // DATA
+        final int SIZE = 10000;
+        double[] population = new double[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            population[i] = TNoise.canonicalRandom(i, i * 2);
+        }
+        double[] sorted = TCollections.getSortedCopy(population);
+        Double[] param = TCollections.getAsClassArray(sorted);
+        DataDescription dataDesc = DescStats.getDataDesc(param);
+
+        // TESTS
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 0.5018593d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.median, 0.5d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode.value, 0.2929687d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode.count, 41d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.max, 0.9995d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.min, 0d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.range, 0.9995d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.count, 10000d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.sum, 5018.5938d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.variance, 0.0829d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.stddev, 0.2880d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile1, 0.2578d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile2, 0.5d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.quartile3, 0.75d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.bowleySkewCoef, 0.01587d));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.pearsonSkewCoef, 0.0193d));
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     @Test
@@ -255,16 +322,15 @@ public class DataDescriptionTest {
         Double[] param = TCollections.getAsClassArray(sorted);
 
         // data desc 1
-        DataDescription dataDesc = new DataSet(param).getDataDesc();
+        DataDescription dataDesc = DescStats.getDataDesc(param);
 
         // TEST
         Assertions.assertTrue(TMath.areEqual(dataDesc.count, 100000.0));
         Assertions.assertTrue(TMath.areEqual(dataDesc.mean, 5010.927765458822));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.geomean, 0.0));
         Assertions.assertTrue(TMath.areEqual(dataDesc.sum, 5.010927765458822E8));
         Assertions.assertTrue(TMath.areEqual(dataDesc.interquartileRange, 4980.46875));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.mode, 1132.8125));
-        Assertions.assertTrue(TMath.areEqual(dataDesc.modeCount, 309.0));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode.value, 1132.8125));
+        Assertions.assertTrue(TMath.areEqual(dataDesc.mode.count, 309.0));
         Assertions.assertTrue(TMath.areEqual(dataDesc.variance, 8309992.238762693));
         Assertions.assertTrue(TMath.areEqual(dataDesc.median, 5019.53125));
         Assertions.assertTrue(TMath.areEqual(dataDesc.quartile1, 2519.53125));

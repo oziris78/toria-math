@@ -1,4 +1,4 @@
-package com.telek.tests.stats;
+package com.telek.tests.stats.exampledata;
 
 public class Person {
 

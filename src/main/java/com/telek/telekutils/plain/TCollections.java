@@ -154,6 +154,14 @@ public final class TCollections {
     }
 
 
+    public static float[] floatArr(float... nums){
+        float[] arrToReturn = new float[nums.length];
+        for(int i = 0; i < nums.length; i++)
+            arrToReturn[i] = nums[i];
+        return arrToReturn;
+    }
+
+
     public static double[][] doubleArr2(double[]... numArrays){
         double[][] arrToReturn = new double[numArrays.length][numArrays.length];
         for(int i = 0; i < numArrays.length; i++)
@@ -327,13 +335,48 @@ public final class TCollections {
     ////////////////////////////////
 
 
-    public static long getMax(long[] array){ return Arrays.stream(array).max().getAsLong(); }
-    public static int getMax(int[] array){ return Arrays.stream(array).max().getAsInt(); }
-    public static double getMax(double[] array){ return Arrays.stream(array).max().getAsDouble(); }
+    public static long getMax(long[] array){
+        return Arrays.stream(array).max().getAsLong();
+    }
+    public static int getMax(int[] array){
+        return Arrays.stream(array).max().getAsInt();
+    }
+    public static double getMax(double[] array){
+        return Arrays.stream(array).max().getAsDouble();
+    }
+    public static double getMax(Number[] array){
+        return Arrays.stream(array).max((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
+    }
+    public static float getMax(float[] array){
+        float max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            float curValue = array[i];
+            if(curValue > max) max = curValue;
+        }
+        return max;
+    }
 
-    public static long getMin(long[] array){ return Arrays.stream(array).min().getAsLong(); }
-    public static int getMin(int[] array){ return Arrays.stream(array).min().getAsInt(); }
-    public static double getMin(double[] array){ return Arrays.stream(array).min().getAsDouble(); }
+
+    public static float getMin(float[] array){
+        float min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            float curValue = array[i];
+            if(curValue < min) min = curValue;
+        }
+        return min;
+    }
+    public static long getMin(long[] array){
+        return Arrays.stream(array).min().getAsLong();
+    }
+    public static double getMin(Number[] array){
+        return Arrays.stream(array).min((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
+    }
+    public static int getMin(int[] array){
+        return Arrays.stream(array).min().getAsInt();
+    }
+    public static double getMin(double[] array){
+        return Arrays.stream(array).min().getAsDouble();
+    }
 
 
     public static double getSumOfElements(Collection<? extends Number> list){
