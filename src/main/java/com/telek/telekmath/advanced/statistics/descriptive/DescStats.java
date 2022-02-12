@@ -4,6 +4,7 @@ import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashMap;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription.Mode;
@@ -57,6 +58,7 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////////////
 
 
+
     public static double getMedian(Number[] sortedData){
         return getQuartile(sortedData, 2);
     }
@@ -96,16 +98,18 @@ public class DescStats {
         return sum;
     }
 
-    public static double getVariance(Number[] data, double mean){
+    public static double getVariance(Number[] data, double mean, boolean isSample){
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
             double val = data[i].doubleValue();
             double ximean = val - mean;
             variance += ximean * ximean;
         }
-        variance /= data.length;
+        variance /= isSample ? data.length - 1 : data.length;
         return variance;
     }
+
+
 
     public static Mode getModeAndModeCount(Number[] data){
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
@@ -173,16 +177,17 @@ public class DescStats {
         return Arrays.stream(data).sum();
     }
 
-    public static double getVariance(double[] data, double mean){
+    public static double getVariance(double[] data, double mean, boolean isSample){
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
             double val = data[i];
             double ximean = val - mean;
             variance += ximean * ximean;
         }
-        variance /= data.length;
+        variance /= isSample ? data.length - 1 : data.length;
         return variance;
     }
+
 
     public static Mode getModeAndModeCount(double[] data){
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
@@ -251,16 +256,17 @@ public class DescStats {
         return Arrays.stream(data).sum();
     }
 
-    public static double getVariance(int[] data, double mean){
+    public static double getVariance(int[] data, double mean, boolean isSample){
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
             double val = data[i];
             double ximean = val - mean;
             variance += ximean * ximean;
         }
-        variance /= data.length;
+        variance /= isSample ? data.length - 1 : data.length;
         return variance;
     }
+
 
     public static Mode getModeAndModeCount(int[] data){
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
@@ -331,16 +337,17 @@ public class DescStats {
         return sum;
     }
 
-    public static double getVariance(float[] data, double mean){
+    public static double getVariance(float[] data, double mean, boolean isSample){
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
             double val = data[i];
             double ximean = val - mean;
             variance += ximean * ximean;
         }
-        variance /= data.length;
+        variance /= isSample ? data.length - 1 : data.length;
         return variance;
     }
+
 
     public static Mode getModeAndModeCount(float[] data){
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
@@ -411,14 +418,14 @@ public class DescStats {
         return sum;
     }
 
-    public static <T> double getVariance(T[] data, Field field, double mean) throws IllegalAccessException {
+    public static <T> double getVariance(T[] data, Field field, double mean, boolean isSample) throws IllegalAccessException {
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
             double val = getValue(data, field, i);
             double ximean = val - mean;
             variance += ximean * ximean;
         }
-        variance /= data.length;
+        variance /= isSample ? data.length - 1 : data.length;
         return variance;
     }
 
@@ -484,7 +491,8 @@ public class DescStats {
         double range = getRange(min, max);
         double sum = getSum(sortedData);
         double mean = getMean(sum, count);
-        double variance = getVariance(sortedData, mean);
+        double variance = getVariance(sortedData, mean, false);
+        double sampleVariance = getVariance(sortedData, mean, true);
         double stddev = getStddev(variance);
         Mode mode = getModeAndModeCount(sortedData);
         double quartile1 = getQuartile(sortedData, 1);
@@ -495,11 +503,11 @@ public class DescStats {
         double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
         double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
 
-        return new DataDescription(variance, mean, sum, interquartileRange, count,
+        return new DataDescription(variance, sampleVariance,
+                mean, sum, interquartileRange, count,
                 quartile1, mode, median, quartile2, quartile3, min, max,
                 range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
-
 
     public static <T> DataDescription getDataDesc(T[] sortedData, Class<T> clazz, String fieldName) {
         try {
@@ -512,7 +520,8 @@ public class DescStats {
             double range = getRange(min, max);
             double sum = getSum(sortedData, field);
             double mean = getMean(sum, count);
-            double variance = getVariance(sortedData, field, mean);
+            double variance = getVariance(sortedData, field, mean, false);
+            double sampleVariance = getVariance(sortedData, field, mean, true);
             double stddev = getStddev(variance);
             Mode mode = getModeAndModeCount(sortedData, field);
             double quartile1 = getQuartile(sortedData, field, 1);
@@ -523,7 +532,7 @@ public class DescStats {
             double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
             double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
 
-            return new DataDescription(variance, mean, sum, interquartileRange, count,
+            return new DataDescription(variance, sampleVariance, mean, sum, interquartileRange, count,
                     quartile1, mode, median, quartile2, quartile3, min, max,
                     range, stddev, pearsonSkewCoef, bowleySkewCoef);
         }
@@ -531,6 +540,81 @@ public class DescStats {
             e.printStackTrace();
             return null;
         }
+    }
+
+    // these 3 methods are same as Number[] method just copy pasted it and changed the signature
+    public static DataDescription getDataDesc(int[] sortedData){
+        if(sortedData.length <= 3) throw new DataSetIsSmallException();
+        double count = getCount(sortedData);
+        double min = getMin(sortedData);
+        double max = getMax(sortedData);
+        double range = getRange(min, max);
+        double sum = getSum(sortedData);
+        double mean = getMean(sum, count);
+        double variance = getVariance(sortedData, mean, false);
+        double sampleVariance = getVariance(sortedData, mean, true);
+        double stddev = getStddev(variance);
+        Mode mode = getModeAndModeCount(sortedData);
+        double quartile1 = getQuartile(sortedData, 1);
+        double quartile2 = getQuartile(sortedData, 2);
+        double quartile3 = getQuartile(sortedData, 3);
+        double median = quartile2;
+        double interquartileRange = getInterquartileRange(quartile1, quartile3);
+        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
+        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
+
+        return new DataDescription(variance, sampleVariance,
+                mean, sum, interquartileRange, count,
+                quartile1, mode, median, quartile2, quartile3, min, max,
+                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+    }
+    public static DataDescription getDataDesc(double[] sortedData){
+        double count = getCount(sortedData);
+        double min = getMin(sortedData);
+        double max = getMax(sortedData);
+        double range = getRange(min, max);
+        double sum = getSum(sortedData);
+        double mean = getMean(sum, count);
+        double variance = getVariance(sortedData, mean, false);
+        double sampleVariance = getVariance(sortedData, mean, true);
+        double stddev = getStddev(variance);
+        Mode mode = getModeAndModeCount(sortedData);
+        double quartile1 = getQuartile(sortedData, 1);
+        double quartile2 = getQuartile(sortedData, 2);
+        double quartile3 = getQuartile(sortedData, 3);
+        double median = quartile2;
+        double interquartileRange = getInterquartileRange(quartile1, quartile3);
+        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
+        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
+
+        return new DataDescription(variance, sampleVariance,
+                mean, sum, interquartileRange, count,
+                quartile1, mode, median, quartile2, quartile3, min, max,
+                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+    }
+    public static DataDescription getDataDesc(float[] sortedData){
+        double count = getCount(sortedData);
+        double min = getMin(sortedData);
+        double max = getMax(sortedData);
+        double range = getRange(min, max);
+        double sum = getSum(sortedData);
+        double mean = getMean(sum, count);
+        double variance = getVariance(sortedData, mean, false);
+        double sampleVariance = getVariance(sortedData, mean, true);
+        double stddev = getStddev(variance);
+        Mode mode = getModeAndModeCount(sortedData);
+        double quartile1 = getQuartile(sortedData, 1);
+        double quartile2 = getQuartile(sortedData, 2);
+        double quartile3 = getQuartile(sortedData, 3);
+        double median = quartile2;
+        double interquartileRange = getInterquartileRange(quartile1, quartile3);
+        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
+        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
+
+        return new DataDescription(variance, sampleVariance,
+                mean, sum, interquartileRange, count,
+                quartile1, mode, median, quartile2, quartile3, min, max,
+                range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
 
 

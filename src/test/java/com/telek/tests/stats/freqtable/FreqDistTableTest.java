@@ -1,4 +1,4 @@
-package com.telek.tests.stats;
+package com.telek.tests.stats.freqtable;
 
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;

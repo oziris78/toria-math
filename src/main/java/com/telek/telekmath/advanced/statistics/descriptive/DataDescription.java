@@ -1,6 +1,8 @@
 package com.telek.telekmath.advanced.statistics.descriptive;
 
 
+import com.telek.telekmath.utils.TMath;
+
 /**
  * A class containing all measures inside it.
  */
@@ -28,7 +30,7 @@ public class DataDescription {
     public final Mode mode;
 
     // values without javadocs (self-explanatory variable names)
-    public final double count, mean, sum, interquartileRange, variance;
+    public final double count, mean, sum, interquartileRange, sampleVariance, variance, sampleStddev;
 
     /** The value that divides the whole data set into 2 equal parts, also it's equal to {@link #quartile2}. */
     public final double median;
@@ -61,7 +63,7 @@ public class DataDescription {
     /*  CONSTRUCTORS  */
     ////////////////////
 
-    DataDescription(double variance, double mean,
+    DataDescription(double variance, double sampleVariance, double mean,
                     double sum, double interquartileRange, double count,
                     double quartile1, Mode mode, double median,
                     double quartile2, double quartile3, double min, double max,
@@ -70,6 +72,8 @@ public class DataDescription {
         this.interquartileRange = interquartileRange;
         this.pearsonSkewCoef = pearsonSkewCoef;
         this.bowleySkewCoef = bowleySkewCoef;
+        this.sampleVariance = sampleVariance;
+        this.sampleStddev = TMath.sqrt(sampleVariance);
         this.quartile1 = quartile1;
         this.quartile2 = quartile2;
         this.quartile3 = quartile3;
@@ -87,16 +91,28 @@ public class DataDescription {
 
     /////////////////////////////////////////////////////////////////////////////////
 
+
     @Override
     public String toString() {
-        return "DataDescription{" + "mode=" + mode + ", count=" + count + ", mean="
-                + mean + ", sum=" + sum + ", interquartileRange=" + interquartileRange
-                + ", variance=" + variance + ", median=" + median + ", quartile1="
-                + quartile1 + ", quartile2=" + quartile2 + ", quartile3=" + quartile3 +
-                ", min=" + min + ", max=" + max + ", range=" + range +
-                ", stddev=" + stddev + ", pearsonSkewCoef=" + pearsonSkewCoef
-                + ", bowleySkewCoef=" + bowleySkewCoef + '}';
+        return "DataDescription{" +
+                "mode=" + mode +
+                ", count=" + count +
+                ", mean=" + mean +
+                ", sum=" + sum +
+                ", interquartileRange=" + interquartileRange +
+                ", sampleVariance=" + sampleVariance +
+                ", variance=" + variance +
+                ", sampleStddev=" + sampleStddev +
+                ", median=" + median +
+                ", quartile1=" + quartile1 +
+                ", quartile2=" + quartile2 +
+                ", quartile3=" + quartile3 +
+                ", min=" + min +
+                ", max=" + max +
+                ", range=" + range +
+                ", stddev=" + stddev +
+                ", pearsonSkewCoef=" + pearsonSkewCoef +
+                ", bowleySkewCoef=" + bowleySkewCoef +
+                '}';
     }
-
-
 }

@@ -303,21 +303,19 @@ public final class TArrays {
         return max;
     }
 
+    // O(n)
     public static float getMin(float[] array){
         float min = array[0];
         for (int i = 1; i < array.length; i++) {
             float curValue = array[i];
-            if(curValue < min) min = curValue;
+            if(curValue < min)
+                min = curValue;
         }
         return min;
     }
 
     public static long getMin(long[] array){
         return Arrays.stream(array).min().getAsLong();
-    }
-
-    public static double getMin(Number[] array){
-        return Arrays.stream(array).min((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
     }
 
     public static int getMin(int[] array){
@@ -328,6 +326,9 @@ public final class TArrays {
         return Arrays.stream(array).min().getAsDouble();
     }
 
+    public static double getMin(Number[] array){
+        return Arrays.stream(array).min((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
+    }
 
 
 

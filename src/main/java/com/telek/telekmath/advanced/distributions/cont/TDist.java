@@ -58,7 +58,7 @@ public class TDist {
      * Returns the variable "val" for this equation:  p = P(X <= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
-     * @return inverse cumulative density function (ICDF) result
+     * @return inverse cumulative density function (ICDF | quantile) result
      */
     public static double invCumLeftTailed(double v, double p) {
         if(p < 0d || p > 1d) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);

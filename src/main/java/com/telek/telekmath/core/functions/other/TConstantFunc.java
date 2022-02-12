@@ -3,8 +3,8 @@ package com.telek.telekmath.core.functions.other;
 import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.functions.TRange;
-
 import java.util.Objects;
+
 
 public class TConstantFunc extends AbstractFunction {
 

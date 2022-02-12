@@ -1,4 +1,4 @@
-package com.telek.tests.stats;
+package com.telek.tests.stats.desc;
 
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
@@ -230,7 +230,7 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(sum, 114));
         mean = DescStats.getMean(sum, count);
         Assertions.assertTrue(TMath.areEqual(mean, 11.4));
-        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr1, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr1, mean, false), 898.24));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr1).value, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr1).count, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr1, 1), -2.25d));
@@ -245,7 +245,7 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(sum, 114));
         mean = DescStats.getMean(sum, count);
         Assertions.assertTrue(TMath.areEqual(mean, 11.4));
-        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr2, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr2, mean, false), 898.24));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr2).value, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr2).count, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr2, 1), -2.25d));
@@ -260,7 +260,7 @@ public class DataDescriptionTest {
         Assertions.assertTrue(TMath.areEqual(sum, 114));
         mean = DescStats.getMean(sum, count);
         Assertions.assertTrue(TMath.areEqual(mean, 11.4));
-        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr3, mean), 898.24));
+        Assertions.assertTrue(TMath.areEqual(DescStats.getVariance(arr3, mean, false), 898.24));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr3).value, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getModeAndModeCount(arr3).count, Double.NaN));
         Assertions.assertTrue(TMath.areEqual(DescStats.getQuartile(arr3, 1), -2.25d));

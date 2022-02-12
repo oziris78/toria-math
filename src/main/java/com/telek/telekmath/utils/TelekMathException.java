@@ -24,6 +24,28 @@ public final class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class IsNegativeException extends RuntimeException {
+
+        public IsNegativeException(String varName) {
+            super(String.format("%s can't be negative", varName));
+        }
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class DataSetIsSmallException extends RuntimeException {
+
+        public DataSetIsSmallException() {
+            super("The data set must contain more that 3 data for telek-math to work properly.");
+        }
+
+    }
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static class SampleSizeIsGreaterThanPopulationSizeException extends RuntimeException {
 
         public SampleSizeIsGreaterThanPopulationSizeException() {

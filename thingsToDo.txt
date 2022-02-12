@@ -10,6 +10,10 @@ GELECEK PLANLARI {
         - derivative fonksiyonunda unwrapping yapmalıyız
         - toString() metodu belki bundan sonra yeniden yazılmalı olacak
 
+    NumericalAnalysis
+        - public static TPolynomial getLagrangePolynomial(TPoint2D... points){}
+        - public static TPolynomial getLagrangePolynomial(double... points){} // x1, y1, x2, y2, ...
+
     İstatistik:
         DataDescription içine birden çok mod olma durumunu koyabilirim, multimodal veriler için birden çok mod bulur
         derste öğrendiğimiz testler
