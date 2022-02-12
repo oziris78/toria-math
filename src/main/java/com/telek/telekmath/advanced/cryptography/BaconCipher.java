@@ -1,8 +1,7 @@
 package com.telek.telekmath.advanced.cryptography;
 
 import com.telek.telekmath.core.constants.CryptoConstants;
-import com.telek.telekmath.exceptions.NotAMultiplyOfNException;
-import com.telek.telekmath.exceptions.TelekMathException;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 import java.util.Locale;
 
@@ -17,7 +16,7 @@ public class BaconCipher {
         if(text.length() % 5 != 0) throw new NotAMultiplyOfNException("code's length", 5);
         for(int i = 0; i < text.length(); i++) {
             if( !alphabetString.toString().contains(String.valueOf(text.charAt(i)).toUpperCase(Locale.ROOT) ) )
-                throw new TelekMathException.HasNonLetterCharactersException();
+                throw new HasNonLetterCharactersException();
         }
         for(int i = 0; i != text.length(); i+=5){
             StringBuilder currentCode = new StringBuilder();

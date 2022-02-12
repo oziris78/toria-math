@@ -1,7 +1,7 @@
 package com.telek.telekmath.advanced.distributions.discrete;
 
 
-import com.telek.telekmath.exceptions.InvalidValueException;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 
 public class DiscreteUniformDist {

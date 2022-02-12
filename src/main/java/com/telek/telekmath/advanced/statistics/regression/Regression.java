@@ -2,7 +2,7 @@ package com.telek.telekmath.advanced.statistics.regression;
 
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
-import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanNException;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 
 public class Regression {

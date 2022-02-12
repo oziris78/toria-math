@@ -2,7 +2,7 @@ package com.telek.telekmath.advanced.random;
 
 
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.utils.TelekMathException.*;
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Random;
@@ -17,11 +17,7 @@ public class Sampler {
 
     private static Random random = new Random();
 
-
-    ////////////////////
-    /*  CONSTRUCTORS  */
-    ////////////////////
-
+    /* No constructor */
     private Sampler(){}
 
 
@@ -297,7 +293,6 @@ public class Sampler {
         return sample;
     }
 
-
     public static double[] systematicSampling(double[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -321,7 +316,6 @@ public class Sampler {
 
         return sample;
     }
-
 
     public static double[] clusterSampling(double[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
@@ -373,7 +367,6 @@ public class Sampler {
         return sample;
     }
 
-
     public static long[] systematicSampling(long[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking
 
@@ -397,7 +390,6 @@ public class Sampler {
 
         return sample;
     }
-
 
     public static long[] clusterSampling(long[] population, int sampleSize) {
         checkForSampleSize(population, sampleSize); // error checking

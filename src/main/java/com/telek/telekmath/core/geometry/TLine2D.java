@@ -3,7 +3,7 @@ package com.telek.telekmath.core.geometry;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
-import com.telek.telekmath.exceptions.TelekMathException;
+import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Objects;
 
 
@@ -195,7 +195,7 @@ public class TLine2D {
      * @return The orthogonal distance between two parallel lines
      */
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
-        if(!line1.isParallelTo(line2)) throw new TelekMathException.LinesAreNotParallelException(line1, line2);
+        if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
         return Math.abs(line2.c - line1.c) / Math.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
     }
 

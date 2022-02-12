@@ -1,8 +1,8 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekutils.plain.TCollections;
-import com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekutils.plain.TArrays;
+import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -130,7 +130,7 @@ public class TMatrix {
     public TMatrix copy(){
         double[][] newMatrix = new double[this.rowSize][this.colSize];
         for (int i = 0; i < this.rowSize; i++) {
-            newMatrix[i] = TCollections.getCopyOf(this.matrix[i]);
+            newMatrix[i] = TArrays.getCopyOf(this.matrix[i]);
         }
 
         return new TMatrix(newMatrix);

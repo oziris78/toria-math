@@ -2,10 +2,9 @@ com.telek.telekmath.advanced.cryptography
 com.telek.telekmath.advanced.distributions.cont
 com.telek.telekmath.advanced.distributions.discrete
 com.telek.telekmath.advanced.random
+com.telek.telekmath.advanced.statistics.descriptive
 com.telek.telekmath.advanced.statistics.freqtable
-com.telek.telekmath.advanced.statistics.measures
 com.telek.telekmath.advanced.statistics.regression
-com.telek.telekmath.advanced.statistics.util
 com.telek.telekmath.core.constants
 com.telek.telekmath.core.functions
 com.telek.telekmath.core.functions.amnfuncs
@@ -15,7 +14,6 @@ com.telek.telekmath.core.geometry.points
 com.telek.telekmath.core.geometry.vectors
 com.telek.telekmath.core.matrices
 com.telek.telekmath.core.numbers
-com.telek.telekmath.exceptions
 com.telek.telekmath.special
 com.telek.telekmath.utils
 com.telek.telekutils.audio

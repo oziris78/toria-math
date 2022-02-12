@@ -1,9 +1,9 @@
 package com.telek.telekmath.advanced.statistics.freqtable;
 
 
-import com.telek.telekmath.advanced.statistics.measures.DescStats;
-import com.telek.telekmath.exceptions.TelekMathException.NotGreaterThanZeroException;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
+import com.telek.telekmath.utils.TelekMathException.*;
+import com.telek.telekutils.plain.TArrays;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -32,8 +32,8 @@ public class FreqDistTable {
         this.classCount = classCount;
 
         // prepare min, max, range without
-        double min = TCollections.getMin(population);
-        double max = TCollections.getMax(population);
+        double min = TArrays.getMin(population);
+        double max = TArrays.getMax(population);
         double range = DescStats.getRange(min, max);
         double classInterval = Math.ceil(range / classCount);
 
@@ -61,8 +61,8 @@ public class FreqDistTable {
         this.classCount = classCount;
 
         // prepare min, max, range without
-        double min = TCollections.getMin(population);
-        double max = TCollections.getMax(population);
+        double min = TArrays.getMin(population);
+        double max = TArrays.getMax(population);
         double range = DescStats.getRange(min, max);
         double classInterval = Math.ceil(range / classCount);
 
@@ -90,8 +90,8 @@ public class FreqDistTable {
         this.classCount = classCount;
 
         // prepare min, max, range without
-        double min = TCollections.getMin(population);
-        double max = TCollections.getMax(population);
+        double min = TArrays.getMin(population);
+        double max = TArrays.getMax(population);
         double range = DescStats.getRange(min, max);
         double classInterval = Math.ceil(range / classCount);
 
@@ -122,8 +122,8 @@ public class FreqDistTable {
         this.classCount = classCount;
 
         // prepare min, max, range without
-        double min = TCollections.getMin(population);
-        double max = TCollections.getMax(population);
+        double min = TArrays.getMin(population);
+        double max = TArrays.getMax(population);
         double range = DescStats.getRange(min, max);
         double classInterval = Math.ceil(range / classCount);
 

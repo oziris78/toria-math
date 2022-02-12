@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">TCollections</span>
 extends java.lang.Object</pre>
+<div class="block">Utility methods revolving around collections such as ArrayLists, HashSets, HashMaps, LinkedLists etc.</div>
 </li>
 </ul>
 </div>
@@ -145,214 +146,41 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#areEqual-double:A-double:A-">areEqual</a></span>(double[]&nbsp;arr1,
-        double[]&nbsp;arr2)</code>&nbsp;</td>
+<td class="colFirst"><code>static int[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#collectionToArray-java.util.List-">collectionToArray</a></span>(java.util.List&lt;java.lang.Integer&gt;&nbsp;steps)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#areEqual-float:A-float:A-">areEqual</a></span>(float[]&nbsp;arr1,
-        float[]&nbsp;arr2)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#areEqual-int:A-int:A-">areEqual</a></span>(int[]&nbsp;arr1,
-        int[]&nbsp;arr2)</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#areEqual-long:A-long:A-">areEqual</a></span>(long[]&nbsp;arr1,
-        long[]&nbsp;arr2)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.ArrayList&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#createArrayList-T...-">createArrayList</a></span>(T...&nbsp;entries)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;T1,T2&gt;&nbsp;java.util.HashMap&lt;T1,T2&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#createHashMap-T1:A-T2:A-">createHashMap</a></span>(T1[]&nbsp;keys,
              T2[]&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.HashSet&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#createHashSet-T...-">createHashSet</a></span>(T...&nbsp;entries)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.LinkedList&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#createLinkedList-T...-">createLinkedList</a></span>(T...&nbsp;entries)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#doubleArr-double...-">doubleArr</a></span>(double...&nbsp;nums)</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#doubleArr-double-double-double-">doubleArr</a></span>(double&nbsp;start,
-         double&nbsp;end,
-         double&nbsp;step)</code>&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>static double[][]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#doubleArr2-double:A...-">doubleArr2</a></span>(double[]...&nbsp;numArrays)</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#doubleFilledArr-int-double-">doubleFilledArr</a></span>(int&nbsp;size,
-               double&nbsp;fillValue)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>static java.lang.Double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getAsClassArray-double:A-">getAsClassArray</a></span>(double[]&nbsp;arr)</code>
-<div class="block">Changing anything in the Double[] array WILL change stuff in the double[]</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>static java.lang.Integer[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getAsClassArray-int:A-">getAsClassArray</a></span>(int[]&nbsp;arr)</code>
-<div class="block">Changing anything in the Integer[] array WILL change stuff in the int[]</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>static java.lang.Long[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getAsClassArray-long:A-">getAsClassArray</a></span>(long[]&nbsp;arr)</code>
-<div class="block">Changing anything in the Long[] array WILL change stuff in the long[]</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.ArrayList&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-java.util.ArrayList-">getCopyOf</a></span>(java.util.ArrayList&lt;T&gt;&nbsp;arrayListToCopy)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>static byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-byte:A-">getCopyOf</a></span>(byte[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-double:A-">getCopyOf</a></span>(double[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>static float[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-float:A-">getCopyOf</a></span>(float[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i19" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static &lt;T,K&gt;&nbsp;java.util.HashMap&lt;T,K&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-java.util.HashMap-">getCopyOf</a></span>(java.util.HashMap&lt;T,K&gt;&nbsp;hashMapToCopy)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.HashSet&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-java.util.HashSet-">getCopyOf</a></span>(java.util.HashSet&lt;T&gt;&nbsp;hashSetToCopy)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code>static int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-int:A-">getCopyOf</a></span>(int[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i22" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.LinkedList&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-java.util.LinkedList-">getCopyOf</a></span>(java.util.LinkedList&lt;T&gt;&nbsp;linkedListToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i23" class="rowColor">
-<td class="colFirst"><code>static long[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-long:A-">getCopyOf</a></span>(long[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i24" class="altColor">
-<td class="colFirst"><code>static java.lang.Number[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-java.lang.Number:A-">getCopyOf</a></span>(java.lang.Number[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i25" class="rowColor">
-<td class="colFirst"><code>static short[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-short:A-">getCopyOf</a></span>(short[]&nbsp;arrToCopy)</code>&nbsp;</td>
-</tr>
-<tr id="i26" class="altColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getCopyOf-T:A-java.lang.Class-">getCopyOf</a></span>(T[]&nbsp;arrToCopy,
-         java.lang.Class&lt;T&gt;&nbsp;clazz)</code>&nbsp;</td>
-</tr>
-<tr id="i27" class="rowColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMax-double:A-">getMax</a></span>(double[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i28" class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMax-int:A-">getMax</a></span>(int[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i29" class="rowColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMax-long:A-">getMax</a></span>(long[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i30" class="altColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMin-double:A-">getMin</a></span>(double[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i31" class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMin-int:A-">getMin</a></span>(int[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i32" class="altColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getMin-long:A-">getMin</a></span>(long[]&nbsp;array)</code>&nbsp;</td>
-</tr>
-<tr id="i33" class="rowColor">
-<td class="colFirst"><code>static byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-byte:A-">getSortedCopy</a></span>(byte[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i34" class="altColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-double:A-">getSortedCopy</a></span>(double[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i35" class="rowColor">
-<td class="colFirst"><code>static float[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-float:A-">getSortedCopy</a></span>(float[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i36" class="altColor">
-<td class="colFirst"><code>static int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-int:A-">getSortedCopy</a></span>(int[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i37" class="rowColor">
-<td class="colFirst"><code>static long[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-long:A-">getSortedCopy</a></span>(long[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i38" class="altColor">
-<td class="colFirst"><code>static short[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-short:A-">getSortedCopy</a></span>(short[]&nbsp;arrToCopyAndSort)</code>&nbsp;</td>
-</tr>
-<tr id="i39" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSortedCopy-T:A-java.lang.Class-java.util.Comparator-">getSortedCopy</a></span>(T[]&nbsp;arrToCopyAndSort,
-             java.lang.Class&lt;T&gt;&nbsp;clazz,
-             java.util.Comparator&lt;T&gt;&nbsp;comparator)</code>&nbsp;</td>
-</tr>
-<tr id="i40" class="altColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#getSumOfElements-java.util.Collection-">getSumOfElements</a></span>(java.util.Collection&lt;? extends java.lang.Number&gt;&nbsp;list)</code>&nbsp;</td>
-</tr>
-<tr id="i41" class="rowColor">
-<td class="colFirst"><code>static int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#intArr-int...-">intArr</a></span>(int...&nbsp;nums)</code>&nbsp;</td>
-</tr>
-<tr id="i42" class="altColor">
-<td class="colFirst"><code>static int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#intArr-int-int-int-">intArr</a></span>(int&nbsp;start,
-      int&nbsp;end,
-      int&nbsp;step)</code>&nbsp;</td>
-</tr>
-<tr id="i43" class="rowColor">
-<td class="colFirst"><code>static int[][]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#intArr2-int:A...-">intArr2</a></span>(int[]...&nbsp;numArrays)</code>&nbsp;</td>
-</tr>
-<tr id="i44" class="altColor">
-<td class="colFirst"><code>static int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#intFilledArr-int-int-">intFilledArr</a></span>(int&nbsp;size,
-            int&nbsp;fillValue)</code>&nbsp;</td>
-</tr>
-<tr id="i45" class="rowColor">
-<td class="colFirst"><code>static double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#linearlySpacedArr-double-double-int-">linearlySpacedArr</a></span>(double&nbsp;start,
-                 double&nbsp;end,
-                 int&nbsp;elemCountIncludingBothEnds)</code>&nbsp;</td>
-</tr>
-<tr id="i46" class="altColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekutils/plain/TCollections.html#shuffleArray-T:A-">shuffleArray</a></span>(T[]&nbsp;arr)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -393,297 +221,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getCopyOf-int:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;int[]&nbsp;getCopyOf(int[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-float:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;float[]&nbsp;getCopyOf(float[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-long:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;long[]&nbsp;getCopyOf(long[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-short:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;short[]&nbsp;getCopyOf(short[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-byte:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;byte[]&nbsp;getCopyOf(byte[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-double:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;double[]&nbsp;getCopyOf(double[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.lang.Number:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;java.lang.Number[]&nbsp;getCopyOf(java.lang.Number[]&nbsp;arrToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.lang.Object:A-java.lang.Class-">
-<!--   -->
-</a><a name="getCopyOf-T:A-java.lang.Class-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T[]&nbsp;getCopyOf(T[]&nbsp;arrToCopy,
-                                java.lang.Class&lt;T&gt;&nbsp;clazz)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.util.ArrayList-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.ArrayList&lt;T&gt;&nbsp;getCopyOf(java.util.ArrayList&lt;T&gt;&nbsp;arrayListToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.util.LinkedList-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.LinkedList&lt;T&gt;&nbsp;getCopyOf(java.util.LinkedList&lt;T&gt;&nbsp;linkedListToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.util.HashSet-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.HashSet&lt;T&gt;&nbsp;getCopyOf(java.util.HashSet&lt;T&gt;&nbsp;hashSetToCopy)</pre>
-</li>
-</ul>
-<a name="getCopyOf-java.util.HashMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCopyOf</h4>
-<pre>public static&nbsp;&lt;T,K&gt;&nbsp;java.util.HashMap&lt;T,K&gt;&nbsp;getCopyOf(java.util.HashMap&lt;T,K&gt;&nbsp;hashMapToCopy)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-java.lang.Object:A-java.lang.Class-java.util.Comparator-">
-<!--   -->
-</a><a name="getSortedCopy-T:A-java.lang.Class-java.util.Comparator-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T[]&nbsp;getSortedCopy(T[]&nbsp;arrToCopyAndSort,
-                                    java.lang.Class&lt;T&gt;&nbsp;clazz,
-                                    java.util.Comparator&lt;T&gt;&nbsp;comparator)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-int:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;int[]&nbsp;getSortedCopy(int[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-float:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;float[]&nbsp;getSortedCopy(float[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-double:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;double[]&nbsp;getSortedCopy(double[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-long:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;long[]&nbsp;getSortedCopy(long[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-byte:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;byte[]&nbsp;getSortedCopy(byte[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="getSortedCopy-short:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSortedCopy</h4>
-<pre>public static&nbsp;short[]&nbsp;getSortedCopy(short[]&nbsp;arrToCopyAndSort)</pre>
-</li>
-</ul>
-<a name="doubleArr-double...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>doubleArr</h4>
-<pre>public static&nbsp;double[]&nbsp;doubleArr(double...&nbsp;nums)</pre>
-</li>
-</ul>
-<a name="intArr-int...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>intArr</h4>
-<pre>public static&nbsp;int[]&nbsp;intArr(int...&nbsp;nums)</pre>
-</li>
-</ul>
-<a name="doubleArr2-double:A...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>doubleArr2</h4>
-<pre>public static&nbsp;double[][]&nbsp;doubleArr2(double[]...&nbsp;numArrays)</pre>
-</li>
-</ul>
-<a name="intArr2-int:A...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>intArr2</h4>
-<pre>public static&nbsp;int[][]&nbsp;intArr2(int[]...&nbsp;numArrays)</pre>
-</li>
-</ul>
-<a name="linearlySpacedArr-double-double-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>linearlySpacedArr</h4>
-<pre>public static&nbsp;double[]&nbsp;linearlySpacedArr(double&nbsp;start,
-                                         double&nbsp;end,
-                                         int&nbsp;elemCountIncludingBothEnds)</pre>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>start</code> - first value (inclusive)</dd>
-<dd><code>end</code> - last value (inclusive)</dd>
-<dd><code>elemCountIncludingBothEnds</code> - element count (size of the array)</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an array in form start, start+delta, start+2delta, ..., end</dd>
-</dl>
-</li>
-</ul>
-<a name="doubleArr-double-double-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>doubleArr</h4>
-<pre>public static&nbsp;double[]&nbsp;doubleArr(double&nbsp;start,
-                                 double&nbsp;end,
-                                 double&nbsp;step)</pre>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>start</code> - first value (inclusive)</dd>
-<dd><code>end</code> - last value (inclusive)</dd>
-<dd><code>step</code> - increment value</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an array containing start, start+step, start+2step, ...</dd>
-</dl>
-</li>
-</ul>
-<a name="intArr-int-int-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>intArr</h4>
-<pre>public static&nbsp;int[]&nbsp;intArr(int&nbsp;start,
-                           int&nbsp;end,
-                           int&nbsp;step)</pre>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>start</code> - first value (inclusive)</dd>
-<dd><code>end</code> - last value (inclusive)</dd>
-<dd><code>step</code> - increment value</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an array containing start, start+step, start+2step, ...</dd>
-</dl>
-</li>
-</ul>
-<a name="doubleFilledArr-int-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>doubleFilledArr</h4>
-<pre>public static&nbsp;double[]&nbsp;doubleFilledArr(int&nbsp;size,
-                                       double&nbsp;fillValue)</pre>
-</li>
-</ul>
-<a name="intFilledArr-int-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>intFilledArr</h4>
-<pre>public static&nbsp;int[]&nbsp;intFilledArr(int&nbsp;size,
-                                 int&nbsp;fillValue)</pre>
-</li>
-</ul>
 <a name="createHashMap-java.lang.Object:A-java.lang.Object:A-">
 <!--   -->
 </a><a name="createHashMap-T1:A-T2:A-">
@@ -729,166 +266,49 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.HashSet&lt;T&gt;&nbsp;createHashSet(T...&nbsp;entries)</pre>
 </li>
 </ul>
-<a name="areEqual-double:A-double:A-">
+<a name="collectionToArray-java.util.List-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areEqual</h4>
-<pre>public static&nbsp;boolean&nbsp;areEqual(double[]&nbsp;arr1,
-                               double[]&nbsp;arr2)</pre>
+<h4>collectionToArray</h4>
+<pre>public static&nbsp;int[]&nbsp;collectionToArray(java.util.List&lt;java.lang.Integer&gt;&nbsp;steps)</pre>
 </li>
 </ul>
-<a name="areEqual-int:A-int:A-">
+<a name="getCopyOf-java.util.ArrayList-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areEqual</h4>
-<pre>public static&nbsp;boolean&nbsp;areEqual(int[]&nbsp;arr1,
-                               int[]&nbsp;arr2)</pre>
+<h4>getCopyOf</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.ArrayList&lt;T&gt;&nbsp;getCopyOf(java.util.ArrayList&lt;T&gt;&nbsp;arrayListToCopy)</pre>
 </li>
 </ul>
-<a name="areEqual-float:A-float:A-">
+<a name="getCopyOf-java.util.LinkedList-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areEqual</h4>
-<pre>public static&nbsp;boolean&nbsp;areEqual(float[]&nbsp;arr1,
-                               float[]&nbsp;arr2)</pre>
+<h4>getCopyOf</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.LinkedList&lt;T&gt;&nbsp;getCopyOf(java.util.LinkedList&lt;T&gt;&nbsp;linkedListToCopy)</pre>
 </li>
 </ul>
-<a name="areEqual-long:A-long:A-">
+<a name="getCopyOf-java.util.HashSet-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areEqual</h4>
-<pre>public static&nbsp;boolean&nbsp;areEqual(long[]&nbsp;arr1,
-                               long[]&nbsp;arr2)</pre>
+<h4>getCopyOf</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.HashSet&lt;T&gt;&nbsp;getCopyOf(java.util.HashSet&lt;T&gt;&nbsp;hashSetToCopy)</pre>
 </li>
 </ul>
-<a name="getMax-long:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMax</h4>
-<pre>public static&nbsp;long&nbsp;getMax(long[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getMax-int:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMax</h4>
-<pre>public static&nbsp;int&nbsp;getMax(int[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getMax-double:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMax</h4>
-<pre>public static&nbsp;double&nbsp;getMax(double[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getMin-long:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMin</h4>
-<pre>public static&nbsp;long&nbsp;getMin(long[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getMin-int:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMin</h4>
-<pre>public static&nbsp;int&nbsp;getMin(int[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getMin-double:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMin</h4>
-<pre>public static&nbsp;double&nbsp;getMin(double[]&nbsp;array)</pre>
-</li>
-</ul>
-<a name="getSumOfElements-java.util.Collection-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSumOfElements</h4>
-<pre>public static&nbsp;double&nbsp;getSumOfElements(java.util.Collection&lt;? extends java.lang.Number&gt;&nbsp;list)</pre>
-</li>
-</ul>
-<a name="shuffleArray-java.lang.Object:A-">
-<!--   -->
-</a><a name="shuffleArray-T:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shuffleArray</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;void&nbsp;shuffleArray(T[]&nbsp;arr)</pre>
-</li>
-</ul>
-<a name="getAsClassArray-int:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAsClassArray</h4>
-<pre>public static&nbsp;java.lang.Integer[]&nbsp;getAsClassArray(int[]&nbsp;arr)</pre>
-<div class="block">Changing anything in the Integer[] array WILL change stuff in the int[]</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>arr</code> - any array</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>that array in class form</dd>
-</dl>
-</li>
-</ul>
-<a name="getAsClassArray-long:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAsClassArray</h4>
-<pre>public static&nbsp;java.lang.Long[]&nbsp;getAsClassArray(long[]&nbsp;arr)</pre>
-<div class="block">Changing anything in the Long[] array WILL change stuff in the long[]</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>arr</code> - any array</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>that array in class form</dd>
-</dl>
-</li>
-</ul>
-<a name="getAsClassArray-double:A-">
+<a name="getCopyOf-java.util.HashMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getAsClassArray</h4>
-<pre>public static&nbsp;java.lang.Double[]&nbsp;getAsClassArray(double[]&nbsp;arr)</pre>
-<div class="block">Changing anything in the Double[] array WILL change stuff in the double[]</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>arr</code> - any array</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>that array in class form</dd>
-</dl>
+<h4>getCopyOf</h4>
+<pre>public static&nbsp;&lt;T,K&gt;&nbsp;java.util.HashMap&lt;T,K&gt;&nbsp;getCopyOf(java.util.HashMap&lt;T,K&gt;&nbsp;hashMapToCopy)</pre>
 </li>
 </ul>
 </li>

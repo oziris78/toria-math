@@ -2,8 +2,7 @@ package com.telek.telekutils.image;
 
 
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.exceptions.NotInRangeException;
-import static com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

@@ -3,7 +3,7 @@ package com.telek.telekmath.special;
 
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.CryptoConstants;
-import com.telek.telekmath.exceptions.InvalidValueException;
+import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.HashMap;
 
 

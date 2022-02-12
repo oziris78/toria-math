@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -115,29 +115,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#MEAN">MEAN</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#VARIANCE">VARIANCE</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -152,35 +129,31 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#areaBetween-double-double-">areaBetween</a></span>(double&nbsp;a,
-           double&nbsp;b)</code>
-<div class="block">Returns P(a <= X <= b).</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#cumulativeProbability-double-">cumulativeProbability</a></span>(double&nbsp;x)</code>
+<div class="block">Returns the shaded area created by P(X <= x).</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#areaUnder-double-">areaUnder</a></span>(double&nbsp;x)</code>
-<div class="block">Returns P(X <= x) <br>
- Cumulative probability function.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#cumulativeProbabilityBetween-double-double-">cumulativeProbabilityBetween</a></span>(double&nbsp;a,
+                            double&nbsp;b)</code>
+<div class="block">Returns the shaded area created by P(a <= X <= b).</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#density-double-">density</a></span>(double&nbsp;x)</code>
-<div class="block">Returns the probability of x <br>
- Probability function.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#density-double-">density</a></span>(double&nbsp;x)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#invCumLeftToRight-double-">invCumLeftToRight</a></span>(double&nbsp;probability)</code>
-<div class="block">Returns the point that corresponds to a shaded area of "probability" (the parameter).</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#invCumLeftTailed-double-">invCumLeftTailed</a></span>(double&nbsp;p)</code>
+<div class="block">Left tailed inverse cumulative density function (ICDF).</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#invCumZeroToRight-double-">invCumZeroToRight</a></span>(double&nbsp;probability)</code>
-<div class="block">Returns the point that corresponds to a shaded area of "probability" (the parameter).</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/ZDist.html#invCumRightTailed-double-">invCumRightTailed</a></span>(double&nbsp;p)</code>
+<div class="block">Right tailed inverse cumulative density function.</div>
 </td>
 </tr>
 </table>
@@ -199,40 +172,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="MEAN">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>MEAN</h4>
-<pre>public static final&nbsp;double MEAN</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.telek.telekmath.advanced.distributions.cont.ZDist.MEAN">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="VARIANCE">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>VARIANCE</h4>
-<pre>public static final&nbsp;double VARIANCE</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.telek.telekmath.advanced.distributions.cont.ZDist.VARIANCE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -246,83 +185,79 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>density</h4>
 <pre>public static&nbsp;double&nbsp;density(double&nbsp;x)</pre>
-<div class="block">Returns the probability of x <br>
- Probability function.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>x</code> - any value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>f(x)</dd>
+<dd>probability density function (PDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="areaUnder-double-">
+<a name="cumulativeProbability-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areaUnder</h4>
-<pre>public static&nbsp;double&nbsp;areaUnder(double&nbsp;x)</pre>
-<div class="block">Returns P(X <= x) <br>
- Cumulative probability function.</div>
+<h4>cumulativeProbability</h4>
+<pre>public static&nbsp;double&nbsp;cumulativeProbability(double&nbsp;x)</pre>
+<div class="block">Returns the shaded area created by P(X <= x). <br></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>x</code> - any value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>P(X <= x)</dd>
+<dd>cumulative density function (CDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="areaBetween-double-double-">
+<a name="cumulativeProbabilityBetween-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>areaBetween</h4>
-<pre>public static&nbsp;double&nbsp;areaBetween(double&nbsp;a,
-                                 double&nbsp;b)</pre>
-<div class="block">Returns P(a <= X <= b). <br>
- Cumulative probability function.</div>
+<h4>cumulativeProbabilityBetween</h4>
+<pre>public static&nbsp;double&nbsp;cumulativeProbabilityBetween(double&nbsp;a,
+                                                  double&nbsp;b)</pre>
+<div class="block">Returns the shaded area created by P(a <= X <= b). <br></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>a</code> - any value</dd>
 <dd><code>b</code> - any value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>P(a <= X <= b)</dd>
+<dd>cumulative density function (CDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="invCumLeftToRight-double-">
+<a name="invCumLeftTailed-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>invCumLeftToRight</h4>
-<pre>public static&nbsp;double&nbsp;invCumLeftToRight(double&nbsp;probability)</pre>
-<div class="block">Returns the point that corresponds to a shaded area of "probability" (the parameter). <br>
- The shaded area starts from the left and goes to the right</div>
+<h4>invCumLeftTailed</h4>
+<pre>public static&nbsp;double&nbsp;invCumLeftTailed(double&nbsp;p)</pre>
+<div class="block">Left tailed inverse cumulative density function (ICDF). <br>
+ Returns the variable "val" for this equation:  p = P(X <= val)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>probability</code> - a value in range [0, 1]</dd>
+<dd><code>p</code> - any value in range [0,1]</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the point that corresponds to a shaded area</dd>
+<dd>inverse cumulative density function (ICDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="invCumZeroToRight-double-">
+<a name="invCumRightTailed-double-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>invCumZeroToRight</h4>
-<pre>public static&nbsp;double&nbsp;invCumZeroToRight(double&nbsp;probability)</pre>
-<div class="block">Returns the point that corresponds to a shaded area of "probability" (the parameter). <br>
- The shaded area starts from the left and goes to the right</div>
+<h4>invCumRightTailed</h4>
+<pre>public static&nbsp;double&nbsp;invCumRightTailed(double&nbsp;p)</pre>
+<div class="block">Right tailed inverse cumulative density function. (ICDF)<br>
+ Returns the variable "val" for this equation:  p = P(X >= val)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>probability</code> - a value in range [0, 0.5]</dd>
+<dd><code>p</code> - a value in range [0, 0.5]</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the point that corresponds to a shaded area</dd>
+<dd>inverse cumulative density function (ICDF) result</dd>
 </dl>
 </li>
 </ul>
@@ -379,13 +314,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

@@ -3,7 +3,7 @@ package com.telek.tests.stats;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekutils.plain.TArrays;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -175,21 +175,21 @@ public class FreqDistTableTest {
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                freqDistTable = new FreqDistTable(TCollections.getAsClassArray(heights), 6);
+                freqDistTable = new FreqDistTable(TArrays.getAsClassArray(heights), 6);
             }
             if(type == 1){ // double test
                 double[] heights = new double[]{
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                freqDistTable = new FreqDistTable(TCollections.getAsClassArray(heights), 6);
+                freqDistTable = new FreqDistTable(TArrays.getAsClassArray(heights), 6);
             }
             if(type == 2){ // long test
                 long[] heights = new long[]{
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                freqDistTable = new FreqDistTable(TCollections.getAsClassArray(heights), 6);
+                freqDistTable = new FreqDistTable(TArrays.getAsClassArray(heights), 6);
             }
 
 

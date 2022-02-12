@@ -2,9 +2,9 @@ package com.telek.tests.stats;
 
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
-import com.telek.telekmath.advanced.statistics.measures.DataDescription;
-import com.telek.telekmath.advanced.statistics.measures.DescStats;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
+import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
+import com.telek.telekutils.plain.TArrays;
 import com.telek.tests.stats.exampledata.Person;
 import com.telek.tests.stats.exampledata.SampleData;
 import org.junit.jupiter.api.Assertions;
@@ -25,8 +25,8 @@ public class DataDescriptionTest {
         // data
         Person[] population = Person.createPopulation();
         // get sorted data
-        Person[] sortedWithHeight = TCollections.getSortedCopy(population, Person.class, (o1, o2) -> o1.height - o2.height);
-        Person[] sortedWithAge = TCollections.getSortedCopy(population, Person.class, (o1, o2) -> o1.age - o2.age);
+        Person[] sortedWithHeight = TArrays.getSortedCopy(population, Person.class, (o1, o2) -> o1.height - o2.height);
+        Person[] sortedWithAge = TArrays.getSortedCopy(population, Person.class, (o1, o2) -> o1.age - o2.age);
 
         // get data sets and desc
         DataDescription heightDesc = DescStats.getDataDesc(sortedWithHeight, Person.class, "height");
@@ -104,8 +104,8 @@ public class DataDescriptionTest {
     void randomTest2() {
         // DATA
         double[] doublePopulation = SampleData.sampleData();
-        double[] sorted = TCollections.getSortedCopy(doublePopulation);
-        Double[] param = TCollections.getAsClassArray(sorted);
+        double[] sorted = TArrays.getSortedCopy(doublePopulation);
+        Double[] param = TArrays.getAsClassArray(sorted);
 
         // data desc 1
         DataDescription dataDesc = DescStats.getDataDesc(param);
@@ -116,7 +116,7 @@ public class DataDescriptionTest {
         for(double i : doublePopulation){
             classPopulation[index++] = new TestClass(i);
         }
-        TestClass[] sortedPop = TCollections.getSortedCopy(classPopulation, TestClass.class,
+        TestClass[] sortedPop = TArrays.getSortedCopy(classPopulation, TestClass.class,
                 Comparator.comparingDouble(TestClass::getField));
 
         DataDescription dataDesc2 = DescStats.getDataDesc(sortedPop, TestClass.class, "theField");
@@ -157,8 +157,8 @@ public class DataDescriptionTest {
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                int[] sorted = TCollections.getSortedCopy(population);
-                Integer[] param = TCollections.getAsClassArray(sorted);
+                int[] sorted = TArrays.getSortedCopy(population);
+                Integer[] param = TArrays.getAsClassArray(sorted);
                 heightDesc = DescStats.getDataDesc(param);
             }
             if(type == 1){
@@ -166,8 +166,8 @@ public class DataDescriptionTest {
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                double[] sorted = TCollections.getSortedCopy(population);
-                Double[] param = TCollections.getAsClassArray(sorted);
+                double[] sorted = TArrays.getSortedCopy(population);
+                Double[] param = TArrays.getAsClassArray(sorted);
                 heightDesc = DescStats.getDataDesc(param);
             }
             if(type == 2){
@@ -175,8 +175,8 @@ public class DataDescriptionTest {
                         160, 172, 162, 176, 180, 176, 182, 176, 176, 166, 158, 183, 165, 188,
                         177, 178, 170, 180, 170, 180, 190, 173, 192, 167, 203, 171
                 };
-                long[] sorted = TCollections.getSortedCopy(population);
-                Long[] param = TCollections.getAsClassArray(sorted);
+                long[] sorted = TArrays.getSortedCopy(population);
+                Long[] param = TArrays.getAsClassArray(sorted);
                 heightDesc = DescStats.getDataDesc(param);
             }
 
@@ -210,9 +210,9 @@ public class DataDescriptionTest {
     @Test
     @DisplayName("dataDescPrimitiveWithoutConversionTest")
     void dataDescPrimitiveWithoutConversionTest() {
-        double[] arr1 = TCollections.getSortedCopy(TCollections.doubleArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
-        int[] arr2 = TCollections.getSortedCopy(TCollections.intArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
-        float[] arr3 = TCollections.getSortedCopy(TCollections.floatArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+        double[] arr1 = TArrays.getSortedCopy(TArrays.doubleArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+        int[] arr2 = TArrays.getSortedCopy(TArrays.intArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
+        float[] arr3 = TArrays.getSortedCopy(TArrays.floatArr(1, 2, 3, -2, -3, 5, 7, -9, 10, 100));
 
         // you need to sort it for some values
         Arrays.sort(arr1);
@@ -281,8 +281,8 @@ public class DataDescriptionTest {
         for (int i = 0; i < SIZE; i++) {
             population[i] = TNoise.canonicalRandom(i, i * 2);
         }
-        double[] sorted = TCollections.getSortedCopy(population);
-        Double[] param = TCollections.getAsClassArray(sorted);
+        double[] sorted = TArrays.getSortedCopy(population);
+        Double[] param = TArrays.getAsClassArray(sorted);
         DataDescription dataDesc = DescStats.getDataDesc(param);
 
         // TESTS
@@ -318,8 +318,8 @@ public class DataDescriptionTest {
         for (int i = 0; i < SIZE; i++) {
             arr[i] = TNoise.valueNoise(i * i, (i + 2) * (i * i - 2) ) * 10000d;
         }
-        double[] sorted = TCollections.getSortedCopy(arr);
-        Double[] param = TCollections.getAsClassArray(sorted);
+        double[] sorted = TArrays.getSortedCopy(arr);
+        Double[] param = TArrays.getAsClassArray(sorted);
 
         // data desc 1
         DataDescription dataDesc = DescStats.getDataDesc(param);

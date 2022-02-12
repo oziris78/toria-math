@@ -1,6 +1,6 @@
 package com.telek.telekmath.advanced.cryptography;
 
-import com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 import java.util.Locale;
 

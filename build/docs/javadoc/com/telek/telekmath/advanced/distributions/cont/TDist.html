@@ -142,16 +142,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#invCumZeroToRight-double-double-">invCumZeroToRight</a></span>(double&nbsp;v,
-                 double&nbsp;p)</code>
-<div class="block">This function is the right tailed version of the default inverse cumulative probability function.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#invCumLeftTailed-double-double-">invCumLeftTailed</a></span>(double&nbsp;v,
+                double&nbsp;p)</code>
+<div class="block">Left tailed inverse cumulative density function (ICDF).</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#inverseCumulativeProbability-double-double-">inverseCumulativeProbability</a></span>(double&nbsp;v,
-                            double&nbsp;p)</code>
-<div class="block">Returns value for this equation:  p = P(X <= val)</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/telek/telekmath/advanced/distributions/cont/TDist.html#invCumRightTailed-double-double-">invCumRightTailed</a></span>(double&nbsp;v,
+                 double&nbsp;p)</code>
+<div class="block">Right tailed inverse cumulative density function.</div>
 </td>
 </tr>
 </table>
@@ -189,7 +189,7 @@ extends java.lang.Object</pre>
 <dd><code>v</code> - degrees of freedom</dd>
 <dd><code>x</code> - any value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>probability density function result for v and x</dd>
+<dd>probability density function (PDF) result</dd>
 </dl>
 </li>
 </ul>
@@ -207,44 +207,45 @@ extends java.lang.Object</pre>
 <dd><code>v</code> - degrees of freedom</dd>
 <dd><code>x</code> - any value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>cumulative probability function result for v and x</dd>
+<dd>cumulative density function (CDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="inverseCumulativeProbability-double-double-">
+<a name="invCumLeftTailed-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>inverseCumulativeProbability</h4>
-<pre>public static&nbsp;double&nbsp;inverseCumulativeProbability(double&nbsp;v,
-                                                  double&nbsp;p)</pre>
-<div class="block">Returns value for this equation:  p = P(X <= val)</div>
+<h4>invCumLeftTailed</h4>
+<pre>public static&nbsp;double&nbsp;invCumLeftTailed(double&nbsp;v,
+                                      double&nbsp;p)</pre>
+<div class="block">Left tailed inverse cumulative density function (ICDF). <br>
+ Returns the variable "val" for this equation:  p = P(X <= val)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>v</code> - degrees of freedom</dd>
 <dd><code>p</code> - any value in range [0,1]</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>inverse cumulative probability function result</dd>
+<dd>inverse cumulative density function (ICDF) result</dd>
 </dl>
 </li>
 </ul>
-<a name="invCumZeroToRight-double-double-">
+<a name="invCumRightTailed-double-double-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>invCumZeroToRight</h4>
-<pre>public static&nbsp;double&nbsp;invCumZeroToRight(double&nbsp;v,
+<h4>invCumRightTailed</h4>
+<pre>public static&nbsp;double&nbsp;invCumRightTailed(double&nbsp;v,
                                        double&nbsp;p)</pre>
-<div class="block">This function is the right tailed version of the default inverse cumulative probability function. <br>
- Returns value for this equation:  p = P(X >= val) <br></div>
+<div class="block">Right tailed inverse cumulative density function. (ICDF)<br>
+ Returns the variable "val" for this equation:  p = P(X >= val)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>v</code> - degrees of freedom</dd>
 <dd><code>p</code> - any value in range [0,1]</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>inverse cumulative probability function result</dd>
+<dd>inverse cumulative density function (ICDF) result</dd>
 </dl>
 </li>
 </ul>

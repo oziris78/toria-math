@@ -19,8 +19,7 @@ package com.telek.telekmath.utils;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.exceptions.*;
-import com.telek.telekmath.exceptions.TelekMathException.*;
+import com.telek.telekmath.utils.TelekMathException.*;
 
 
 

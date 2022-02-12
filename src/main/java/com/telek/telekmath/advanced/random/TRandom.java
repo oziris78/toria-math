@@ -1,5 +1,8 @@
 package com.telek.telekmath.advanced.random;
 
+import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.plain.TCollections;
+
 import java.util.ArrayList;
 
 public class TRandom {
@@ -82,14 +85,12 @@ public class TRandom {
     public static int[] getStepsForCollatzConjecture(int seed){
         ArrayList<Integer> steps = new ArrayList<>();
         steps.add(seed);
-        while( seed != 1 ){
+        while(seed != 1){
             if(seed % 2 == 0) seed /= 2;
             else seed = 3 * seed + 1;
             steps.add(seed);
         }
-        int[] result = new int[steps.size()];
-        for(int i = 0; i < steps.size(); i++) result[i] = steps.get(i);
-        return result;
+        return TCollections.collectionToArray(steps);
     }
 
 

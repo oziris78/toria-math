@@ -1,7 +1,7 @@
 package com.telek.tests.matrices;
 
 import com.telek.telekmath.core.matrices.TMatrix;
-import com.telek.telekmath.exceptions.TelekMathException;
+import com.telek.telekmath.utils.TelekMathException.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -83,11 +83,8 @@ public class TMatrixTest {
         Assertions.assertNotEquals(mat1, mat11);
 
         Assertions.assertEquals(mat1.trace(), 45);
-        Assertions.assertThrows(TelekMathException.NotASquareMatrixException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                double trace = mat2.trace();
-            }
+        Assertions.assertThrows(NotASquareMatrixException.class, () -> {
+            double trace = mat2.trace();
         });
 
         Assertions.assertArrayEquals(mat1.getDiagonal(), new double[]{1, 8, 36});

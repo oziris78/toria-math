@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/telek/telekmath/utils/ApacheArrays.html" title="class in com.telek.telekmath.utils"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/telek/telekmath/utils/TelekMathException.WrongFunctionException.html" title="class in com.telek.telekmath.utils"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object</pre>
 <div class="block">A class that has a lot of utility functions. <br>
  Few methods in this class were written by <a href="https://github.com/tommyettinger">Tommy Ettinger</a>. <br>
- Few methods in this class were taken from Apache Commons Math, most of these methods were <b>CHANGED</b> in
+ Few methods in this class were taken from Apache Commons Math, most of these methods were <b>changed</b> in
  many ways to fit telek-math. <br>
  To see every method that wasn't written by <a href="https://github.com/oziris78">me</a>, see the
  sections below in this class that were seperated by big multiline comments.</div>
@@ -185,10 +185,9 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/utils/TMath.html#exp-double-">exp</a></span>(double&nbsp;x)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/utils/TMath.html#factorial-int-">factorial</a></span>(int&nbsp;num)</code>
-<div class="block">Fast factorial function that only works with integers <br>
- This method only works for num < 14.</div>
+<td class="colFirst"><code>static double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/utils/TMath.html#factorial-double-">factorial</a></span>(double&nbsp;num)</code>
+<div class="block">Uses the <a href="../../../../com/telek/telekmath/utils/TMath.html#gamma-double-"><code>gamma(double)</code></a> function to calculate the factorial.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -212,10 +211,11 @@ extends java.lang.Object</pre>
    long&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code>static double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/utils/TMath.html#inverseRegularizedIncompleteBetaFunction-double-double-double-">inverseRegularizedIncompleteBetaFunction</a></span>(double&nbsp;alpha,
-                                        double&nbsp;beta,
-                                        double&nbsp;probability)</code>&nbsp;</td>
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/telek/telekmath/utils/TMath.html#ifactorial-int-">ifactorial</a></span>(int&nbsp;num)</code>
+<div class="block">Fast factorial function that only works with integers <br>
+ This method only works for num < 14.</div>
+</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
@@ -345,17 +345,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="inverseRegularizedIncompleteBetaFunction-double-double-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>inverseRegularizedIncompleteBetaFunction</h4>
-<pre>public static&nbsp;double&nbsp;inverseRegularizedIncompleteBetaFunction(double&nbsp;alpha,
-                                                              double&nbsp;beta,
-                                                              double&nbsp;probability)</pre>
-</li>
-</ul>
 <a name="isPrime-int-">
 <!--   -->
 </a>
@@ -390,18 +379,34 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="factorial-int-">
+<a name="ifactorial-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>factorial</h4>
-<pre>public static&nbsp;int&nbsp;factorial(int&nbsp;num)</pre>
+<h4>ifactorial</h4>
+<pre>public static&nbsp;int&nbsp;ifactorial(int&nbsp;num)</pre>
 <div class="block">Fast factorial function that only works with integers <br>
  This method only works for num < 14.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>num</code> - any integer</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>factorial(num)</dd>
+</dl>
+</li>
+</ul>
+<a name="factorial-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>factorial</h4>
+<pre>public static&nbsp;double&nbsp;factorial(double&nbsp;num)</pre>
+<div class="block">Uses the <a href="../../../../com/telek/telekmath/utils/TMath.html#gamma-double-"><code>gamma(double)</code></a> function to calculate the factorial.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>num</code> - any number</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>factorial(num)</dd>
 </dl>
@@ -769,7 +774,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/telek/telekmath/utils/ApacheArrays.html" title="class in com.telek.telekmath.utils"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/telek/telekmath/utils/TelekMathException.WrongFunctionException.html" title="class in com.telek.telekmath.utils"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

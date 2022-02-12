@@ -6,12 +6,10 @@ com/telek/telekmath/core/geometry/points/TPoint2D.java
  com.telek.telekmath.core.geometry.points.TPoint2D
 com/telek/telekutils/swing/TSwingUtils.java
  com.telek.telekutils.swing.TSwingUtils
-com/telek/telekmath/core/functions/other/TLog.java
- com.telek.telekmath.core.functions.other.TLog
+com/telek/telekmath/core/matrices/TMatrix.java
+ com.telek.telekmath.core.matrices.TMatrix
 com/telek/telekmath/core/functions/amnfuncs/TSin.java
  com.telek.telekmath.core.functions.amnfuncs.TSin
-com/telek/telekmath/advanced/random/TRandom.java
- com.telek.telekmath.advanced.random.TRandom
 com/telek/telekutils/swing/TSwingComponents.java
  com.telek.telekutils.swing.TSwingComponents
 com/telek/telekmath/core/functions/other/TConstantFunc.java
@@ -28,15 +26,15 @@ com/telek/telekmath/special/NumericalAnalysis.java
  com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
+com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
+ com.telek.telekmath.advanced.statistics.descriptive.DataDescription
+ com.telek.telekmath.advanced.statistics.descriptive.DataDescription$Mode
 com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
  com.telek.telekmath.advanced.distributions.discrete.GeometricDist
 com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
  com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
-com/telek/telekmath/advanced/statistics/measures/DataDescription.java
- com.telek.telekmath.advanced.statistics.measures.DataDescription
- com.telek.telekmath.advanced.statistics.measures.DataDescription$Mode
 com/telek/telekmath/advanced/distributions/cont/TDist.java
  com.telek.telekmath.advanced.distributions.cont.TDist
 com/telek/telekmath/core/functions/TFunction.java
@@ -53,6 +51,8 @@ com/telek/telekmath/advanced/distributions/cont/ZDist.java
  com.telek.telekmath.advanced.distributions.cont.ZDist
 com/telek/telekmath/advanced/random/Sampler.java
  com.telek.telekmath.advanced.random.Sampler
+com/telek/telekutils/plain/TArrays.java
+ com.telek.telekutils.plain.TArrays
 com/telek/telekmath/core/functions/amnfuncs/AbstractAMNFunction.java
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction$FuncType
@@ -68,8 +68,6 @@ com/telek/telekmath/advanced/cryptography/VigenereCipher.java
  com.telek.telekmath.advanced.cryptography.VigenereCipher
 com/telek/telekmath/core/geometry/vectors/TVector3D.java
  com.telek.telekmath.core.geometry.vectors.TVector3D
-com/telek/telekmath/exceptions/NotInRangeException.java
- com.telek.telekmath.exceptions.NotInRangeException
 com/telek/telekmath/core/functions/other/TPowerFunc.java
  com.telek.telekmath.core.functions.other.TPowerFunc
 com/telek/telekmath/core/numbers/ComplexNumber.java
@@ -78,6 +76,8 @@ com/telek/telekmath/core/functions/amnfuncs/TDiracDeltaFunc.java
  com.telek.telekmath.core.functions.amnfuncs.TDiracDeltaFunc
 com/telek/telekmath/advanced/distributions/discrete/BernoulliDist.java
  com.telek.telekmath.advanced.distributions.discrete.BernoulliDist
+com/telek/telekmath/advanced/statistics/descriptive/DescStats.java
+ com.telek.telekmath.advanced.statistics.descriptive.DescStats
 com/telek/telekmath/advanced/distributions/discrete/BinomialDist.java
  com.telek.telekmath.advanced.distributions.discrete.BinomialDist
 com/telek/telekutils/colors/TColor.java
@@ -88,31 +88,36 @@ com/telek/telekutils/swing/TDesktopUtils.java
  com.telek.telekutils.swing.TDesktopUtils
 com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
  com.telek.telekmath.advanced.statistics.regression.RegressionResult
-com/telek/telekmath/exceptions/TelekMathException.java
- com.telek.telekmath.exceptions.TelekMathException
- com.telek.telekmath.exceptions.TelekMathException$CombinationException
- com.telek.telekmath.exceptions.TelekMathException$DifferentMatrixDimensionException
- com.telek.telekmath.exceptions.TelekMathException$DivisionByZeroException
- com.telek.telekmath.exceptions.TelekMathException$HasNonLetterCharactersException
- com.telek.telekmath.exceptions.TelekMathException$InvalidBaseException
- com.telek.telekmath.exceptions.TelekMathException$InvalidExtensionException
- com.telek.telekmath.exceptions.TelekMathException$LinesAreNotParallelException
- com.telek.telekmath.exceptions.TelekMathException$MatricesCantBeMultipliedException
- com.telek.telekmath.exceptions.TelekMathException$NotASquareMatrixException
- com.telek.telekmath.exceptions.TelekMathException$NotEqualKeyAndValueException
- com.telek.telekmath.exceptions.TelekMathException$NotGreaterThanNException
- com.telek.telekmath.exceptions.TelekMathException$NotGreaterThanZeroException
- com.telek.telekmath.exceptions.TelekMathException$PermutationException
- com.telek.telekmath.exceptions.TelekMathException$RepeatedCombinationException
- com.telek.telekmath.exceptions.TelekMathException$SampleSizeIsGreaterThanPopulationSizeException
- com.telek.telekmath.exceptions.TelekMathException$UnnecessaryZeroException
- com.telek.telekmath.exceptions.TelekMathException$VigenereCipherException
 com/telek/telekmath/core/functions/AbstractFunction.java
  com.telek.telekmath.core.functions.AbstractFunction
+com/telek/telekmath/utils/TelekMathException.java
+ com.telek.telekmath.utils.TelekMathException
+ com.telek.telekmath.utils.TelekMathException$CombinationException
+ com.telek.telekmath.utils.TelekMathException$DifferentMatrixDimensionException
+ com.telek.telekmath.utils.TelekMathException$DivisionByZeroException
+ com.telek.telekmath.utils.TelekMathException$FieldNotFoundException
+ com.telek.telekmath.utils.TelekMathException$HasNonLetterCharactersException
+ com.telek.telekmath.utils.TelekMathException$InvalidBaseException
+ com.telek.telekmath.utils.TelekMathException$InvalidExtensionException
+ com.telek.telekmath.utils.TelekMathException$InvalidValueException
+ com.telek.telekmath.utils.TelekMathException$LinesAreNotParallelException
+ com.telek.telekmath.utils.TelekMathException$MatricesCantBeMultipliedException
+ com.telek.telekmath.utils.TelekMathException$NotAMultiplyOfNException
+ com.telek.telekmath.utils.TelekMathException$NotASquareMatrixException
+ com.telek.telekmath.utils.TelekMathException$NotEqualKeyAndValueException
+ com.telek.telekmath.utils.TelekMathException$NotGreaterThanNException
+ com.telek.telekmath.utils.TelekMathException$NotGreaterThanZeroException
+ com.telek.telekmath.utils.TelekMathException$NotInRangeException
+ com.telek.telekmath.utils.TelekMathException$PermutationException
+ com.telek.telekmath.utils.TelekMathException$RepeatedCombinationException
+ com.telek.telekmath.utils.TelekMathException$RepeatedPermutationException
+ com.telek.telekmath.utils.TelekMathException$SampleSizeIsGreaterThanPopulationSizeException
+ com.telek.telekmath.utils.TelekMathException$ThisLineIsNeverExecutedException
+ com.telek.telekmath.utils.TelekMathException$UnnecessaryZeroException
+ com.telek.telekmath.utils.TelekMathException$VigenereCipherException
+ com.telek.telekmath.utils.TelekMathException$WrongFunctionException
 com/telek/telekmath/core/functions/other/TInverseFunc.java
  com.telek.telekmath.core.functions.other.TInverseFunc
-com/telek/telekmath/exceptions/NotAMultiplyOfNException.java
- com.telek.telekmath.exceptions.NotAMultiplyOfNException
 com/telek/telekmath/advanced/distributions/discrete/PoissonDist.java
  com.telek.telekmath.advanced.distributions.discrete.PoissonDist
 com/telek/telekutils/audio/TClipUtils.java
@@ -127,14 +132,12 @@ com/telek/telekmath/core/functions/amnfuncs/TTan.java
  com.telek.telekmath.core.functions.amnfuncs.TTan
 com/telek/telekmath/core/constants/TMathConstants.java
  com.telek.telekmath.core.constants.TMathConstants
-com/telek/telekmath/exceptions/WrongFunctionException.java
- com.telek.telekmath.exceptions.WrongFunctionException
+com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
+ com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
 com/telek/telekmath/core/functions/amnfuncs/TCos.java
  com.telek.telekmath.core.functions.amnfuncs.TCos
 com/telek/telekmath/core/geometry/vectors/TVector2D.java
  com.telek.telekmath.core.geometry.vectors.TVector2D
-com/telek/telekmath/exceptions/ThisLineIsNeverExecutedException.java
- com.telek.telekmath.exceptions.ThisLineIsNeverExecutedException
 com/telek/telekmath/core/geometry/points/TPoint3D.java
  com.telek.telekmath.core.geometry.points.TPoint3D
 com/telek/telekmath/core/matrices/TMatrixUtils.java
@@ -145,12 +148,8 @@ com/telek/telekmath/special/DiscreteMath.java
  com.telek.telekmath.special.DiscreteMath
 com/telek/telekmath/core/functions/other/TPolynomial.java
  com.telek.telekmath.core.functions.other.TPolynomial
-com/telek/telekmath/core/functions/amnfuncs/TCeil.java
- com.telek.telekmath.core.functions.amnfuncs.TCeil
-com/telek/telekmath/exceptions/FieldNotFoundException.java
- com.telek.telekmath.exceptions.FieldNotFoundException
-com/telek/telekmath/exceptions/RepeatedPermutationException.java
- com.telek.telekmath.exceptions.RepeatedPermutationException
+com/telek/telekutils/plain/TCollections.java
+ com.telek.telekutils.plain.TCollections
 com/telek/telekmath/advanced/cryptography/CaesarCipher.java
  com.telek.telekmath.advanced.cryptography.CaesarCipher
 com/telek/telekmath/core/constants/CryptoConstants.java
@@ -162,13 +161,9 @@ com/telek/telekmath/advanced/random/TNoise.java
  com.telek.telekmath.advanced.random.TNoise$Vec2
 com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
  com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
-com/telek/telekmath/exceptions/InvalidValueException.java
- com.telek.telekmath.exceptions.InvalidValueException
-com/telek/telekmath/core/matrices/TMatrix.java
- com.telek.telekmath.core.matrices.TMatrix
-com/telek/telekmath/advanced/statistics/measures/DescStats.java
- com.telek.telekmath.advanced.statistics.measures.DescStats
-com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
- com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
-com/telek/telekutils/plain/TCollections.java
- com.telek.telekutils.plain.TCollections
+com/telek/telekmath/core/functions/amnfuncs/TCeil.java
+ com.telek.telekmath.core.functions.amnfuncs.TCeil
+com/telek/telekmath/core/functions/other/TLog.java
+ com.telek.telekmath.core.functions.other.TLog
+com/telek/telekmath/advanced/random/TRandom.java
+ com.telek.telekmath.advanced.random.TRandom
