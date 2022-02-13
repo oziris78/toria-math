@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-12T23:58:02" hostname="TUNERIKGEZGINI" time="0.021">
+  <properties/>
+  <testcase name="proportionsTwoVariableTest" classname="com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest" time="0.021"/>
+  <system-out><![CDATA[6
+2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
