@@ -13,11 +13,100 @@ import java.util.Arrays;
 
 public class ConfIntervalTwoVariableTest {
 
+    @Test
+    @DisplayName("meanKnownVarianceTest")
+    void meanKnownVarianceTest() {
+        // https://mathcracker.com/confidence-interval-difference-means-calculator
+        // https://www.socscistatistics.com/confidenceinterval/default4.aspx
+
+        // get data
+        int[] sample1 = TArrays.intArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
+        int[] sample2 = TArrays.intArr(15, 35, 95, 97, 0, 0, 30, 40);
+        Arrays.sort(sample1);
+        Arrays.sort(sample2);
+        DataDescription desc1 = DescStats.getDataDesc(sample1);
+        DataDescription desc2 = DescStats.getDataDesc(sample2);
+
+
+        // TESTS
+        TRange r1, r2;
+
+        // known variance (dist doesn't matter)
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.05d);
+        r2 = new TRange(10.006106, 15.993894);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.05d);
+        r2 = new TRange(1.349612, 24.650388);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.05d);
+        r2 = new TRange(6.047421, 19.952579);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.01d);
+        r2 = new TRange(9.065356, 16.934644);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.01d);
+        r2 = new TRange(-2.311205, 28.311205);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.01d);
+        r2 = new TRange(3.862762, 22.137238);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.12d);
+        r2 = new TRange(10.625044, 15.374956);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.12d);
+        r2 = new TRange(3.758138, 22.241862);
+        Assertions.assertTrue(r1.equals(r2));
+
+        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.12d);
+        r2 = new TRange(7.484752, 18.515248);
+        Assertions.assertTrue(r1.equals(r2));
+
+    }
+
+
 
     @Test
-    @DisplayName("meanTwoVariableTest")
-    void meanTwoVariableTest() {
+    @DisplayName("meanUnknownVarianceTest")
+    void meanUnknownVarianceTest() {
+        // get data
+        int[] sample1 = TArrays.intArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
+        int[] sample2 = TArrays.intArr(15, 35, 95, 97, 0, 0, 30, 40);
+        Arrays.sort(sample1);
+        Arrays.sort(sample2);
+        DataDescription desc1 = DescStats.getDataDesc(sample1);
+        DataDescription desc2 = DescStats.getDataDesc(sample2);
 
+        // TESTS
+
+        // unknown variance
+        TRange r3, r4, r5, r6, r7, r8;
+        r3 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.05d);
+        r4 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.01d);
+        r5 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.23d);
+        r6 = new TRange(-15.179576, 41.179576);
+        r7 = new TRange(-25.608397, 51.608397);
+        r8 = new TRange(-3.665457, 29.665457);
+        Assertions.assertTrue(r3.equals(r6));
+        Assertions.assertTrue(r4.equals(r7));
+        Assertions.assertTrue(r5.equals(r8));
+
+
+        r3 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.05d);
+        r4 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.01d);
+        r5 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.23d);
+        r6 = new TRange(-20.202192, 46.202192);
+        r7 = new TRange(-34.174873, 60.174873);
+        r8 = new TRange(-6.065638, 32.065638);
+        Assertions.assertTrue(r3.equals(r6));
+        Assertions.assertTrue(r4.equals(r7));
+        Assertions.assertTrue(r5.equals(r8));
     }
 
 
@@ -36,10 +125,9 @@ public class ConfIntervalTwoVariableTest {
         int successes1, successes2;
         successes1 = (int) Arrays.stream(sample1).filter(value -> value > 50).count(); // 6
         successes2 = (int) Arrays.stream(sample2).filter(value -> value > 50).count(); // 2
-        System.out.println(successes1);
-        System.out.println(successes2);
 
         // TESTS
+        // used this site: https://www.statology.org/confidence-interval-difference-in-proportions-calculator/
         TRange r1, r2;
 
         r1 = ConfidenceIntervals.getIntervalForDifferenceOfProportions(desc1, desc2, successes1, successes2, 0.05d);

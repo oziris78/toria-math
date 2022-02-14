@@ -5,10 +5,12 @@ import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekutils.plain.TArrays;
+import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import javax.xml.crypto.Data;
 import java.util.Arrays;
 
 public class ConfIntervalSingleVariableTest {
@@ -143,6 +145,31 @@ public class ConfIntervalSingleVariableTest {
         Assertions.assertTrue(r1.equals(r2));
     }
 
+
+    @Test
+    @DisplayName("forPersonDataTest")
+    void forPersonDataTest() {
+        Person[] people = Person.createPopulation();
+        Person[] sortedPeople = TArrays.getSortedCopy(people, Person.class, (o1, o2) -> o1.height - o2.height);
+        DataDescription description = DescStats.getDataDesc(sortedPeople, Person.class, "height");
+
+        double alpha = 0.01d;
+
+        // uncomment sysout lines to see results
+
+        // mean confidence interval
+        TRange meanRange = ConfidenceIntervals.getIntervalForMean(description, false, alpha);
+//        System.out.println("CI for people population's height's mean: " + meanRange + " for alpha: " + alpha);
+
+        // proportions confidence interval
+        int successes = (int) Arrays.stream(people).filter(person -> person.height > 180).count();
+        TRange proportionRange = ConfidenceIntervals.getIntervalForProportion(description, successes, alpha);
+//        System.out.println("CI for people population's height's proportions: " + proportionRange + " for alpha: " + alpha);
+
+        // variance confidence interval
+        TRange varianceRange = ConfidenceIntervals.getIntervalForVariance(description, alpha);
+//        System.out.println("CI for people population's height's variance: " + varianceRange + " for alpha: " + alpha);
+    }
 
 
 }

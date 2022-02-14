@@ -50,6 +50,29 @@ public class TRange {
     }
 
 
+
+    /**
+     * Returns a new and scaled version of this TRange.
+     * @param scale any double, TRange will be multiplied by this value
+     * @return A new and scaled TRange
+     */
+    public TRange getScaled(double scale){
+        return new TRange(this.left * scale, this.right * scale);
+    }
+
+
+
+    /**
+     * Returns a new and shifted version of this TRange.
+     * @param shift any double, this value will be added to TRange's boundaries.
+     * @return A new and shifted TRange
+     */
+    public TRange getShifter(double shift){
+        return new TRange(this.left + shift, this.right + shift);
+    }
+
+
+
     /**
      * @param x any value
      * @return true if the value is in this range
@@ -92,8 +115,8 @@ public class TRange {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TRange r1 = (TRange) o;
-        return TMath.areEqual(left, r1.left) && TMath.areEqual(right, r1.right);
+        TRange other = (TRange) o;
+        return TMath.areEqual(this.left, other.left) && TMath.areEqual(this.right, other.right);
     }
 
     @Override
