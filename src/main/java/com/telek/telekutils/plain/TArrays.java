@@ -5,6 +5,8 @@ import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 
 /**
@@ -71,6 +73,91 @@ public final class TArrays {
         System.arraycopy(arrToCopy, 0, newArray, 0, size);
         return newArray;
     }
+
+
+    public static int[][] getCopyOf(int[][] arrToCopy){
+        return Arrays.stream(arrToCopy).map(int[]::clone).toArray(int[][]::new);
+    }
+
+    public static float[][] getCopyOf(float[][] arrToCopy){
+        return Arrays.stream(arrToCopy).map(float[]::clone).toArray(float[][]::new);
+    }
+
+    public static Number[][] getCopyOf(Number[][] arrToCopy){
+        return Arrays.stream(arrToCopy).map(Number[]::clone).toArray(Number[][]::new);
+    }
+
+    public static double[][] getCopyOf(double[][] arrToCopy){
+        return Arrays.stream(arrToCopy).map(double[]::clone).toArray(double[][]::new);
+    }
+
+
+    ///////////////////////////////////////
+    /////// CASTING ARRAYS METHODS ////////
+    ///////////////////////////////////////
+
+    public static double[] getCastedDoubleCopyOf(float[] arrToCast){
+        return IntStream.range(0, arrToCast.length).mapToDouble(i -> arrToCast[i]).toArray();
+    }
+
+    public static double[] getCastedDoubleCopyOf(int[] arrToCast){
+        return IntStream.range(0, arrToCast.length).mapToDouble(i -> arrToCast[i]).toArray();
+    }
+
+    public static double[] getCastedDoubleCopyOf(Number[] arrToCast){
+        return IntStream.range(0, arrToCast.length).mapToDouble(i -> arrToCast[i].doubleValue()).toArray();
+    }
+
+    public static double[][] getCastedDouble2CopyOf(float[][] arrToCast){
+        double[][] dArray = new double[arrToCast.length][arrToCast[0].length];
+        for (int row = 0; row < dArray.length; row++) {
+            for (int column = 0; column < dArray[0].length; column++){
+                dArray[row][column] = arrToCast[row][column];
+            }
+        }
+        return dArray;
+    }
+
+    public static double[][] getCastedDouble2CopyOf(int[][] arrToCast){
+        double[][] dArray = new double[arrToCast.length][arrToCast[0].length];
+        for (int row = 0; row < dArray.length; row++) {
+            for (int column = 0; column < dArray[0].length; column++){
+                dArray[row][column] = arrToCast[row][column];
+            }
+        }
+        return dArray;
+    }
+
+    public static double[][] getCastedDouble2CopyOf(Number[][] arrToCast){
+        double[][] dArray = new double[arrToCast.length][arrToCast[0].length];
+        for (int row = 0; row < dArray.length; row++) {
+            for (int column = 0; column < dArray[0].length; column++){
+                dArray[row][column] = arrToCast[row][column].doubleValue();
+            }
+        }
+        return dArray;
+    }
+
+
+    ///////////////////////////////////////
+    /////// PRINTING ARRAY METHODS ////////
+    ///////////////////////////////////////
+
+    public static String toString(double[] arr){return Arrays.toString(arr);}
+    public static String toString(float[] arr){return Arrays.toString(arr);}
+    public static String toString(int[] arr){return Arrays.toString(arr);}
+    public static String toString(long[] arr){return Arrays.toString(arr);}
+    public static String toString(byte[] arr){return Arrays.toString(arr);}
+    public static String toString(short[] arr){return Arrays.toString(arr);}
+    public static String toString(Number[] arr){return Arrays.toString(arr);}
+
+    public static String toString(double[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(float[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(int[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(long[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(byte[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(short[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(Number[][] arr){return Arrays.deepToString(arr);}
 
 
 

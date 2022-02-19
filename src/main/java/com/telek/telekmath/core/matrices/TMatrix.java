@@ -7,6 +7,14 @@ import java.util.Arrays;
 import java.util.Objects;
 
 
+
+/**
+ * A matrix class with a lot of properties. <br>
+ * <b>WARNING</b>: Most math libraries will have very fast and efficient matrix classes in
+ * them to do fast calculations. This class isn't built like that and no where close to doing fast calculations.
+ * This is a class merely have as many functionality as possible without worrying about performance. If you want a
+ * fast matrix class look at other math libraries.
+ */
 public class TMatrix {
 
     private double[][] matrix;
@@ -18,9 +26,48 @@ public class TMatrix {
     ////////////////////
 
 
+    /**
+     * This is the recommended constructor.
+     * @param matrix any two dimensional double array
+     */
     public TMatrix(double[][] matrix){
         this.matrix = matrix;
+        this.rowSize = matrix.length;
+        this.colSize = matrix[0].length;
+    }
 
+
+    /**
+     * This method iterates over a float[][] to fill this matrix. <br>
+     * It's recommended to use double[][] with {@link #TMatrix(double[][])} constructor for better performance.
+     * @param matrix any two dimensional float array
+     */
+    public TMatrix(float[][] matrix){
+        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
+        this.rowSize = matrix.length;
+        this.colSize = matrix[0].length;
+    }
+
+
+    /**
+     * This method iterates over a int[][] to fill this matrix. <br>
+     * It's recommended to use double[][] with {@link #TMatrix(double[][])} constructor for better performance.
+     * @param matrix any two dimensional int array
+     */
+    public TMatrix(int[][] matrix){
+        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
+        this.rowSize = matrix.length;
+        this.colSize = matrix[0].length;
+    }
+
+
+    /**
+     * This method iterates over a Number[][] to fill this matrix. <br>
+     * It's recommended to use double[][] with {@link #TMatrix(double[][])} constructor for better performance.
+     * @param matrix any two dimensional Number array
+     */
+    public TMatrix(Number[][] matrix){
+        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
         this.rowSize = matrix.length;
         this.colSize = matrix[0].length;
     }
@@ -131,6 +178,24 @@ public class TMatrix {
         double[][] newMatrix = new double[this.rowSize][this.colSize];
         for (int i = 0; i < this.rowSize; i++) {
             newMatrix[i] = TArrays.getCopyOf(this.matrix[i]);
+        }
+
+        return new TMatrix(newMatrix);
+    }
+
+
+    /**
+     * Creates a copy of this matrix with increased/decreased size and returns it. <br>
+     * Any additional (added) cells will be filled with 0.
+     * @return a copy of this matrix
+     */
+    public TMatrix copy(int newRow, int newCol){
+        double[][] newMatrix = new double[newRow][newCol];
+
+        for (int i = 0; i < this.rowSize; i++) {
+            for (int j = 0; j < this.colSize; j++) {
+                newMatrix[i][j] = this.matrix[i][j];
+            }
         }
 
         return new TMatrix(newMatrix);

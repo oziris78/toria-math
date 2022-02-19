@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.stats.ChiSqTestsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-19T02:47:24" hostname="TUNERIKGEZGINI" time="0.0">
+<testsuite name="com.telek.tests.stats.ChiSqTestsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-19T17:22:50" hostname="TUNERIKGEZGINI" time="0.023">
   <properties/>
-  <testcase name="chiSqTests" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="homogeneityTest" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.023"/>
+  <system-out><![CDATA[testStat: 49.63235294117647
+v: 2.0
+chi: 5.991464547107881
+testStat: 7.415807748538011
+v: 4.0
+chi: 9.487729036781978
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
