@@ -1,5 +1,6 @@
 package com.telek.telekmath.advanced.statistics.descriptive;
 
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -51,6 +52,37 @@ public class DescStats {
         return (quartile3 + quartile1 - 2 * quartile2) / (quartile3 - quartile1);
     }
 
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////    VALIDNESS METHODS    //////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    public static void verifyProportion(double pHat) {
+        if(!TRange.ZERO_TO_ONE.isInRange(pHat))
+            throw new InvalidValueException("pHat", pHat);
+    }
+
+    public static void verifyAlpha(double alpha){
+        if(!TRange.ZERO_TO_ONE.isInRange(alpha))
+            throw new InvalidValueException("alpha", alpha);
+    }
+
+    public static void verifyVariance(double variance){
+        if(variance < 0)
+            throw new IsNegativeException("variance");
+    }
+
+    public static void verifyStddev(double stddev){
+        if(stddev < 0)
+            throw new IsNegativeException("standard deviation");
+    }
+
+    public static void verifyCount(double count){
+        if(count < 0)
+            throw new IsNegativeException("count (array size)");
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////

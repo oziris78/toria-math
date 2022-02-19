@@ -43,6 +43,14 @@ public final class TelekMathException extends RuntimeException {
     }
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class UnsupportedDistributionTypeString extends RuntimeException {
+        public UnsupportedDistributionTypeString() {
+            super("Your distType string should be one of these: \"uniform\", \"poisson\", \"normal\"");
+        }
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -145,7 +153,6 @@ public final class TelekMathException extends RuntimeException {
             super(String.format("Invalid values for permutation for perm(%d,%d)", n, r));
         }
     }
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static class CombinationException extends RuntimeException {
@@ -238,6 +245,16 @@ public final class TelekMathException extends RuntimeException {
 
         public NotAMultiplyOfNException(String fieldStr, int value) {
             super(fieldStr + " isn't a multiply of " + value + " (like " + value + "n)");
+        }
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class InvalidSignStringException extends RuntimeException {
+
+        public InvalidSignStringException() {
+            super("The signStr parameter should be >=, <= or =");
         }
 
     }

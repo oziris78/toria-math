@@ -1,7 +1,13 @@
-com/telek/tests/numbers/FractionTest.java
- com.telek.tests.numbers.FractionTest
+com/telek/tests/zsingle/IAFTest.java
+ com.telek.tests.zsingle.IAFTest
 com/telek/tests/stats/exampledata/Person.java
  com.telek.tests.stats.exampledata.Person
+com/telek/tests/stats/exampledata/SampleData.java
+ com.telek.tests.stats.exampledata.SampleData
+com/telek/tests/color/ExportColor.java
+ com.telek.tests.color.ExportColor
+com/telek/tests/numbers/FractionTest.java
+ com.telek.tests.numbers.FractionTest
 com/telek/tests/geometry/TVector3DTest.java
  com.telek.tests.geometry.TVector3DTest
 com/telek/tests/dists/ChiSqDistTest.java
@@ -22,26 +28,28 @@ com/telek/tests/stats/RegressionTest.java
  com.telek.tests.stats.RegressionTest$YearResult
 com/telek/tests/zsingle/TMathTest.java
  com.telek.tests.zsingle.TMathTest
-com/telek/tests/zsingle/IAFTest.java
- com.telek.tests.zsingle.IAFTest
-com/telek/tests/stats/freqtable/FreqDistTableTest.java
- com.telek.tests.stats.freqtable.FreqDistTableTest
+com/telek/tests/stats/hypo/HypothesisTwoVarTest.java
+ com.telek.tests.stats.hypo.HypothesisTwoVarTest
+com/telek/tests/stats/confidenceint/ConfIntervalSingleVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalSingleVariableTest
 com/telek/tests/geometry/TPoint2DTest.java
  com.telek.tests.geometry.TPoint2DTest
 com/telek/tests/zsingle/DiscreteMathTest.java
  com.telek.tests.zsingle.DiscreteMathTest
 com/telek/tests/geometry/TVector2DTest.java
  com.telek.tests.geometry.TVector2DTest
-com/telek/tests/stats/exampledata/SampleData.java
- com.telek.tests.stats.exampledata.SampleData
 com/telek/tests/stats/sampling/SamplingTest.java
  com.telek.tests.stats.sampling.SamplingTest
 com/telek/tests/matrices/TMatrixUtilsTest.java
  com.telek.tests.matrices.TMatrixUtilsTest
 com/telek/tests/matrices/TMatrixTest.java
  com.telek.tests.matrices.TMatrixTest
+com/telek/tests/stats/ChiSqTestsTest.java
+ com.telek.tests.stats.ChiSqTestsTest
 com/telek/tests/zsingle/CryptoTest.java
  com.telek.tests.zsingle.CryptoTest
+com/telek/tests/stats/hypo/HypothesisSingleVarTest.java
+ com.telek.tests.stats.hypo.HypothesisSingleVarTest
 com/telek/tests/dists/DiscreteDistributionTest.java
  com.telek.tests.dists.DiscreteDistributionTest
 com/telek/tests/zsingle/NumericalAnalysisTest.java
@@ -52,9 +60,7 @@ com/telek/tests/geometry/TPoint3DTest.java
  com.telek.tests.geometry.TPoint3DTest
 com/telek/tests/dists/ZDistTest.java
  com.telek.tests.dists.ZDistTest
-com/telek/tests/color/ExportColor.java
- com.telek.tests.color.ExportColor
+com/telek/tests/stats/freqtable/FreqDistTableTest.java
+ com.telek.tests.stats.freqtable.FreqDistTableTest
 com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
  com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
-com/telek/tests/stats/confidenceint/ConfIntervalSingleVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalSingleVariableTest

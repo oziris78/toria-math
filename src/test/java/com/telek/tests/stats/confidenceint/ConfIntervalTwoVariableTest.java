@@ -31,40 +31,42 @@ public class ConfIntervalTwoVariableTest {
         // TESTS
         TRange r1, r2;
 
+
+
         // known variance (dist doesn't matter)
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.05d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 2d, 4d, 0.05d);
         r2 = new TRange(10.006106, 15.993894);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.05d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 20, 4, 0.05d);
         r2 = new TRange(1.349612, 24.650388);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.05d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 1, 10, 0.05d);
         r2 = new TRange(6.047421, 19.952579);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.01d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 2, 4, 0.01d);
         r2 = new TRange(9.065356, 16.934644);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.01d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 20, 4, 0.01d);
         r2 = new TRange(-2.311205, 28.311205);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.01d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 1, 10, 0.01d);
         r2 = new TRange(3.862762, 22.137238);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 2, 4, 0.12d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 2, 4, 0.12d);
         r2 = new TRange(10.625044, 15.374956);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 20, 4, 0.12d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 20, 4, 0.12d);
         r2 = new TRange(3.758138, 22.241862);
         Assertions.assertTrue(r1.equals(r2));
 
-        r1 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, 1, 10, 0.12d);
+        r1 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, 1, 10, 0.12d);
         r2 = new TRange(7.484752, 18.515248);
         Assertions.assertTrue(r1.equals(r2));
 
@@ -83,13 +85,16 @@ public class ConfIntervalTwoVariableTest {
         DataDescription desc1 = DescStats.getDataDesc(sample1);
         DataDescription desc2 = DescStats.getDataDesc(sample2);
 
+
+        TRange r3, r4, r5, r6, r7, r8;
         // TESTS
 
-        // unknown variance
-        TRange r3, r4, r5, r6, r7, r8;
-        r3 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.05d);
-        r4 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.01d);
-        r5 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, true, 0.23d);
+        // unknown variance & normal dist
+
+        // assume equal stddevs
+        r3 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, true, 0.05d);
+        r4 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, true, 0.01d);
+        r5 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, true, 0.23d);
         r6 = new TRange(-15.179576, 41.179576);
         r7 = new TRange(-25.608397, 51.608397);
         r8 = new TRange(-3.665457, 29.665457);
@@ -98,15 +103,32 @@ public class ConfIntervalTwoVariableTest {
         Assertions.assertTrue(r5.equals(r8));
 
 
-        r3 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.05d);
-        r4 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.01d);
-        r5 = ConfidenceIntervals.getIntervalForDifferenceOfMeans(desc1, desc2, false, 0.23d);
+        // assume unequal stddevs
+        r3 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, false, 0.05d);
+        r4 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, false, 0.01d);
+        r5 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownNormal(desc1, desc2, false, 0.23d);
         r6 = new TRange(-20.202192, 46.202192);
         r7 = new TRange(-34.174873, 60.174873);
         r8 = new TRange(-6.065638, 32.065638);
         Assertions.assertTrue(r3.equals(r6));
         Assertions.assertTrue(r4.equals(r7));
         Assertions.assertTrue(r5.equals(r8));
+
+
+        /*              unknown variance & any dist
+
+        Produces approximate results so it can't be tested
+
+        SAMPLE CODE:
+
+        r3 = ConfidenceIntervals.getIntervalForDiffOfMeansUnknownAny(desc1, desc2, 0.05d);
+        r4 = ConfidenceIntervals.getIntervalForDiffOfMeansKnown(desc1, desc2, desc1.sampleStddev - 3d,
+                desc2.sampleStddev + 2d, 0.05d);
+        System.out.println(r3); // [-16.254864, 42.254864]
+        System.out.println(r4); // [-16.862244, 42.862244]
+
+        */
+
     }
 
 

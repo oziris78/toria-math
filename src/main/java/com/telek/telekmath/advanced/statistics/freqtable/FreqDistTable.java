@@ -206,6 +206,10 @@ public class FreqDistTable {
         return table[row];
     }
 
+    public int getRowCount(){
+        return table.length;
+    }
+
 
     /**
      * @param row row index

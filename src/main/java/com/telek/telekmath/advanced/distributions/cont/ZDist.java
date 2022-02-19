@@ -82,7 +82,7 @@ public class ZDist {
      * @return inverse cumulative density function (ICDF) result
      */
     public static double invCumRightTailed(double p){
-        if( !(0d <= p && p <= 0.5d) ) throw new InvalidValueException("p", p);
+        if( !(-0.5d <= p && p <= 0.5d) ) throw new InvalidValueException("p", p);
         return TMath.probit(p + 0.5d);
     }
 

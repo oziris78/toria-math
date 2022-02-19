@@ -17,7 +17,7 @@
 package com.telek.telekmath.utils;
 
 
-public final class ApacheArrays {
+final class ApacheArrays {
 
     static final double[] EXP_INT_TABLE_A;
     static final double[] EXP_INT_TABLE_B;

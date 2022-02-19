@@ -38,15 +38,10 @@ public class CryptoTest {
 
 
         // CAESAR CIPHER
-        Assertions.assertEquals(CaesarCipher.decode("zpsf kmkclr", -2),
-                "bruh moment");
-        Assertions.assertEquals(CaesarCipher.encode("bruh moment", -2),
-                "zpsf kmkclr");
-
-        Assertions.assertEquals(CaesarCipher.decode("dtwj oqogpv", 2),
-                "bruh moment");
-        Assertions.assertEquals(CaesarCipher.encode("bruh moment", 2),
-                "dtwj oqogpv");
+        Assertions.assertEquals(CaesarCipher.decode("zpsf kmkclr", -2), "bruh moment");
+        Assertions.assertEquals(CaesarCipher.encode("bruh moment", -2), "zpsf kmkclr");
+        Assertions.assertEquals(CaesarCipher.decode("dtwj oqogpv", 2), "bruh moment");
+        Assertions.assertEquals(CaesarCipher.encode("bruh moment", 2), "dtwj oqogpv");
 
 
     }
