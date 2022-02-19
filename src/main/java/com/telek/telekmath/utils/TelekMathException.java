@@ -54,6 +54,24 @@ public final class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static class ExpectedValueAssumptionException extends RuntimeException {
+        public ExpectedValueAssumptionException(double val) {
+            super("All expected values must be higher than 5, your value is: " + val);
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class NotEqualArrayLengthException extends RuntimeException {
+        public NotEqualArrayLengthException(String arrayName, String otherThingLengthName) {
+            super(String.format("Your %s array's length should be equal to %s's length",
+                    arrayName, otherThingLengthName));
+        }
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public static class SampleSizeIsGreaterThanPopulationSizeException extends RuntimeException {
 
         public SampleSizeIsGreaterThanPopulationSizeException() {

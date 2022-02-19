@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.matrices.TMatrixTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-02-19T21:58:07" hostname="TUNERIKGEZGINI" time="0.004">
+  <properties/>
+  <testcase name="matrixTest" classname="com.telek.tests.matrices.TMatrixTest" time="0.003"/>
+  <testcase name="differentTypeArray2Tests" classname="com.telek.tests.matrices.TMatrixTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

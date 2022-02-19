@@ -203,6 +203,7 @@ public class TMatrix {
 
 
 
+
     public double trace(){
         checkForSquareMatrix();
         double sum = 0;

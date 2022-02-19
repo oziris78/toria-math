@@ -2,12 +2,16 @@ package com.telek.telekmath.advanced.statistics.freqtable;
 
 
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
+import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.plain.TArrays;
 
+import java.lang.annotation.Target;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class FreqDistTable {
@@ -25,29 +29,26 @@ public class FreqDistTable {
     /*  CONSTRUCTORS  */
     ////////////////////
 
-
-    public FreqDistTable(Number[] population, int classCount) {
+    // KNOWN FREQUENCIES TO FREQTABLE
+    public FreqDistTable(double[] frequencies, double min, double classInterval){
         // error checking & references
-        checkForClassCount(classCount);
-        this.classCount = classCount;
-
-        // prepare min, max, range without
-        double min = TArrays.getMin(population);
-        double max = TArrays.getMax(population);
-        double range = DescStats.getRange(min, max);
-        double classInterval = Math.ceil(range / classCount);
+        checkForClassCount(frequencies.length);
+        this.classCount = frequencies.length;
 
         // create table
         table = new FrequencyClass[classCount];
+
+        double totalFreqs = 0;
+        for (int i = 0; i < frequencies.length; i++)
+            totalFreqs += frequencies[i];
+
         for (int i = 0; i < table.length; i++){
             double cLeft = min + i * classInterval;
             double cRight = min + (i+1) * classInterval;
             double midpoint = (cLeft + cRight) / 2d;
             // freq
-            double freq = Arrays.stream(population)
-                    .filter(number -> cLeft <= number.doubleValue() && number.doubleValue() < cRight) // cl <= val < cr
-                    .count();
-            double relFreq = freq / population.length;
+            double freq = frequencies[i];
+            double relFreq = freq / totalFreqs;
             double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
             double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
             table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
@@ -55,6 +56,97 @@ public class FreqDistTable {
     }
 
 
+    // copied from that method (nothing was changed)
+    /**  @see #FreqDistTable(double[], double, double)  */
+    public FreqDistTable(float[] frequencies, double min, double classInterval){
+        // error checking & references
+        checkForClassCount(frequencies.length);
+        this.classCount = frequencies.length;
+
+        // create table
+        table = new FrequencyClass[classCount];
+
+        double totalFreqs = 0;
+        for (int i = 0; i < frequencies.length; i++)
+            totalFreqs += frequencies[i];
+
+        for (int i = 0; i < table.length; i++){
+            double cLeft = min + i * classInterval;
+            double cRight = min + (i+1) * classInterval;
+            double midpoint = (cLeft + cRight) / 2d;
+            // freq
+            double freq = frequencies[i];
+            double relFreq = freq / totalFreqs;
+            double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
+            double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
+            table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
+        }
+    }
+
+
+    // copied from that method (nothing was changed)
+    /**  @see #FreqDistTable(double[], double, double)  */
+    public FreqDistTable(int[] frequencies, double min, double classInterval){
+        // error checking & references
+        checkForClassCount(frequencies.length);
+        this.classCount = frequencies.length;
+
+        // create table
+        table = new FrequencyClass[classCount];
+
+        double totalFreqs = 0;
+        for (int i = 0; i < frequencies.length; i++)
+            totalFreqs += frequencies[i];
+
+        for (int i = 0; i < table.length; i++){
+            double cLeft = min + i * classInterval;
+            double cRight = min + (i+1) * classInterval;
+            double midpoint = (cLeft + cRight) / 2d;
+            // freq
+            double freq = frequencies[i];
+            double relFreq = freq / totalFreqs;
+            double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
+            double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
+            table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
+        }
+    }
+
+
+    // copied from that method (the changed lines have comments - 2 lines)
+    /**  @see #FreqDistTable(double[], double, double)  */
+    public FreqDistTable(Number[] frequencies, double min, double classInterval){
+        // error checking & references
+        checkForClassCount(frequencies.length);
+        this.classCount = frequencies.length;
+
+        // create table
+        table = new FrequencyClass[classCount];
+
+        double totalFreqs = 0;
+        for (int i = 0; i < frequencies.length; i++)
+            totalFreqs += frequencies[i].doubleValue(); // this line was changed
+
+        for (int i = 0; i < table.length; i++){
+            double cLeft = min + i * classInterval;
+            double cRight = min + (i+1) * classInterval;
+            double midpoint = (cLeft + cRight) / 2d;
+            // freq
+            double freq = frequencies[i].doubleValue(); // this line was changed
+            double relFreq = freq / totalFreqs;
+            double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
+            double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
+            table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
+        }
+    }
+
+
+    // PRIMITIVES & NUMBER CLASS TO FREQTABLE
+
+    /**
+     * Creates a frequency distribution table.
+     * @param population any population (can be unsorted)
+     * @param classCount an integer specifying how many rows this frequency distribution table will have
+     */
     public FreqDistTable(double[] population, int classCount) {
         // error checking & references
         checkForClassCount(classCount);
@@ -84,7 +176,9 @@ public class FreqDistTable {
     }
 
 
-    public FreqDistTable(float[] population, int classCount) {
+    // copied from that method (the changed lines have comments - 1 line 2 changes)
+    /**  @see #FreqDistTable(double[], int)  */
+    public FreqDistTable(Number[] population, int classCount){
         // error checking & references
         checkForClassCount(classCount);
         this.classCount = classCount;
@@ -102,12 +196,10 @@ public class FreqDistTable {
             double cRight = min + (i+1) * classInterval;
             double midpoint = (cLeft + cRight) / 2d;
             // freq
-            double freq = 0;
-            for (int j = 0; j < population.length; j++) {
-                double val = population[j];
-                if(cLeft <= val && val < cRight) // [a,b) from the course
-                    freq++;
-            }
+            double freq = Arrays.stream(population)
+                    // the line below was changed - 2 changes: doubleValue()
+                    .filter(number -> cLeft <= number.doubleValue() && number.doubleValue() < cRight) // cl <= val < cr
+                    .count();
             double relFreq = freq / population.length;
             double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
             double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
@@ -116,6 +208,44 @@ public class FreqDistTable {
     }
 
 
+    // copied from that method (changed part is written down below, changed because we have no float streams in java)
+    /**  @see #FreqDistTable(double[], int)  */
+    public FreqDistTable(float[] population, int classCount){
+        // error checking & references
+        checkForClassCount(classCount);
+        this.classCount = classCount;
+
+        // prepare min, max, range without
+        double min = TArrays.getMin(population);
+        double max = TArrays.getMax(population);
+        double range = DescStats.getRange(min, max);
+        double classInterval = Math.ceil(range / classCount);
+
+        // create table
+        table = new FrequencyClass[classCount];
+        for (int i = 0; i < table.length; i++){
+            double cLeft = min + i * classInterval;
+            double cRight = min + (i+1) * classInterval;
+            double midpoint = (cLeft + cRight) / 2d;
+            // freq
+            // this part is different down below
+            double freq = 0;
+            for (int j = 0; j < population.length; j++) {
+                double val = population[j];
+                if(cLeft <= val && val < cRight) // [a,b) from the course
+                    freq++;
+            }
+            // this part is different ^^
+            double relFreq = freq / population.length;
+            double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
+            double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
+            table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
+        }
+    }
+
+
+    // copied from that method (nothing was changed)
+    /**  @see #FreqDistTable(double[], int)  */
     public FreqDistTable(int[] population, int classCount) {
         // error checking & references
         checkForClassCount(classCount);
@@ -144,6 +274,9 @@ public class FreqDistTable {
         }
     }
 
+
+
+    // GENERIC CLASS TO FREQTABLE
 
     public <T> FreqDistTable(T[] population, Class<T> clazz, String fieldName, int classCount) {
         // error checking
@@ -202,13 +335,46 @@ public class FreqDistTable {
     /*  METHODS  */
     ///////////////
 
-    public FrequencyClass getTableRow(int row){
-        return table[row];
+
+    /**
+     * Returns the sum of all frequencies (from every row)
+     * @return the sum of all frequencies (n value in stats)
+     */
+    public double getTotalFrequency(){
+        double totalFreqs = 0;
+        final int size = this.getRowCount();
+        for (int i = 0; i < size; i++)
+            totalFreqs += this.getFrequency(i);
+        return totalFreqs;
     }
+
+
+    /**
+     * Returns all frequencies as an array starting from the first class to
+     * the last class like this: {f1, f2, f3, ...}
+     * @return all frequencies as an array
+     */
+    public double[] getFrequenciesAsArray(){
+        double[] arr = new double[this.getRowCount()];
+        for (int i = 0; i < this.getRowCount(); i++) {
+            arr[i] = this.getFrequency(i);
+        }
+        return arr;
+    }
+
 
     public int getRowCount(){
         return table.length;
     }
+
+
+
+
+
+    public FrequencyClass getTableRow(int row){
+        return table[row];
+    }
+
 
 
     /**
@@ -305,6 +471,28 @@ public class FreqDistTable {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FreqDistTable that = (FreqDistTable) o;
+        if(this.classCount != that.classCount)
+            return false;
+        if(this.getRowCount() != that.getRowCount())
+            return false;
+        for (int i = 0; i < this.getRowCount(); i++) {
+            FrequencyClass cl1 = this.getTableRow(i);
+            FrequencyClass cl2 = that.getTableRow(i);
+            if(!TMath.areEqual(cl1.cLeft, cl2.cLeft)) return false;
+            if(!TMath.areEqual(cl1.cRight, cl2.cRight)) return false;
+            if(!TMath.areEqual(cl1.freq, cl2.freq)) return false;
+            if(!TMath.areEqual(cl1.relFreq, cl2.relFreq)) return false;
+            if(!TMath.areEqual(cl1.incCumFreq, cl2.incCumFreq)) return false;
+            if(!TMath.areEqual(cl1.incRelFreq, cl2.incRelFreq)) return false;
+            if(!TMath.areEqual(cl1.midpoint, cl2.midpoint)) return false;
+        }
+        return true;
+    }
 
 
 }

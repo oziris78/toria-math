@@ -4,11 +4,13 @@ import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
 import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.plain.TCollections;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 
 
 public class FreqDistTableTest {
@@ -165,6 +167,7 @@ public class FreqDistTableTest {
 
     }
 
+
     @Test
     @DisplayName("freqTablePrimiteWithConversionTest")
     void freqTablePrimiteWithConversionTest() {
@@ -246,5 +249,42 @@ public class FreqDistTableTest {
         }
     }
 
+
+    @Test
+    @DisplayName("freqTableWithKnownFreqsTest")
+    void freqTableWithKnownFreqsTest() {
+        FreqDistTable table1 = new FreqDistTable(new Number[]{ 94, 93, 112, 101, 104, 95, 100, 99, 108, 94 }, 0d, 1d);
+        FreqDistTable table2 = new FreqDistTable(new double[]{ 94, 93, 112, 101, 104, 95, 100, 99, 108, 94 }, 0d, 1d);
+        FreqDistTable table3 = new FreqDistTable(new float[]{ 94, 93, 112, 101, 104, 95, 100, 99, 108, 94 }, 0d, 1d);
+        FreqDistTable table4 = new FreqDistTable(new int[]{ 94, 93, 112, 101, 104, 95, 100, 99, 108, 94 }, 0d, 1d);
+
+        ArrayList<Integer> terms = new ArrayList<>();
+        for (int i = 0; i < 94; i++) terms.add(0);
+        for (int i = 0; i < 93; i++) terms.add(1);
+        for (int i = 0; i < 112; i++) terms.add(2);
+        for (int i = 0; i < 101; i++) terms.add(3);
+        for (int i = 0; i < 104; i++) terms.add(4);
+        for (int i = 0; i < 95; i++) terms.add(5);
+        for (int i = 0; i < 100; i++) terms.add(6);
+        for (int i = 0; i < 99; i++) terms.add(7);
+        for (int i = 0; i < 108; i++) terms.add(8);
+        for (int i = 0; i < 94; i++) terms.add(9);
+        int[] arr = TCollections.collectionToArray(terms);
+        FreqDistTable table5 = new FreqDistTable(arr, 10);
+
+        Assertions.assertTrue(table1.equals(table2));
+        Assertions.assertTrue(table1.equals(table3));
+        Assertions.assertTrue(table1.equals(table4));
+        Assertions.assertTrue(table1.equals(table5));
+
+        Assertions.assertTrue(table2.equals(table3));
+        Assertions.assertTrue(table2.equals(table4));
+        Assertions.assertTrue(table2.equals(table5));
+
+        Assertions.assertTrue(table3.equals(table4));
+        Assertions.assertTrue(table3.equals(table5));
+
+        Assertions.assertTrue(table4.equals(table5));
+    }
 
 }
