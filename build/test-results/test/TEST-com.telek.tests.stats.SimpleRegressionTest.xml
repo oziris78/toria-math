@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.stats.SimpleRegressionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-20T00:25:23" hostname="TUNERIKGEZGINI" time="0.017">
+  <properties/>
+  <testcase name="regressionTest" classname="com.telek.tests.stats.SimpleRegressionTest" time="0.017"/>
+  <system-out><![CDATA[1.050187854386524
+1.0501878543865237
+4.0
+10.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

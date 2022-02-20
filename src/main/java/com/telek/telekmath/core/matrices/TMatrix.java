@@ -43,9 +43,7 @@ public class TMatrix {
      * @param matrix any two dimensional float array
      */
     public TMatrix(float[][] matrix){
-        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
-        this.rowSize = matrix.length;
-        this.colSize = matrix[0].length;
+        this(TArrays.getCastedDouble2CopyOf(matrix));
     }
 
 
@@ -55,9 +53,7 @@ public class TMatrix {
      * @param matrix any two dimensional int array
      */
     public TMatrix(int[][] matrix){
-        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
-        this.rowSize = matrix.length;
-        this.colSize = matrix[0].length;
+        this(TArrays.getCastedDouble2CopyOf(matrix));
     }
 
 
@@ -67,9 +63,7 @@ public class TMatrix {
      * @param matrix any two dimensional Number array
      */
     public TMatrix(Number[][] matrix){
-        this.matrix = TArrays.getCastedDouble2CopyOf(matrix);
-        this.rowSize = matrix.length;
-        this.colSize = matrix[0].length;
+        this(TArrays.getCastedDouble2CopyOf(matrix));
     }
 
 
@@ -355,12 +349,9 @@ public class TMatrix {
         return true;
     }
 
-
     @Override
     public int hashCode() {
-        int result = Objects.hash(rowSize, colSize);
-        result = 31 * result + Arrays.hashCode(matrix);
-        return result;
+        return 31 * Objects.hash(rowSize, colSize) + Arrays.hashCode(matrix);
     }
 
 
@@ -370,7 +361,8 @@ public class TMatrix {
 
 
     private void checkForSquareMatrix(){
-        if( !this.isSquareMatrix() ) throw new NotASquareMatrixException();
+        if(!this.isSquareMatrix())
+            throw new NotASquareMatrixException();
     }
 
 

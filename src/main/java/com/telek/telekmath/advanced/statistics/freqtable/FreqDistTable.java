@@ -2,16 +2,12 @@ package com.telek.telekmath.advanced.statistics.freqtable;
 
 
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.plain.TArrays;
-
-import java.lang.annotation.Target;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.Arrays;
-import java.util.Objects;
 
 
 public class FreqDistTable {
