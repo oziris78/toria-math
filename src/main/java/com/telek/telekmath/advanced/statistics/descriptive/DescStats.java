@@ -9,6 +9,7 @@ import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription.Mode;
+import com.telek.telekutils.plain.TClassUtils;
 
 
 public class DescStats {
@@ -431,29 +432,20 @@ public class DescStats {
     //////////////////////////////////////////////////////////////////////////////
 
 
-    public static <T> double getCount(T[] data){
-        return data.length;
-    }
 
-    public static <T> double getMin(T[] sortedData, Field field) throws IllegalAccessException {
-        return getValue(sortedData, field, 0);
-    }
 
-    public static <T> double getMax(T[] sortedData, Field field) throws IllegalAccessException {
-        return getValue(sortedData, field, sortedData.length-1);
-    }
 
     public static <T> double getSum(T[] data, Field field) throws IllegalAccessException {
         double sum = 0;
         for (int i = 0; i < data.length; i++)
-            sum += getValue(data, field, i);
+            sum += TClassUtils.getValue(data, field, i);
         return sum;
     }
 
     public static <T> double getVariance(T[] data, Field field, double mean, boolean isSample) throws IllegalAccessException {
         double variance = 0;
         for (int i = 0; i < data.length; i++) {
-            double val = getValue(data, field, i);
+            double val = TClassUtils.getValue(data, field, i);
             double ximean = val - mean;
             variance += ximean * ximean;
         }
@@ -467,7 +459,7 @@ public class DescStats {
         boolean hasMode = false;
 
         for (int i = 0; i < data.length; i++) {
-            double dbl = getValue(data, field, i);
+            double dbl = TClassUtils.getValue(data, field, i);
 
             if (frequencyMap.get(dbl) != null) {
                 int current = frequencyMap.get(dbl) + 1;
@@ -503,9 +495,9 @@ public class DescStats {
         double percentage = quartileIndex % 1;
         int lowIndex = (int) Math.floor(quartileIndex);
         // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = getValue(sortedData, field, lowIndex - 1);
+        double lowValue = TClassUtils.getValue(sortedData, field, lowIndex - 1);
         // also -1 here...
-        double highValue = getValue(sortedData, field, lowIndex);
+        double highValue = TClassUtils.getValue(sortedData, field, lowIndex);
         return lowValue + (highValue - lowValue) * percentage;
     }
 
@@ -543,12 +535,11 @@ public class DescStats {
 
     public static <T> DataDescription getDataDesc(T[] sortedData, Class<T> clazz, String fieldName) {
         try {
-            Field field = clazz.getDeclaredField(fieldName);
-            field.setAccessible(true);
+            Field field = TClassUtils.getField(clazz, fieldName);
 
-            double count = getCount(sortedData);
-            double min = getMin(sortedData, field);
-            double max = getMax(sortedData, field);
+            double count = sortedData.length;
+            double min = TClassUtils.getValue(sortedData, field, 0);
+            double max = TClassUtils.getValue(sortedData, field, sortedData.length-1);
             double range = getRange(min, max);
             double sum = getSum(sortedData, field);
             double mean = getMean(sum, count);
@@ -624,6 +615,7 @@ public class DescStats {
                 quartile1, mode, median, quartile2, quartile3, min, max,
                 range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
+
     public static DataDescription getDataDesc(float[] sortedData){
         double count = getCount(sortedData);
         double min = getMin(sortedData);
@@ -655,12 +647,7 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    private static <T> double getValue(T[] sortedData, Field field, int index) throws IllegalAccessException {
-        T currentTerm = sortedData[index]; // get the xxx object
-        Number value = (Number) field.get(currentTerm); // get that object's field's value (assuming that it extends Number)
-        return value.doubleValue(); // return that Number's value as a double
-    }
-
+    // empty for now
 
 
 

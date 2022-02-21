@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.dists.ChiSqDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-02-21T23:48:15" hostname="TUNERIKGEZGINI" time="1.2">
+  <properties/>
+  <testcase name="invCumLeftTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.282"/>
+  <testcase name="invCumRightTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.002"/>
+  <testcase name="cumProbTest" classname="com.telek.tests.dists.ChiSqDistTest" time="0.854"/>
+  <testcase name="densityTest" classname="com.telek.tests.dists.ChiSqDistTest" time="0.062"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
