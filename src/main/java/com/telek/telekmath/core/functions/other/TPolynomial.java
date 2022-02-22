@@ -22,9 +22,10 @@ public class TPolynomial extends AbstractFunction {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+
     public TPolynomial(TRange range, double[] coefficients) {
         super(range);
-        if(coefficients[coefficients.length-1] == 0d)
+        if(coefficients[coefficients.length-1] == 0d && coefficients.length != 1)
             throw new UnnecessaryZeroException();
         this.coefficients = coefficients;
     }
@@ -82,7 +83,6 @@ public class TPolynomial extends AbstractFunction {
 
 
     public TPolynomial multiply(TPolynomial other){
-
         int m = this.coefficients.length;
         int n = other.coefficients.length;
         int totalLength = m + n - 1;

@@ -10,13 +10,8 @@ GELECEK PLANLARI {
         - derivative fonksiyonunda unwrapping yapmalıyız
         - toString() metodu belki bundan sonra yeniden yazılmalı olacak
 
-    NumericalAnalysis
-        - public static TPolynomial getLagrangePolynomial(TPoint2D... points){}
-        - public static TPolynomial getLagrangePolynomial(double... points){} // x1, y1, x2, y2, ...
-
-
-
 }
+
 
 telek-vstat{
     dot plots?
@@ -25,5 +20,6 @@ telek-vstat{
     line plots?
     - histograms
     - boxplots
+    - istatistik dersinde gördüğüm her tür grafiğe bakabilirim hepsini not almamıştım sanırım
 }
 
