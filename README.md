@@ -1,7 +1,7 @@
 
 
 
-![image was not loaded](./assets/logo/tmath-logo.png)
+![image was not loaded](./assets/logo/tmath-logo-trans.png)
 
 # Telek Math
 
