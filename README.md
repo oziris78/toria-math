@@ -1,13 +1,8 @@
 
 
-# telek-math
-A lightweight Java math library with additional utility classes.
-
-This repository was created on 08.10.2021
 
 
-
-
+![alt text](./assets/logo/tmath-logo-trans.png)
 
 
 # Telek Math
@@ -30,9 +25,11 @@ This repository was created on 08.10.2021
 <!-- badge end -->
 </p>
 
-A lightweight Java math library with additional utility classes. <br>
-"Not precise but fast and enough!" 
+<b>"Not precise but fast and enough!" </b> <br>
 
+A lightweight Java math library with additional utility classes. <br>
+
+This repository was created on 08.10.2021
 
 
 ## Importing Telek Math
