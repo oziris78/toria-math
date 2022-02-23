@@ -45,6 +45,7 @@ dependencies {
 }
 ```
 
+Note: <b> Telek Math has no dependencies. </b>
 
 ## How To Use Telek Math
 
@@ -58,7 +59,7 @@ CTRL to see how it works.
 
 
 ### Some Notes
-- Telek Math was written by only one person (Oğuzhan Topaloğlu)
+- Telek Math was developed by only one person (Oğuzhan Topaloğlu)
 - Telek Math (currently v0.8) has passed all tests!
 - Wiki won't be coming soon.
 - Telek Math (currently v0.8) not optimized at all, 
