@@ -35,6 +35,7 @@ public class FuncTest {
 
 
     public static void func(float[] arr){
+//        "github fucking sucks"
     }
 
 
