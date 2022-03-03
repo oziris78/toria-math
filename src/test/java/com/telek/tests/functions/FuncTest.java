@@ -9,7 +9,41 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.Supplier;
+
+
 public class FuncTest {
+
+    public static double getElementFromDouble(double[] arr, int index){
+        return arr[index];
+    }
+    public static double getElementFromFloat(float[] arr, int index){
+        return arr[index];
+    }
+
+    public static void realFunc(Supplier supplier){
+        supplier.get();
+//        System.out.println(arr[0]);
+    }
+
+
+
+    public static void func(double[] arr){
+
+//        realFunc(FuncTest::getElementFromDouble);
+    }
+
+
+    public static void func(float[] arr){
+    }
+
+
+    public static void main(String[] args) {
+        float[] arr1 = new float[]{1, 2, 3};
+        double[] arr2 = new double[]{10, 20, 30};
+        func(arr1);
+        func(arr2);
+    }
 
     @Test
     @DisplayName("amnTest")
