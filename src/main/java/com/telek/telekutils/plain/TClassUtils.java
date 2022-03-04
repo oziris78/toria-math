@@ -1,6 +1,8 @@
 package com.telek.telekutils.plain;
 
 
+import com.telek.telekmath.utils.TelekMathException;
+
 import java.lang.reflect.Field;
 
 public class TClassUtils {
@@ -33,10 +35,17 @@ public class TClassUtils {
     }
 
 
-    public static <T> Field getField(Class<T> clazz, String fieldStr) throws NoSuchFieldException {
-        Field field = clazz.getDeclaredField(fieldStr);
-        field.setAccessible(true);
-        return field;
+    public static <T> Field getField(Class<T> clazz, String fieldStr) {
+        try{
+            return clazz.getDeclaredField(fieldStr);
+        }
+        catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        catch (SecurityException e) {
+            e.printStackTrace();
+        }
+        throw new TelekMathException.ThisLineIsNeverExecutedException();
     }
 
 

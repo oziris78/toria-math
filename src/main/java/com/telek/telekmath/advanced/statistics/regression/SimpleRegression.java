@@ -6,8 +6,9 @@ import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
+import com.telek.telekutils.containers.readonly.oned.*;
+import com.telek.telekutils.containers.readonly.twod.*;
 import com.telek.telekutils.plain.TClassUtils;
-
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
@@ -24,126 +25,80 @@ public class SimpleRegression {
     ///////////////
 
 
-    /* ----------- double[], float[], int[] ----------- */
+    /* ----------- One dimension: TypelessArray ----------- */
+
+    public static RegressionResult getResult(TypelessArray array, double alpha){
+        // error checking
+        final int len = array.getSize();
+        checkEven(len);
+
+        // n & sums
+        double n = len / 2d;
+        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
+        for (int i = 0; i < len; i+=2) {
+            double x = array.getValue(i), y = array.getValue(i+1);
+            sumX += x;
+            sumY += y;
+            sumX2 += x * x;
+            sumY2 += y * y;
+            sumXY += x * y;
+        }
+
+        // line
+        double down = n * sumX2 - sumX * sumX;
+        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
+        double b1 = (n * sumXY - sumY * sumX) / down;
+        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
+
+        // standardError
+        double sumE2 = 0;
+        for (int i = 0; i < len; i+=2) {
+            double x = array.getValue(i), y = array.getValue(i+1);
+            double error = y - line.value(x);
+            sumE2 += error * error;
+        }
+
+        return result(n, sumX, sumY, sumXY, sumX2, sumY2, sumE2, line, alpha);
+    }
+
+
 
     public static RegressionResult getResult(double[] array, double alpha){
-        // error checking
-        checkEven(array.length);
-
-        // n & sums
-        double n = array.length / 2d;
-        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            sumX += x;
-            sumY += y;
-            sumX2 += x * x;
-            sumY2 += y * y;
-            sumXY += x * y;
-        }
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            double error = y - line.value(x);
-            sumE2 += error * error;
-        }
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
+        return getResult(new ReadOnlyDoubleArr(array), alpha);
     }
-
-    // EXACT COPY OF getResult(double[] arr)
     public static RegressionResult getResult(float[] array, double alpha){
-        // error checking
-        checkEven(array.length);
-
-        // n & sums
-        double n = array.length / 2d;
-        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            sumX += x;
-            sumY += y;
-            sumX2 += x * x;
-            sumY2 += y * y;
-            sumXY += x * y;
-        }
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            double error = y - line.value(x);
-            sumE2 += error * error;
-        }
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
+        return getResult(new ReadOnlyFloatArr(array), alpha);
     }
-
-    // EXACT COPY OF getResult(double[] arr)
     public static RegressionResult getResult(int[] array, double alpha){
-        // error checking
-        checkEven(array.length);
-
-        // n & sums
-        double n = array.length / 2d;
-        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            sumX += x;
-            sumY += y;
-            sumX2 += x * x;
-            sumY2 += y * y;
-            sumXY += x * y;
-        }
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i], y = array[i+1];
-            double error = y - line.value(x);
-            sumE2 += error * error;
-        }
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
+        return getResult(new ReadOnlyIntArr(array), alpha);
     }
+    public static RegressionResult getResult(Number[] array, double alpha){
+        return getResult(new ReadOnlyNumberArr(array), alpha);
+    }
+
+
 
 
     /* ----------- double[][], float[][], int[][] ----------- */
 
-    public static RegressionResult getResult(double[][] array, double alpha){
+
+    public static RegressionResult getResult(TypelessArray2 array, double alpha){
         // error checking
-        checkPointLength(array.length);
+        checkPointLength(array.getRowSize());
 
         // n & sums
-        double n = array.length;
-        double sumX = Arrays.stream(array).mapToDouble(value -> value[0]).sum();
-        double sumY = Arrays.stream(array).mapToDouble(value -> value[1]).sum();
-        double sumX2 = Arrays.stream(array).mapToDouble(value -> value[0] * value[0]).sum();
-        double sumY2 = Arrays.stream(array).mapToDouble(value -> value[1] * value[1]).sum();
-        double sumXY = Arrays.stream(array).mapToDouble(value -> value[0] * value[1]).sum();
+        double n = array.getRowSize();
+
+        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
+        for (int i = 0; i < array.getRowSize(); i++) {
+            double x = array.getValue(i, 0);
+            double y = array.getValue(i, 1);
+            sumX += x;
+            sumY += y;
+            sumX2 += x * x;
+            sumY2 += y * y;
+            sumXY += x * y;
+        }
 
         // line
         double down = n * sumX2 - sumX * sumX;
@@ -152,72 +107,32 @@ public class SimpleRegression {
         TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
 
         // standardError
-        double sumE2 = Arrays.stream(array).mapToDouble(value -> {
-            double error = value[1] - line.value(value[0]);
-            return error * error;
-        }).sum();
-
+        double sumE2 = 0;
+        for (int i = 0; i < array.getRowSize(); i++) {
+            double x = array.getValue(i, 0);
+            double y = array.getValue(i, 1);
+            double error = y - line.value(x);
+            sumE2 += error * error;
+        }
 
         return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
     }
 
-    // EXACT COPY OF getResult(double[][] arr)
+
     public static RegressionResult getResult(float[][] array, double alpha){
-        // error checking
-        checkPointLength(array.length);
-
-        // n & sums
-        double n = array.length;
-        double sumX = Arrays.stream(array).mapToDouble(value -> value[0]).sum();
-        double sumY = Arrays.stream(array).mapToDouble(value -> value[1]).sum();
-        double sumX2 = Arrays.stream(array).mapToDouble(value -> value[0] * value[0]).sum();
-        double sumY2 = Arrays.stream(array).mapToDouble(value -> value[1] * value[1]).sum();
-        double sumXY = Arrays.stream(array).mapToDouble(value -> value[0] * value[1]).sum();
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = Arrays.stream(array).mapToDouble(value -> {
-            double error = value[1] - line.value(value[0]);
-            return error * error;
-        }).sum();
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
+        return getResult(new ReadOnlyFloatArr2(array), alpha);
     }
-
-    // EXACT COPY OF getResult(double[][] arr)
+    public static RegressionResult getResult(double[][] array, double alpha){
+        return getResult(new ReadOnlyDoubleArr2(array), alpha);
+    }
     public static RegressionResult getResult(int[][] array, double alpha){
-        // error checking
-        checkPointLength(array.length);
-
-        // n & sums
-        double n = array.length;
-        double sumX = Arrays.stream(array).mapToDouble(value -> value[0]).sum();
-        double sumY = Arrays.stream(array).mapToDouble(value -> value[1]).sum();
-        double sumX2 = Arrays.stream(array).mapToDouble(value -> value[0] * value[0]).sum();
-        double sumY2 = Arrays.stream(array).mapToDouble(value -> value[1] * value[1]).sum();
-        double sumXY = Arrays.stream(array).mapToDouble(value -> value[0] * value[1]).sum();
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = Arrays.stream(array).mapToDouble(value -> {
-            double error = value[1] - line.value(value[0]);
-            return error * error;
-        }).sum();
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
+        return getResult(new ReadOnlyIntArr2(array), alpha);
     }
+    public static RegressionResult getResult(Number[][] array, double alpha){
+        return getResult(new ReadOnlyNumberArr2(array), alpha);
+    }
+
+
 
 
     /* ----------- TPoint2D[] ----------- */
@@ -251,52 +166,12 @@ public class SimpleRegression {
     }
 
 
-    /* ----------- Number[] ----------- */
-
-    // COPY OF getResult(double[] arr), only .doubleValue() methods were added
-    public static RegressionResult getResult(Number[] array, double alpha){
-        // error checking
-        checkEven(array.length);
-
-        // n & sums
-        double n = array.length / 2d;
-        double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i].doubleValue(), y = array[i+1].doubleValue();
-            sumX += x;
-            sumY += y;
-            sumX2 += x * x;
-            sumY2 += y * y;
-            sumXY += x * y;
-        }
-
-        // line
-        double down = n * sumX2 - sumX * sumX;
-        double b0 = (sumY * sumX2 - sumXY * sumX) / down;
-        double b1 = (n * sumXY - sumY * sumX) / down;
-        TPolynomial line = new TPolynomial(b0, b1); // y = b1 x + b0
-
-        // standardError
-        double sumE2 = 0;
-        for (int i = 0; i < array.length; i+=2) {
-            double x = array[i].doubleValue(), y = array[i+1].doubleValue();
-            double error = y - line.value(x);
-            sumE2 += error * error;
-        }
-
-
-        return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
-    }
-
-
     /* ----------- T[] ----------- */
 
-    public static <T> RegressionResult getResult(T[] array, Class<T> clazz, String xFieldStr, String yFieldStr, double alpha){
+    public static <T> RegressionResult getResult(T[] array, Field xField, Field yField, double alpha){
         try{
             // error checking
             checkPointLength(array.length);
-            Field xField = TClassUtils.getField(clazz, xFieldStr);
-            Field yField = TClassUtils.getField(clazz, yFieldStr);
 
             // n & sums
             double n = array.length;
@@ -328,11 +203,12 @@ public class SimpleRegression {
 
             return result(n,sumX,sumY,sumXY,sumX2,sumY2,sumE2,line,alpha);
         }
-        catch (NoSuchFieldException | IllegalAccessException e){
+        catch (IllegalAccessException e){
             e.printStackTrace();
             return null;
         }
     }
+
 
 
     ///////////////
@@ -366,7 +242,6 @@ public class SimpleRegression {
                 variance, standardError, STS, SRS, SES, R2, r, standardErrorOfCorCoef,
                 hasPositiveDirection, confIntOfCorrelationCoef, areTheyCorrelated);
     }
-
 
 
     private static void checkEven(int arrLen) {

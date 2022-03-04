@@ -4,6 +4,10 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TelekMathException.*;
+import com.telek.telekutils.containers.readonly.oned.ReadOnlyDoubleArr;
+import com.telek.telekutils.containers.readonly.oned.ReadOnlyFloatArr;
+import com.telek.telekutils.containers.readonly.oned.ReadOnlyIntArr;
+import com.telek.telekutils.containers.readonly.oned.TypelessArray;
 
 
 public class NumericalAnalysis {
@@ -16,6 +20,21 @@ public class NumericalAnalysis {
     /*  METHODS  */
     ///////////////
 
+    ////////////////////////    LAGRANGE POLYNOMIALS    ////////////////////////
+
+    public static TPolynomial getLagrangePolynomial(TypelessArray array){
+        if(array.getSize() % 2 != 0)
+            throw new InvalidValueException("points.length", array.getSize());
+        TPolynomial res = new TPolynomial(0);
+        for (int i = 0; i < array.getSize(); i+=2) {
+            double curY = array.getValue(i+1);
+            TPolynomial p = getPolyForLagrange(array, i).multiply(new TPolynomial(curY));
+            double denom = getDenomForLagrange(array, i);
+            p = p.multiply(new TPolynomial(1d / denom));
+            res = res.add(p);
+        }
+        return res;
+    }
 
     public static TPolynomial getLagrangePolynomial(TPoint2D... points){
         TPolynomial res = new TPolynomial(0);
@@ -29,20 +48,20 @@ public class NumericalAnalysis {
         return res;
     }
 
-    public static TPolynomial getLagrangePolynomial(double... points){
-        if(points.length % 2 != 0)
-            throw new InvalidValueException("points.length", points.length);
-        TPolynomial res = new TPolynomial(0);
-        for (int i = 0; i < points.length; i+=2) {
-//            double curX = points[i];
-            double curY = points[i+1];
-            TPolynomial p = getPolyForLagrange(points, i).multiply(new TPolynomial(curY));
-            double denom = getDenomForLagrange(points, i);
-            p = p.multiply(new TPolynomial(1d / denom));
-            res = res.add(p);
-        }
-        return res;
+    public static TPolynomial getLagrangePolynomial(double... array){
+        return getLagrangePolynomial(new ReadOnlyDoubleArr(array));
     }
+    public static TPolynomial getLagrangePolynomial(float... array){
+        return getLagrangePolynomial(new ReadOnlyFloatArr(array));
+    }
+    public static TPolynomial getLagrangePolynomial(int... array){
+        return getLagrangePolynomial(new ReadOnlyIntArr(array));
+    }
+
+
+
+    ////////////////////////    NUMERICAL METHODS FOR FINDING ROOTS    ////////////////////////
+
 
     public static double regulaFalse(AbstractFunction f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
@@ -110,23 +129,23 @@ public class NumericalAnalysis {
     /*  HELPERS  */
     ///////////////
 
-    private static TPolynomial getPolyForLagrange(double[] points, int dontTake){
+    private static TPolynomial getPolyForLagrange(TypelessArray array, int dontTake){
         TPolynomial res = new TPolynomial(1); // f(x) = 1
-        for (int i = 0; i < points.length; i+=2) {
+        for (int i = 0; i < array.getSize(); i+=2) {
             if(i == dontTake)
                 continue;
-            res = res.multiply(new TPolynomial(-points[i], 1)); // x - x_i
+            res = res.multiply(new TPolynomial(-array.getValue(i), 1)); // x - x_i
         }
         return res;
     }
 
-    private static double getDenomForLagrange(double[] points, int dontTake){
+    private static double getDenomForLagrange(TypelessArray array, int dontTake){
         double d = 1d;
-        final double dontTakeX = points[dontTake];
-        for (int i = 0; i < points.length; i+=2) {
+        final double dontTakeX = array.getValue(dontTake);
+        for (int i = 0; i < array.getSize(); i+=2) {
             if(i == dontTake)
                 continue;
-            d *= (dontTakeX - points[i]);
+            d *= (dontTakeX - array.getValue(i));
         }
         return d;
     }

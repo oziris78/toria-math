@@ -4,13 +4,14 @@ import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals;
 import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.containers.TArrays;
+import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.crypto.Data;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 
 public class ConfIntervalSingleVariableTest {
@@ -151,7 +152,10 @@ public class ConfIntervalSingleVariableTest {
     void forPersonDataTest() {
         Person[] people = Person.createPopulation();
         Person[] sortedPeople = TArrays.getSortedCopy(people, Person.class, (o1, o2) -> o1.height - o2.height);
-        DataDescription description = DescStats.getDataDesc(sortedPeople, Person.class, "height");
+
+        Field heightField = TClassUtils.getField(Person.class, "height");
+        heightField.setAccessible(true);
+        DataDescription description = DescStats.getDataDesc(sortedPeople, heightField);
 
         double alpha = 0.01d;
 

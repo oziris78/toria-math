@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.containers.TArrays;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
 import java.util.Objects;

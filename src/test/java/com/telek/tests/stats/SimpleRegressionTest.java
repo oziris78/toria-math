@@ -3,10 +3,13 @@ package com.telek.tests.stats;
 import com.telek.telekmath.advanced.statistics.regression.SimpleRegression;
 import com.telek.telekmath.advanced.statistics.regression.RegressionResult;
 import com.telek.telekmath.utils.TMath;
+import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.RegData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Field;
 
 
 public class SimpleRegressionTest {
@@ -36,7 +39,11 @@ public class SimpleRegressionTest {
         check(res);
         // any class array
         RegData.YearResult[] classArray = RegData.getYearResultArr();
-        res = SimpleRegression.getResult(classArray, RegData.YearResult.class, "numOfTourists", "income", 0.05d);
+        Field xField = TClassUtils.getField(RegData.YearResult.class, "numOfTourists");
+        Field yField = TClassUtils.getField(RegData.YearResult.class, "income");
+        xField.setAccessible(true);
+        yField.setAccessible(true);
+        res = SimpleRegression.getResult(classArray, xField, yField, 0.05d);
         check(res);
 
     }

@@ -1,10 +1,12 @@
 package com.telek.tests.numbers;
 
+import com.sun.org.apache.bcel.internal.generic.ArrayType;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.numbers.ComplexNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 
 
 public class ComplexNumberTest {
@@ -13,7 +15,6 @@ public class ComplexNumberTest {
     @Test
     @DisplayName("complexNumTest")
     void complexNumTest() {
-
         ComplexNumber c1 = new ComplexNumber(2, 2); // 2 + 2i
         ComplexNumber c2 = new ComplexNumber(2,-2); // 2 - 2i
         ComplexNumber c3 = new ComplexNumber(0, 8); // 8i

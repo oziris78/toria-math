@@ -3,13 +3,12 @@ package com.telek.telekmath.advanced.statistics.descriptive;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.HashMap;
 import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription.Mode;
-import com.telek.telekutils.plain.TClassUtils;
+import com.telek.telekutils.containers.readonly.oned.*;
 
 
 public class DescStats {
@@ -91,7 +90,9 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////////////
 
 
-
+    public static double getMedian(TypelessArray sortedData){
+        return getQuartile(sortedData, 2);
+    }
     public static double getMedian(Number[] sortedData){
         return getQuartile(sortedData, 2);
     }
@@ -106,399 +107,213 @@ public class DescStats {
     }
 
 
+    /////////////////////////////////////////////////////////////////////////////
+    ////////////////////    TYPELESS ARRAY IMPLEMENTATION    ////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+
+    public static double getCount(TypelessArray data){
+        return data.getSize();
+    }
+
+    public static double getMin(TypelessArray sortedData){
+        return sortedData.getValue(0);
+    }
+
+    public static double getMax(TypelessArray sortedData){
+        return sortedData.getValue(sortedData.getSize() - 1);
+    }
+
+    public static double getSum(TypelessArray data){
+        double sum = 0;
+        int len = data.getSize();
+        for (int i = 0; i < len; i++)
+            sum += data.getValue(i);
+        return sum;
+    }
+
+    public static double getVariance(TypelessArray data, double mean, boolean isSample){
+        double variance = 0;
+        int len = data.getSize();
+        for (int i = 0; i < len; i++) {
+            double val = data.getValue(i);
+            double ximean = val - mean;
+            variance += ximean * ximean;
+        }
+        variance /= isSample ? len - 1 : len;
+        return variance;
+    }
+
+    public static Mode getModeAndModeCount(TypelessArray data){
+        HashMap<Double, Integer> frequencyMap = new HashMap<>();
+        double maxModeFrequency  = 1, mode = 0;
+        boolean hasMode = false;
+        int len = data.getSize();
+
+        for (int i = 0; i < len; i++) {
+            double dbl = data.getValue(i);
+
+            if (frequencyMap.get(dbl) != null) {
+                int current = frequencyMap.get(dbl) + 1;
+                frequencyMap.put(dbl, current);
+
+                if(current > maxModeFrequency) {
+                    maxModeFrequency  = current;
+                    mode = dbl;
+                    hasMode = true;
+                }
+            }
+            else frequencyMap.put(dbl, 1);
+        }
+        mode = hasMode ? mode : Double.NaN;
+        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
+        return new Mode(mode, modeCount);
+    }
+
+    /**
+     * Uses linear interpolation to calculate the quartiles. <br>
+     * Same as QUARTILE.EXC in Excel.
+     * @param sortedData the sorted data set
+     * @param nthQuartile an integer (1,2 or 3)
+     * @return the nth quartile
+     */
+    public static double getQuartile(TypelessArray sortedData, int nthQuartile) {
+        double quartileIndex = (sortedData.getSize() + 1d) * nthQuartile / 4d;
+        double percentage = quartileIndex % 1;
+        int lowIndex = (int) Math.floor(quartileIndex);
+        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
+        double lowValue = sortedData.getValue(lowIndex - 1);
+        // also -1 here...
+        double highValue = sortedData.getValue(lowIndex);
+        return lowValue + (highValue - lowValue) * percentage;
+    }
+
 
     //////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////    NUMBER[]    ///////////////////////////////
+    /////////////    OTHER TYPES THAT CONVERT TO TYPELESS ARRAYS    //////////////
     //////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////    NUMBER[]    ///////////////////////////////
 
 
     public static double getCount(Number[] data){
-        return data.length;
+        return getCount(new ReadOnlyNumberArr(data));
     }
-
     public static double getMin(Number[] sortedData){
-        return sortedData[0].doubleValue();
+        return getMin(new ReadOnlyNumberArr(sortedData));
     }
-
     public static double getMax(Number[] sortedData){
-        return sortedData[sortedData.length-1].doubleValue();
+        return getMax(new ReadOnlyNumberArr(sortedData));
     }
-
     public static double getSum(Number[] data){
-        double sum = 0;
-        for (int i = 0; i < data.length; i++)
-            sum += data[i].doubleValue();
-        return sum;
+        return getSum(new ReadOnlyNumberArr(data));
     }
-
     public static double getVariance(Number[] data, double mean, boolean isSample){
-        double variance = 0;
-        for (int i = 0; i < data.length; i++) {
-            double val = data[i].doubleValue();
-            double ximean = val - mean;
-            variance += ximean * ximean;
-        }
-        variance /= isSample ? data.length - 1 : data.length;
-        return variance;
+        return getVariance(new ReadOnlyNumberArr(data), mean, isSample);
     }
-
-
-
     public static Mode getModeAndModeCount(Number[] data){
-        HashMap<Double, Integer> frequencyMap = new HashMap<>();
-        double maxModeFrequency  = 1, mode = 0;
-        boolean hasMode = false;
-
-        for (int i = 0; i < data.length; i++) {
-            double dbl = data[i].doubleValue();
-
-            if (frequencyMap.get(dbl) != null) {
-                int current = frequencyMap.get(dbl) + 1;
-                frequencyMap.put(dbl, current);
-
-                if(current > maxModeFrequency) {
-                    maxModeFrequency  = current;
-                    mode = dbl;
-                    hasMode = true;
-                }
-            }
-            else frequencyMap.put(dbl, 1);
-        }
-        mode = hasMode ? mode : Double.NaN;
-        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
-        return new Mode(mode, modeCount);
+        return getModeAndModeCount(new ReadOnlyNumberArr(data));
     }
-
-    /**
-     * Uses linear interpolation to calculate the quartiles. <br>
-     * Same as QUARTILE.EXC in Excel.
-     * @param sortedData the sorted data set
-     * @param nthQuartile an integer (1,2 or 3)
-     * @return the nth quartile
-     */
     public static double getQuartile(Number[] sortedData, int nthQuartile) {
-        double quartileIndex = (sortedData.length + 1d) * nthQuartile / 4d;
-        double percentage = quartileIndex % 1;
-        int lowIndex = (int) Math.floor(quartileIndex);
-        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = sortedData[lowIndex - 1].doubleValue();
-        // also -1 here...
-        double highValue = sortedData[lowIndex].doubleValue();
-        return lowValue + (highValue - lowValue) * percentage;
+        return getQuartile(new ReadOnlyNumberArr(sortedData), nthQuartile);
     }
 
-
-
-    //////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////    double[]    ///////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////
-
 
     public static double getCount(double[] data){
-        return data.length;
+        return getCount(new ReadOnlyDoubleArr(data));
     }
-
     public static double getMin(double[] sortedData){
-        return sortedData[0];
+        return getMin(new ReadOnlyDoubleArr(sortedData));
     }
-
     public static double getMax(double[] sortedData){
-        return sortedData[sortedData.length-1];
+        return getMax(new ReadOnlyDoubleArr(sortedData));
     }
-
     public static double getSum(double[] data){
-        return Arrays.stream(data).sum();
+        return getSum(new ReadOnlyDoubleArr(data));
     }
-
     public static double getVariance(double[] data, double mean, boolean isSample){
-        double variance = 0;
-        for (int i = 0; i < data.length; i++) {
-            double val = data[i];
-            double ximean = val - mean;
-            variance += ximean * ximean;
-        }
-        variance /= isSample ? data.length - 1 : data.length;
-        return variance;
+        return getVariance(new ReadOnlyDoubleArr(data), mean, isSample);
     }
-
-
     public static Mode getModeAndModeCount(double[] data){
-        HashMap<Double, Integer> frequencyMap = new HashMap<>();
-        double maxModeFrequency  = 1, mode = 0;
-        boolean hasMode = false;
-
-        for (int i = 0; i < data.length; i++) {
-            double dbl = data[i];
-
-            if (frequencyMap.get(dbl) != null) {
-                int current = frequencyMap.get(dbl) + 1;
-                frequencyMap.put(dbl, current);
-
-                if(current > maxModeFrequency) {
-                    maxModeFrequency  = current;
-                    mode = dbl;
-                    hasMode = true;
-                }
-            }
-            else frequencyMap.put(dbl, 1);
-        }
-        mode = hasMode ? mode : Double.NaN;
-        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
-        return new Mode(mode, modeCount);
+        return getModeAndModeCount(new ReadOnlyDoubleArr(data));
     }
-
-
-    /**
-     * Uses linear interpolation to calculate the quartiles. <br>
-     * Same as QUARTILE.EXC in Excel.
-     * @param sortedData the sorted data set
-     * @param nthQuartile an integer (1,2 or 3)
-     * @return the nth quartile
-     */
     public static double getQuartile(double[] sortedData, int nthQuartile) {
-        double quartileIndex = (sortedData.length + 1d) * nthQuartile / 4d;
-        double percentage = quartileIndex % 1;
-        int lowIndex = (int) Math.floor(quartileIndex);
-        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = sortedData[lowIndex - 1];
-        // also -1 here...
-        double highValue = sortedData[lowIndex];
-        return lowValue + (highValue - lowValue) * percentage;
+        return getQuartile(new ReadOnlyDoubleArr(sortedData), nthQuartile);
     }
 
-
-
-    //////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////    int[]    ////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////
-
 
     public static double getCount(int[] data){
-        return data.length;
+        return getCount(new ReadOnlyIntArr(data));
     }
-
     public static double getMin(int[] sortedData){
-        return sortedData[0];
+        return getMin(new ReadOnlyIntArr(sortedData));
     }
-
     public static double getMax(int[] sortedData){
-        return sortedData[sortedData.length-1];
+        return getMax(new ReadOnlyIntArr(sortedData));
     }
-
     public static double getSum(int[] data){
-        return Arrays.stream(data).sum();
+        return getSum(new ReadOnlyIntArr(data));
     }
-
     public static double getVariance(int[] data, double mean, boolean isSample){
-        double variance = 0;
-        for (int i = 0; i < data.length; i++) {
-            double val = data[i];
-            double ximean = val - mean;
-            variance += ximean * ximean;
-        }
-        variance /= isSample ? data.length - 1 : data.length;
-        return variance;
+        return getVariance(new ReadOnlyIntArr(data), mean, isSample);
     }
-
-
     public static Mode getModeAndModeCount(int[] data){
-        HashMap<Double, Integer> frequencyMap = new HashMap<>();
-        double maxModeFrequency  = 1, mode = 0;
-        boolean hasMode = false;
-
-        for (int i = 0; i < data.length; i++) {
-            double dbl = data[i];
-
-            if (frequencyMap.get(dbl) != null) {
-                int current = frequencyMap.get(dbl) + 1;
-                frequencyMap.put(dbl, current);
-
-                if(current > maxModeFrequency) {
-                    maxModeFrequency  = current;
-                    mode = dbl;
-                    hasMode = true;
-                }
-            }
-            else frequencyMap.put(dbl, 1);
-        }
-        mode = hasMode ? mode : Double.NaN;
-        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
-        return new Mode(mode, modeCount);
+        return getModeAndModeCount(new ReadOnlyIntArr(data));
     }
-
-    /**
-     * Uses linear interpolation to calculate the quartiles. <br>
-     * Same as QUARTILE.EXC in Excel.
-     * @param sortedData the sorted data set
-     * @param nthQuartile an integer (1,2 or 3)
-     * @return the nth quartile
-     */
     public static double getQuartile(int[] sortedData, int nthQuartile) {
-        double quartileIndex = (sortedData.length + 1d) * nthQuartile / 4d;
-        double percentage = quartileIndex % 1;
-        int lowIndex = (int) Math.floor(quartileIndex);
-        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = sortedData[lowIndex - 1];
-        // also -1 here...
-        double highValue = sortedData[lowIndex];
-        return lowValue + (highValue - lowValue) * percentage;
+        return getQuartile(new ReadOnlyIntArr(sortedData), nthQuartile);
     }
 
-
-
-    //////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////    float[]    //////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////
-
 
     public static double getCount(float[] data){
-        return data.length;
+        return getCount(new ReadOnlyFloatArr(data));
     }
-
     public static double getMin(float[] sortedData){
-        return sortedData[0];
+        return getMin(new ReadOnlyFloatArr(sortedData));
     }
-
     public static double getMax(float[] sortedData){
-        return sortedData[sortedData.length-1];
+        return getMax(new ReadOnlyFloatArr(sortedData));
     }
-
     public static double getSum(float[] data){
-        double sum = 0;
-        for (int i = 0; i < data.length; i++)
-            sum += data[i];
-        return sum;
+        return getSum(new ReadOnlyFloatArr(data));
     }
-
     public static double getVariance(float[] data, double mean, boolean isSample){
-        double variance = 0;
-        for (int i = 0; i < data.length; i++) {
-            double val = data[i];
-            double ximean = val - mean;
-            variance += ximean * ximean;
-        }
-        variance /= isSample ? data.length - 1 : data.length;
-        return variance;
+        return getVariance(new ReadOnlyFloatArr(data), mean, isSample);
     }
-
-
     public static Mode getModeAndModeCount(float[] data){
-        HashMap<Double, Integer> frequencyMap = new HashMap<>();
-        double maxModeFrequency  = 1, mode = 0;
-        boolean hasMode = false;
-
-        for (int i = 0; i < data.length; i++) {
-            double dbl = data[i];
-
-            if (frequencyMap.get(dbl) != null) {
-                int current = frequencyMap.get(dbl) + 1;
-                frequencyMap.put(dbl, current);
-
-                if(current > maxModeFrequency) {
-                    maxModeFrequency  = current;
-                    mode = dbl;
-                    hasMode = true;
-                }
-            }
-            else frequencyMap.put(dbl, 1);
-        }
-        mode = hasMode ? mode : Double.NaN;
-        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
-        return new Mode(mode, modeCount);
+        return getModeAndModeCount(new ReadOnlyFloatArr(data));
     }
-
-    /**
-     * Uses linear interpolation to calculate the quartiles. <br>
-     * Same as QUARTILE.EXC in Excel.
-     * @param sortedData the sorted data set
-     * @param nthQuartile an integer (1,2 or 3)
-     * @return the nth quartile
-     */
     public static double getQuartile(float[] sortedData, int nthQuartile) {
-        double quartileIndex = (sortedData.length + 1d) * nthQuartile / 4d;
-        double percentage = quartileIndex % 1;
-        int lowIndex = (int) Math.floor(quartileIndex);
-        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = sortedData[lowIndex - 1];
-        // also -1 here...
-        double highValue = sortedData[lowIndex];
-        return lowValue + (highValue - lowValue) * percentage;
+        return getQuartile(new ReadOnlyFloatArr(sortedData), nthQuartile);
     }
 
 
-
-    //////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////    T[]    /////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-    public static <T> double getSum(T[] data, Field field) throws IllegalAccessException {
-        double sum = 0;
-        for (int i = 0; i < data.length; i++)
-            sum += TClassUtils.getValue(data, field, i);
-        return sum;
+    public static <T> double getCount(T[] data, Field field){
+        return getCount(new ReadOnlyGenericArr<>(data, field));
     }
-
-    public static <T> double getVariance(T[] data, Field field, double mean, boolean isSample) throws IllegalAccessException {
-        double variance = 0;
-        for (int i = 0; i < data.length; i++) {
-            double val = TClassUtils.getValue(data, field, i);
-            double ximean = val - mean;
-            variance += ximean * ximean;
-        }
-        variance /= isSample ? data.length - 1 : data.length;
-        return variance;
+    public static <T> double getMin(T[] data, Field field){
+        return getMin(new ReadOnlyGenericArr<>(data, field));
     }
-
-    public static <T> Mode getModeAndModeCount(T[] data, Field field) throws IllegalAccessException {
-        HashMap<Double, Integer> frequencyMap = new HashMap<>();
-        double maxModeFrequency  = 1, mode = 0;
-        boolean hasMode = false;
-
-        for (int i = 0; i < data.length; i++) {
-            double dbl = TClassUtils.getValue(data, field, i);
-
-            if (frequencyMap.get(dbl) != null) {
-                int current = frequencyMap.get(dbl) + 1;
-                frequencyMap.put(dbl, current);
-
-                if(current > maxModeFrequency) {
-                    maxModeFrequency  = current;
-                    mode = dbl;
-                    hasMode = true;
-                }
-            }
-            else frequencyMap.put(dbl, 1);
-        }
-        mode = hasMode ? mode : Double.NaN;
-        double modeCount = hasMode ? frequencyMap.get(mode) : Double.NaN;
-        return new Mode(mode, modeCount);
+    public static <T> double getMax(T[] data, Field field){
+        return getMax(new ReadOnlyGenericArr<>(data, field));
     }
-
-
-
-    /**
-     * Uses linear interpolation to calculate the quartiles. <br>
-     * Same as QUARTILE.EXC in Excel.
-     * @param sortedData the sorted data set
-     * @param field the field that extends the Number class (values of this field will be used for the calculation)
-     * @param nthQuartile an integer (1,2 or 3)
-     * @param <T> any class
-     * @return the nth quartile
-     * @throws IllegalAccessException
-     */
+    public static <T> double getSum(T[] data, Field field) {
+        return getSum(new ReadOnlyGenericArr<>(data, field));
+    }
+    public static <T> double getVariance(T[] data, Field field, double mean, boolean isSample) {
+        return getVariance(new ReadOnlyGenericArr<>(data, field), mean, isSample);
+    }
+    public static <T> Mode getModeAndModeCount(T[] data, Field field) {
+        return getModeAndModeCount(new ReadOnlyGenericArr<>(data, field));
+    }
     public static <T> double getQuartile(T[] sortedData, Field field, int nthQuartile) throws IllegalAccessException {
-        double quartileIndex = (sortedData.length + 1d) * nthQuartile / 4d;
-        double percentage = quartileIndex % 1;
-        int lowIndex = (int) Math.floor(quartileIndex);
-        // -1 because in statistics we have 1-based indexes but in Java it's 0-based
-        double lowValue = TClassUtils.getValue(sortedData, field, lowIndex - 1);
-        // also -1 here...
-        double highValue = TClassUtils.getValue(sortedData, field, lowIndex);
-        return lowValue + (highValue - lowValue) * percentage;
+        return getQuartile(new ReadOnlyGenericArr<>(sortedData, field), nthQuartile);
     }
 
 
@@ -507,147 +322,48 @@ public class DescStats {
     ////////    METHODS THAT CALCULATE EVERYTHING AND RETURN A DATADESCRIPTION OBJECT    ////////
     /////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static DataDescription getDataDesc(TypelessArray sortedData){
+        double count = getCount(sortedData);
+        double min = getMin(sortedData);
+        double max = getMax(sortedData);
+        double range = getRange(min, max);
+        double sum = getSum(sortedData);
+        double mean = getMean(sum, count);
+        double variance = getVariance(sortedData, mean, false);
+        double sampleVariance = getVariance(sortedData, mean, true);
+        double stddev = getStddev(variance);
+        Mode mode = getModeAndModeCount(sortedData);
+        double quartile1 = getQuartile(sortedData, 1);
+        double quartile2 = getQuartile(sortedData, 2);
+        double quartile3 = getQuartile(sortedData, 3);
+        double median = quartile2;
+        double interquartileRange = getInterquartileRange(quartile1, quartile3);
+        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
+        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
 
+        return new DataDescription(variance, sampleVariance,
+                mean, sum, interquartileRange, count,
+                quartile1, mode, median, quartile2, quartile3, min, max,
+                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+    }
+
+    // these all convert themselves to TypelessArrays
     public static DataDescription getDataDesc(Number[] sortedData){
-        double count = getCount(sortedData);
-        double min = getMin(sortedData);
-        double max = getMax(sortedData);
-        double range = getRange(min, max);
-        double sum = getSum(sortedData);
-        double mean = getMean(sum, count);
-        double variance = getVariance(sortedData, mean, false);
-        double sampleVariance = getVariance(sortedData, mean, true);
-        double stddev = getStddev(variance);
-        Mode mode = getModeAndModeCount(sortedData);
-        double quartile1 = getQuartile(sortedData, 1);
-        double quartile2 = getQuartile(sortedData, 2);
-        double quartile3 = getQuartile(sortedData, 3);
-        double median = quartile2;
-        double interquartileRange = getInterquartileRange(quartile1, quartile3);
-        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
-        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
-
-        return new DataDescription(variance, sampleVariance,
-                mean, sum, interquartileRange, count,
-                quartile1, mode, median, quartile2, quartile3, min, max,
-                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+        return getDataDesc(new ReadOnlyNumberArr(sortedData));
     }
-
-    public static <T> DataDescription getDataDesc(T[] sortedData, Class<T> clazz, String fieldName) {
-        try {
-            Field field = TClassUtils.getField(clazz, fieldName);
-
-            double count = sortedData.length;
-            double min = TClassUtils.getValue(sortedData, field, 0);
-            double max = TClassUtils.getValue(sortedData, field, sortedData.length-1);
-            double range = getRange(min, max);
-            double sum = getSum(sortedData, field);
-            double mean = getMean(sum, count);
-            double variance = getVariance(sortedData, field, mean, false);
-            double sampleVariance = getVariance(sortedData, field, mean, true);
-            double stddev = getStddev(variance);
-            Mode mode = getModeAndModeCount(sortedData, field);
-            double quartile1 = getQuartile(sortedData, field, 1);
-            double quartile2 = getQuartile(sortedData, field, 2);
-            double quartile3 = getQuartile(sortedData, field, 3);
-            double median = quartile2;
-            double interquartileRange = getInterquartileRange(quartile1, quartile3);
-            double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
-            double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
-
-            return new DataDescription(variance, sampleVariance, mean, sum, interquartileRange, count,
-                    quartile1, mode, median, quartile2, quartile3, min, max,
-                    range, stddev, pearsonSkewCoef, bowleySkewCoef);
-        }
-        catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    // these 3 methods are same as Number[] method just copy pasted it and changed the signature
     public static DataDescription getDataDesc(int[] sortedData){
-        if(sortedData.length <= 3) throw new DataSetIsSmallException();
-        double count = getCount(sortedData);
-        double min = getMin(sortedData);
-        double max = getMax(sortedData);
-        double range = getRange(min, max);
-        double sum = getSum(sortedData);
-        double mean = getMean(sum, count);
-        double variance = getVariance(sortedData, mean, false);
-        double sampleVariance = getVariance(sortedData, mean, true);
-        double stddev = getStddev(variance);
-        Mode mode = getModeAndModeCount(sortedData);
-        double quartile1 = getQuartile(sortedData, 1);
-        double quartile2 = getQuartile(sortedData, 2);
-        double quartile3 = getQuartile(sortedData, 3);
-        double median = quartile2;
-        double interquartileRange = getInterquartileRange(quartile1, quartile3);
-        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
-        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
-
-        return new DataDescription(variance, sampleVariance,
-                mean, sum, interquartileRange, count,
-                quartile1, mode, median, quartile2, quartile3, min, max,
-                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+        return getDataDesc(new ReadOnlyIntArr(sortedData));
     }
     public static DataDescription getDataDesc(double[] sortedData){
-        double count = getCount(sortedData);
-        double min = getMin(sortedData);
-        double max = getMax(sortedData);
-        double range = getRange(min, max);
-        double sum = getSum(sortedData);
-        double mean = getMean(sum, count);
-        double variance = getVariance(sortedData, mean, false);
-        double sampleVariance = getVariance(sortedData, mean, true);
-        double stddev = getStddev(variance);
-        Mode mode = getModeAndModeCount(sortedData);
-        double quartile1 = getQuartile(sortedData, 1);
-        double quartile2 = getQuartile(sortedData, 2);
-        double quartile3 = getQuartile(sortedData, 3);
-        double median = quartile2;
-        double interquartileRange = getInterquartileRange(quartile1, quartile3);
-        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
-        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
-
-        return new DataDescription(variance, sampleVariance,
-                mean, sum, interquartileRange, count,
-                quartile1, mode, median, quartile2, quartile3, min, max,
-                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+        return getDataDesc(new ReadOnlyDoubleArr(sortedData));
     }
-
     public static DataDescription getDataDesc(float[] sortedData){
-        double count = getCount(sortedData);
-        double min = getMin(sortedData);
-        double max = getMax(sortedData);
-        double range = getRange(min, max);
-        double sum = getSum(sortedData);
-        double mean = getMean(sum, count);
-        double variance = getVariance(sortedData, mean, false);
-        double sampleVariance = getVariance(sortedData, mean, true);
-        double stddev = getStddev(variance);
-        Mode mode = getModeAndModeCount(sortedData);
-        double quartile1 = getQuartile(sortedData, 1);
-        double quartile2 = getQuartile(sortedData, 2);
-        double quartile3 = getQuartile(sortedData, 3);
-        double median = quartile2;
-        double interquartileRange = getInterquartileRange(quartile1, quartile3);
-        double pearsonSkewCoef = getPearsonSkewnessCoefficient(median, mean, stddev);
-        double bowleySkewCoef = getBowleySkewnessCoefficient(quartile1, quartile2, quartile3);
-
-        return new DataDescription(variance, sampleVariance,
-                mean, sum, interquartileRange, count,
-                quartile1, mode, median, quartile2, quartile3, min, max,
-                range, stddev, pearsonSkewCoef, bowleySkewCoef);
+        return getDataDesc(new ReadOnlyFloatArr(sortedData));
+    }
+    public static <T> DataDescription getDataDesc(T[] sortedData, Field field) {
+        return getDataDesc(new ReadOnlyGenericArr<>(sortedData, field));
     }
 
-
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////    HELPERS    //////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    // empty for now
 
 
 

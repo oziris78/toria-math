@@ -3,7 +3,7 @@ package com.telek.tests.stats;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests;
 import com.telek.telekmath.core.matrices.TMatrix;
-import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

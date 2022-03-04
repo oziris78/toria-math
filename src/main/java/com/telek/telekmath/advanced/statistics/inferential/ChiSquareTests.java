@@ -3,11 +3,9 @@ package com.telek.telekmath.advanced.statistics.inferential;
 
 import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
-import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
 import com.telek.telekmath.core.matrices.TMatrix;
-import com.telek.telekmath.utils.TelekMathException;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.containers.readonly.oned.*;
 
 
 /**
@@ -29,10 +27,7 @@ public class ChiSquareTests {
     /*  METHODS  */
     ///////////////
 
-    // USING ARRAYS
 
-    // goodness of fit
-    // Assumption'ları her metodun açıklamasına yaz (sınıfın açıklamasına koy oraya yönlendir)
 
     /**
      * Performs a "goodness of fit" test. Which is the same as "test for independence" with one variable. <br>
@@ -47,8 +42,8 @@ public class ChiSquareTests {
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return true if the frequency distribution fits the distribution specified with the distType parameter
      */
-    public static boolean fitsDistribution(double[] observedFreqs, double[] expectedFreqs, String distType, double alpha) {
-        final int k = observedFreqs.length;
+    public static boolean fitsDistribution(TypelessArray observedFreqs, double[] expectedFreqs, String distType, double alpha){
+        final int k = observedFreqs.getSize();
         if(expectedFreqs.length != k)
             throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
         final int p = getParameterNumber(distType);
@@ -57,7 +52,7 @@ public class ChiSquareTests {
         // test statistic
         double testStat = 0;
         for (int i = 0; i < k; i++) {
-            double oi = observedFreqs[i];
+            double oi = observedFreqs.getValue(i);
             double ei = expectedFreqs[i];
             double diff = oi - ei;
             if(ei < 5d)
@@ -69,95 +64,42 @@ public class ChiSquareTests {
     }
 
 
-    // copied from that method (nothing was changed)
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
+    ///////////////////   ALIASES   ///////////////////
+
+    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
+    public static boolean fitsDistribution(double[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
+        return fitsDistribution(new ReadOnlyDoubleArr(observedFreqs), expectedFreqs, distType, alpha);
+    }
+
+    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
     public static boolean fitsDistribution(float[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        final int k = observedFreqs.length;
-        if(expectedFreqs.length != k)
-            throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
-        final int p = getParameterNumber(distType);
-        final double chi = ChiSquaredDist.invCumLeftTailed(k - p - 1d, 1d - alpha);
-
-        // test statistic
-        double testStat = 0;
-        for (int i = 0; i < k; i++) {
-            double oi = observedFreqs[i];
-            double ei = expectedFreqs[i];
-            double diff = oi - ei;
-            if(ei < 5d)
-                throw new ExpectedValueAssumptionException(ei);
-            testStat += diff * diff / ei;
-        }
-
-        return testStat <= chi;
+        return fitsDistribution(new ReadOnlyFloatArr(observedFreqs), expectedFreqs, distType, alpha);
     }
 
-
-    // copied from that method (only one line was changed (it has a comment))
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
+    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
     public static boolean fitsDistribution(Number[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        final int k = observedFreqs.length;
-        if(expectedFreqs.length != k)
-            throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
-        final int p = getParameterNumber(distType);
-        final double chi = ChiSquaredDist.invCumLeftTailed(k - p - 1d, 1d - alpha);
-
-        // test statistic
-        double testStat = 0;
-        for (int i = 0; i < k; i++) {
-            double oi = observedFreqs[i].doubleValue(); // only this line was changed
-            double ei = expectedFreqs[i];
-            double diff = oi - ei;
-            if(ei < 5d)
-                throw new ExpectedValueAssumptionException(ei);
-            testStat += diff * diff / ei;
-        }
-
-        return testStat <= chi;
+        return fitsDistribution(new ReadOnlyNumberArr(observedFreqs), expectedFreqs, distType, alpha);
     }
 
-
-    // copied from that method (nothing was changed)
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
+    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
     public static boolean fitsDistribution(int[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        final int k = observedFreqs.length;
-        if(expectedFreqs.length != k)
-            throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
-        final int p = getParameterNumber(distType);
-        final double chi = ChiSquaredDist.invCumLeftTailed(k - p - 1d, 1d - alpha);
-
-        // test statistic
-        double testStat = 0;
-        for (int i = 0; i < k; i++) {
-            double oi = observedFreqs[i];
-            double ei = expectedFreqs[i];
-            double diff = oi - ei;
-            if(ei < 5d)
-                throw new ExpectedValueAssumptionException(ei);
-            testStat += diff * diff / ei;
-        }
-
-        return testStat <= chi;
+        return fitsDistribution(new ReadOnlyIntArr(observedFreqs), expectedFreqs, distType, alpha);
     }
-
 
     /**  @see #fitsDistribution(double[], double[], String, double)  */
     public static boolean isIndependent(double[] observedFreqs, double[] expectedFreqs, double alpha){
         return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
     }
 
-
     /**  @see #fitsDistribution(double[], double[], String, double)  */
     public static boolean isIndependent(float[] observedFreqs, double[] expectedFreqs, double alpha){
         return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
     }
 
-
     /**  @see #fitsDistribution(double[], double[], String, double)  */
     public static boolean isIndependent(Number[] observedFreqs, double[] expectedFreqs, double alpha){
         return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
     }
-
 
     /**  @see #fitsDistribution(double[], double[], String, double)  */
     public static boolean isIndependent(int[] observedFreqs, double[] expectedFreqs, double alpha){
@@ -272,7 +214,7 @@ public class ChiSquareTests {
 
     /**  @see #isHomogeneous(TMatrix, double)  */
     public static boolean isIndependent(TMatrix table, double alpha){
-        return isHomogeneous(table, alpha); // revert to this
+        return isHomogeneous(table, alpha);
     }
 
 

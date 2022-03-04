@@ -3,13 +3,15 @@ package com.telek.tests.stats.freqtable;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
-import com.telek.telekutils.plain.TArrays;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekutils.containers.TArrays;
+import com.telek.telekutils.containers.TCollections;
+import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 
@@ -40,7 +42,9 @@ public class FreqDistTableTest {
 
         // PREPERATION OF DATA
         Person[] population = Person.createPopulation();
-        FreqDistTable table = new FreqDistTable(population, Person.class, "height", 6);
+        Field heightField = TClassUtils.getField(Person.class, "height");
+        heightField.setAccessible(true);
+        FreqDistTable table = new FreqDistTable(population, heightField, 6);
 
         // FOR VISUALIZATION:
         // System.out.println(table);

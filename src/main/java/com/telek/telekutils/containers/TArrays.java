@@ -1,11 +1,13 @@
-package com.telek.telekutils.plain;
+package com.telek.telekutils.containers;
 
 
 import com.telek.telekmath.utils.TMath;
+import com.telek.telekutils.containers.readonly.oned.ReadOnlyFloatArr;
+import com.telek.telekutils.containers.readonly.oned.TypelessArray;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 
@@ -381,24 +383,34 @@ public final class TArrays {
         return Arrays.stream(array).max((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
     }
 
-    public static float getMax(float[] array){
-        float max = array[0];
-        for (int i = 1; i < array.length; i++) {
-            float curValue = array[i];
+    public static double getMax(TypelessArray array){
+        double max = array.getValue(0);
+        for (int i = 1; i < array.getSize(); i++) {
+            double curValue = array.getValue(i);
             if(curValue > max) max = curValue;
         }
         return max;
     }
 
+
+    public static float getMax(float[] array){
+        return (float) getMax(new ReadOnlyFloatArr(array));
+    }
+
+
     // O(n)
-    public static float getMin(float[] array){
-        float min = array[0];
-        for (int i = 1; i < array.length; i++) {
-            float curValue = array[i];
+    public static double getMin(TypelessArray array){
+        double min = array.getValue(0);
+        for (int i = 1; i < array.getSize(); i++) {
+            double curValue = array.getValue(i);
             if(curValue < min)
                 min = curValue;
         }
         return min;
+    }
+
+    public static float getMin(float[] array){
+        return (float) getMin(new ReadOnlyFloatArr(array));
     }
 
     public static long getMin(long[] array){

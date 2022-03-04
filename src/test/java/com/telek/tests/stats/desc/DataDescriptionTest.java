@@ -4,13 +4,15 @@ import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekutils.plain.TArrays;
+import com.telek.telekutils.containers.TArrays;
+import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import com.telek.tests.stats.exampledata.SampleData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -29,9 +31,13 @@ public class DataDescriptionTest {
         Person[] sortedWithAge = TArrays.getSortedCopy(population, Person.class, (o1, o2) -> o1.age - o2.age);
 
         // get data sets and desc
-        DataDescription heightDesc = DescStats.getDataDesc(sortedWithHeight, Person.class, "height");
+        Field heightField = TClassUtils.getField(Person.class, "height");
+        heightField.setAccessible(true); // bad in terms of security, be careful when you do this
+        DataDescription heightDesc = DescStats.getDataDesc(sortedWithHeight, heightField);
 
-        DataDescription ageDesc = DescStats.getDataDesc(sortedWithAge, Person.class, "age");
+        Field ageField = TClassUtils.getField(Person.class, "age");
+        ageField.setAccessible(true); // bad in terms of security, be careful when you do this
+        DataDescription ageDesc = DescStats.getDataDesc(sortedWithAge, ageField);
 
         // TESTS
         Assertions.assertTrue(TMath.areEqual(heightDesc.count, 26));
@@ -119,7 +125,9 @@ public class DataDescriptionTest {
         TestClass[] sortedPop = TArrays.getSortedCopy(classPopulation, TestClass.class,
                 Comparator.comparingDouble(TestClass::getField));
 
-        DataDescription dataDesc2 = DescStats.getDataDesc(sortedPop, TestClass.class, "theField");
+        Field theField = TClassUtils.getField(TestClass.class, "theField");
+        theField.setAccessible(true); // bad in terms of security, be careful when you do this
+        DataDescription dataDesc2 = DescStats.getDataDesc(sortedPop, theField);
 
 
         // tests

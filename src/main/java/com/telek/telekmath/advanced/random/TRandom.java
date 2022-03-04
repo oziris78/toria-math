@@ -1,7 +1,6 @@
 package com.telek.telekmath.advanced.random;
 
-import com.telek.telekutils.plain.TArrays;
-import com.telek.telekutils.plain.TCollections;
+import com.telek.telekutils.containers.TCollections;
 
 import java.util.ArrayList;
 
