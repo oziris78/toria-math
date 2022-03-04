@@ -2,8 +2,8 @@ package com.telek.telekutils.containers;
 
 
 import com.telek.telekmath.utils.TMath;
-import com.telek.telekutils.containers.arrayref.oned.FloatArrRef;
-import com.telek.telekutils.containers.arrayref.oned.ArrayRef;
+import com.telek.telekutils.arrayref.oned.FloatArrRef;
+import com.telek.telekutils.arrayref.oned.ArrayRef;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

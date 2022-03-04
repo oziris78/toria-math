@@ -1,4 +1,4 @@
-package com.telek.telekutils.containers.arrayref.oned;
+package com.telek.telekutils.arrayref.oned;
 
 
 public class NumberArrRef implements ArrayRef {

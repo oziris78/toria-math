@@ -1,4 +1,4 @@
-package com.telek.telekutils.containers.arrayref.twod;
+package com.telek.telekutils.arrayref.twod;
 
 
 public class DoubleArrRef2 implements ArrayRef2 {

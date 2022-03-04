@@ -1,17 +1,17 @@
-package com.telek.telekutils.containers.arrayref.twod;
+package com.telek.telekutils.arrayref.twod;
 
 
-public class NumberArrRef2 implements ArrayRef2 {
+public class LongArrRef2 implements ArrayRef2 {
 
-    private Number[][] array;
+    private long[][] array;
 
-    public NumberArrRef2(Number[][] array){
+    public LongArrRef2(long[][] array){
         this.array = array;
     }
 
     @Override
     public double getValue(int row, int col) {
-        return array[row][col].doubleValue();
+        return array[row][col];
     }
 
     @Override

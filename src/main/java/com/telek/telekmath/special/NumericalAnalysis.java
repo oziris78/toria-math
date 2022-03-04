@@ -4,10 +4,10 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.containers.arrayref.oned.DoubleArrRef;
-import com.telek.telekutils.containers.arrayref.oned.FloatArrRef;
-import com.telek.telekutils.containers.arrayref.oned.IntArrRef;
-import com.telek.telekutils.containers.arrayref.oned.ArrayRef;
+import com.telek.telekutils.arrayref.oned.DoubleArrRef;
+import com.telek.telekutils.arrayref.oned.FloatArrRef;
+import com.telek.telekutils.arrayref.oned.IntArrRef;
+import com.telek.telekutils.arrayref.oned.ArrayRef;
 
 
 public class NumericalAnalysis {

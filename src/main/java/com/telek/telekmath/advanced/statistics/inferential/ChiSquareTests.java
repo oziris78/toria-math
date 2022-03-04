@@ -5,7 +5,7 @@ import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.containers.arrayref.oned.*;
+import com.telek.telekutils.arrayref.oned.*;
 
 
 /**

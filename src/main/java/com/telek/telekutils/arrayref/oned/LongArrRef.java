@@ -1,11 +1,11 @@
-package com.telek.telekutils.containers.arrayref.oned;
+package com.telek.telekutils.arrayref.oned;
 
 
-public class DoubleArrRef implements ArrayRef {
+public class LongArrRef implements ArrayRef {
 
-    private double[] array;
+    private long[] array;
 
-    public DoubleArrRef(double[] array){
+    public LongArrRef(long[] array){
         this.array = array;
     }
 

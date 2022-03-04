@@ -1,11 +1,11 @@
-package com.telek.telekutils.containers.arrayref.twod;
+package com.telek.telekutils.arrayref.twod;
 
 
-public class LongArrRef2 implements ArrayRef2 {
+public class IntArrRef2 implements ArrayRef2 {
 
-    private long[][] array;
+    private int[][] array;
 
-    public LongArrRef2(long[][] array){
+    public IntArrRef2(int[][] array){
         this.array = array;
     }
 

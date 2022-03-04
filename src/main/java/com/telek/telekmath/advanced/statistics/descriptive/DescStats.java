@@ -8,7 +8,7 @@ import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription.Mode;
-import com.telek.telekutils.containers.arrayref.oned.*;
+import com.telek.telekutils.arrayref.oned.*;
 
 
 public class DescStats {
