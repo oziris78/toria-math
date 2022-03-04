@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.stats.ChiSqTestsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-04T21:16:18" hostname="TUNERIKGEZGINI" time="0.026">
+<testsuite name="com.telek.tests.stats.ChiSqTestsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-04T21:58:10" hostname="TUNERIKGEZGINI" time="0.005">
   <properties/>
-  <testcase name="homogeneityTest" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.021"/>
+  <testcase name="homogeneityTest" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.001"/>
   <testcase name="goodnessOfFitTest" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.002"/>
   <testcase name="aliasFunctionChecksTest" classname="com.telek.tests.stats.ChiSqTestsTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

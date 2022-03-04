@@ -8,7 +8,7 @@ import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription.Mode;
-import com.telek.telekutils.containers.readonly.oned.*;
+import com.telek.telekutils.containers.arrayref.oned.*;
 
 
 public class DescStats {
@@ -90,7 +90,7 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////////////
 
 
-    public static double getMedian(TypelessArray sortedData){
+    public static double getMedian(ArrayRef sortedData){
         return getQuartile(sortedData, 2);
     }
     public static double getMedian(Number[] sortedData){
@@ -112,19 +112,19 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////
 
 
-    public static double getCount(TypelessArray data){
+    public static double getCount(ArrayRef data){
         return data.getSize();
     }
 
-    public static double getMin(TypelessArray sortedData){
+    public static double getMin(ArrayRef sortedData){
         return sortedData.getValue(0);
     }
 
-    public static double getMax(TypelessArray sortedData){
+    public static double getMax(ArrayRef sortedData){
         return sortedData.getValue(sortedData.getSize() - 1);
     }
 
-    public static double getSum(TypelessArray data){
+    public static double getSum(ArrayRef data){
         double sum = 0;
         int len = data.getSize();
         for (int i = 0; i < len; i++)
@@ -132,7 +132,7 @@ public class DescStats {
         return sum;
     }
 
-    public static double getVariance(TypelessArray data, double mean, boolean isSample){
+    public static double getVariance(ArrayRef data, double mean, boolean isSample){
         double variance = 0;
         int len = data.getSize();
         for (int i = 0; i < len; i++) {
@@ -144,7 +144,7 @@ public class DescStats {
         return variance;
     }
 
-    public static Mode getModeAndModeCount(TypelessArray data){
+    public static Mode getModeAndModeCount(ArrayRef data){
         HashMap<Double, Integer> frequencyMap = new HashMap<>();
         double maxModeFrequency  = 1, mode = 0;
         boolean hasMode = false;
@@ -177,7 +177,7 @@ public class DescStats {
      * @param nthQuartile an integer (1,2 or 3)
      * @return the nth quartile
      */
-    public static double getQuartile(TypelessArray sortedData, int nthQuartile) {
+    public static double getQuartile(ArrayRef sortedData, int nthQuartile) {
         double quartileIndex = (sortedData.getSize() + 1d) * nthQuartile / 4d;
         double percentage = quartileIndex % 1;
         int lowIndex = (int) Math.floor(quartileIndex);
@@ -197,97 +197,97 @@ public class DescStats {
 
 
     public static double getCount(Number[] data){
-        return getCount(new ReadOnlyNumberArr(data));
+        return getCount(new NumberArrRef(data));
     }
     public static double getMin(Number[] sortedData){
-        return getMin(new ReadOnlyNumberArr(sortedData));
+        return getMin(new NumberArrRef(sortedData));
     }
     public static double getMax(Number[] sortedData){
-        return getMax(new ReadOnlyNumberArr(sortedData));
+        return getMax(new NumberArrRef(sortedData));
     }
     public static double getSum(Number[] data){
-        return getSum(new ReadOnlyNumberArr(data));
+        return getSum(new NumberArrRef(data));
     }
     public static double getVariance(Number[] data, double mean, boolean isSample){
-        return getVariance(new ReadOnlyNumberArr(data), mean, isSample);
+        return getVariance(new NumberArrRef(data), mean, isSample);
     }
     public static Mode getModeAndModeCount(Number[] data){
-        return getModeAndModeCount(new ReadOnlyNumberArr(data));
+        return getModeAndModeCount(new NumberArrRef(data));
     }
     public static double getQuartile(Number[] sortedData, int nthQuartile) {
-        return getQuartile(new ReadOnlyNumberArr(sortedData), nthQuartile);
+        return getQuartile(new NumberArrRef(sortedData), nthQuartile);
     }
 
     ///////////////////////////////    double[]    ///////////////////////////////
 
     public static double getCount(double[] data){
-        return getCount(new ReadOnlyDoubleArr(data));
+        return getCount(new DoubleArrRef(data));
     }
     public static double getMin(double[] sortedData){
-        return getMin(new ReadOnlyDoubleArr(sortedData));
+        return getMin(new DoubleArrRef(sortedData));
     }
     public static double getMax(double[] sortedData){
-        return getMax(new ReadOnlyDoubleArr(sortedData));
+        return getMax(new DoubleArrRef(sortedData));
     }
     public static double getSum(double[] data){
-        return getSum(new ReadOnlyDoubleArr(data));
+        return getSum(new DoubleArrRef(data));
     }
     public static double getVariance(double[] data, double mean, boolean isSample){
-        return getVariance(new ReadOnlyDoubleArr(data), mean, isSample);
+        return getVariance(new DoubleArrRef(data), mean, isSample);
     }
     public static Mode getModeAndModeCount(double[] data){
-        return getModeAndModeCount(new ReadOnlyDoubleArr(data));
+        return getModeAndModeCount(new DoubleArrRef(data));
     }
     public static double getQuartile(double[] sortedData, int nthQuartile) {
-        return getQuartile(new ReadOnlyDoubleArr(sortedData), nthQuartile);
+        return getQuartile(new DoubleArrRef(sortedData), nthQuartile);
     }
 
     /////////////////////////////////    int[]    ////////////////////////////////
 
     public static double getCount(int[] data){
-        return getCount(new ReadOnlyIntArr(data));
+        return getCount(new IntArrRef(data));
     }
     public static double getMin(int[] sortedData){
-        return getMin(new ReadOnlyIntArr(sortedData));
+        return getMin(new IntArrRef(sortedData));
     }
     public static double getMax(int[] sortedData){
-        return getMax(new ReadOnlyIntArr(sortedData));
+        return getMax(new IntArrRef(sortedData));
     }
     public static double getSum(int[] data){
-        return getSum(new ReadOnlyIntArr(data));
+        return getSum(new IntArrRef(data));
     }
     public static double getVariance(int[] data, double mean, boolean isSample){
-        return getVariance(new ReadOnlyIntArr(data), mean, isSample);
+        return getVariance(new IntArrRef(data), mean, isSample);
     }
     public static Mode getModeAndModeCount(int[] data){
-        return getModeAndModeCount(new ReadOnlyIntArr(data));
+        return getModeAndModeCount(new IntArrRef(data));
     }
     public static double getQuartile(int[] sortedData, int nthQuartile) {
-        return getQuartile(new ReadOnlyIntArr(sortedData), nthQuartile);
+        return getQuartile(new IntArrRef(sortedData), nthQuartile);
     }
 
     /////////////////////////////////    float[]    //////////////////////////////
 
     public static double getCount(float[] data){
-        return getCount(new ReadOnlyFloatArr(data));
+        return getCount(new FloatArrRef(data));
     }
     public static double getMin(float[] sortedData){
-        return getMin(new ReadOnlyFloatArr(sortedData));
+        return getMin(new FloatArrRef(sortedData));
     }
     public static double getMax(float[] sortedData){
-        return getMax(new ReadOnlyFloatArr(sortedData));
+        return getMax(new FloatArrRef(sortedData));
     }
     public static double getSum(float[] data){
-        return getSum(new ReadOnlyFloatArr(data));
+        return getSum(new FloatArrRef(data));
     }
     public static double getVariance(float[] data, double mean, boolean isSample){
-        return getVariance(new ReadOnlyFloatArr(data), mean, isSample);
+        return getVariance(new FloatArrRef(data), mean, isSample);
     }
     public static Mode getModeAndModeCount(float[] data){
-        return getModeAndModeCount(new ReadOnlyFloatArr(data));
+        return getModeAndModeCount(new FloatArrRef(data));
     }
     public static double getQuartile(float[] sortedData, int nthQuartile) {
-        return getQuartile(new ReadOnlyFloatArr(sortedData), nthQuartile);
+        return getQuartile(new FloatArrRef(sortedData), nthQuartile);
     }
 
 
@@ -295,25 +295,25 @@ public class DescStats {
 
 
     public static <T> double getCount(T[] data, Field field){
-        return getCount(new ReadOnlyGenericArr<>(data, field));
+        return getCount(new GenericArrRef<>(data, field));
     }
     public static <T> double getMin(T[] data, Field field){
-        return getMin(new ReadOnlyGenericArr<>(data, field));
+        return getMin(new GenericArrRef<>(data, field));
     }
     public static <T> double getMax(T[] data, Field field){
-        return getMax(new ReadOnlyGenericArr<>(data, field));
+        return getMax(new GenericArrRef<>(data, field));
     }
     public static <T> double getSum(T[] data, Field field) {
-        return getSum(new ReadOnlyGenericArr<>(data, field));
+        return getSum(new GenericArrRef<>(data, field));
     }
     public static <T> double getVariance(T[] data, Field field, double mean, boolean isSample) {
-        return getVariance(new ReadOnlyGenericArr<>(data, field), mean, isSample);
+        return getVariance(new GenericArrRef<>(data, field), mean, isSample);
     }
     public static <T> Mode getModeAndModeCount(T[] data, Field field) {
-        return getModeAndModeCount(new ReadOnlyGenericArr<>(data, field));
+        return getModeAndModeCount(new GenericArrRef<>(data, field));
     }
     public static <T> double getQuartile(T[] sortedData, Field field, int nthQuartile) throws IllegalAccessException {
-        return getQuartile(new ReadOnlyGenericArr<>(sortedData, field), nthQuartile);
+        return getQuartile(new GenericArrRef<>(sortedData, field), nthQuartile);
     }
 
 
@@ -322,7 +322,7 @@ public class DescStats {
     ////////    METHODS THAT CALCULATE EVERYTHING AND RETURN A DATADESCRIPTION OBJECT    ////////
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static DataDescription getDataDesc(TypelessArray sortedData){
+    public static DataDescription getDataDesc(ArrayRef sortedData){
         double count = getCount(sortedData);
         double min = getMin(sortedData);
         double max = getMax(sortedData);
@@ -349,19 +349,19 @@ public class DescStats {
 
     // these all convert themselves to TypelessArrays
     public static DataDescription getDataDesc(Number[] sortedData){
-        return getDataDesc(new ReadOnlyNumberArr(sortedData));
+        return getDataDesc(new NumberArrRef(sortedData));
     }
     public static DataDescription getDataDesc(int[] sortedData){
-        return getDataDesc(new ReadOnlyIntArr(sortedData));
+        return getDataDesc(new IntArrRef(sortedData));
     }
     public static DataDescription getDataDesc(double[] sortedData){
-        return getDataDesc(new ReadOnlyDoubleArr(sortedData));
+        return getDataDesc(new DoubleArrRef(sortedData));
     }
     public static DataDescription getDataDesc(float[] sortedData){
-        return getDataDesc(new ReadOnlyFloatArr(sortedData));
+        return getDataDesc(new FloatArrRef(sortedData));
     }
     public static <T> DataDescription getDataDesc(T[] sortedData, Field field) {
-        return getDataDesc(new ReadOnlyGenericArr<>(sortedData, field));
+        return getDataDesc(new GenericArrRef<>(sortedData, field));
     }
 
 

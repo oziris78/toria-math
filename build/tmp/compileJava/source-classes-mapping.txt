@@ -24,8 +24,8 @@ com/telek/telekmath/advanced/cryptography/AsciiCipher.java
  com.telek.telekmath.advanced.cryptography.AsciiCipher
 com/telek/telekmath/utils/TMath.java
  com.telek.telekmath.utils.TMath
-com/telek/telekmath/special/NumericalAnalysis.java
- com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekmath/core/matrices/TMatrixUtils.java
+ com.telek.telekmath.core.matrices.TMatrixUtils
 com/telek/telekmath/core/functions/amnfuncs/TSign.java
  com.telek.telekmath.core.functions.amnfuncs.TSign
 com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
@@ -161,46 +161,46 @@ com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
 com/telek/telekmath/special/DiscreteMath.java
  com.telek.telekmath.special.DiscreteMath
-com/telek/telekmath/core/matrices/TMatrixUtils.java
- com.telek.telekmath.core.matrices.TMatrixUtils
 com/telek/telekutils/containers/TArrays.java
  com.telek.telekutils.containers.TArrays
-com/telek/telekutils/containers/readonly/twodim/ReadOnlyIntArray2.java
- com.telek.telekutils.containers.readonly.twodim.ReadOnlyIntArray2
-com/telek/telekutils/containers/readonly/twodim/ReadOnlyNumberArray2.java
- com.telek.telekutils.containers.readonly.twodim.ReadOnlyNumberArray2
+com/telek/telekutils/containers/arrayref/oned/DoubleArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.DoubleArrRef
+com/telek/telekutils/containers/arrayref/oned/LongArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.LongArrRef
+com/telek/telekutils/containers/arrayref/oned/IntArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.IntArrRef
+com/telek/telekutils/containers/arrayref/twod/LongArrRef2.java
+ com.telek.telekutils.containers.arrayref.twod.LongArrRef2
 com/telek/telekmath/advanced/statistics/inferential/ChiSquareTests.java
  com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests
+com/telek/telekutils/containers/arrayref/twod/IntArrRef2.java
+ com.telek.telekutils.containers.arrayref.twod.IntArrRef2
+com/telek/telekutils/containers/arrayref/oned/NumberArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.NumberArrRef
 com/telek/telekmath/core/matrices/TMatrix.java
  com.telek.telekmath.core.matrices.TMatrix
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyDoubleArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyDoubleArray
-com/telek/telekutils/containers/readonly/twodim/ReadOnlyLongArray2.java
- com.telek.telekutils.containers.readonly.twodim.ReadOnlyLongArray2
-com/telek/telekutils/containers/readonly/twodim/ReadOnlyDoubleArray2.java
- com.telek.telekutils.containers.readonly.twodim.ReadOnlyDoubleArray2
+com/telek/telekutils/containers/arrayref/twod/FloatArrRef2.java
+ com.telek.telekutils.containers.arrayref.twod.FloatArrRef2
+com/telek/telekutils/containers/arrayref/oned/FloatArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.FloatArrRef
+com/telek/telekutils/containers/arrayref/twod/ArrayRef2.java
+ com.telek.telekutils.containers.arrayref.twod.ArrayRef2
 com/telek/telekmath/advanced/statistics/inferential/ConfidenceIntervals.java
  com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyFloatArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyFloatArray
+com/telek/telekutils/containers/arrayref/oned/ArrayRef.java
+ com.telek.telekutils.containers.arrayref.oned.ArrayRef
 com/telek/telekmath/advanced/statistics/regression/SimpleRegression.java
  com.telek.telekmath.advanced.statistics.regression.SimpleRegression
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyNumberArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyNumberArray
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyIntArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyIntArray
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyGenericArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyGenericArray
-com/telek/telekutils/containers/readonly/twodim/TypelessArray2.java
- com.telek.telekutils.containers.readonly.twodim.TypelessArray2
-com/telek/telekutils/containers/readonly/twodim/ReadOnlyFloatArray2.java
- com.telek.telekutils.containers.readonly.twodim.ReadOnlyFloatArray2
+com/telek/telekutils/containers/arrayref/twod/NumberArrRef2.java
+ com.telek.telekutils.containers.arrayref.twod.NumberArrRef2
+com/telek/telekutils/containers/arrayref/oned/GenericArrRef.java
+ com.telek.telekutils.containers.arrayref.oned.GenericArrRef
+com/telek/telekmath/special/NumericalAnalysis.java
+ com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekutils/containers/arrayref/twod/DoubleArrRef2.java
+ com.telek.telekutils.containers.arrayref.twod.DoubleArrRef2
 com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
  com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
-com/telek/telekutils/containers/readonly/onedim/ReadOnlyLongArray.java
- com.telek.telekutils.containers.readonly.onedim.ReadOnlyLongArray
-com/telek/telekutils/containers/readonly/onedim/TypelessArray.java
- com.telek.telekutils.containers.readonly.onedim.TypelessArray
 com/telek/telekmath/advanced/statistics/inferential/HypothesisTestings.java
  com.telek.telekmath.advanced.statistics.inferential.HypothesisTestings
 com/telek/telekmath/advanced/statistics/descriptive/DescStats.java

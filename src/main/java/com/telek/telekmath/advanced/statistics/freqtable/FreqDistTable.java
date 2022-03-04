@@ -5,7 +5,7 @@ import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.containers.TArrays;
-import com.telek.telekutils.containers.readonly.oned.*;
+import com.telek.telekutils.containers.arrayref.oned.*;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -30,7 +30,7 @@ public class FreqDistTable {
 
     // KNOWN FREQUENCIES TO FREQTABLE
 
-    public FreqDistTable(TypelessArray frequencies, double min, double classInterval){
+    public FreqDistTable(ArrayRef frequencies, double min, double classInterval){
         // error checking & references
         this.classCount = frequencies.getSize();
         checkForClassCount(classCount);
@@ -56,16 +56,16 @@ public class FreqDistTable {
     }
 
     public FreqDistTable(double[] frequencies, double min, double classInterval){
-        this(new ReadOnlyDoubleArr(frequencies), min, classInterval);
+        this(new DoubleArrRef(frequencies), min, classInterval);
     }
     public FreqDistTable(float[] frequencies, double min, double classInterval){
-        this(new ReadOnlyFloatArr(frequencies), min, classInterval);
+        this(new FloatArrRef(frequencies), min, classInterval);
     }
     public FreqDistTable(int[] frequencies, double min, double classInterval){
-        this(new ReadOnlyIntArr(frequencies), min, classInterval);
+        this(new IntArrRef(frequencies), min, classInterval);
     }
     public FreqDistTable(Number[] frequencies, double min, double classInterval){
-        this(new ReadOnlyNumberArr(frequencies), min, classInterval);
+        this(new NumberArrRef(frequencies), min, classInterval);
     }
 
 
@@ -76,7 +76,7 @@ public class FreqDistTable {
      * @param population any population (can be unsorted)
      * @param classCount an integer specifying how many rows this frequency distribution table will have
      */
-    public FreqDistTable(TypelessArray population, int classCount) {
+    public FreqDistTable(ArrayRef population, int classCount) {
         // error checking & references
         checkForClassCount(classCount);
         this.classCount = classCount;
@@ -111,19 +111,19 @@ public class FreqDistTable {
 
 
     public FreqDistTable(double[] population, int classCount){
-        this(new ReadOnlyDoubleArr(population), classCount);
+        this(new DoubleArrRef(population), classCount);
     }
     public FreqDistTable(float[] population, int classCount){
-        this(new ReadOnlyFloatArr(population), classCount);
+        this(new FloatArrRef(population), classCount);
     }
     public FreqDistTable(int[] population, int classCount){
-        this(new ReadOnlyIntArr(population), classCount);
+        this(new IntArrRef(population), classCount);
     }
     public FreqDistTable(Number[] population, int classCount){
-        this(new ReadOnlyNumberArr(population), classCount);
+        this(new NumberArrRef(population), classCount);
     }
     public <T> FreqDistTable(T[] population, Field field, int classCount) {
-        this(new ReadOnlyGenericArr<>(population, field), classCount);
+        this(new GenericArrRef<>(population, field), classCount);
     }
 
 

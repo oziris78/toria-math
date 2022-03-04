@@ -6,8 +6,8 @@ import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.containers.readonly.oned.*;
-import com.telek.telekutils.containers.readonly.twod.*;
+import com.telek.telekutils.containers.arrayref.oned.*;
+import com.telek.telekutils.containers.arrayref.twod.*;
 import com.telek.telekutils.plain.TClassUtils;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ public class SimpleRegression {
 
     /* ----------- One dimension: TypelessArray ----------- */
 
-    public static RegressionResult getResult(TypelessArray array, double alpha){
+    public static RegressionResult getResult(ArrayRef array, double alpha){
         // error checking
         final int len = array.getSize();
         checkEven(len);
@@ -64,16 +64,16 @@ public class SimpleRegression {
 
 
     public static RegressionResult getResult(double[] array, double alpha){
-        return getResult(new ReadOnlyDoubleArr(array), alpha);
+        return getResult(new DoubleArrRef(array), alpha);
     }
     public static RegressionResult getResult(float[] array, double alpha){
-        return getResult(new ReadOnlyFloatArr(array), alpha);
+        return getResult(new FloatArrRef(array), alpha);
     }
     public static RegressionResult getResult(int[] array, double alpha){
-        return getResult(new ReadOnlyIntArr(array), alpha);
+        return getResult(new IntArrRef(array), alpha);
     }
     public static RegressionResult getResult(Number[] array, double alpha){
-        return getResult(new ReadOnlyNumberArr(array), alpha);
+        return getResult(new NumberArrRef(array), alpha);
     }
 
 
@@ -82,7 +82,7 @@ public class SimpleRegression {
     /* ----------- double[][], float[][], int[][] ----------- */
 
 
-    public static RegressionResult getResult(TypelessArray2 array, double alpha){
+    public static RegressionResult getResult(ArrayRef2 array, double alpha){
         // error checking
         checkPointLength(array.getRowSize());
 
@@ -120,16 +120,16 @@ public class SimpleRegression {
 
 
     public static RegressionResult getResult(float[][] array, double alpha){
-        return getResult(new ReadOnlyFloatArr2(array), alpha);
+        return getResult(new FloatArrRef2(array), alpha);
     }
     public static RegressionResult getResult(double[][] array, double alpha){
-        return getResult(new ReadOnlyDoubleArr2(array), alpha);
+        return getResult(new DoubleArrRef2(array), alpha);
     }
     public static RegressionResult getResult(int[][] array, double alpha){
-        return getResult(new ReadOnlyIntArr2(array), alpha);
+        return getResult(new IntArrRef2(array), alpha);
     }
     public static RegressionResult getResult(Number[][] array, double alpha){
-        return getResult(new ReadOnlyNumberArr2(array), alpha);
+        return getResult(new NumberArrRef2(array), alpha);
     }
 
 

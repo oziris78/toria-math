@@ -5,7 +5,7 @@ import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.containers.readonly.oned.*;
+import com.telek.telekutils.containers.arrayref.oned.*;
 
 
 /**
@@ -42,7 +42,7 @@ public class ChiSquareTests {
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return true if the frequency distribution fits the distribution specified with the distType parameter
      */
-    public static boolean fitsDistribution(TypelessArray observedFreqs, double[] expectedFreqs, String distType, double alpha){
+    public static boolean fitsDistribution(ArrayRef observedFreqs, double[] expectedFreqs, String distType, double alpha){
         final int k = observedFreqs.getSize();
         if(expectedFreqs.length != k)
             throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
@@ -66,24 +66,24 @@ public class ChiSquareTests {
 
     ///////////////////   ALIASES   ///////////////////
 
-    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
+    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
     public static boolean fitsDistribution(double[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new ReadOnlyDoubleArr(observedFreqs), expectedFreqs, distType, alpha);
+        return fitsDistribution(new DoubleArrRef(observedFreqs), expectedFreqs, distType, alpha);
     }
 
-    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
+    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
     public static boolean fitsDistribution(float[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new ReadOnlyFloatArr(observedFreqs), expectedFreqs, distType, alpha);
+        return fitsDistribution(new FloatArrRef(observedFreqs), expectedFreqs, distType, alpha);
     }
 
-    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
+    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
     public static boolean fitsDistribution(Number[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new ReadOnlyNumberArr(observedFreqs), expectedFreqs, distType, alpha);
+        return fitsDistribution(new NumberArrRef(observedFreqs), expectedFreqs, distType, alpha);
     }
 
-    /**  @see #fitsDistribution(TypelessArray, double[], String, double)  */
+    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
     public static boolean fitsDistribution(int[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new ReadOnlyIntArr(observedFreqs), expectedFreqs, distType, alpha);
+        return fitsDistribution(new IntArrRef(observedFreqs), expectedFreqs, distType, alpha);
     }
 
     /**  @see #fitsDistribution(double[], double[], String, double)  */

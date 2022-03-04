@@ -4,10 +4,10 @@ import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.containers.readonly.oned.ReadOnlyDoubleArr;
-import com.telek.telekutils.containers.readonly.oned.ReadOnlyFloatArr;
-import com.telek.telekutils.containers.readonly.oned.ReadOnlyIntArr;
-import com.telek.telekutils.containers.readonly.oned.TypelessArray;
+import com.telek.telekutils.containers.arrayref.oned.DoubleArrRef;
+import com.telek.telekutils.containers.arrayref.oned.FloatArrRef;
+import com.telek.telekutils.containers.arrayref.oned.IntArrRef;
+import com.telek.telekutils.containers.arrayref.oned.ArrayRef;
 
 
 public class NumericalAnalysis {
@@ -22,7 +22,7 @@ public class NumericalAnalysis {
 
     ////////////////////////    LAGRANGE POLYNOMIALS    ////////////////////////
 
-    public static TPolynomial getLagrangePolynomial(TypelessArray array){
+    public static TPolynomial getLagrangePolynomial(ArrayRef array){
         if(array.getSize() % 2 != 0)
             throw new InvalidValueException("points.length", array.getSize());
         TPolynomial res = new TPolynomial(0);
@@ -49,13 +49,13 @@ public class NumericalAnalysis {
     }
 
     public static TPolynomial getLagrangePolynomial(double... array){
-        return getLagrangePolynomial(new ReadOnlyDoubleArr(array));
+        return getLagrangePolynomial(new DoubleArrRef(array));
     }
     public static TPolynomial getLagrangePolynomial(float... array){
-        return getLagrangePolynomial(new ReadOnlyFloatArr(array));
+        return getLagrangePolynomial(new FloatArrRef(array));
     }
     public static TPolynomial getLagrangePolynomial(int... array){
-        return getLagrangePolynomial(new ReadOnlyIntArr(array));
+        return getLagrangePolynomial(new IntArrRef(array));
     }
 
 
@@ -129,7 +129,7 @@ public class NumericalAnalysis {
     /*  HELPERS  */
     ///////////////
 
-    private static TPolynomial getPolyForLagrange(TypelessArray array, int dontTake){
+    private static TPolynomial getPolyForLagrange(ArrayRef array, int dontTake){
         TPolynomial res = new TPolynomial(1); // f(x) = 1
         for (int i = 0; i < array.getSize(); i+=2) {
             if(i == dontTake)
@@ -139,7 +139,7 @@ public class NumericalAnalysis {
         return res;
     }
 
-    private static double getDenomForLagrange(TypelessArray array, int dontTake){
+    private static double getDenomForLagrange(ArrayRef array, int dontTake){
         double d = 1d;
         final double dontTakeX = array.getValue(dontTake);
         for (int i = 0; i < array.getSize(); i+=2) {
