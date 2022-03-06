@@ -6,19 +6,32 @@ import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Objects;
 
 
+/**
+ * An immutable fraction class. <br>
+ */
 public class Fraction {
 
     /*  FIELDS  */
 
-    private int numerator, denominator;
+    private final int numerator, denominator;
 
     /*  CONSTRUCTORS  */
 
     public Fraction(int numerator, int denominator){
         if(denominator == 0) throw new DivisionByZeroException();
+        // SORT
+        if( (denominator < 0 && numerator < 0) || (numerator > 0 && denominator < 0) ){
+            denominator *= -1;
+            numerator *= -1;
+        }
+
+        // SIMPLIFY
+        int gcd = TMath.gcd(numerator, denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+
         this.numerator = numerator;
         this.denominator = denominator;
-        this.simplifyAndSort();
     }
 
     /*  METHODS  */
@@ -97,20 +110,6 @@ public class Fraction {
             int d = denom2;
             return new Fraction(this.numerator * d + b * num2, b * d);
         }
-    }
-
-
-    private void simplifyAndSort(){
-        // SORT
-        if( (this.denominator < 0 && this.numerator < 0) || (this.numerator > 0 && this.denominator < 0) ){
-            this.denominator *= -1;
-            this.numerator *= -1;
-        }
-
-        // SIMPLIFY
-        int gcd = TMath.gcd(this.numerator, this.denominator);
-        this.numerator /= gcd;
-        this.denominator /= gcd;
     }
 
 

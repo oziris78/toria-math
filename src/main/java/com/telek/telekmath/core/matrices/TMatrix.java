@@ -72,7 +72,6 @@ public class TMatrix {
     /*  METHODS  */
     ///////////////
 
-
     /**
      * Calculates A + B and assigns that to A (this matrix). <br>
      * This method only changes the first matrix.
@@ -90,6 +89,7 @@ public class TMatrix {
 
         return this;
     }
+
 
 
     /**
@@ -364,7 +364,6 @@ public class TMatrix {
         if(!this.isSquareMatrix())
             throw new NotASquareMatrixException();
     }
-
 
 
 }

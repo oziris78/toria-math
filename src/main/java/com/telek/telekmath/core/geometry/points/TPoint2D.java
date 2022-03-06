@@ -1,10 +1,15 @@
 package com.telek.telekmath.core.geometry.points;
 
 
+import com.telek.telekmath.core.geometry.vectors.TVector2D;
 import com.telek.telekmath.utils.TMath;
 import java.util.Objects;
 
 
+/**
+ * An immutable 2D point class. <br>
+ * All methods either return a numeric value or <b>a new {@link TPoint2D} instance</b>.
+ */
 public class TPoint2D {
 
     public static final TPoint2D ZERO = new TPoint2D(0d,0d);
@@ -60,6 +65,9 @@ public class TPoint2D {
         return new TPoint2D( 2 * aPoint.x - this.x, 2 * aPoint.y - this.y);
     }
 
+    public TVector2D toTVector2D(){
+        return new TVector2D(this.x, this.y);
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

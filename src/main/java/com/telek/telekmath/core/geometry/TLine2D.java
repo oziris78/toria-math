@@ -9,7 +9,9 @@ import java.util.Objects;
 
 
 /**
- * Defines a mathematical line in form  ax + by + c = 0
+ * An immutable 2D line class. <br>
+ * Defines a mathematical line in form  ax + by + c = 0 <br>
+ * All methods either return a numeric value or <b>a new {@link TLine2D} instance</b>.
  */
 public class TLine2D {
 

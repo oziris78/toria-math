@@ -1,11 +1,17 @@
 package com.telek.telekmath.core.geometry.vectors;
 
 
+import com.telek.telekmath.core.geometry.points.TPoint3D;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.matrices.TMatrix;
 
 import java.util.Objects;
 
+
+/**
+ * An immutable 3D vector class. <br>
+ * All methods either return a numeric value or <b>a new {@link TVector3D} instance</b>.
+ */
 public class TVector3D {
 
     public static final TVector3D ZERO = new TVector3D(0d, 0d, 0d);

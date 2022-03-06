@@ -1,7 +1,7 @@
 package com.telek.telekmath.advanced.statistics.regression;
 
 import com.telek.telekmath.advanced.distributions.cont.TDist;
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TMath;

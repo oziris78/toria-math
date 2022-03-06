@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.dists.ChiSqDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-03-04T21:58:05" hostname="TUNERIKGEZGINI" time="3.143">
+<testsuite name="com.telek.tests.dists.ChiSqDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-03-05T19:50:20" hostname="TUNERIKGEZGINI" time="1.849">
   <properties/>
-  <testcase name="invCumLeftTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.329"/>
-  <testcase name="invCumRightTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.003"/>
-  <testcase name="cumProbTest" classname="com.telek.tests.dists.ChiSqDistTest" time="2.746"/>
+  <testcase name="invCumLeftTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.288"/>
+  <testcase name="invCumRightTailed" classname="com.telek.tests.dists.ChiSqDistTest" time="0.002"/>
+  <testcase name="cumProbTest" classname="com.telek.tests.dists.ChiSqDistTest" time="1.494"/>
   <testcase name="densityTest" classname="com.telek.tests.dists.ChiSqDistTest" time="0.065"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

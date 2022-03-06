@@ -3,8 +3,13 @@ package com.telek.telekmath.core.numbers;
 
 import com.telek.telekmath.utils.TMath;
 
+import java.awt.event.ComponentListener;
 import java.util.Objects;
 
+
+/**
+ * An immutable complex number class. <br>
+ */
 public class ComplexNumber {
 
     private final double real, imaginary;
@@ -36,13 +41,21 @@ public class ComplexNumber {
         return new ComplexNumber( this.getReal(), -this.getImaginary());
     }
 
+    public ComplexNumber divide(ComplexNumber z2){
+        ComplexNumber up = this.multiply(z2.conjugate()); // z1 * z2conj
+        final double divid = z2.getImaginary() * z2.getImaginary() + z2.getReal() * z2.getReal();
+        return new ComplexNumber(up.real / divid, up.imaginary / divid);
+    }
+
     public ComplexNumber reciprocal(){
         double distFromOrigin = this.distanceFromOrigin();
         double distFromOrigin2 = distFromOrigin * distFromOrigin;
         return new ComplexNumber( this.getReal() / distFromOrigin2, -this.getImaginary() / distFromOrigin2);
     }
 
-    public double distanceFromOrigin(){ return Math.sqrt( (this.getImaginary() * this.getImaginary()) + (this.getReal() * this.getReal()) ); }
+    public double distanceFromOrigin(){
+        return Math.sqrt( (this.getImaginary() * this.getImaginary()) + (this.getReal() * this.getReal()) );
+    }
 
 
     /*  GETTERS AND SETTERS  */

@@ -3,7 +3,7 @@ package com.telek.tests.stats.confidenceint;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals;
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekutils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

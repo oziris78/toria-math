@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.functions.other;
 
 import com.telek.telekmath.core.functions.*;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
 

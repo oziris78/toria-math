@@ -3,6 +3,8 @@ package com.telek.telekmath.advanced.statistics.descriptive;
 
 import com.telek.telekmath.utils.TMath;
 
+import java.util.Objects;
+
 /**
  * A class containing all measures inside it.
  */
@@ -115,4 +117,38 @@ public class DataDescription {
                 ", bowleySkewCoef=" + bowleySkewCoef +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataDescription that = (DataDescription) o;
+        return Double.compare(that.count, count) == 0 &&
+                Double.compare(that.mean, mean) == 0 &&
+                Double.compare(that.sum, sum) == 0 &&
+                Double.compare(that.interquartileRange, interquartileRange) == 0 &&
+                Double.compare(that.sampleVariance, sampleVariance) == 0 &&
+                Double.compare(that.variance, variance) == 0 &&
+                Double.compare(that.sampleStddev, sampleStddev) == 0 &&
+                Double.compare(that.median, median) == 0 &&
+                Double.compare(that.quartile1, quartile1) == 0 &&
+                Double.compare(that.quartile2, quartile2) == 0 &&
+                Double.compare(that.quartile3, quartile3) == 0 &&
+                Double.compare(that.min, min) == 0 &&
+                Double.compare(that.max, max) == 0 &&
+                Double.compare(that.range, range) == 0 &&
+                Double.compare(that.stddev, stddev) == 0 &&
+                Double.compare(that.pearsonSkewCoef, pearsonSkewCoef) == 0 &&
+                Double.compare(that.bowleySkewCoef, bowleySkewCoef) == 0 &&
+                Objects.equals(mode, that.mode);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mode, count, mean, sum, interquartileRange,
+                sampleVariance, variance, sampleStddev, median, quartile1,
+                quartile2, quartile3, min, max, range, stddev, pearsonSkewCoef, bowleySkewCoef);
+    }
+
 }

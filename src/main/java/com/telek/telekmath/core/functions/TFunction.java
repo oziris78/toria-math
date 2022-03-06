@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.functions;
 
 
+import com.telek.telekmath.core.numbers.TRange;
+
 import java.util.ArrayList;
 import java.util.Objects;
 

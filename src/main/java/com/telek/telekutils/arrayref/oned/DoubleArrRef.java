@@ -1,6 +1,7 @@
 package com.telek.telekutils.arrayref.oned;
 
 
+
 public class DoubleArrRef implements ArrayRef {
 
     private double[] array;
@@ -18,5 +19,4 @@ public class DoubleArrRef implements ArrayRef {
     public int getSize() {
         return array.length;
     }
-
 }

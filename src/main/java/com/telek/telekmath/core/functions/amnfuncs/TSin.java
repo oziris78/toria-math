@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.functions.amnfuncs;
 
 import com.telek.telekmath.core.functions.TFunction;
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 
 
 /**

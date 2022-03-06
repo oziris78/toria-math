@@ -3,6 +3,7 @@ package com.telek.telekmath.core.functions.other;
 
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.*;
+import com.telek.telekmath.core.numbers.TRange;
 
 import java.util.Objects;
 

@@ -1,7 +1,7 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekmath.utils.TelekMathException.*;
+
 
 public class TMatrixUtils {
 

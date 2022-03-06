@@ -1,12 +1,18 @@
 package com.telek.telekmath.core.geometry.points;
 
+import com.telek.telekmath.core.geometry.vectors.TVector2D;
+import com.telek.telekmath.core.geometry.vectors.TVector3D;
 import com.telek.telekmath.utils.TMath;
 import java.util.Objects;
 
 
+/**
+ * An immutable 3D point class. <br>
+ * All methods either return a numeric value or <b>a new {@link TPoint3D} instance</b>.
+ */
 public class TPoint3D{
 
-    public double x,y,z;
+    public final double x,y,z;
 
     public TPoint3D(double x, double y, double z){
         this.x = x;
@@ -40,6 +46,9 @@ public class TPoint3D{
     }
 
 
+    public TVector3D toTVector3D(){
+        return new TVector3D(this.x, this.y, this.z);
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

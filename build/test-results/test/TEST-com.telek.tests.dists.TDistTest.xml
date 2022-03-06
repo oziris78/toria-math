@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.dists.TDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-03-04T21:58:08" hostname="TUNERIKGEZGINI" time="2.429">
+<testsuite name="com.telek.tests.dists.TDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-03-05T19:50:21" hostname="TUNERIKGEZGINI" time="2.459">
   <properties/>
-  <testcase name="invCumLeftTailed" classname="com.telek.tests.dists.TDistTest" time="2.17"/>
-  <testcase name="invCumRightTailed" classname="com.telek.tests.dists.TDistTest" time="0.001"/>
+  <testcase name="invCumLeftTailed" classname="com.telek.tests.dists.TDistTest" time="2.198"/>
+  <testcase name="invCumRightTailed" classname="com.telek.tests.dists.TDistTest" time="0.0"/>
   <testcase name="cumProbTest" classname="com.telek.tests.dists.TDistTest" time="0.156"/>
-  <testcase name="densityTest" classname="com.telek.tests.dists.TDistTest" time="0.102"/>
+  <testcase name="densityTest" classname="com.telek.tests.dists.TDistTest" time="0.104"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

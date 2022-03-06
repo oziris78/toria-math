@@ -1,7 +1,7 @@
 package com.telek.telekutils.image;
 
 
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
 
 import javax.imageio.ImageIO;

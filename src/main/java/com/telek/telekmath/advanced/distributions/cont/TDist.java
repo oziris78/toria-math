@@ -1,7 +1,7 @@
 package com.telek.telekmath.advanced.distributions.cont;
 
 
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;

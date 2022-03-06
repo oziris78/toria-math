@@ -9,7 +9,9 @@ GELECEK PLANLARI {
     TFunction
         - derivative fonksiyonunda unwrapping yapmalıyız
         - toString() metodu belki bundan sonra yeniden yazılmalı olacak
+        - çoğu amnfunc sınıfının constructor'ları kötü yazıldı daha düzgün kod yazılmalı
 
+    FastMat3, FastMat4 (TMat3, TMat4)  sınıflarını yaz  =>  Immutable / Mutable ?
 }
 
 

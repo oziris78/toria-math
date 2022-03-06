@@ -1,6 +1,6 @@
 package com.telek.tests.functions;
 
-import com.telek.telekmath.core.functions.TRange;
+import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
