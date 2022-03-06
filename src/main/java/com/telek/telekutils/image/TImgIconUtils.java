@@ -7,6 +7,9 @@ import java.awt.Image;
 public final class TImgIconUtils {
 
 
+    /* No Constructor */
+    private TImgIconUtils(){}
+
     /**
      * Resizes icon to width x height and returns a copy of that resized image.
      * @param icon and ImageIcon to resize

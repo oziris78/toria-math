@@ -7,14 +7,13 @@ import com.telek.telekmath.advanced.cryptography.VigenereCipher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.Locale;
 
 public class CryptoTest {
 
     @Test
     @DisplayName("cryptoTest")
-    void cryptoTest() {
+    void cryptoTest() throws Throwable {
 
         // ASCII CIPHER
         Assertions.assertEquals(AsciiCipher.encode("OGUZHAN", 2),
@@ -45,6 +44,7 @@ public class CryptoTest {
 
 
     }
+
 
 
 }

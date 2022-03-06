@@ -7,6 +7,8 @@ import java.util.Locale;
 
 public class BaconCipher {
 
+    /* No constructor */
+    private BaconCipher(){}
 
     // look here for more info: https://www.youtube.com/watch?v=ctA38iXUpYg
     public static String decode(String code){

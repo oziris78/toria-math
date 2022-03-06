@@ -8,6 +8,7 @@ import com.telek.telekmath.utils.TelekMathException.*;
 public class BernoulliDist {
 
 
+    /* No constructor */
     private BernoulliDist(){}
 
 

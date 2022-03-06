@@ -13,6 +13,8 @@ import java.io.File;
 public final class TBufImgUtils {
 
 
+	/* No Constructor */
+	private TBufImgUtils(){}
 
 	/*  GENERAL FUNCTIONS  */
 

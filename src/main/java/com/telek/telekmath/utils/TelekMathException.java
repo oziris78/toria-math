@@ -22,6 +22,16 @@ public final class TelekMathException extends RuntimeException {
 
     }
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class EqualBoundsException extends RuntimeException {
+        public EqualBoundsException() {
+            super("Left bound of a range can't be greater or equal to the right bound.");
+        }
+    }
+
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static class IsNegativeException extends RuntimeException {

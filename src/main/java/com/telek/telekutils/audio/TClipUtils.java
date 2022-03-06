@@ -5,6 +5,10 @@ import javax.sound.sampled.FloatControl;
 
 public class TClipUtils {
 
+    /* No Constructor */
+    private TClipUtils(){}
+
+
     /* PLAYING CLIPS */
 
     public static void playClip(Clip clip) {

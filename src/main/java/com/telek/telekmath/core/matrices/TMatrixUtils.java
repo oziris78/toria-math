@@ -6,6 +6,7 @@ package com.telek.telekmath.core.matrices;
 public class TMatrixUtils {
 
 
+    /* No constructor */
     private TMatrixUtils(){}
 
 

@@ -6,8 +6,8 @@ import com.telek.telekmath.utils.TMath;
 
 public class PoissonDist {
 
-    /*  CONSTRUCTORS  */
 
+    /* No constructor */
     private PoissonDist(){}
 
 

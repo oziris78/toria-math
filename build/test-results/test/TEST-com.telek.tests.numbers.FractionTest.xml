@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.numbers.FractionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-05T19:50:24" hostname="TUNERIKGEZGINI" time="0.001">
+<testsuite name="com.telek.tests.numbers.FractionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-06T16:27:14" hostname="TUNERIKGEZGINI" time="0.017">
   <properties/>
-  <testcase name="fracTest" classname="com.telek.tests.numbers.FractionTest" time="0.001"/>
+  <testcase name="fracTest" classname="com.telek.tests.numbers.FractionTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -41,8 +41,6 @@ public class TPolynomialTest {
         Assertions.assertEquals(TPolynomial.getTPolynomial(TRange.ZERO_TO_ONE, 1, -1, 2, -2, 3).value(4), 0); // out of range
 
         Assertions.assertEquals(TPolynomial.getCoefOnePoly(10).value(2), 2047);
-
-
     }
 
 

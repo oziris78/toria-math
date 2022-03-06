@@ -1,6 +1,8 @@
 package com.telek.telekutils.colors;
 
 
+import java.util.Arrays;
+
 public class TPalette {
 
     private final TColor[] colors;
@@ -15,6 +17,10 @@ public class TPalette {
 
     public TColor[] getColors() {
         return colors;
+    }
+
+    public TColor getColor(int index){
+        return colors[index];
     }
 
 
@@ -56,7 +62,8 @@ public class TPalette {
         int len = colors.length;
         for(int i = 0; i < len; i++){
             TColor curColor = colors[i];
-            content.append(curColor.getAlphaAsHex() + curColor.getRedAsHex() + curColor.getGreenAsHex() + curColor.getBlueAsHex());
+            content.append(curColor.getAlphaAsHex() + curColor.getRedAsHex() +
+                    curColor.getGreenAsHex() + curColor.getBlueAsHex());
             if(i+1 != len) content.append("\n");
         }
 
@@ -64,5 +71,26 @@ public class TPalette {
     }
 
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    @Override
+    public String toString() {
+        return "TPalette{" +
+                "colors=" + Arrays.toString(colors) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TPalette tPalette = (TPalette) o;
+        return Arrays.equals(colors, tPalette.colors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(colors);
+    }
 }

@@ -16,6 +16,10 @@ import java.util.stream.IntStream;
  */
 public final class TArrays {
 
+    /* No Constructor */
+    private TArrays(){}
+
+
     ////////////////////////////////
     /////// COPYING METHODS ////////
     ////////////////////////////////

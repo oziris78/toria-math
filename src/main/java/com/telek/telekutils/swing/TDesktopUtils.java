@@ -6,6 +6,9 @@ import java.net.URI;
 
 public class TDesktopUtils {
 
+    /* No Constructor */
+    private TDesktopUtils(){}
+
 
     public static void openOnBrowser(URI linkURI){
         try{

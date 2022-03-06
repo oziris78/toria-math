@@ -3,6 +3,8 @@ package com.telek.telekutils.colors;
 
 public class TPalettes {
 
+    /* No Constructor */
+    private TPalettes(){}
 
     public static final TPalette TELEK_STUDIOS = new TPalette(
             new TColor(36, 37, 42),

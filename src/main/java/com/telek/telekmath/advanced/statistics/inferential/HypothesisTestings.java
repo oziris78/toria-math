@@ -9,6 +9,9 @@ import com.telek.telekmath.utils.TelekMathException.*;
 public class HypothesisTestings {
 
 
+    /* No constructor */
+    private HypothesisTestings(){}
+
 
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////

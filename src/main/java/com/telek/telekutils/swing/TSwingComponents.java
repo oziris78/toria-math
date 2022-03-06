@@ -10,6 +10,9 @@ import java.awt.*;
 public class TSwingComponents {
 
 
+    /* No Constructor */
+    private TSwingComponents(){}
+
 
     public static JButton getButton(Rectangle bounds, Color bgColor, Color fgColor,
                                     Cursor cursor, boolean isEnabled, Font font, boolean isVisible,

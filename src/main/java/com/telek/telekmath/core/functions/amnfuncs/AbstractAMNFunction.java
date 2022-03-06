@@ -88,13 +88,12 @@ abstract class AbstractAMNFunction extends AbstractFunction {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         AbstractAMNFunction that = (AbstractAMNFunction) o;
-        return Double.compare(that.A, A) == 0 && Double.compare(that.m, m) == 0 && Double.compare(that.n, n) == 0 && funcType == that.funcType;
+        return Double.compare(that.A, A) == 0 && Double.compare(that.m, m) == 0 &&
+                Double.compare(that.n, n) == 0 && funcType == that.funcType;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), A, m, n, funcType);
     }
-
-
 }

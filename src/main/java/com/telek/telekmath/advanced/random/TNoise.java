@@ -6,6 +6,7 @@ import com.telek.telekmath.core.geometry.vectors.TVector3D;
 
 public class TNoise {
 
+    /* No constructor */
     private TNoise(){}
 
 

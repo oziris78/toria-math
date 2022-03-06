@@ -9,6 +9,7 @@ public class TRandom {
     /** Defines how many times the linear-congruential generation algorithm will be iterated in each method */
     public static int LCG_DEFAULT_ITERATION_COUNT = 20;
 
+    /* No constructor */
     private TRandom(){}
 
 

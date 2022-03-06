@@ -12,8 +12,8 @@ import java.util.Objects;
  */
 public class TInverseFunc extends AbstractFunction {
 
-    private double coef;
-    private int degree;
+    private final double coef;
+    private final int degree;
 
     /*  CONSTRUCTORS  */
 

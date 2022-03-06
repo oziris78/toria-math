@@ -16,8 +16,10 @@ public class FractionTest {
         Fraction f3 = new Fraction(5, 14);
         Fraction f4 = new Fraction(19, 10);
 
-        Assertions.assertEquals(f1.isEqualTo(f2), false);
-        Assertions.assertEquals(f1.isEqualTo(f3), false);
+        Assertions.assertFalse(f1.equals(f2));
+        Assertions.assertFalse(f1.equals(f3));
+        Assertions.assertEquals(f1.multiply(new Fraction(-1, 1)), f2);
+
         Assertions.assertEquals(f4.getAsDouble(), 1.9d);
         Assertions.assertEquals(f1.add(f2), new Fraction(0, 7));
         Assertions.assertEquals(f1.subtract(f2), new Fraction(-10, 7));

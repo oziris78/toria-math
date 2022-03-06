@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class TSwingUtils {
 
+    /* No Constructor */
+    private TSwingUtils(){}
 
     public static void hideAll(Component... components) { for(Component c : components) c.setVisible(false); }
 

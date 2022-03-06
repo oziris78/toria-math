@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 
 public class TClassUtils {
 
+    /* No Constructor */
+    private TClassUtils(){}
 
     public static int getFieldCount(Class<?> clazz){
         return clazz.getFields().length;

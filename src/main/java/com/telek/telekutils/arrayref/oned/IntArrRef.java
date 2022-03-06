@@ -1,6 +1,8 @@
 package com.telek.telekutils.arrayref.oned;
 
 
+import java.util.Arrays;
+
 public class IntArrRef implements ArrayRef {
 
     private int[] array;
@@ -19,4 +21,26 @@ public class IntArrRef implements ArrayRef {
         return array.length;
     }
 
+    ////////////////////////////////////////////////
+
+
+    @Override
+    public String toString() {
+        return "IntArrRef{" +
+                Arrays.toString(array) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IntArrRef intArrRef = (IntArrRef) o;
+        return Arrays.equals(array, intArrRef.array);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(array);
+    }
 }

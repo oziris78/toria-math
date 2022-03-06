@@ -7,6 +7,8 @@ import java.util.Locale;
 public class VigenereCipher {
 
 
+    /* No constructor */
+    private VigenereCipher(){}
 
     public static String encode(String text, String key) {
         return vigenereCipher(text, key, true);

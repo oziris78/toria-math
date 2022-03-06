@@ -6,6 +6,7 @@ import com.telek.telekmath.utils.TelekMathException.*;
 
 public class DiscreteUniformDist {
 
+    /* No constructor */
     private DiscreteUniformDist(){}
 
 

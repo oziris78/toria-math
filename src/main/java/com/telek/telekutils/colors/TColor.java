@@ -1,10 +1,12 @@
 package com.telek.telekutils.colors;
 
 
+import java.util.Objects;
+
 public class TColor {
 
     /** Values in range [0,255] */
-    private int r,g,b,a;
+    private final int r,g,b,a;
 
     private String rAsHex = null, gAsHex = null, bAsHex = null, aAsHex = null;
 
@@ -97,5 +99,25 @@ public class TColor {
         return gAsHex;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////
+
+
+    @Override
+    public String toString() {
+        return "TColor{" + "r=" + r + ", g=" + g + ", b=" + b + ", a=" + a + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TColor tColor = (TColor) o;
+        return r == tColor.r && g == tColor.g && b == tColor.b && a == tColor.a;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(r, g, b, a);
+    }
 
 }

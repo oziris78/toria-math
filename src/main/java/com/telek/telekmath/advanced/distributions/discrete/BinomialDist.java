@@ -7,6 +7,7 @@ import com.telek.telekmath.utils.TMath;
 
 public class BinomialDist {
 
+    /* No constructor */
     private BinomialDist(){}
 
 

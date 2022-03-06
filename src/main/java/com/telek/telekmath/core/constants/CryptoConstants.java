@@ -7,6 +7,9 @@ import java.util.HashMap;
 
 public final class CryptoConstants {
 
+    /* No constructors */
+    private CryptoConstants(){}
+
     public static final StringBuilder ENGLISH_ALPHABET = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
     public static final HashMap<Integer, String> baseEleven = getBaseHashMap(11);

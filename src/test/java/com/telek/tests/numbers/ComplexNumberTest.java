@@ -19,6 +19,12 @@ public class ComplexNumberTest {
         ComplexNumber c2 = new ComplexNumber(2,-2); // 2 - 2i
         ComplexNumber c3 = new ComplexNumber(0, 8); // 8i
         ComplexNumber c4 = new ComplexNumber(8, 0); // 8
+        ComplexNumber c5 = new ComplexNumber(8, 0); // 8
+
+        Assertions.assertNotEquals(c1, c5);
+        Assertions.assertNotEquals(c2, c5);
+        Assertions.assertNotEquals(c3, c5);
+        Assertions.assertEquals(c4, c5);
 
         Assertions.assertEquals(c1.equals(c2.add(new ComplexNumber(0, 4))), true);
         Assertions.assertEquals(c1.equals(c2.subtract(new ComplexNumber(0, -4))), true);

@@ -47,7 +47,7 @@ public class TLine2DTest {
 
         Assertions.assertTrue(
                 TMath.areEqual(TLine2D.distanceBetweenTwoParallelLines(new TLine2D(2.65d, -13), new TLine2D(2.65d, 4)),
-                6.002
+                6.002d
         ));
 
         Assertions.assertEquals(l1.size(), TMathConstants.SQRT2);

@@ -2,9 +2,16 @@ package com.telek.telekmath.core.numbers;
 
 
 import com.telek.telekmath.utils.TMath;
+import com.telek.telekmath.utils.TelekMathException.EqualBoundsException;
 
 import java.util.Objects;
 
+
+/**
+ * An immutable range class. <br>
+ * Even though this class represents a mathematical function's domain, it's used
+ * in many other places throughout telek-math. <br>
+ */
 public class TRange {
 
     //////////////
@@ -21,9 +28,10 @@ public class TRange {
 
 
     public static final TRange REEL_NUMBERS = new TRange(-Double.MAX_VALUE, Double.MAX_VALUE);
+
     public static final TRange ZERO_TO_ONE = new TRange(0d, 1d);
+
     public static final TRange MONE_TO_ONE = new TRange(-1d, 1d);
-    public static final TRange BYTE_RANGE = new TRange(Byte.MIN_VALUE, Byte.MAX_VALUE);
 
 
     ////////////////////
@@ -31,6 +39,8 @@ public class TRange {
     ////////////////////
 
     public TRange(double inclusiveLeft, double inclusiveRight){
+        if(inclusiveLeft >= inclusiveRight)
+            throw new EqualBoundsException();
         this.left = inclusiveLeft;
         this.right = inclusiveRight;
     }

@@ -13,6 +13,10 @@ import java.util.*;
 public final class TCollections {
 
 
+    /* No Constructor */
+    private TCollections(){}
+
+
     ////////////////////////////////////////
     ///// COLLECTION CREATION METHODS //////
     ////////////////////////////////////////

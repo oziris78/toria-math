@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class DiscreteMath {
 
+    /* No constructor */
     private DiscreteMath(){}
 
     /**

@@ -7,6 +7,8 @@ import java.util.Locale;
 
 public class CaesarCipher {
 
+    /* No constructor */
+    private CaesarCipher(){}
 
     /*  METHODS  */
 

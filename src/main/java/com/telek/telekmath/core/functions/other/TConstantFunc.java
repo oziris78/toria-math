@@ -9,7 +9,7 @@ import java.util.Objects;
 public class TConstantFunc extends AbstractFunction {
 
 
-    private double constValue;
+    private final double constValue;
 
     public TConstantFunc(TRange range, double constValue) {
         super(range);

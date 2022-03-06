@@ -29,7 +29,6 @@ public class FreqDistTable {
 
 
     // KNOWN FREQUENCIES TO FREQTABLE
-
     public FreqDistTable(ArrayRef frequencies, double min, double classInterval){
         // error checking & references
         this.classCount = frequencies.getSize();

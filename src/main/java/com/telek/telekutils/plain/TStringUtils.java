@@ -4,6 +4,9 @@ package com.telek.telekutils.plain;
 public class TStringUtils {
 
 
+    /* No Constructor */
+    private TStringUtils(){}
+
 
     /**
      * If x is in [0,9] it returns x as a string but if it's 10,11,12,... it returns "A","B","C",...

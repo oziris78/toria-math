@@ -3,6 +3,10 @@ package com.telek.telekmath.core.constants;
 
 public final class TMathConstants {
 
+    /* No constructors */
+    private TMathConstants(){}
+
+
     // telek-math uses a bigger value just to make it more flexible...
     public static final double EPSILON = 1E-4;
 

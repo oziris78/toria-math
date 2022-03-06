@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class AsciiCipher {
 
 
+    /* No constructor */
+    private AsciiCipher(){}
+
     public static String decode(String numberSeq, int base){
         String[] strArr = numberSeq.split("\\s+");
         ArrayList<Integer> numArr = new ArrayList<>();

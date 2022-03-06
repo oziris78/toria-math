@@ -81,10 +81,6 @@ public class Fraction {
         return this.getAsDouble() < other.getAsDouble();
     }
 
-    public boolean isEqualTo(Fraction other){
-        return this.getAsDouble() == other.getAsDouble();
-    }
-
 
 
     /*  GETTERS AND SETTERS  */
@@ -132,8 +128,8 @@ public class Fraction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Fraction fraction = (Fraction) o;
-        return numerator == fraction.numerator && denominator == fraction.denominator;
+        Fraction that = (Fraction) o;
+        return this.getAsDouble() == that.getAsDouble();
     }
 
     @Override
