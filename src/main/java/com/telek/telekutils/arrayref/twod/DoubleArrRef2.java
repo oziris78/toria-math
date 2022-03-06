@@ -11,6 +11,10 @@ public class DoubleArrRef2 implements ArrayRef2 {
         this.array = array;
     }
 
+    public double[][] getArray() {
+        return array;
+    }
+
     @Override
     public double getValue(int row, int col) {
         return array[row][col];

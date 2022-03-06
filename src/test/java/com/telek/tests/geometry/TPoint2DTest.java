@@ -18,6 +18,13 @@ public class TPoint2DTest {
         TPoint2D p2 = new TPoint2D(0, -10);
         TPoint2D p3 = new TPoint2D(0, 0);
         TPoint2D p4 = new TPoint2D(0.5, -0.5);
+        TPoint2D p5 = new TPoint2D(0.5, -0.5);
+
+        Assertions.assertNotEquals(p1, p2);
+        Assertions.assertNotEquals(p1, p3);
+        Assertions.assertNotEquals(p1, p4);
+        Assertions.assertNotEquals(p1, p5);
+        Assertions.assertEquals(p4, p5);
 
         Assertions.assertEquals(p1.moveBy(0, -10), p3);
 

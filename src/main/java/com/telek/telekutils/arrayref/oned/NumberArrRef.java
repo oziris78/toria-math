@@ -11,6 +11,10 @@ public class NumberArrRef implements ArrayRef {
         this.array = array;
     }
 
+    public Number[] getArray() {
+        return array;
+    }
+
     @Override
     public double getValue(int index) {
         return array[index].doubleValue();

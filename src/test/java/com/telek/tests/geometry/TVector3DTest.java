@@ -15,6 +15,12 @@ public class TVector3DTest {
         TVector3D v1 = new TVector3D(0, 1, -1);
         TVector3D v2 = new TVector3D(0, 0, 0);
         TVector3D v3 = new TVector3D(0, 2, 7);
+        TVector3D v4 = new TVector3D(0, 2, 7);
+
+        Assertions.assertNotEquals(v1, v2);
+        Assertions.assertNotEquals(v1, v3);
+        Assertions.assertNotEquals(v1, v4);
+        Assertions.assertEquals(v3, v4);
 
         Assertions.assertEquals(v1.cross(v3), new TVector3D(9,0,0));
         Assertions.assertEquals(v3.projection(v1), new TVector3D(0,-2.5d,2.5d));

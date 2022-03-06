@@ -11,6 +11,10 @@ public class LongArrRef implements ArrayRef {
         this.array = array;
     }
 
+    public long[] getArray() {
+        return array;
+    }
+
     @Override
     public double getValue(int index) {
         return array[index];

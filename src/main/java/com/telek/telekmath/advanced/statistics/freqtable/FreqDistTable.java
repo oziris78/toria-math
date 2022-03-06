@@ -268,22 +268,7 @@ public class FreqDistTable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FreqDistTable that = (FreqDistTable) o;
-        if(this.classCount != that.classCount)
-            return false;
-        if(this.getRowCount() != that.getRowCount())
-            return false;
-        for (int i = 0; i < this.getRowCount(); i++) {
-            FrequencyClass cl1 = this.getTableRow(i);
-            FrequencyClass cl2 = that.getTableRow(i);
-            if(!TMath.areEqual(cl1.cLeft, cl2.cLeft)) return false;
-            if(!TMath.areEqual(cl1.cRight, cl2.cRight)) return false;
-            if(!TMath.areEqual(cl1.freq, cl2.freq)) return false;
-            if(!TMath.areEqual(cl1.relFreq, cl2.relFreq)) return false;
-            if(!TMath.areEqual(cl1.incCumFreq, cl2.incCumFreq)) return false;
-            if(!TMath.areEqual(cl1.incRelFreq, cl2.incRelFreq)) return false;
-            if(!TMath.areEqual(cl1.midpoint, cl2.midpoint)) return false;
-        }
-        return true;
+        return classCount == that.classCount && Arrays.equals(table, that.table);
     }
 
     @Override

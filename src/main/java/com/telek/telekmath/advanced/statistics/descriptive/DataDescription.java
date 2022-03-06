@@ -23,6 +23,19 @@ public class DataDescription {
         public String toString() {
             return "Mode{" + "value=" + value + ", count=" + count + '}';
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Mode mode = (Mode) o;
+            return Double.compare(mode.value, value) == 0 && Double.compare(mode.count, count) == 0;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value, count);
+        }
     }
 
     //////////////
@@ -118,13 +131,13 @@ public class DataDescription {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DataDescription that = (DataDescription) o;
-        return Double.compare(that.count, count) == 0 &&
-                Double.compare(that.mean, mean) == 0 &&
+        return Double.compare(that.count, count) == 0 && Double.compare(that.mean, mean) == 0 &&
                 Double.compare(that.sum, sum) == 0 &&
                 Double.compare(that.interquartileRange, interquartileRange) == 0 &&
                 Double.compare(that.sampleVariance, sampleVariance) == 0 &&
@@ -143,12 +156,12 @@ public class DataDescription {
                 Objects.equals(mode, that.mode);
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(mode, count, mean, sum, interquartileRange,
-                sampleVariance, variance, sampleStddev, median, quartile1,
-                quartile2, quartile3, min, max, range, stddev, pearsonSkewCoef, bowleySkewCoef);
+                sampleVariance, variance, sampleStddev, median, quartile1, quartile2, quartile3,
+                min, max, range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
+
 
 }

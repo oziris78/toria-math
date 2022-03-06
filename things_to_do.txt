@@ -1,14 +1,5 @@
 
 
-FreqDistTable
-FrequencyClass
-DataDescription
-RegressionResult
-
-tüm fonksiyonlara test
-tüm geometry paketine test
-
-
 
 GELECEK PLANLARI {
 

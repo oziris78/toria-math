@@ -18,6 +18,15 @@ public class TVector2DTest {
         TVector2D v3 = new TVector2D(-1, -1);
         TVector2D v4 = new TVector2D(0, -1);
         TVector2D v5 = new TVector2D(0, 1);
+        TVector2D v6 = new TVector2D(0, 1);
+
+        Assertions.assertNotEquals(v1, v2);
+        Assertions.assertNotEquals(v1, v3);
+        Assertions.assertNotEquals(v1, v4);
+        Assertions.assertNotEquals(v1, v5);
+        Assertions.assertNotEquals(v1, v6);
+        Assertions.assertEquals(v5, v6);
+
 
 
         Assertions.assertEquals(v1.add(1, 1), v2);

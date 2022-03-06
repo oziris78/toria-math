@@ -11,6 +11,10 @@ public class IntArrRef implements ArrayRef {
         this.array = array;
     }
 
+    public int[] getArray() {
+        return array;
+    }
+
     @Override
     public double getValue(int index) {
         return array[index];

@@ -4,6 +4,7 @@ package com.telek.telekmath.advanced.statistics.regression;
 import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.core.functions.other.TPolynomial;
 
+import java.util.Objects;
 
 
 /**
@@ -122,5 +123,37 @@ public class RegressionResult {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RegressionResult that = (RegressionResult) o;
+        return Double.compare(that.n, n) == 0 &&
+                hasPositiveDirection == that.hasPositiveDirection &&
+                areTheyCorrelated == that.areTheyCorrelated &&
+                Double.compare(that.sumX, sumX) == 0 &&
+                Double.compare(that.sumY, sumY) == 0 &&
+                Double.compare(that.sumXY, sumXY) == 0 &&
+                Double.compare(that.sumX2, sumX2) == 0 &&
+                Double.compare(that.sumY2, sumY2) == 0 &&
+                Double.compare(that.sumE2, sumE2) == 0 &&
+                Double.compare(that.S, S) == 0 &&
+                Double.compare(that.S2, S2) == 0 &&
+                Double.compare(that.SRS, SRS) == 0 &&
+                Double.compare(that.STS, STS) == 0 &&
+                Double.compare(that.SES, SES) == 0 &&
+                Double.compare(that.r, r) == 0 &&
+                Double.compare(that.R2, R2) == 0 &&
+                Double.compare(that.SR, SR) == 0 &&
+                Objects.equals(line, that.line) &&
+                Objects.equals(confIntOfCorrelationCoef, that.confIntOfCorrelationCoef);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(n, hasPositiveDirection, areTheyCorrelated,
+                sumX, sumY, sumXY, sumX2, sumY2, sumE2, line, S, S2,
+                SRS, STS, SES, r, R2, SR, confIntOfCorrelationCoef
+        );
+    }
 }

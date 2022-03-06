@@ -20,6 +20,15 @@ public class TLine2DTest {
         TLine2D l5 = new TLine2D(1, 5);       // y = x +5
         TLine2D yAxis = new TLine2D(new TPoint2D(0,0), new TPoint2D(0, 10)); // x = 0
 
+        Assertions.assertEquals(l1, l3);
+        Assertions.assertEquals(l2, l4);
+        Assertions.assertNotEquals(l1, l2);
+        Assertions.assertNotEquals(l1, l4);
+        Assertions.assertNotEquals(l1, l5);
+        Assertions.assertNotEquals(l2, l5);
+        Assertions.assertNotEquals(l3, l5);
+        Assertions.assertNotEquals(l4, l5);
+
         Assertions.assertEquals(TLine2D.angleBetweenTwoLines(l1, l2), TMathConstants.PI_OVER_TWO);
         Assertions.assertEquals(TLine2D.angleBetweenTwoLines(l2, l1), TMathConstants.PI_OVER_TWO);
 

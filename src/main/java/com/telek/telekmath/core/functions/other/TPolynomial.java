@@ -24,7 +24,7 @@ public class TPolynomial extends AbstractFunction {
     ////////////////////
 
 
-    public TPolynomial(TRange range, double[] coefficients) {
+    public TPolynomial(TRange range, double... coefficients) {
         super(range);
         if(coefficients[coefficients.length-1] == 0d && coefficients.length != 1)
             throw new UnnecessaryZeroException();
