@@ -41,7 +41,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.oziris78:telek-math:v0.8'
+    implementation 'com.github.oziris78:telek-math:v0.8.1'
 }
 ```
 
@@ -60,9 +60,9 @@ CTRL to see how it works.
 
 ### Some Notes
 - Telek Math was developed by only one person (Oğuzhan Topaloğlu)
-- Telek Math (currently v0.8) has passed all tests!
+- Telek Math (currently v0.8.1) has passed all tests!
 - Wiki won't be coming soon.
-- Telek Math (currently v0.8) not optimized at all, 
+- Telek Math (currently v0.8.1) not optimized at all, 
   code still runs fast but it lacks a lot of optimizations...
 
 
