@@ -45,14 +45,6 @@ public class TRange {
         this.right = inclusiveRight;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TRange(TRange other){
-        this(other.left, other.right);
-    }
-
 
 
     ///////////////

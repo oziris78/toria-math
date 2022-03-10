@@ -30,13 +30,6 @@ public class TVector3D {
         this.z = z;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TVector3D(TVector3D other){
-        this(other.x, other.y, other.z);
-    }
 
 
     ///////////////

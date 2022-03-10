@@ -15,8 +15,6 @@ public class TDiracDeltaFunc extends AbstractAMNFunction{
 
 
     /*  CONSTRUCTORS  */
-
-    public TDiracDeltaFunc(TDiracDeltaFunc other){ super(other); }
     public TDiracDeltaFunc(TRange range, double A, double m, double n) {super(FuncType.DIRAC, range, A, m, n);}
     public TDiracDeltaFunc(TRange range, double A, double m) {super(FuncType.DIRAC, range, A, m);}
     public TDiracDeltaFunc(TRange range, double A) {super(FuncType.DIRAC, range, A);}

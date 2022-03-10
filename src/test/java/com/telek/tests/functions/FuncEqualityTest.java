@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class FuncEqualityTest {
 
+
+
     @Test
     @DisplayName("amnFuncTest")
     void amnFuncTest() {

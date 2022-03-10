@@ -27,13 +27,6 @@ public class TVector2D {
         this.y = y;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TVector2D(TVector2D other){
-        this(other.x, other.y);
-    }
 
 
     ///////////////

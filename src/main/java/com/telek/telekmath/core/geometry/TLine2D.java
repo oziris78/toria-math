@@ -52,15 +52,6 @@ public class TLine2D {
 
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TLine2D(TLine2D other){
-        this(other.a, other.b, other.c);
-    }
-
-
     public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){
         double x1 = pointOneOnLine.x;
         double x2 = pointTwoOnLine.x;

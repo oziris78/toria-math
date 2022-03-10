@@ -34,13 +34,6 @@ public class TPolynomial extends AbstractFunction {
     }
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TPolynomial(TPolynomial other){
-        this(other.range, TArrays.getCopyOf(other.coefficients));
-    }
 
 
 

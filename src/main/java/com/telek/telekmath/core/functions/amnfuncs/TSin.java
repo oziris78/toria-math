@@ -11,8 +11,6 @@ public class TSin extends AbstractAMNFunction {
 
 
     /*  CONSTRUCTORS  */
-
-    public TSin(TSin other){ super(other); }
     public TSin(TRange range, double A, double m, double n) {super(FuncType.SIN, range, A, m, n);}
     public TSin(TRange range, double A, double m) {super(FuncType.SIN, range, A, m);}
     public TSin(TRange range, double A) {super(FuncType.SIN, range, A);}

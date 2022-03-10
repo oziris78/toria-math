@@ -119,6 +119,25 @@ public class TMatrixTest {
 
 
     @Test
+    @DisplayName("copyConstructorTest")
+    void copyConstructorTest() {
+        TMatrix mat1 = new TMatrix(new double[][] {
+                new double[]{12.0, 7.0, 1.0},
+                new double[]{-75.0, 8.0, 2.0},
+                new double[]{36.0, -1.0, 4.0}
+        }); // 3x3
+
+        TMatrix mat2 = new TMatrix(mat1);
+
+        mat1.setCell(0, 0, 25d);
+        mat2.setCell(0, 1, 100);
+
+        Assertions.assertFalse(mat1.getCell(0, 1) == 100);
+        Assertions.assertFalse(mat2.getCell(0, 0) == 25);
+    }
+
+
+    @Test
     @DisplayName("differentTypeArray2Tests")
     void differentTypeArray2Tests() {
         // these tests are the same as matrixTest()

@@ -13,20 +13,8 @@ public class TPalette {
         this.colors = colors;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TPalette(TPalette other){
-        this.colors = TArrays.getCopyOf(other.colors, TColor.class);
-    }
-
     public int getColorCount(){
         return colors.length;
-    }
-
-    public TColor[] getColors() {
-        return colors;
     }
 
     public TColor getColor(int index){
@@ -56,8 +44,8 @@ public class TPalette {
 
         for(int i = 0; i < len; i++){
             TColor curColor = colors[i];
-            content.append(String.format("%d\t%d\t%d\t%s", curColor.getRed(), curColor.getGreen(),
-                    curColor.getBlue(), curColor.getRedAsHex() + curColor.getGreenAsHex() + curColor.getBlueAsHex()));
+            content.append(String.format("%d\t%d\t%d\t%s", curColor.red, curColor.green,
+                    curColor.blue, curColor.getRedAsHex() + curColor.getGreenAsHex() + curColor.getBlueAsHex()));
             if(i+1 != len) content.append("\n");
         }
 

@@ -11,8 +11,6 @@ import com.telek.telekmath.core.numbers.TRange;
 public class THeavisideFunc extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
-
-    public THeavisideFunc(THeavisideFunc other){ super(other); }
     public THeavisideFunc(TRange range, double A, double m, double n) {super(FuncType.HEAVISIDE, range, A, m, n);}
     public THeavisideFunc(TRange range, double A, double m) {super(FuncType.HEAVISIDE, range, A, m);}
     public THeavisideFunc(TRange range, double A) {super(FuncType.HEAVISIDE, range, A);}

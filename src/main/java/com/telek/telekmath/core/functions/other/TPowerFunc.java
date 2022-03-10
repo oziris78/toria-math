@@ -55,13 +55,6 @@ public class TPowerFunc extends AbstractFunction {
     }
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TPowerFunc(TPowerFunc other){
-        this(other.range, other.a, other.b, other.m);
-    }
 
     /*  METHODS  */
 

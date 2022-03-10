@@ -18,6 +18,10 @@ public class TStringUtils {
         return String.valueOf( (char) (65 + x - 10) );
     }
 
+    public static String getAsHex(int value){
+        String valueAsHex = Integer.toHexString(value);
+        return (valueAsHex.length() == 1) ? "0" + valueAsHex : valueAsHex;
+    }
 
 
     /**
@@ -28,7 +32,8 @@ public class TStringUtils {
      */
     public static String repeat(String str, int n){
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n; i++) sb.append(str);
+        for (int i = 0; i < n; i++)
+            sb.append(str);
         return sb.toString();
     }
 

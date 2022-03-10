@@ -44,7 +44,7 @@ public class TMatrix {
      * @param other other object to copy
      */
     public TMatrix(TMatrix other){
-        this(other.matrix);
+        this(TArrays.getCopyOf(other.matrix));
     }
 
 

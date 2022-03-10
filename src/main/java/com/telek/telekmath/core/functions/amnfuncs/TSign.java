@@ -12,8 +12,6 @@ public class TSign extends AbstractAMNFunction {
 
 
     /*  CONSTRUCTORS  */
-
-    public TSign(TSign other){ super(other); }
     public TSign(TRange range, double A, double m, double n) {super(FuncType.SIGN, range, A, m, n);}
     public TSign(TRange range, double A, double m) {super(FuncType.SIGN, range, A, m);}
     public TSign(TRange range, double A) {super(FuncType.SIGN, range, A);}

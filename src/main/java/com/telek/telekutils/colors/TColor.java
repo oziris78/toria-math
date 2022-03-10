@@ -1,45 +1,34 @@
 package com.telek.telekutils.colors;
 
 
+import com.telek.telekutils.plain.TStringUtils;
+
 import java.util.Objects;
 
+
+/**
+ * An immutable Color class with few utility functions.
+ */
 public class TColor {
 
     /** Values in range [0,255] */
-    private final int r,g,b,a;
-
-    private String rAsHex = null, gAsHex = null, bAsHex = null, aAsHex = null;
+    public final int red, green, blue, alpha;
 
     ////////////////////
     /*  CONSTRUCTORS  */
     ////////////////////
 
-    public TColor(int r, int g, int b, int a){
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        this.a = a;
+    public TColor(int red, int green, int blue, int alpha){
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.alpha = alpha;
     }
 
-    public TColor(int r, int g, int b){
-        this(r, g, b, 255);
+    public TColor(int red, int green, int blue){
+        this(red, green, blue, 255);
     }
 
-
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TColor(TColor other){
-        this.r = other.r;
-        this.g = other.g;
-        this.b = other.b;
-        this.a = other.a;
-        this.rAsHex = other.rAsHex;
-        this.gAsHex = other.gAsHex;
-        this.bAsHex = other.bAsHex;
-        this.aAsHex = other.aAsHex;
-    }
 
 
     /**
@@ -60,59 +49,34 @@ public class TColor {
     ///////////////
 
 
-    public String getRGBString(){
-        return String.format("rgb(%d, %d, %d)", r, g, b);
+
+    public String getAsRGB(){
+        return String.format("rgb(%d, %d, %d)", red, green, blue);
     }
 
-    public String getRGBAString(){
-        return String.format("rgba(%d, %d, %d, %f)", r, g, b, a / 255f);
+    public String getAsRGBA(){
+        return String.format("rgba(%d, %d, %d, %f)", red, green, blue, alpha / 255f);
     }
 
-    public String getHexString(){
+    public String getAsHex(){
         return String.format("%s%s%s", getRedAsHex(), getGreenAsHex(), getBlueAsHex());
     }
 
 
-    ///////////////////////////
-    /*  GETTERS AND SETTERS  */
-    ///////////////////////////
-
-
-    public int getAlpha() {return a;}
-    public int getBlue() {return b;}
-    public int getGreen() {return g;}
-    public int getRed() {return r;}
-
-    public String getAlphaAsHex() {
-        if(bAsHex == null) {
-            aAsHex = Integer.toHexString(a);
-            if(aAsHex.length() == 1) aAsHex = "0" + aAsHex;
-        }
-        return aAsHex;
-    }
-
     public String getRedAsHex() {
-        if(rAsHex == null) {
-            rAsHex = Integer.toHexString(r);
-            if(rAsHex.length() == 1) rAsHex = "0" + rAsHex;
-        }
-        return rAsHex;
-    }
-
-    public String getBlueAsHex() {
-        if(bAsHex == null) {
-            bAsHex = Integer.toHexString(b);
-            if(bAsHex.length() == 1) bAsHex = "0" + bAsHex;
-        }
-        return bAsHex;
+        return TStringUtils.getAsHex(red);
     }
 
     public String getGreenAsHex() {
-        if(gAsHex == null) {
-            gAsHex = Integer.toHexString(g);
-            if(gAsHex.length() == 1) gAsHex = "0" + gAsHex;
-        }
-        return gAsHex;
+        return TStringUtils.getAsHex(green);
+    }
+
+    public String getBlueAsHex() {
+        return TStringUtils.getAsHex(blue);
+    }
+
+    public String getAlphaAsHex() {
+        return TStringUtils.getAsHex(alpha);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -120,7 +84,7 @@ public class TColor {
 
     @Override
     public String toString() {
-        return "TColor{" + "r=" + r + ", g=" + g + ", b=" + b + ", a=" + a + '}';
+        return "TColor{" + "r=" + red + ", g=" + green + ", b=" + blue + ", a=" + alpha + '}';
     }
 
     @Override
@@ -128,12 +92,12 @@ public class TColor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TColor tColor = (TColor) o;
-        return r == tColor.r && g == tColor.g && b == tColor.b && a == tColor.a;
+        return red == tColor.red && green == tColor.green && blue == tColor.blue && alpha == tColor.alpha;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(r, g, b, a);
+        return Objects.hash(red, green, blue, alpha);
     }
 
 }

@@ -44,13 +44,6 @@ public class TInverseFunc extends AbstractFunction {
         this(TRange.REEL_NUMBERS, 1d, 1);
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TInverseFunc(TInverseFunc other){
-        this(other.range, other.coef, other.degree);
-    }
 
 
     /*  METHODS  */

@@ -9,10 +9,41 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.Supplier;
 
 
 public class FuncTest {
+
+    @Test
+    @DisplayName("tfunctionTest")
+    void tfunctionTest() {
+        TFunction f1 = new TFunction();
+        TFunction f2 = new TFunction(new TLog());
+        TFunction f3 = new TFunction(new TSin());
+        f3.addProduct(new TCos());
+
+        TFunction cf1 = new TFunction(f1);
+        TFunction cf2 = new TFunction(f2);
+        TFunction cf3 = new TFunction(f3);
+
+        Assertions.assertEquals(f1, cf1);
+        Assertions.assertEquals(f2, cf2);
+        Assertions.assertEquals(f3, cf3);
+
+        cf1.addProduct(new TConstantFunc(50d));
+        cf2.addProduct(new TConstantFunc(50d));
+        cf3.addProduct(new TConstantFunc(50d));
+
+        double val1 = TMath.abs(cf1.value(10) - f1.value(10d));
+        double val2 = TMath.abs(cf2.value(10) - f2.value(10d));
+        double val3 = TMath.abs(cf3.value(10) - f3.value(10d));
+
+        Assertions.assertTrue(TMath.areEqual(val1, 50d));
+        Assertions.assertTrue(TMath.areEqual(val2, 50d));
+        Assertions.assertTrue(TMath.areEqual(val3, 50d));
+
+    }
+
+
 
     @Test
     @DisplayName("amnTest")

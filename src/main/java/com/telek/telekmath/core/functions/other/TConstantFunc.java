@@ -21,14 +21,6 @@ public class TConstantFunc extends AbstractFunction {
     }
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TConstantFunc(TConstantFunc other){
-        this(other.range, other.constValue);
-    }
-
     ///////////////
     /*  METHODS  */
     ///////////////

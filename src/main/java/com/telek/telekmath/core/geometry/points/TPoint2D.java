@@ -27,14 +27,6 @@ public class TPoint2D {
         this.y = y;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TPoint2D(TPoint2D other){
-        this(other.x, other.y);
-    }
-    
 
     ///////////////
     /*  METHODS  */

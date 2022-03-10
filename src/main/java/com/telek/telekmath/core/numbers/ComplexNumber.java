@@ -25,13 +25,6 @@ public class ComplexNumber {
     }
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public ComplexNumber(ComplexNumber other){
-        this(other.real, other.imaginary);
-    }
 
 
     ///////////////

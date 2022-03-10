@@ -12,8 +12,6 @@ public class TFloor extends AbstractAMNFunction {
 
 
     /*  CONSTRUCTORS  */
-
-    public TFloor(TFloor other){ super(other); }
     public TFloor(TRange range, double A, double m, double n) {super(FuncType.FLOOR, range, A, m, n);}
     public TFloor(TRange range, double A, double m) {super(FuncType.FLOOR, range, A, m);}
     public TFloor(TRange range, double A) {super(FuncType.FLOOR, range, A);}

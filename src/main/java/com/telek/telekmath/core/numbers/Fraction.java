@@ -39,15 +39,6 @@ public class Fraction {
     }
 
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public Fraction(Fraction other){
-        this(other.numerator, other.denominator);
-    }
-
-
 
     ///////////////
     /*  METHODS  */

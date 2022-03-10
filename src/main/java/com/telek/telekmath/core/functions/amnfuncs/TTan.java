@@ -12,8 +12,6 @@ public class TTan extends AbstractAMNFunction {
 
 
     /*  CONSTRUCTORS  */
-
-    public TTan(TTan other){ super(other); }
     public TTan(TRange range, double A, double m, double n) {super(FuncType.TAN, range, A, m, n);}
     public TTan(TRange range, double A, double m) {super(FuncType.TAN, range, A, m);}
     public TTan(TRange range, double A) {super(FuncType.TAN, range, A);}

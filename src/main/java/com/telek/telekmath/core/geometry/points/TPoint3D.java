@@ -21,13 +21,6 @@ public class TPoint3D{
         this.z = z;
     }
 
-    /**
-     * Copy constructor
-     * @param other other object to copy
-     */
-    public TPoint3D(TPoint3D other){
-        this(other.x, other.y, other.z);
-    }
 
     public double distanceFromOrigin() {
         return Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );

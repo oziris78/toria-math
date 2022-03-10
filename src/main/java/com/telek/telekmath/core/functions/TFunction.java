@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
+/**
+ * This class is the only mutable function class in telek-math. <br>
+ * Use this class with elementary functions to create more complex functions.
+ */
 public class TFunction extends AbstractFunction {
 
     private ArrayList<AbstractFunction[]> innerProducts; // (f11 * f21 * ...) + (f21 * f22 * ...) + (f31 * f32 * ...) + ...
@@ -24,6 +28,10 @@ public class TFunction extends AbstractFunction {
     public TFunction(AbstractFunction... functions){
         this(new ArrayList<>());
         this.addProduct(functions);
+    }
+
+    public TFunction(){
+        this(new ArrayList<>());
     }
 
 
@@ -76,7 +84,7 @@ public class TFunction extends AbstractFunction {
             }
             result += productResult;
         }
-            return result;
+        return result;
     }
 
 
@@ -144,8 +152,13 @@ public class TFunction extends AbstractFunction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TFunction tFunction = (TFunction) o;
-        return Objects.equals(innerProducts, tFunction.innerProducts);
+        TFunction that = (TFunction) o;
+        int thisLen = this.innerProducts.size();
+        int thatLen = that.innerProducts.size();
+        if(thisLen != thatLen)
+            return false;
+        // (sinx + cosx) won't be equal to (cosx + sinx)
+        return this.toString().equals(that.toString());
     }
 
     @Override
