@@ -14,6 +14,7 @@ public class TSinh extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
 
+    public TSinh(TSinh other){ super(other); }
     public TSinh(TRange range, double A, double m, double n) {super(FuncType.SINH, range, A, m, n);}
     public TSinh(TRange range, double A, double m) {super(FuncType.SINH, range, A, m);}
     public TSinh(TRange range, double A) {super(FuncType.SINH, range, A);}

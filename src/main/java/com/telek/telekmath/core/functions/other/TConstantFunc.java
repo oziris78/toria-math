@@ -20,6 +20,19 @@ public class TConstantFunc extends AbstractFunction {
         this(TRange.REEL_NUMBERS, constValue);
     }
 
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TConstantFunc(TConstantFunc other){
+        this(other.range, other.constValue);
+    }
+
+    ///////////////
+    /*  METHODS  */
+    ///////////////
+
     @Override
     public double value(double x) {
         if( !this.range.isInRange(x) ) return 0;

@@ -13,6 +13,7 @@ public class TCeil extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
 
+    public TCeil(TCeil other){ super(other); }
     public TCeil(TRange range, double A, double m, double n) {super(FuncType.CEIL, range, A, m, n);}
     public TCeil(TRange range, double A, double m) {super(FuncType.CEIL, range, A, m);}
     public TCeil(TRange range, double A) {super(FuncType.CEIL, range, A);}

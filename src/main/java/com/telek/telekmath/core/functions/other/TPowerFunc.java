@@ -4,6 +4,7 @@ package com.telek.telekmath.core.functions.other;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.*;
 import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekutils.containers.TArrays;
 
 import java.util.Objects;
 
@@ -54,7 +55,13 @@ public class TPowerFunc extends AbstractFunction {
     }
 
 
-
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TPowerFunc(TPowerFunc other){
+        this(other.range, other.a, other.b, other.m);
+    }
 
     /*  METHODS  */
 

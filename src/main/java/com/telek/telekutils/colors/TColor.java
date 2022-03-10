@@ -27,6 +27,22 @@ public class TColor {
 
 
     /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TColor(TColor other){
+        this.r = other.r;
+        this.g = other.g;
+        this.b = other.b;
+        this.a = other.a;
+        this.rAsHex = other.rAsHex;
+        this.gAsHex = other.gAsHex;
+        this.bAsHex = other.bAsHex;
+        this.aAsHex = other.aAsHex;
+    }
+
+
+    /**
      * Creates a tcolor object using the hex string.
      * @param hexString a string like "#ffaacc" with an hashtag in the beginning.
      */

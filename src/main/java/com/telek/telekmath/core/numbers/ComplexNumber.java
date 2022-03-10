@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.numbers;
 
 
+import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TMath;
 
 import java.awt.event.ComponentListener;
@@ -14,10 +15,29 @@ public class ComplexNumber {
 
     private final double real, imaginary;
 
+    ////////////////////
+    /*  CONSTRUCTORS  */
+    ////////////////////
+
     public ComplexNumber(double real, double imaginary){
         this.real = real;
         this.imaginary = imaginary;
     }
+
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public ComplexNumber(ComplexNumber other){
+        this(other.real, other.imaginary);
+    }
+
+
+    ///////////////
+    /*  METHODS  */
+    ///////////////
+
 
     public boolean hasImaginaryPart(){ return this.imaginary != 0; }
     public boolean hasRealPart(){ return this.real != 0; }

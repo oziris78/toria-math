@@ -4,6 +4,8 @@ import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.geometry.points.TPoint2D;
 import com.telek.telekmath.utils.TelekMathException.*;
+import com.telek.telekutils.colors.TColor;
+
 import java.util.Objects;
 
 
@@ -48,6 +50,15 @@ public class TLine2D {
         this(-m, 1d, -n);
     }
 
+
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TLine2D(TLine2D other){
+        this(other.a, other.b, other.c);
+    }
 
 
     public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){

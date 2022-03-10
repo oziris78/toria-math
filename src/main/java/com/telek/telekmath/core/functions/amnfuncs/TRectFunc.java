@@ -16,6 +16,7 @@ public class TRectFunc extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
 
+    public TRectFunc(TRectFunc other){ super(other); }
     public TRectFunc(TRange range, double A, double m, double n) {super(FuncType.RECT, range, A, m, n);}
     public TRectFunc(TRange range, double A, double m) {super(FuncType.RECT, range, A, m);}
     public TRectFunc(TRange range, double A) {super(FuncType.RECT, range, A);}

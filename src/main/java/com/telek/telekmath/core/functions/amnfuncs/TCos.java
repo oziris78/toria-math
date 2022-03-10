@@ -13,6 +13,7 @@ public class TCos extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
 
+    public TCos(TCos other){ super(other); }
     public TCos(TRange range, double A, double m, double n) {super(FuncType.COS, range, A, m, n);}
     public TCos(TRange range, double A, double m) {super(FuncType.COS, range, A, m);}
     public TCos(TRange range, double A) {super(FuncType.COS, range, A);}

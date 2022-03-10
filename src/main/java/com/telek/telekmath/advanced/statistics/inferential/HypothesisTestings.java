@@ -8,6 +8,9 @@ import com.telek.telekmath.utils.TelekMathException.*;
 
 public class HypothesisTestings {
 
+    public static final String EQUAL = "=";
+    public static final String GREATER_OR_EQUAL = ">=";
+    public static final String LESS_OR_EQUAL = "<=";
 
     /* No constructor */
     private HypothesisTestings(){}

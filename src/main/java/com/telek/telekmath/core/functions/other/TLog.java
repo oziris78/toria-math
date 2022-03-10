@@ -61,6 +61,15 @@ public class TLog extends AbstractFunction {
     }
 
 
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TLog(TLog other){
+        this(other.range, other.a, other.b, other.m);
+    }
+
+
 
     /*  METHODS  */
 

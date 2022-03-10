@@ -1,6 +1,9 @@
 package com.telek.telekmath.core.matrices;
 
 
+import com.telek.telekmath.core.functions.amnfuncs.TCeil;
+import com.telek.telekmath.core.functions.amnfuncs.TCos;
+import com.telek.telekmath.core.geometry.vectors.TVector3D;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
@@ -34,6 +37,14 @@ public class TMatrix {
         this.matrix = matrix;
         this.rowSize = matrix.length;
         this.colSize = matrix[0].length;
+    }
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TMatrix(TMatrix other){
+        this(other.matrix);
     }
 
 

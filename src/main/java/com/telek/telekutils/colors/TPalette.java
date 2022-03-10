@@ -1,6 +1,8 @@
 package com.telek.telekutils.colors;
 
 
+import com.telek.telekutils.containers.TArrays;
+
 import java.util.Arrays;
 
 public class TPalette {
@@ -9,6 +11,14 @@ public class TPalette {
 
     public TPalette(TColor... colors){
         this.colors = colors;
+    }
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TPalette(TPalette other){
+        this.colors = TArrays.getCopyOf(other.colors, TColor.class);
     }
 
     public int getColorCount(){
@@ -22,6 +32,9 @@ public class TPalette {
     public TColor getColor(int index){
         return colors[index];
     }
+
+
+
 
 
     /*  EXPORTING CODE  */

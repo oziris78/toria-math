@@ -13,6 +13,7 @@ public class TCosh extends AbstractAMNFunction {
 
     /*  CONSTRUCTORS  */
 
+    public TCosh(TCosh other){ super(other); }
     public TCosh(TRange range, double A, double m, double n) {super(FuncType.COSH, range, A, m, n);}
     public TCosh(TRange range, double A, double m) {super(FuncType.COSH, range, A, m);}
     public TCosh(TRange range, double A) {super(FuncType.COSH, range, A);}

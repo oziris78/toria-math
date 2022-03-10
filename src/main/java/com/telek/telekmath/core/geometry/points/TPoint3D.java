@@ -1,5 +1,6 @@
 package com.telek.telekmath.core.geometry.points;
 
+import com.telek.telekmath.core.geometry.TLine2D;
 import com.telek.telekmath.core.geometry.vectors.TVector2D;
 import com.telek.telekmath.core.geometry.vectors.TVector3D;
 import com.telek.telekmath.utils.TMath;
@@ -18,6 +19,14 @@ public class TPoint3D{
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TPoint3D(TPoint3D other){
+        this(other.x, other.y, other.z);
     }
 
     public double distanceFromOrigin() {

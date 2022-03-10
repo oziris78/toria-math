@@ -2,7 +2,7 @@ package com.telek.telekmath.core.functions;
 
 
 import com.telek.telekmath.core.numbers.TRange;
-
+import com.telek.telekutils.containers.TArrays;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +12,9 @@ public class TFunction extends AbstractFunction {
     private ArrayList<AbstractFunction[]> innerProducts; // (f11 * f21 * ...) + (f21 * f22 * ...) + (f31 * f32 * ...) + ...
 
 
+    ////////////////////
     /*  CONSTRUCTORS  */
+    ////////////////////
 
     public TFunction(ArrayList<AbstractFunction[]> innerProducts){
         super(TRange.REEL_NUMBERS);
@@ -25,9 +27,25 @@ public class TFunction extends AbstractFunction {
     }
 
 
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TFunction(TFunction other){
+        super(TRange.REEL_NUMBERS);
+        ArrayList<AbstractFunction[]> innerProducts = new ArrayList<>();
+        for(AbstractFunction[] arr : other.innerProducts){
+            AbstractFunction[] copy = TArrays.getCopyOf(arr, AbstractFunction.class);
+            innerProducts.add(copy);
+        }
+        this.innerProducts = innerProducts;
+    }
 
 
+
+    ///////////////
     /*  METHODS  */
+    ///////////////
 
 
     /**
@@ -77,10 +95,9 @@ public class TFunction extends AbstractFunction {
     }
 
 
-
-
-
+    ///////////////
     /*  HELPERS  */
+    ///////////////
 
 
     private TFunction deriveProduct(AbstractFunction[] product) {

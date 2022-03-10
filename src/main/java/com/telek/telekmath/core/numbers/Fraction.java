@@ -11,11 +11,15 @@ import java.util.Objects;
  */
 public class Fraction {
 
+    //////////////
     /*  FIELDS  */
+    //////////////
 
     private final int numerator, denominator;
 
+    ////////////////////
     /*  CONSTRUCTORS  */
+    ////////////////////
 
     public Fraction(int numerator, int denominator){
         if(denominator == 0) throw new DivisionByZeroException();
@@ -34,7 +38,20 @@ public class Fraction {
         this.denominator = denominator;
     }
 
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public Fraction(Fraction other){
+        this(other.numerator, other.denominator);
+    }
+
+
+
+    ///////////////
     /*  METHODS  */
+    ///////////////
 
     public double getAsDouble(){
         return ((double) this.numerator) / ((double) this.denominator);

@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.geometry.vectors;
 
 
+import com.telek.telekmath.core.geometry.TLine2D;
 import com.telek.telekmath.core.geometry.points.TPoint3D;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.matrices.TMatrix;
@@ -27,6 +28,14 @@ public class TVector3D {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TVector3D(TVector3D other){
+        this(other.x, other.y, other.z);
     }
 
 

@@ -3,6 +3,8 @@ package com.telek.telekmath.core.functions.other;
 import com.telek.telekmath.core.functions.*;
 import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
+import com.telek.telekutils.containers.TArrays;
+
 import java.util.Arrays;
 
 
@@ -31,6 +33,14 @@ public class TPolynomial extends AbstractFunction {
         this.coefficients = coefficients;
     }
 
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TPolynomial(TPolynomial other){
+        this(other.range, TArrays.getCopyOf(other.coefficients));
+    }
 
 
 

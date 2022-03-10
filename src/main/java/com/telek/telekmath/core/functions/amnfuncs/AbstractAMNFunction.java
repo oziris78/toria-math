@@ -32,6 +32,16 @@ abstract class AbstractAMNFunction extends AbstractFunction {
 
     /*  CONSTRUCTORS  */
 
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public AbstractAMNFunction(AbstractAMNFunction other){
+        this(other.funcType, other.range, other.A, other.m, other.n);
+    }
+
+
     public AbstractAMNFunction(FuncType funcType, TRange range, double A, double m, double n) {
         super(range);
         this.funcType = funcType;

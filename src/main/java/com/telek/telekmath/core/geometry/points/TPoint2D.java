@@ -1,6 +1,7 @@
 package com.telek.telekmath.core.geometry.points;
 
 
+import com.telek.telekmath.core.geometry.TLine2D;
 import com.telek.telekmath.core.geometry.vectors.TVector2D;
 import com.telek.telekmath.utils.TMath;
 import java.util.Objects;
@@ -24,6 +25,14 @@ public class TPoint2D {
     public TPoint2D(double x, double y){
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * Copy constructor
+     * @param other other object to copy
+     */
+    public TPoint2D(TPoint2D other){
+        this(other.x, other.y);
     }
     
 
