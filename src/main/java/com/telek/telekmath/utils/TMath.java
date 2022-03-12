@@ -75,7 +75,6 @@ public final class TMath {
 
 
 
-
     /**
      * Works in linear time aka O(n)
      * @param n any long
@@ -98,7 +97,12 @@ public final class TMath {
      */
     public static int pow(int base, int exponent){
         if(exponent < 0) throw new InvalidValueException("exponent", exponent);
-        return (exponent != 0) ? base * pow(base,exponent-1) : 1;
+        if(exponent == 0) return 1;
+        if(exponent == 1) return base;
+        int result = 1;
+        for (int i = 0; i < exponent; i++)
+            result *= base;
+        return result;
     }
 
 

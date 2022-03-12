@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 
 public class TPolynomialTest {
 
+
     @Test
     @DisplayName("polyTest")
     void polyTest() {
-
-
         TPolynomial p1 = new TPolynomial(new double[]{
             1,0,1,2,0,0,0,9
         }); // 1 + x^2 + 2x^3 + 9x^7

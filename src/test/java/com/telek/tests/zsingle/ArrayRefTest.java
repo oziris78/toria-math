@@ -1,6 +1,5 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.core.geometry.points.TPoint3D;
 import com.telek.telekutils.arrayref.oned.*;
 import com.telek.telekutils.arrayref.twod.*;
 import com.telek.telekutils.plain.TClassUtils;

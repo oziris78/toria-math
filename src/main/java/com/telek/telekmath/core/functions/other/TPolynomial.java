@@ -34,9 +34,6 @@ public class TPolynomial extends AbstractFunction {
     }
 
 
-
-
-
     /**
      * Unlike MATLAB, this constructor reads the values from small exponents to higher exponents. <br>
      * For example [1,0,1,9] means 1 + x^2 + 9x^3, in MATLAB in would mean x^3+x+9...
@@ -52,6 +49,7 @@ public class TPolynomial extends AbstractFunction {
     ///////////////
     /*  METHODS  */
     ///////////////
+
 
 
     public TPolynomial add(TPolynomial other){
