@@ -1,8 +1,9 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SwingPanel {
 
@@ -66,6 +67,18 @@ public class SwingPanel {
     }
     public SwingPanel setToolTipText(String toolTipText){
         this.panel.setToolTipText(toolTipText);
+        return this;
+    }
+    public SwingPanel addMouseListener(MouseListener mouseListener){
+        this.panel.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingPanel addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.panel.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingPanel addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.panel.addMouseWheelListener(mouseWheelListener);
         return this;
     }
 

@@ -1,9 +1,11 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeListener;
 import javax.swing.text.Caret;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SwingTextField {
 
@@ -33,7 +35,22 @@ public class SwingTextField {
     ///////////////
     /*  METHODS  */
     ///////////////
-
+    public SwingTextField addMouseListener(MouseListener mouseListener){
+        this.textField.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingTextField addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.textField.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingTextField addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.textField.addMouseWheelListener(mouseWheelListener);
+        return this;
+    }
+    public SwingTextField addActionListener(ActionListener actionListener){
+        this.textField.addActionListener(actionListener);
+        return this;
+    }
     public SwingTextField setBounds(Rectangle bounds){
         this.textField.setBounds(bounds);
         return this;

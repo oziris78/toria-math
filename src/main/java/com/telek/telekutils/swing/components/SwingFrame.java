@@ -1,7 +1,8 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SwingFrame {
 
@@ -78,6 +79,18 @@ public class SwingFrame {
     }
     public SwingFrame setOpacity(float opacity){
         this.frame.setOpacity(opacity);
+        return this;
+    }
+    public SwingFrame addMouseListener(MouseListener mouseListener){
+        this.frame.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingFrame addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.frame.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingFrame addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.frame.addMouseWheelListener(mouseWheelListener);
         return this;
     }
 

@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group 'com.github.oziris78'
-version '0.8.1.4'
+version '0.8.1.5'
 
 
 targetCompatibility = 1.8

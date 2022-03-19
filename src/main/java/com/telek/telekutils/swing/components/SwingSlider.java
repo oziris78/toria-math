@@ -1,9 +1,10 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.*;
 
 
 public class SwingSlider {
@@ -69,6 +70,10 @@ public class SwingSlider {
         this.slider.setVisible(isVisible);
         return this;
     }
+    public SwingSlider addActionListener(ChangeListener changeListener){
+        this.slider.addChangeListener(changeListener);
+        return this;
+    }
     public SwingSlider setLayout(LayoutManager layout){
         this.slider.setLayout(layout);
         return this;
@@ -95,6 +100,18 @@ public class SwingSlider {
     }
     public SwingSlider setValue(int value){
         this.slider.setValue(value);
+        return this;
+    }
+    public SwingSlider addMouseListener(MouseListener mouseListener){
+        this.slider.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingSlider addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.slider.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingSlider addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.slider.addMouseWheelListener(mouseWheelListener);
         return this;
     }
     public SwingSlider setOrientation(int orientation){

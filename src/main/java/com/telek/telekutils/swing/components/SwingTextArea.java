@@ -1,9 +1,10 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.text.Caret;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SwingTextArea {
 
@@ -34,7 +35,18 @@ public class SwingTextArea {
     ///////////////
     /*  METHODS  */
     ///////////////
-
+    public SwingTextArea addMouseListener(MouseListener mouseListener){
+        this.textArea.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingTextArea addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.textArea.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingTextArea addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.textArea.addMouseWheelListener(mouseWheelListener);
+        return this;
+    }
     public SwingTextArea setBounds(Rectangle bounds){
         this.textArea.setBounds(bounds);
         return this;

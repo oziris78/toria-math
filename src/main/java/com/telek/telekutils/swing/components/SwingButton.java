@@ -1,8 +1,11 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.*;
+
 
 public class SwingButton {
 
@@ -84,6 +87,37 @@ public class SwingButton {
         this.button.setOpaque(isOpaque);
         return this;
     }
+
+    public SwingButton addMouseListener(MouseListener mouseListener){
+        this.button.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingButton addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.button.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingButton addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.button.addMouseWheelListener(mouseWheelListener);
+        return this;
+    }
+    public SwingButton addActionListener(ActionListener actionListener){
+        this.button.addActionListener(actionListener);
+        return this;
+    }
+    public SwingButton addChangeListener(ChangeListener changeListener){
+        this.button.addChangeListener(changeListener);
+        return this;
+    }
+    public SwingButton addItemListener(ItemListener itemListener){
+        this.button.addItemListener(itemListener);
+        return this;
+    }
+
+    public SwingButton setText(String text){
+        this.button.setText(text);
+        return this;
+    }
+
 
     public SwingButton setToolTipText(String toolTipText){
         this.button.setToolTipText(toolTipText);

@@ -1,8 +1,9 @@
-package com.telek.telekutils.swing;
+package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SwingLabel {
 
@@ -41,7 +42,18 @@ public class SwingLabel {
     /*  METHODS  */
     ///////////////
 
-
+    public SwingLabel addMouseListener(MouseListener mouseListener){
+        this.label.addMouseListener(mouseListener);
+        return this;
+    }
+    public SwingLabel addMouseMotionListener(MouseMotionListener mouseMotionListener){
+        this.label.addMouseMotionListener(mouseMotionListener);
+        return this;
+    }
+    public SwingLabel addMouseWheelListener(MouseWheelListener mouseWheelListener){
+        this.label.addMouseWheelListener(mouseWheelListener);
+        return this;
+    }
     public SwingLabel setBounds(Rectangle bounds){
         this.label.setBounds(bounds);
         return this;
