@@ -46,4 +46,9 @@ public class TClipUtils {
         volume.setValue(dB);
     }
 
+    public static void setVolumeToClips(Clip[] clips, double d){
+        for(Clip clip : clips)
+            setVolumeToClip(clip, d);
+    }
+
 }
