@@ -1,6 +1,5 @@
 package com.telek.tests.numbers;
 
-import com.sun.org.apache.bcel.internal.generic.ArrayType;
 import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.core.numbers.ComplexNumber;
 import org.junit.jupiter.api.Assertions;
