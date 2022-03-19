@@ -14,6 +14,14 @@ public class SwingTextArea {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingTextArea(JTextArea textArea){
+        this.textArea = textArea;
+    }
+
+    public SwingTextArea(SwingTextArea swingTextArea){
+        this.textArea = swingTextArea.getTextArea();
+    }
+
     public SwingTextArea(){
         this.textArea = new JTextArea();
     }

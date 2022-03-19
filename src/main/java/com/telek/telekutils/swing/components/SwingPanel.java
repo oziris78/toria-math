@@ -13,6 +13,14 @@ public class SwingPanel {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingPanel(JPanel panel){
+        this.panel = panel;
+    }
+
+    public SwingPanel(SwingPanel swingPanel){
+        this.panel = swingPanel.getPanel();
+    }
+
     public SwingPanel(){
         this.panel = new JPanel();
     }

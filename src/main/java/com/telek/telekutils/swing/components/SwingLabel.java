@@ -13,6 +13,13 @@ public class SwingLabel {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingLabel(JLabel label){
+        this.label = label;
+    }
+
+    public SwingLabel(SwingLabel swingLabel){
+        this.label = swingLabel.getLabel();
+    }
 
     public SwingLabel(String text, Icon icon, int horizontalAlignment) {
         this.label = new JLabel(text, icon, horizontalAlignment);

@@ -14,6 +14,13 @@ public class SwingSlider {
     ////////////////////
     /*  CONSTRUCTORS  */
     ////////////////////
+    public SwingSlider(JSlider slider){
+        this.slider = slider;
+    }
+
+    public SwingSlider(SwingSlider swingSlider){
+        this.slider = swingSlider.getSlider();
+    }
 
     public SwingSlider() {
         this.slider = new JSlider();

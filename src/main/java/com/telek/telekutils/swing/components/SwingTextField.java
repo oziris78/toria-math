@@ -15,6 +15,14 @@ public class SwingTextField {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingTextField(JTextField textField){
+        this.textField = textField;
+    }
+
+    public SwingTextField(SwingTextField swingTextField){
+        this.textField = swingTextField.getTextField();
+    }
+
     public SwingTextField() {
         this.textField = new JTextField();
     }

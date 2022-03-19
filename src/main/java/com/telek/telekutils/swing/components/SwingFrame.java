@@ -12,6 +12,14 @@ public class SwingFrame {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingFrame(JFrame frame){
+        this.frame = frame;
+    }
+
+    public SwingFrame(SwingFrame swingFrame){
+        this.frame = swingFrame.getFrame();
+    }
+
     public SwingFrame(){
         this.frame = new JFrame();
     }

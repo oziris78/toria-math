@@ -16,6 +16,14 @@ public class SwingButton {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    public SwingButton(JButton button){
+        this.button = button;
+    }
+
+    public SwingButton(SwingButton swingButton){
+        this.button = swingButton.getButton();
+    }
+
     public SwingButton(){
         this.button = new JButton();
     }
