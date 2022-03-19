@@ -1,11 +1,10 @@
 package com.telek.telekutils.swing;
 
-import sun.invoke.util.VerifyAccess;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+
 
 public class SwingSlider {
 
