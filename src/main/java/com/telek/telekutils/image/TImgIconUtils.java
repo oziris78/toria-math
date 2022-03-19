@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import java.awt.Image;
 
 
+
 public final class TImgIconUtils {
 
 
@@ -20,6 +21,7 @@ public final class TImgIconUtils {
     public static ImageIcon stretchedImage(ImageIcon icon, int width, int height) {
         return new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
     }
+
 
 
 }

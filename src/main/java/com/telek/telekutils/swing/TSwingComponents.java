@@ -14,6 +14,139 @@ public class TSwingComponents {
     private TSwingComponents(){}
 
 
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+    // core
+    public static JPanel getPanel(Rectangle bounds, Color bgColor,
+                                  boolean isEnabled, boolean isVisible,
+                                  LayoutManager layout, boolean isOpaque){
+        JPanel comp = new JPanel();
+
+        comp.setBounds(bounds);
+        comp.setBackground(bgColor);
+        comp.setEnabled(isEnabled);
+        comp.setVisible(isVisible);
+        comp.setLayout(layout);
+        comp.setOpaque(isOpaque);
+
+        return comp;
+    }
+
+
+    // extension
+    public static JPanel getPanel(Rectangle bounds, Color bgColor, Color fgColor,
+                                  Cursor cursor, boolean isEnabled, Font font, boolean isVisible,
+                                  LayoutManager layout, Border border, boolean isOpaque, String toolTipText)
+    {
+        JPanel comp = getPanel(bounds, bgColor, isEnabled, isVisible, layout, isOpaque);
+
+        comp.setForeground(fgColor);
+        comp.setCursor(cursor);
+        comp.setFont(font);
+        comp.setBorder(border);
+        comp.setToolTipText(toolTipText);
+
+        return comp;
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+
+    public static JLabel getLabel(Rectangle bounds, boolean isEnabled, boolean isVisible, LayoutManager layout,
+                                  Border border, boolean isOpaque, String text)
+    {
+        JLabel comp = new JLabel();
+
+        comp.setBounds(bounds);
+        comp.setVisible(isVisible);
+        comp.setLayout(layout);
+        comp.setBorder(border);
+        comp.setOpaque(isOpaque);
+        comp.setText(text);
+        comp.setEnabled(isEnabled);
+
+        return comp;
+    }
+
+
+    public static JLabel getLabel(Rectangle bounds, boolean isEnabled, boolean isVisible,
+                                  LayoutManager layout, Border border, boolean isOpaque, String text,
+                                  int horizontalAlignment, int verticalAlignment)
+    {
+        JLabel comp = getLabel(bounds, isEnabled, isVisible, layout, border, isOpaque, text);
+
+        comp.setHorizontalAlignment(horizontalAlignment);
+        comp.setVerticalAlignment(verticalAlignment);
+        return comp;
+    }
+
+
+    public static JLabel getLabel(Rectangle bounds, boolean isEnabled, boolean isVisible,
+                                  LayoutManager layout, Border border, boolean isOpaque, String text,
+                                  int horizontalAlignment, int verticalAlignment, Icon icon, Icon disabledIcon,
+                                  int horizontalTextPosition, int verticalTextPosition, int iconTextGap)
+    {
+        JLabel comp = getLabel(bounds, isEnabled, isVisible, layout, border,
+                isOpaque, text, horizontalAlignment, verticalAlignment);
+
+        comp.setIcon(icon);
+        comp.setDisabledIcon(disabledIcon);
+        comp.setHorizontalTextPosition(horizontalTextPosition);
+        comp.setVerticalTextPosition(verticalTextPosition);
+        comp.setIconTextGap(iconTextGap);
+
+        return comp;
+    }
+
+
+    public static JLabel getLabel(Rectangle bounds, boolean isEnabled, boolean isVisible,
+                                  LayoutManager layout, Border border, boolean isOpaque, String text,
+                                  int horizontalAlignment, int verticalAlignment, Icon icon, Icon disabledIcon,
+                                  int horizontalTextPosition, int verticalTextPosition, int iconTextGap,
+                                  Color bgColor, Color fgColor)
+    {
+        JLabel comp = getLabel(bounds, isEnabled, isVisible, layout, border,
+                isOpaque, text, horizontalAlignment, verticalAlignment, icon, disabledIcon,
+                horizontalTextPosition, verticalTextPosition, iconTextGap);
+
+        comp.setBackground(bgColor);
+        comp.setForeground(fgColor);
+
+        return comp;
+    }
+
+
+
+    public static JLabel getLabel(Rectangle bounds, boolean isEnabled, boolean isVisible,
+                                  LayoutManager layout, Border border, boolean isOpaque, String text,
+                                  int horizontalAlignment, int verticalAlignment, Icon icon, Icon disabledIcon,
+                                  int horizontalTextPosition, int verticalTextPosition, int iconTextGap,
+                                  Color bgColor, Color fgColor, Cursor cursor, Font font, String toolTipText)
+    {
+        JLabel comp = getLabel(bounds, isEnabled, isVisible, layout, border,
+                isOpaque, text, horizontalAlignment, verticalAlignment, icon, disabledIcon,
+                horizontalTextPosition, verticalTextPosition, iconTextGap, bgColor, fgColor);
+
+        comp.setCursor(cursor);
+        comp.setFont(font);
+        comp.setToolTipText(toolTipText);
+
+        return comp;
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+
+
+
     public static JButton getButton(Rectangle bounds, Color bgColor, Color fgColor,
                                     Cursor cursor, boolean isEnabled, Font font, boolean isVisible,
                                     LayoutManager layout, Border border, boolean isOpaque, String toolTipText,
@@ -91,62 +224,11 @@ public class TSwingComponents {
 
 
     
-    public static JLabel getLabel(Rectangle bounds, Color bgColor, Color fgColor,
-                                  Cursor cursor, boolean isEnabled, Font font, boolean isVisible,
-                                  LayoutManager layout, Border border, boolean isOpaque, String toolTipText,
-                                  String text, Icon disabledIcon, Icon icon,
-                                  int horizontalAlignment, int verticalAlignment,
-                                  int horizontalTextPosition, int verticalTextPosition, int iconTextGap)
-    {
-        JLabel comp = new JLabel();
-
-        comp.setBounds(bounds);
-        comp.setBackground(bgColor);
-        comp.setForeground(fgColor);
-        comp.setCursor(cursor);
-        comp.setEnabled(isEnabled);
-        comp.setFont(font);
-        comp.setVisible(isVisible);
-        comp.setLayout(layout);
-        comp.setBorder(border);
-        comp.setOpaque(isOpaque);
-        comp.setToolTipText(toolTipText);
-        comp.setText(text);
-        comp.setDisabledIcon(disabledIcon);
-        comp.setIcon(icon);
-        comp.setHorizontalAlignment(horizontalAlignment);
-        comp.setVerticalAlignment(verticalAlignment);
-        comp.setHorizontalTextPosition(horizontalTextPosition);
-        comp.setVerticalTextPosition(verticalTextPosition);
-        comp.setIconTextGap(iconTextGap);
-
-        return comp;
-    }
-    
-    
 
 
-    public static JPanel getPanel(Rectangle bounds, Color bgColor, Color fgColor,
-                                  Cursor cursor, boolean isEnabled, Font font, boolean isVisible,
-                                  LayoutManager layout, Border border, boolean isOpaque, String toolTipText)
-    {
-        JPanel comp = new JPanel();
 
 
-        comp.setBounds(bounds);
-        comp.setBackground(bgColor);
-        comp.setForeground(fgColor);
-        comp.setCursor(cursor);
-        comp.setEnabled(isEnabled);
-        comp.setFont(font);
-        comp.setVisible(isVisible);
-        comp.setLayout(layout);
-        comp.setBorder(border);
-        comp.setOpaque(isOpaque);
-        comp.setToolTipText(toolTipText);
 
-        return comp;
-    }
     
 
 
