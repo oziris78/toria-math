@@ -2,7 +2,6 @@ package com.telek.telekutils.swing.components;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.event.ChangeListener;
 import javax.swing.text.Caret;
 import java.awt.*;
 import java.awt.event.*;
