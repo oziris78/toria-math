@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.stats.desc.DataDescriptionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-03-20T12:24:28" hostname="TUNERIKGEZGINI" time="0.191">
+  <properties/>
+  <testcase name="dataDescGenericTest" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.001"/>
+  <testcase name="randomTest1" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.019"/>
+  <testcase name="randomTest2" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.007"/>
+  <testcase name="dataDescPrimitiveTest" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.003"/>
+  <testcase name="noiseTest1" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.159"/>
+  <testcase name="dataDescPrimitiveWithoutConversionTest" classname="com.telek.tests.stats.desc.DataDescriptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
