@@ -1,10 +1,7 @@
 package com.telek.telekmath.core.numbers;
 
 
-import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TMath;
-
-import java.awt.event.ComponentListener;
 import java.util.Objects;
 
 
