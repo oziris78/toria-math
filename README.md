@@ -41,7 +41,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.oziris78:telek-math:v0.8.1'
+    implementation 'com.github.oziris78:telek-math:v0.8.2'
 }
 ```
 
