@@ -14,17 +14,6 @@ public final class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static class InvalidExtensionException extends RuntimeException {
-
-        public InvalidExtensionException() {
-            super("The extension must be either \"PNG\" or \"JPG\"");
-        }
-
-    }
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     public static class EqualBoundsException extends RuntimeException {
         public EqualBoundsException() {
             super("Left bound of a range can't be greater or equal to the right bound.");
@@ -38,16 +27,6 @@ public final class TelekMathException extends RuntimeException {
 
         public IsNegativeException(String varName) {
             super(String.format("%s can't be negative", varName));
-        }
-
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class DataSetIsSmallException extends RuntimeException {
-
-        public DataSetIsSmallException() {
-            super("The data set must contain more that 3 data for telek-math to work properly.");
         }
 
     }
@@ -310,16 +289,6 @@ public final class TelekMathException extends RuntimeException {
 
         public InvalidValueException(String fieldStr) {
             super("Invalid value for " + fieldStr + " = " + "null");
-        }
-
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class FieldNotFoundException extends RuntimeException {
-
-        public FieldNotFoundException(String className, String fieldName) {
-            super(String.format("%s field not found in class %s", fieldName, className));
         }
 
     }
