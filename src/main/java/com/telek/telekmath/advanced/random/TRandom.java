@@ -6,13 +6,25 @@ import java.util.ArrayList;
 
 public class TRandom {
 
+    //////////////
+    /*  FIELDS  */
+    //////////////
+
     /** Defines how many times the linear-congruential generation algorithm will be iterated in each method */
     public static int LCG_DEFAULT_ITERATION_COUNT = 20;
+
+
+    ////////////////////
+    /*  CONSTRUCTORS  */
+    ////////////////////
 
     /* No constructor */
     private TRandom(){}
 
 
+    ///////////////
+    /*  METHODS  */
+    ///////////////
 
     /**
      * Returns a random number in range [0, M] using linear-congruential generation algorithm.
@@ -24,7 +36,7 @@ public class TRandom {
      * @param iterationCount how many times this process will be applied
      * @return a random number in range [0,M]
      */
-    public static int randomNumberLCG(int a, int seed, int c, int M, int iterationCount){
+    public static int linearCongruential(int a, int seed, int c, int M, int iterationCount){
         int result = seed;
         for (int i = 0; i < iterationCount; i++) {
             result = (a * result + c) % M;
@@ -32,34 +44,6 @@ public class TRandom {
         return result;
     }
 
-
-
-    /**
-     * Returns a random number in range [0, M] using linear-congruential generation algorithm.
-     * Uses {@link #LCG_DEFAULT_ITERATION_COUNT} as iterationCount
-     * @param a a constant number to multiply
-     * @param seed your seed
-     * @param c constant number to add
-     * @param M a constant number take the modulus, this value should be a prime for good results
-     * @return a random number in range [0,M]
-     */
-    public static int randomNumberLCG(int a, int seed, int c, int M){
-        return randomNumberLCG(a, seed, c, M, LCG_DEFAULT_ITERATION_COUNT);
-    }
-
-
-
-    /**
-     * Returns a random number in range [0, 2^31-1] using linear-congruential generation algorithm.
-     * Uses Park and Miller numbers.  a = 16807, M = 2^31-1 (mersenne prime).
-     * @param seed your seed
-     * @param c constant number to add
-     * @param iterationCount how many times this process will be applied
-     * @return a random number in range [0, 2^31-1]
-     */
-    public static int randomNumberLCG(int seed, int c, int iterationCount){
-        return randomNumberLCG(16807, seed, c, 214748647, iterationCount);
-    }
 
 
 
@@ -71,10 +55,12 @@ public class TRandom {
      * @param c constant number to add
      * @return a random number in range [0, 2^31-1]
      */
-    public static int randomNumberLCG(int seed, int c){
-        return randomNumberLCG(16807, seed, c, 214748647, LCG_DEFAULT_ITERATION_COUNT);
+    public static int linearCongruential(int seed, int c){
+        return linearCongruential(16807, seed, c, 214748647, LCG_DEFAULT_ITERATION_COUNT);
     }
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
 
 
     /**
