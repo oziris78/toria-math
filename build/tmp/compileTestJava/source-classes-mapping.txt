@@ -1,8 +1,5 @@
 com/telek/tests/numbers/FractionTest.java
  com.telek.tests.numbers.FractionTest
-com/telek/tests/stats/exampledata/RegData.java
- com.telek.tests.stats.exampledata.RegData
- com.telek.tests.stats.exampledata.RegData$YearResult
 com/telek/tests/stats/exampledata/Person.java
  com.telek.tests.stats.exampledata.Person
 com/telek/tests/geometry/TVector3DTest.java
@@ -57,8 +54,8 @@ com/telek/tests/stats/ChiSqTestsTest.java
  com.telek.tests.stats.ChiSqTestsTest
 com/telek/tests/zsingle/CryptoTest.java
  com.telek.tests.zsingle.CryptoTest
-com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
+com/telek/applications/OptimalStoppingProblem.java
+ com.telek.applications.OptimalStoppingProblem
 com/telek/tests/stats/hypo/HypothesisSingleVarTest.java
  com.telek.tests.stats.hypo.HypothesisSingleVarTest
 com/telek/tests/dists/DiscreteDistributionTest.java
@@ -77,7 +74,8 @@ com/telek/tests/dists/ZDistTest.java
  com.telek.tests.dists.ZDistTest
 com/telek/tests/stats/freqtable/FreqDistTableTest.java
  com.telek.tests.stats.freqtable.FreqDistTableTest
-com/telek/applications/OptimalStoppingProblem.java
- com.telek.applications.OptimalStoppingProblem
-com/telek/tests/zsingle/Main.java
- com.telek.tests.zsingle.Main
+com/telek/tests/stats/exampledata/RegData.java
+ com.telek.tests.stats.exampledata.RegData
+ com.telek.tests.stats.exampledata.RegData$YearResult
+com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest

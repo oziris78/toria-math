@@ -193,7 +193,3 @@ com/telek/telekutils/arrayref/oned/FloatArrRef.java
  com.telek.telekutils.arrayref.oned.FloatArrRef
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekutils/logger/TMathLogger.java
- com.telek.telekutils.logger.TMathLogger
-com/telek/telekutils/logger/LogLevel.java
- com.telek.telekutils.logger.LogLevel
