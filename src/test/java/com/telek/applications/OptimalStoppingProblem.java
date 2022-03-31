@@ -1,15 +1,16 @@
 package com.telek.applications;
 
 
+import com.telek.telekmath.advanced.random.TNoise;
+import com.telek.telekmath.advanced.random.TRandom;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekutils.containers.TArrays;
 
-import javax.xml.crypto.Data;
-import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.function.Function;
 
 public class OptimalStoppingProblem {
 
@@ -23,7 +24,6 @@ public class OptimalStoppingProblem {
      */
 
     public static void main(String[] args) {
-
         HashMap<Integer, Double> scores = new HashMap<>();
         for (int i = 1; i < 100; i++) {
             scores.put(i, getScoreOfManyTests(i));
@@ -39,6 +39,9 @@ public class OptimalStoppingProblem {
 
 
     }
+
+
+
 
 
     public static double getScoreOfManyTests(int lookPercentage){
