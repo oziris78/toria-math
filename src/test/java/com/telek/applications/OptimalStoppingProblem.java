@@ -2,14 +2,16 @@ package com.telek.applications;
 
 import com.telek.telekmath.advanced.statistics.descriptive.*;
 import com.telek.telekutils.containers.TArrays;
+
+import java.util.Arrays;
 import java.util.Random;
 
 
 public class OptimalStoppingProblem {
 
     // O(PROBLEM_SIZE^2 * ARRAY_SIZE)
-    static final int PROBLEM_SIZE = 500;
-    static final double ARRAY_SIZE = 100_000;
+    static final int PROBLEM_SIZE = 100;
+    static final double SAMPLE_SIZE = 100_000;
 
 
     public static void main(String[] arg){
@@ -20,41 +22,38 @@ public class OptimalStoppingProblem {
 
         for(int i = 1; i < PROBLEM_SIZE; i++){
             double success = 0;
-            for(int j = 1; j < ARRAY_SIZE; j++){
-
-                double best = Double.MIN_VALUE;
+            for(int j = 1; j < SAMPLE_SIZE; j++){
+                // get random data
                 double[] candidates = new double[PROBLEM_SIZE];
-                for(int k = 0; k < PROBLEM_SIZE; k++){
-                    double value = random.nextDouble();
-                    if(best < value)
-                        best = value;
-                    candidates[k] = value;
-                }
+                for(int k = 0; k < PROBLEM_SIZE; k++)
+                    candidates[k] = random.nextDouble();
+                double best = TArrays.getMax(candidates);
 
-                boolean solved = false;
-                boolean didBreak = false;
+                // analysis
+                boolean foundTheBest = false;
                 double bestUpUntilNow = Double.MIN_VALUE;
-                for(int t = 0; t < candidates.length; t++){
-                    if(candidates[t] > bestUpUntilNow) {
-                        bestUpUntilNow = candidates[t];
-                        if(t > i){
-                            solved = bestUpUntilNow == best;
-                            didBreak = true;
+                for(int k = 0; k < candidates.length; k++){
+                    if(candidates[k] > bestUpUntilNow) {
+                        bestUpUntilNow = candidates[k];
+                        if(k > i) {
+                            if(bestUpUntilNow == best)
+                                success++;
+                            foundTheBest = true;
                             break;
                         }
                     }
                 }
-                if(!didBreak)
-                    solved = candidates[candidates.length-1] == best;
-                if(solved)
+
+                // if you didnt find the best but the last one you're left with is the best, count a success
+                if(!foundTheBest && candidates[candidates.length-1] == best)
                     success++;
+
             }
-            allScores[index] = success / ARRAY_SIZE;
-            index++;
+            allScores[index++] = success / SAMPLE_SIZE;
         }
 
-        DataDescription desc = DescStats.getDataDesc(TArrays.getSortedCopy(allScores));
-        System.out.println(desc.max);
+        Arrays.sort(allScores);
+        System.out.println(DescStats.getMax(allScores));
     }
 
 
