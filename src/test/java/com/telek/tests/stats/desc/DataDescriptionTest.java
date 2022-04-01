@@ -4,6 +4,8 @@ import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.advanced.random.TNoise;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
+import com.telek.telekutils.arrayref.oned.ArrayRef;
+import com.telek.telekutils.arrayref.oned.DoubleArrRef;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;

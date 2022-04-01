@@ -4,6 +4,8 @@ import com.telek.telekmath.core.numbers.TRange;
 import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+
+import com.telek.telekmath.utils.TelekMathException;
 import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax
@@ -178,6 +180,7 @@ public class DescStats {
      * @return the nth quartile
      */
     public static double getQuartile(ArrayRef sortedData, int nthQuartile) {
+        checkArraySize(sortedData);
         double quartileIndex = (sortedData.getSize() + 1d) * nthQuartile / 4d;
         double percentage = quartileIndex % 1;
         int lowIndex = (int) Math.floor(quartileIndex);
@@ -323,6 +326,7 @@ public class DescStats {
     /////////////////////////////////////////////////////////////////////////////////////////////
 
     public static DataDescription getDataDesc(ArrayRef sortedData){
+        checkArraySize(sortedData);
         double count = getCount(sortedData);
         double min = getMin(sortedData);
         double max = getMax(sortedData);
@@ -347,6 +351,8 @@ public class DescStats {
                 range, stddev, pearsonSkewCoef, bowleySkewCoef);
     }
 
+
+
     // these all convert themselves to TypelessArrays
     public static DataDescription getDataDesc(Number[] sortedData){
         return getDataDesc(new NumberArrRef(sortedData));
@@ -364,6 +370,19 @@ public class DescStats {
         return getDataDesc(new GenericArrRef<>(sortedData, field));
     }
 
+
+
+
+    ///////////////
+    /*  HELPERS  */
+    ///////////////
+
+
+    private static void checkArraySize(ArrayRef sortedData) {
+        if(sortedData.getSize() <= 3){
+            throw new SortedDataLengthIsTooSmallException();
+        }
+    }
 
 
 

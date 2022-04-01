@@ -20,6 +20,14 @@ public final class TelekMathException extends RuntimeException {
         }
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static class SortedDataLengthIsTooSmallException extends RuntimeException {
+        public SortedDataLengthIsTooSmallException() {
+            super("The size of your data array must be greater than 3.");
+        }
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
