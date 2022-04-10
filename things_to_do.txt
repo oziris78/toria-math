@@ -18,6 +18,11 @@ GELECEK PLANLARI {
         de kendi array'lerini ona gönderir işlem yapmaları gerektiğinde aşırı karmaşık ayrıca doğrudan
         arr ref de kullanabilirim (kendi sınıfım olan)
 
+    TRandom, TNoise sınıflarını güzelce noise ve randomness hakkında bir betik okuyarak yaz
+    Ayrıca OpenSimplexNoise'u doğrudan internetten alabilirim java ve unlicensed
+
+    Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
+
 }
 
 

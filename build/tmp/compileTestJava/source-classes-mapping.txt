@@ -43,8 +43,8 @@ com/telek/tests/numbers/TRangeTest.java
  com.telek.tests.numbers.TRangeTest
 com/telek/tests/geometry/TVector2DTest.java
  com.telek.tests.geometry.TVector2DTest
-com/telek/tests/stats/sampling/SamplingTest.java
- com.telek.tests.stats.sampling.SamplingTest
+com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
 com/telek/tests/zsingle/TArraysTest.java
  com.telek.tests.zsingle.TArraysTest
 com/telek/tests/matrices/TMatrixUtilsTest.java
@@ -66,16 +66,16 @@ com/telek/tests/stats/StatsEqualityTest.java
  com.telek.tests.stats.StatsEqualityTest
 com/telek/tests/stats/hypo/HypothesisTwoVarTest.java
  com.telek.tests.stats.hypo.HypothesisTwoVarTest
-com/telek/tests/stats/desc/DataDescriptionTest.java
- com.telek.tests.stats.desc.DataDescriptionTest
- com.telek.tests.stats.desc.DataDescriptionTest$TestClass
+com/telek/tests/stats/freqtable/FreqDistTableTest.java
+ com.telek.tests.stats.freqtable.FreqDistTableTest
 com/telek/tests/stats/confidenceint/ConfIntervalSingleVariableTest.java
  com.telek.tests.stats.confidenceint.ConfIntervalSingleVariableTest
 com/telek/tests/stats/ChiSqTestsTest.java
  com.telek.tests.stats.ChiSqTestsTest
 com/telek/applications/OptimalStoppingProblem.java
  com.telek.applications.OptimalStoppingProblem
-com/telek/tests/stats/freqtable/FreqDistTableTest.java
- com.telek.tests.stats.freqtable.FreqDistTableTest
-com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
+com/telek/tests/stats/sampling/SamplingTest.java
+ com.telek.tests.stats.sampling.SamplingTest
+com/telek/tests/stats/desc/DataDescriptionTest.java
+ com.telek.tests.stats.desc.DataDescriptionTest
+ com.telek.tests.stats.desc.DataDescriptionTest$TestClass
