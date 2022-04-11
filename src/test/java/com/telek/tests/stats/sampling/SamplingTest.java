@@ -1,6 +1,7 @@
 package com.telek.tests.stats.sampling;
 
 import com.telek.telekmath.advanced.random.Sampler;
+import com.telek.telekmath.core.numbers.ComplexNumber;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,6 @@ import java.util.Arrays;
 
 
 public class SamplingTest {
-
 
     @Test
     @DisplayName("samplingTestClass")

@@ -74,8 +74,8 @@ com/telek/tests/stats/ChiSqTestsTest.java
  com.telek.tests.stats.ChiSqTestsTest
 com/telek/applications/OptimalStoppingProblem.java
  com.telek.applications.OptimalStoppingProblem
-com/telek/tests/stats/sampling/SamplingTest.java
- com.telek.tests.stats.sampling.SamplingTest
 com/telek/tests/stats/desc/DataDescriptionTest.java
  com.telek.tests.stats.desc.DataDescriptionTest
  com.telek.tests.stats.desc.DataDescriptionTest$TestClass
+com/telek/tests/stats/sampling/SamplingTest.java
+ com.telek.tests.stats.sampling.SamplingTest

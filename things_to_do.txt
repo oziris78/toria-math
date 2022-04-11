@@ -18,8 +18,24 @@ GELECEK PLANLARI {
         de kendi array'lerini ona gönderir işlem yapmaları gerektiğinde aşırı karmaşık ayrıca doğrudan
         arr ref de kullanabilirim (kendi sınıfım olan)
 
-    TRandom, TNoise sınıflarını güzelce noise ve randomness hakkında bir betik okuyarak yaz
-    Ayrıca OpenSimplexNoise'u doğrudan internetten alabilirim java ve unlicensed
+    Rastgele şeyler üretme sınıflarını oluşturmalı ve düzenlemeliyim
+    {
+        Rastgele sayı üretme metotları yazılmalı belki bunun için bir betik okurum
+
+        OpenSimplexNoise elde etme zamanı
+
+        En çok kullanılan sınıflar için rastgele nesne üreten bir sınıf yazarım, TVector2D, TPoint2D vb.
+
+        TRandom, TNoise sınıflarını güzelce noise ve randomness hakkında bir betik okuyarak yaz
+        Ayrıca OpenSimplexNoise'u doğrudan internetten alabilirim java ve unlicensed
+
+        UniqueRandomIntGenerator intGen = new UniqueRandomIntGenerator(int min, int step, int max);
+        if(intGen.hasNext())
+            int x = intGen.getNext();
+
+        TRandomString  =>  getRandString("??-###-##-?", "ABCDEF") // "AE-509-54-F" gibi bir şey
+                       =>  getRandHexStr("^^:^^::^^^") // "A1:BF::FF1" gibi bir şey
+    }
 
     Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
 
