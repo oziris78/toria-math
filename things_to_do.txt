@@ -35,6 +35,8 @@ GELECEK PLANLARI {
 
         TRandomString  =>  getRandString("??-###-##-?", "ABCDEF") // "AE-509-54-F" gibi bir şey
                        =>  getRandHexStr("^^:^^::^^^") // "A1:BF::FF1" gibi bir şey
+
+        Multivariable functions, adi dif denk nüm çözüm ekle
     }
 
     Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
