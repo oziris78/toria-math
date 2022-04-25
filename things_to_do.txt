@@ -36,12 +36,38 @@ GELECEK PLANLARI {
         TRandomString  =>  getRandString("??-###-##-?", "ABCDEF") // "AE-509-54-F" gibi bir şey
                        =>  getRandHexStr("^^:^^::^^^") // "A1:BF::FF1" gibi bir şey
 
-        Multivariable functions, adi dif denk nüm çözüm ekle
+
     }
+
+    Multivariable functions, adi dif denk nüm çözüm ekle
 
     Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
 
 }
+
+
+şu anda olanlar
+f(x = x0)
+df/dx
+domain (range) kavramı
+
+eklemek istediklerim
+f(x = x0, y = y0) // burada x ve y bağımsız değişkenler
+f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
+∂f/∂x, ∂f/∂y // buradan sonra gradient ve hessian matrix yapılabilir
+
+fonksiyonlar yapılırken constructor sorunu çözülmeli
+FuncParams{} diye bir sınıf tanımlayarak ve içlerine Function<FuncParams, Double> nesnesi koyarak sorunu belki çözebilirim
+Bu FuncParams sınıfının içinde kaç tane parametre olduğu sayısı da depolanır hem
+
+TRange sınıfı TInterval olarak değiştirilmeli...
+
+TFunction gibi birden çok iç içe single var func dizen sınıfı iki boyutlu için yapmayı denerim olmazsa olmaz
+
+fonksiyonlar bitirildikten sonra girdileri single var func ve two var func olabilen matrisler yapacağım
+bunların yanında FMat3, FMat4 yapılabilir
+
+
 
 
 telek-vstat{
