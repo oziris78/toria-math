@@ -66,4 +66,7 @@ CTRL to see how it works.
   code still runs fast but it lacks a lot of optimizations...
 
 
+## Projects Using Telek Math
+
+- <a href="https://github.com/oziris78/gdx-challenges">GDX Challenges </a>
 
