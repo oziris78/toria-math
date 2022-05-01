@@ -38,9 +38,6 @@ public class TMathTest {
         Assertions.assertEquals(TMath.gcd(8515, 5010), 5);
         Assertions.assertEquals(TMath.gcd(40, 20), 20);
 
-        for (int i = 0; i < 13; i++) {
-            Assertions.assertEquals(TMath.pow(2, i), Math.pow(2, i));
-        }
 
 
         Random random = new Random();

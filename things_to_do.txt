@@ -54,7 +54,6 @@ domain (range) kavramı
 eklemek istediklerim
 f(x = x0, y = y0) // burada x ve y bağımsız değişkenler
 f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
-∂f/∂x, ∂f/∂y // buradan sonra gradient ve hessian matrix yapılabilir
 
 fonksiyonlar yapılırken constructor sorunu çözülmeli
 FuncParams{} diye bir sınıf tanımlayarak ve içlerine Function<FuncParams, Double> nesnesi koyarak sorunu belki çözebilirim
