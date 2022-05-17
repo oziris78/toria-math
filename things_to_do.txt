@@ -12,12 +12,6 @@ GELECEK PLANLARI {
         - TPolynomial için empty constructor yazılacak, tüm yapısı yeniden daha iyi bir şekilde
             yazılabilir çoğu fonksiyon da eski zaten TArrays filan kullanılmamış
 
-    FastMat3, FastMat4 (TMat3, TMat4)  sınıflarını yaz  =>  Mutable olabilir ya da immutable olması
-        daha iyi ise kendi TMatrix sınıfımı yeniden yazabilirim ve yalnızca TMat3, TMat4, InfMatrix olur
-        ya da InfMatrix yerine doğrudan double[][] için bir utility sınıfı hazırlarım ve TMat3 ve TMat4
-        de kendi array'lerini ona gönderir işlem yapmaları gerektiğinde aşırı karmaşık ayrıca doğrudan
-        arr ref de kullanabilirim (kendi sınıfım olan)
-
     Rastgele şeyler üretme sınıflarını oluşturmalı ve düzenlemeliyim
     {
         Rastgele sayı üretme metotları yazılmalı belki bunun için bir betik okurum
@@ -39,12 +33,26 @@ GELECEK PLANLARI {
 
     }
 
-    Multivariable functions, adi dif denk nüm çözüm ekle
 
     Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
 
 }
 
+
+
+
+FastMat3, FastMat4 (TMat3, TMat4)  sınıflarını yaz  =>  Mutable olabilir ya da immutable olması
+    daha iyi ise kendi TMatrix sınıfımı yeniden yazabilirim ve yalnızca TMat3, TMat4, InfMatrix olur
+    ya da InfMatrix yerine doğrudan double[][] için bir utility sınıfı hazırlarım ve TMat3 ve TMat4
+    de kendi array'lerini ona gönderir işlem yapmaları gerektiğinde aşırı karmaşık ayrıca doğrudan
+    arr ref de kullanabilirim (kendi sınıfım olan)
+
+
+
+
+
+
+Multivariable functions, adi dif denk nüm çözüm ekle
 
 şu anda olanlar
 f(x = x0)
@@ -69,6 +77,10 @@ bunların yanında FMat3, FMat4 yapılabilir
 
 
 
+
+
+
+
 telek-vstat{
     dot plots?
     stem and leaf plots?
@@ -78,4 +90,9 @@ telek-vstat{
     - boxplots
     - istatistik dersinde gördüğüm her tür grafiğe bakabilirim hepsini not almamıştım sanırım
 }
+
+
+
+https://natureofcode.com/book/chapter-10-neural-networks/
+
 

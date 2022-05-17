@@ -1,6 +1,6 @@
 package com.telek.tests.stats.exampledata;
 
-import com.telek.telekmath.core.geometry.points.TPoint2D;
+import com.telek.telekmath.core.geometry.vectors.TVec2;
 
 public class RegData {
 
@@ -123,18 +123,18 @@ public class RegData {
     }
 
 
-    public static TPoint2D[] getPointArr() {
-        return new TPoint2D[]{
-                new TPoint2D(8.614, 5.650),
-                new TPoint2D(9.689, 7.008),
-                new TPoint2D(9.752, 7.177),
-                new TPoint2D(7.464, 5.193),
-                new TPoint2D(10.412, 7.636),
-                new TPoint2D(11.569, 8.090),
-                new TPoint2D(13.247, 8.481),
-                new TPoint2D(14.030, 9.677),
-                new TPoint2D( 17.517, 12.125),
-                new TPoint2D( 21.122, 13.929)
+    public static TVec2[] getPointArr() {
+        return new TVec2[]{
+                new TVec2(8.614, 5.650),
+                new TVec2(9.689, 7.008),
+                new TVec2(9.752, 7.177),
+                new TVec2(7.464, 5.193),
+                new TVec2(10.412, 7.636),
+                new TVec2(11.569, 8.090),
+                new TVec2(13.247, 8.481),
+                new TVec2(14.030, 9.677),
+                new TVec2( 17.517, 12.125),
+                new TVec2( 21.122, 13.929)
         };
     }
 

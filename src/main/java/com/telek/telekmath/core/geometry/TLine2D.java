@@ -1,11 +1,9 @@
 package com.telek.telekmath.core.geometry;
 
-import com.telek.telekmath.utils.TMath;
+import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.core.geometry.points.TPoint2D;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
-import com.telek.telekutils.colors.TColor;
-
 import java.util.Objects;
 
 
@@ -52,7 +50,7 @@ public class TLine2D {
 
 
 
-    public TLine2D(TPoint2D pointOneOnLine, TPoint2D pointTwoOnLine){
+    public TLine2D(TVec2 pointOneOnLine, TVec2 pointTwoOnLine){
         double x1 = pointOneOnLine.x;
         double x2 = pointTwoOnLine.x;
         double y1 = pointOneOnLine.y;
@@ -153,7 +151,7 @@ public class TLine2D {
      * @param line2 any line
      * @return Returns the intersection point or null if it doesn't exists
      */
-    public static TPoint2D intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
+    public static TVec2 intersectionPointBetweenTwoLines(TLine2D line1, TLine2D line2){
         boolean firstParallel = line1.isParallelToYAxis();
         boolean secondParallel = line2.isParallelToYAxis();
         if(firstParallel && secondParallel){ // x = k, x = k
@@ -163,17 +161,17 @@ public class TLine2D {
             if(k1 != k2) return null;
 
             // infinitely many points here, just return one of them
-            return new TPoint2D(k1, 0d);
+            return new TVec2(k1, 0d);
         }
         else if(!firstParallel && secondParallel){ // ax+by+c=0, x = k
             // always intersects here
             double a = line1.a, b = line1.b, c = line1.c, k = -line2.c / line2.a;
-            return new TPoint2D(k, (-a*k-c) / b );
+            return new TVec2(k, (-a*k-c) / b );
         }
         else if(firstParallel && !secondParallel){ // x = k, ax+by+c=0
             // always intersects here
             double a = line2.a, b = line2.b, c = line2.c, k = -line1.c / line1.a;
-            return new TPoint2D(k, (-a*k-c) / b );
+            return new TVec2(k, (-a*k-c) / b );
         }
         else{ // ax+by+c=0, ax+by+c=0
             double m1 = -line1.a / line1.b;
@@ -187,7 +185,7 @@ public class TLine2D {
             double x = - (n1-n2) / (m1-m2);
             double y = m1 * x + n1;
 
-            return new TPoint2D(x, y);
+            return new TVec2(x, y);
         }
     }
 
@@ -200,7 +198,7 @@ public class TLine2D {
      */
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
         if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
-        return Math.abs(line2.c - line1.c) / Math.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
+        return TMath.abs(line2.c - line1.c) / TMath.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
     }
 
 
@@ -210,8 +208,8 @@ public class TLine2D {
      * @param line any line
      * @return The orthogonal distance between point and line
      */
-    public static double distanceBetweenPointAndLine(TPoint2D point, TLine2D line){
-        return Math.abs( line.a * point.x + line.b * point.y + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
+    public static double distanceBetweenPointAndLine(TVec2 point, TLine2D line){
+        return TMath.abs( line.a * point.x + line.b * point.y + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
     }
 
 
@@ -234,7 +232,7 @@ public class TLine2D {
         else{
             double a1 = line1.a, a2 = line2.a;
             double b1 = line1.b, b2 = line2.b;
-            return Math.abs(Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) ));
+            return TMath.abs(Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) ));
         }
     }
 
@@ -250,7 +248,6 @@ public class TLine2D {
     public String toString() {
         if(this.isParallelToYAxis()) return String.format("x = %f", -c/a).replaceAll("-0.000000", "0");
 
-
         // ax+by+c = 0
         // a/b x + y + c/b = 0
         // y = -a/b x -c/b
@@ -263,19 +260,6 @@ public class TLine2D {
                 .replaceAll("1.000000x", "x")
                 .replaceAll("-1.000000x", "x")
                 .trim();
-        /* was like this:
-        return String.format(" %fx + %fy + %f = 0", a, b, c)
-                .replaceAll(" 0.000000x \\+ ", "")
-                .replaceAll("0.000000y \\+ ", "")
-                .replaceAll("\\+ \\-", "- ")
-                .replaceAll("\\+ 0.000000 =", "=")
-                .replaceAll("\\- 0.000000 =", "=")
-                .replaceAll("1.000000y", "y")
-                .replaceAll("1.000000x", "x")
-                .replaceAll("-1.000000x", "x")
-                .replaceAll("-1.000000y", "y")
-                .trim();
-        */
     }
 
 
@@ -287,8 +271,8 @@ public class TLine2D {
         if (o == null || getClass() != o.getClass()) return false;
         TLine2D line2 = (TLine2D) o;
         // -x + y = 0 and x - y = 0 are the same thing so check them both here:
-        boolean b1 = this.a == line2.a && this.b == line2.b && this.c == line2.c;
-        boolean b2 = this.a == -line2.a && this.b == -line2.b && this.c == -line2.c;
+        boolean b1 = TMath.areEqual(this.a,  line2.a) && TMath.areEqual(this.b,  line2.b) && TMath.areEqual(this.c,  line2.c);
+        boolean b2 = TMath.areEqual(this.a, -line2.a) && TMath.areEqual(this.b, -line2.b) && TMath.areEqual(this.c, -line2.c);
         return b1 || b2;
     }
 

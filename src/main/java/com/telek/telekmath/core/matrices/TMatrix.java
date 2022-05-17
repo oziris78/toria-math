@@ -1,9 +1,6 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekmath.core.functions.amnfuncs.TCeil;
-import com.telek.telekmath.core.functions.amnfuncs.TCos;
-import com.telek.telekmath.core.geometry.vectors.TVector3D;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;

@@ -1,8 +1,8 @@
 package com.telek.telekmath.advanced.random;
 
 
-import com.telek.telekmath.core.geometry.vectors.TVector2D;
-import com.telek.telekmath.core.geometry.vectors.TVector3D;
+import com.telek.telekmath.core.geometry.vectors.TVec2;
+import com.telek.telekmath.core.geometry.vectors.TVec3;
 
 public class TNoise {
 
@@ -16,8 +16,8 @@ public class TNoise {
      * This class is intentionally left small and kinda unfinished for optimization purposes.
      * If you want to save your x,y datas in a vector use TVector2D or TVector3D.
      * You don't have to use this class since all TNoise methods will have a variant like func(float, float).
-     * @see TVector2D
-     * @see TVector3D
+     * @see TVec2
+     * @see TVec3
      */
     public static class Vec2 {
         public float x, y;

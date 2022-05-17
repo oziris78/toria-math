@@ -2,7 +2,7 @@ package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
 import com.telek.telekmath.core.functions.other.TPolynomial;
-import com.telek.telekmath.core.geometry.points.TPoint2D;
+import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.arrayref.oned.DoubleArrRef;
 import com.telek.telekutils.arrayref.oned.FloatArrRef;
@@ -36,10 +36,10 @@ public class NumericalAnalysis {
         return res;
     }
 
-    public static TPolynomial getLagrangePolynomial(TPoint2D... points){
+    public static TPolynomial getLagrangePolynomial(TVec2... points){
         TPolynomial res = new TPolynomial(0);
         for (int i = 0; i < points.length; i++) {
-            TPoint2D curPoint = points[i];
+            TVec2 curPoint = points[i];
             TPolynomial p = getPolyForLagrange(points, i).multiply(new TPolynomial(curPoint.y));
             double denom = getDenomForLagrange(points, i);
             p = p.multiply(new TPolynomial(1d / denom));
@@ -150,18 +150,18 @@ public class NumericalAnalysis {
         return d;
     }
 
-    private static TPolynomial getPolyForLagrange(TPoint2D[] points, int dontTake){
+    private static TPolynomial getPolyForLagrange(TVec2[] points, int dontTake){
         TPolynomial res = new TPolynomial(1); // f(x) = 1
         for (int i = 0; i < points.length; i++) {
             if(i == dontTake)
                 continue;
-            TPoint2D curPoint = points[i];
+            TVec2 curPoint = points[i];
             res = res.multiply(new TPolynomial(-curPoint.x, 1)); // x - x_i
         }
         return res;
     }
 
-    private static double getDenomForLagrange(TPoint2D[] points, int dontTake){
+    private static double getDenomForLagrange(TVec2[] points, int dontTake){
         double d = 1d;
         final double dontTakeX = points[dontTake].x;
         for (int i = 0; i < points.length; i++) {
