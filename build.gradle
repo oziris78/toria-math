@@ -19,6 +19,9 @@ repositories {
     mavenCentral()
 
     maven { url "https://jitpack.io" }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
 }
 
 
@@ -27,6 +30,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
     testImplementation group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
+    testImplementation "org.joml:joml:1.10.4"
 }
 
 

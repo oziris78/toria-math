@@ -41,11 +41,115 @@ GELECEK PLANLARI {
 
 
 
-FastMat3, FastMat4 (TMat3, TMat4)  sınıflarını yaz  =>  Mutable olabilir ya da immutable olması
-    daha iyi ise kendi TMatrix sınıfımı yeniden yazabilirim ve yalnızca TMat3, TMat4, InfMatrix olur
-    ya da InfMatrix yerine doğrudan double[][] için bir utility sınıfı hazırlarım ve TMat3 ve TMat4
-    de kendi array'lerini ona gönderir işlem yapmaları gerektiğinde aşırı karmaşık ayrıca doğrudan
-    arr ref de kullanabilirim (kendi sınıfım olan)
+matris sınıflarının hepsi mutable olacak ve method chaining için this dönecekler
+
+// https://www.sanfoundry.com/java-program-find-inverse-matrix/
+
+javastr için:
+    TMat2, TMat3, TMat4  =>  mutable, belirli boyut, hızlı çalışan sınıflar
+    TMat                 =>  mutable, NxM boyut, yavaş ama işlevli
+
+// fields
+
+... fields
+
+// constructors and copying
+
+... constructors
+
+TMat2 copy          =>  kendi kopyasını dönme
+
+// basic operations
+
+TMat2 add           =>  kendi türünü ekleme, satır/sütun vektörü ekleme, bir sürü double ekleme
+TMat2 subtract      =>  kendi türünü ekleme, satır/sütun vektörü ekleme, bir sürü double ekleme
+TMat2 scale         =>  bir double
+TMat2 matrixMultiplication  =>  kendi türü, bir sürü double
+TMat2 inverse
+
+// geometric operations
+
+TMat2 flipHorizontally  =>  yatay olarak aynalıyor
+    [1, 2]      => [2, 1]
+    [3, 4]         [4, 3]
+TMat2 flipVertically  =>  dikey olarak aynalıyor
+    [1, 2]      => [3, 4]
+    [3, 4]         [1, 2]
+TMat2 rotate90DegClockwise
+TMat2 rotate90DegAntiClockwise
+TMat2 rotate180DegClockwise
+TMat2 rotate180DegAntiClockwise
+TMat2 transpose
+
+// getters and setters
+
+double setCell
+double getCell()
+
+// special value methods
+
+double[] getDiagonal
+double determinant
+double trace
+
+// special matrix methods
+
+boolean isSymmetrical
+boolean isSingular
+boolean isRegular
+boolean isOrthogonal
+boolean isIdentityMatrix
+
+// object methods
+
+equals
+toString
+hashCode
+
+TMat2 constructors:
+    - TMat2()  =>  identity matrix
+    - TMat2(value)  => hepsi value
+    - TMat2(TMat2)  => copy constructor
+    - TMat2(tvec2_1_col1, tvec2_2_col2)  => sütun belirten iki vektör 2d vektör (TVec2)
+    - TMat2(4 double)
+TMat3 constructors:
+    - TMat3()  =>  identity matrix
+    - TMat3(value)  => hepsi value
+    - TMat3(TMat3)  => copy constructor
+    - TMat3(tvec3_1_col1, tvec3_2_col2)  => sütun belirten iki vektör 3d vektör (TVec3)
+    - TMat3(9 double)
+TMat4 constructors:
+    - TMat4()  =>  identity matrix
+    - TMat4(value)  => hepsi value
+    - TMat4(TMat4)  => copy constructor
+    - TMat4(16 double)
+TMat constructors:
+    - TMat(n, m)  =>  nxm identity matrix
+    - TMat(n)  =>  nxn identity matrix
+    - TMat(TMat2)
+    - TMat(TMat3)
+    - TMat(TMat4)
+    - TMat(TMat)  => copy constructor
+    - TMat(double[][])
+    - TMat(float[][])
+    - TMat(int[][])
+    - TMat(Number[][])
+    - TMat(ArrayRef2???)
+
+TMat özel:
+    - checkForSquareMatrix()
+    - getColSize()
+    - getRowSize()
+    - isSquareMatrix
+
+
+Kontrol:
+    == yerine TMath.areEqual() kullanılmalı
+    TMat için her metot öncelikle kare matris gerekiyor mu diye kontrol etmeli
+
+
+her metodun kullanıldığı büyük bir test yazılmalı
+JOML vs tmath yapılmalı bir test içinde
 
 
 

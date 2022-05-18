@@ -145,16 +145,6 @@ com/telek/telekmath/core/geometry/vectors/TVec2.java
 com/telek/telekmath/advanced/random/TNoise.java
  com.telek.telekmath.advanced.random.TNoise
  com.telek.telekmath.advanced.random.TNoise$Vec2
-com/telek/telekmath/core/matrices/TMatrixUtils.java
- com.telek.telekmath.core.matrices.TMatrixUtils
-com/telek/telekmath/advanced/statistics/inferential/ChiSquareTests.java
- com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests
-com/telek/telekmath/special/NumericalAnalysis.java
- com.telek.telekmath.special.NumericalAnalysis
-com/telek/telekmath/core/matrices/TMatrix.java
- com.telek.telekmath.core.matrices.TMatrix
-com/telek/telekmath/core/geometry/TLine2D.java
- com.telek.telekmath.core.geometry.TLine2D
 com/telek/telekmath/utils/TelekMathException.java
  com.telek.telekmath.utils.TelekMathException
  com.telek.telekmath.utils.TelekMathException$CombinationException
@@ -186,7 +176,23 @@ com/telek/telekmath/utils/TelekMathException.java
  com.telek.telekmath.utils.TelekMathException$UnsupportedDistributionTypeString
  com.telek.telekmath.utils.TelekMathException$VigenereCipherException
  com.telek.telekmath.utils.TelekMathException$WrongFunctionException
+com/telek/telekmath/core/geometry/TLine2D.java
+ com.telek.telekmath.core.geometry.TLine2D
+com/telek/telekmath/special/NumericalAnalysis.java
+ com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekmath/core/geometry/vectors/TVec3.java
  com.telek.telekmath.core.geometry.vectors.TVec3
 com/telek/telekmath/advanced/statistics/regression/SimpleRegression.java
  com.telek.telekmath.advanced.statistics.regression.SimpleRegression
+com/telek/telekmath/core/matrices/TMatrixUtils.java
+ com.telek.telekmath.core.matrices.TMatrixUtils
+com/telek/telekmath/advanced/statistics/inferential/ChiSquareTests.java
+ com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests
+com/telek/telekmath/core/matrices/TMatrix.java
+ com.telek.telekmath.core.matrices.TMatrix
+com/telek/telekmath/core/matrices/TMat2.java
+ com.telek.telekmath.core.matrices.TMat2
+com/telek/telekmath/core/matrices/TMat3.java
+ com.telek.telekmath.core.matrices.TMat3
+com/telek/telekmath/core/matrices/TMat4.java
+ com.telek.telekmath.core.matrices.TMat4

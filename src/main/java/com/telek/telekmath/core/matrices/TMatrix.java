@@ -1,6 +1,8 @@
 package com.telek.telekmath.core.matrices;
 
 
+import com.telek.telekutils.arrayref.oned.ArrayRef;
+import com.telek.telekutils.arrayref.twod.ArrayRef2;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
@@ -43,6 +45,7 @@ public class TMatrix {
     public TMatrix(TMatrix other){
         this(TArrays.getCopyOf(other.matrix));
     }
+
 
 
     /**
