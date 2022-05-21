@@ -1,5 +1,6 @@
 package com.telek.tests.zsingle;
 
+import com.telek.telekmath.core.matrices.TMat2;
 import com.telek.telekmath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -37,8 +38,6 @@ public class TMathTest {
         Assertions.assertEquals(TMath.gcd(9191, 510), 1);
         Assertions.assertEquals(TMath.gcd(8515, 5010), 5);
         Assertions.assertEquals(TMath.gcd(40, 20), 20);
-
-
 
         Random random = new Random();
         for (int i = 0; i < TIMES; i++) {

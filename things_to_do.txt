@@ -59,13 +59,24 @@ javastr için:
 
 TMat2 copy          =>  kendi kopyasını dönme
 
+
+// getters and setters
+
+double setCell
+double getCell()
+
+// special value methods
+
+double determinant
+double trace
+
 // basic operations
 
-TMat2 add           =>  kendi türünü ekleme, satır/sütun vektörü ekleme, bir sürü double ekleme
-TMat2 subtract      =>  kendi türünü ekleme, satır/sütun vektörü ekleme, bir sürü double ekleme
+TMat2 add           =>  kendi türünü ekleme, bir sürü double ekleme
+TMat2 subtract      =>  kendi türünü ekleme, bir sürü double ekleme
 TMat2 scale         =>  bir double
-TMat2 matrixMultiplication  =>  kendi türü, bir sürü double
-TMat2 inverse
+TMat2 multiply  =>  kendi türü, bir sürü double
+TMat2 invert
 
 // geometric operations
 
@@ -77,27 +88,14 @@ TMat2 flipVertically  =>  dikey olarak aynalıyor
     [3, 4]         [1, 2]
 TMat2 rotate90DegClockwise
 TMat2 rotate90DegAntiClockwise
-TMat2 rotate180DegClockwise
-TMat2 rotate180DegAntiClockwise
+TMat2 rotate180Deg
 TMat2 transpose
 
-// getters and setters
-
-double setCell
-double getCell()
-
-// special value methods
-
-double[] getDiagonal
-double determinant
-double trace
 
 // special matrix methods
 
 boolean isSymmetrical
 boolean isSingular
-boolean isRegular
-boolean isOrthogonal
 boolean isIdentityMatrix
 
 // object methods
@@ -106,12 +104,6 @@ equals
 toString
 hashCode
 
-TMat2 constructors:
-    - TMat2()  =>  identity matrix
-    - TMat2(value)  => hepsi value
-    - TMat2(TMat2)  => copy constructor
-    - TMat2(tvec2_1_col1, tvec2_2_col2)  => sütun belirten iki vektör 2d vektör (TVec2)
-    - TMat2(4 double)
 TMat3 constructors:
     - TMat3()  =>  identity matrix
     - TMat3(value)  => hepsi value
@@ -149,6 +141,7 @@ Kontrol:
 
 
 her metodun kullanıldığı büyük bir test yazılmalı
+
 JOML vs tmath yapılmalı bir test içinde
 
 
