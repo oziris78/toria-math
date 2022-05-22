@@ -194,7 +194,7 @@ com/telek/telekmath/core/functions/other/TLog.java
  com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/core/matrices/TMat3.java
- com.telek.telekmath.core.matrices.TMat3
 com/telek/telekmath/core/matrices/TMat2.java
  com.telek.telekmath.core.matrices.TMat2
+com/telek/telekmath/core/matrices/TMat3.java
+ com.telek.telekmath.core.matrices.TMat3

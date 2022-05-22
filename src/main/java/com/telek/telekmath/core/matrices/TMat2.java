@@ -121,10 +121,12 @@ public class TMat2 {
     /*  SPECIAL VALUE METHODS  */
     /////////////////////////////
 
+
     /**  @return the determinant of this matrix  */
     public double determinant(){
         return m00 * m11 - m01 * m10;
     }
+
 
     /**  @return the trace (sum of all values on diagonals) of this matrix  */
     public double trace(){

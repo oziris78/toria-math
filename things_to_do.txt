@@ -104,12 +104,6 @@ equals
 toString
 hashCode
 
-TMat3 constructors:
-    - TMat3()  =>  identity matrix
-    - TMat3(value)  => hepsi value
-    - TMat3(TMat3)  => copy constructor
-    - TMat3(tvec3_1_col1, tvec3_2_col2)  => sütun belirten iki vektör 3d vektör (TVec3)
-    - TMat3(9 double)
 TMat4 constructors:
     - TMat4()  =>  identity matrix
     - TMat4(value)  => hepsi value
