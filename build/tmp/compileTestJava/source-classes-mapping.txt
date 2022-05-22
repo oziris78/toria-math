@@ -18,8 +18,8 @@ com/telek/tests/stats/SimpleRegressionTest.java
 com/telek/tests/stats/desc/DataDescriptionTest.java
  com.telek.tests.stats.desc.DataDescriptionTest
  com.telek.tests.stats.desc.DataDescriptionTest$TestClass
-com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
+com/telek/tests/matrices/TMat3Test.java
+ com.telek.tests.matrices.TMat3Test
 com/telek/tests/geometry/TVec3Test.java
  com.telek.tests.geometry.TVec3Test
 com/telek/tests/functions/TPolynomialTest.java
@@ -34,8 +34,8 @@ com/telek/tests/zsingle/IAFTest.java
  com.telek.tests.zsingle.IAFTest
 com/telek/tests/stats/confidenceint/ConfIntervalSingleVariableTest.java
  com.telek.tests.stats.confidenceint.ConfIntervalSingleVariableTest
-com/telek/tests/stats/freqtable/FreqDistTableTest.java
- com.telek.tests.stats.freqtable.FreqDistTableTest
+com/telek/tests/matrices/TMat2Test.java
+ com.telek.tests.matrices.TMat2Test
 com/telek/tests/zsingle/DiscreteMathTest.java
  com.telek.tests.zsingle.DiscreteMathTest
 com/telek/tests/numbers/TRangeTest.java
@@ -68,16 +68,16 @@ com/telek/tests/geometry/TVec2Test.java
  com.telek.tests.geometry.TVec2Test
 com/telek/tests/zsingle/ColorTest.java
  com.telek.tests.zsingle.ColorTest
-com/telek/tests/stats/exampledata/RegData.java
- com.telek.tests.stats.exampledata.RegData
- com.telek.tests.stats.exampledata.RegData$YearResult
+com/telek/tests/matrices/JOMLvsTelek.java
+ com.telek.tests.matrices.JOMLvsTelek
 com/telek/tests/functions/FuncTest.java
  com.telek.tests.functions.FuncTest
 com/telek/tests/dists/ZDistTest.java
  com.telek.tests.dists.ZDistTest
-com/telek/tests/matrices/JOMLvsTelek.java
- com.telek.tests.matrices.JOMLvsTelek
-com/telek/tests/matrices/TMat2Test.java
- com.telek.tests.matrices.TMat2Test
-com/telek/tests/matrices/TMat3Test.java
- com.telek.tests.matrices.TMat3Test
+com/telek/tests/stats/freqtable/FreqDistTableTest.java
+ com.telek.tests.stats.freqtable.FreqDistTableTest
+com/telek/tests/stats/exampledata/RegData.java
+ com.telek.tests.stats.exampledata.RegData
+ com.telek.tests.stats.exampledata.RegData$YearResult
+com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest

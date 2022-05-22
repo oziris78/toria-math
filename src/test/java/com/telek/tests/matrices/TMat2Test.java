@@ -1,16 +1,12 @@
 package com.telek.tests.matrices;
 
 import com.telek.telekmath.core.geometry.vectors.TVec2;
-import com.telek.telekmath.core.matrices.TMat;
 import com.telek.telekmath.core.matrices.TMat2;
-import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TMath;
 import org.apache.commons.math3.linear.FieldLUDecomposition;
-import org.apache.commons.math3.linear.FieldMatrix;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.util.BigReal;
-import org.joml.Matrix2d;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

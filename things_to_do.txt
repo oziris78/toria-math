@@ -39,6 +39,11 @@ GELECEK PLANLARI {
 }
 
 
+TMatNM
+TMat
+TMatrix
+TGenericMatrix
+
 
 
 matris sınıflarının hepsi mutable olacak ve method chaining için this dönecekler
@@ -62,7 +67,8 @@ TMat2 copy          =>  kendi kopyasını dönme
 
 // getters and setters
 
-double setCell
+TMat3 set(doubles ...)
+void setCell
 double getCell()
 
 // special value methods

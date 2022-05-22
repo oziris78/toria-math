@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A fast and mutable 2x2 double matrix class. <br>
  * All methods either return a numeric value or this matrix for method chaining purposes. <br>
- * Also see {@link TMat3}, {@link TMat4},{@link TMat}
+ * Also see {@link TMat3}, {@link TMat4}, {@link TMat}
  */
 public class TMat2 {
 
@@ -87,6 +87,21 @@ public class TMat2 {
     /////////////////////////
     /*  GETTERS / SETTERS  */
     /////////////////////////
+
+
+    /**
+     * Sets all of the values of this matrix.
+     * @param m00 any double
+     * @param m01 any double
+     * @param m10 any double
+     * @param m11 any double
+     * @return this matrix for method chaining
+     */
+    public TMat2 set(double m00, double m01, double m10, double m11) {
+        this.m00 = m00; this.m01 = m01;
+        this.m10 = m10; this.m11 = m11;
+        return this;
+    }
 
 
     /**

@@ -1,16 +1,15 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.core.geometry.vectors.TVec3;
 import com.telek.telekmath.utils.TMath;
-
 import java.util.Objects;
+
 
 /**
  * A fast and mutable 3x3 double matrix class. <br>
  * All methods either return a numeric value or this matrix for method chaining purposes. <br>
- * Also see {@link TMat2}, {@link TMat4},{@link TMat}
+ * Also see {@link TMat2}, {@link TMat4}, {@link TMat}
  */
 public class TMat3 {
 
@@ -112,6 +111,31 @@ public class TMat3 {
     /*  GETTERS / SETTERS  */
     /////////////////////////
 
+
+    /**
+     * Sets all of the values of this matrix.
+     * @param m00 any double
+     * @param m01 any double
+     * @param m02 any double
+     * @param m10 any double
+     * @param m11 any double
+     * @param m12 any double
+     * @param m20 any double
+     * @param m21 any double
+     * @param m22 any double
+     * @return this matrix for method chaining
+     */
+    public TMat3 set(double m00, double m01, double m02,
+                     double m10, double m11, double m12,
+                     double m20, double m21, double m22)
+    {
+        this.m00 = m00; this.m01 = m01; this.m02 = m02;
+        this.m10 = m10; this.m11 = m11; this.m12 = m12;
+        this.m20 = m20; this.m21 = m21; this.m22 = m22;
+        return this;
+    }
+
+
     /**
      * Sets the value of mat[row][col]
      * @param row 0-based row index
@@ -137,16 +161,22 @@ public class TMat3 {
      * @return the value of mat[row][col]
      */
     public double getCell(int row, int col){
-        if(row == 0 && col == 0) return this.m00;
-        else if(row == 0 && col == 1) return this.m01;
-        else if(row == 0 && col == 2) return this.m02;
-        else if(row == 1 && col == 0) return this.m10;
-        else if(row == 1 && col == 1) return this.m11;
-        else if(row == 1 && col == 2) return this.m12;
-        else if(row == 2 && col == 0) return this.m20;
-        else if(row == 2 && col == 1) return this.m21;
-        else if(row == 2 && col == 2) return this.m22;
-        else return Double.NaN;
+        if(row == 0){
+            if(col == 0) return this.m00;
+            else if(col == 1) return this.m01;
+            else if(col == 2) return this.m02;
+        }
+        else if(row == 1){
+            if(col == 0) return this.m10;
+            else if(col == 1) return this.m11;
+            else if(col == 2) return this.m12;
+        }
+        else if(row == 2){
+            if(col == 0) return this.m20;
+            else if(col == 1) return this.m21;
+            else if(col == 2) return this.m22;
+        }
+        return Double.NaN;
     }
 
 
@@ -374,41 +404,17 @@ public class TMat3 {
         if(TMath.areEqual(det, 0d))
             return null;
 
-        // cofactor matrix
-        double cofac00 = (m11 * m22) - (m12 * m21);
-        double cofac01 = (m12 * m20) - (m10 * m22);
-        double cofac02 = (m10 * m21) - (m11 * m20);
-        double cofac10 = (m02 * m21) - (m01 * m22);
-        double cofac11 = (m00 * m22) - (m02 * m20);
-        double cofac12 = (m01 * m20) - (m00 * m21);
-        double cofac20 = (m01 * m12) - (m02 * m11);
-        double cofac21 = (m02 * m10) - (m00 * m12);
-        double cofac22 = (m00 * m11) - (m01 * m10);
-
-        // transpose
-        double temp;
-        temp = cofac01;
-        cofac01 = cofac10;
-        cofac10 = temp;
-
-        temp = cofac02;
-        cofac02 = cofac20;
-        cofac20 = temp;
-
-        temp = cofac12;
-        cofac12 = cofac21;
-        cofac21 = temp;
-
-        // scale it
-        this.m00 = cofac00 / det;
-        this.m01 = cofac01 / det;
-        this.m02 = cofac02 / det;
-        this.m10 = cofac10 / det;
-        this.m11 = cofac11 / det;
-        this.m12 = cofac12 / det;
-        this.m20 = cofac20 / det;
-        this.m21 = cofac21 / det;
-        this.m22 = cofac22 / det;
+        this.set(
+            (this.m11 * this.m22 - this.m12 * this.m21) / det,
+            (this.m02 * this.m21 - this.m01 * this.m22) / det,
+            (this.m01 * this.m12 - this.m02 * this.m11) / det,
+            (this.m12 * this.m20 - this.m10 * this.m22) / det,
+            (this.m00 * this.m22 - this.m02 * this.m20) / det,
+            (this.m02 * this.m10 - this.m00 * this.m12) / det,
+            (this.m10 * this.m21 - this.m11 * this.m20) / det,
+            (this.m01 * this.m20 - this.m00 * this.m21) / det,
+            (this.m00 * this.m11 - this.m01 * this.m10) / det
+        );
 
         return this;
     }
@@ -430,6 +436,16 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 flipHorizontally(){
+        double temp;
+        temp = this.m00;
+        this.m00 = this.m02;
+        this.m02 = temp;
+        temp = this.m10;
+        this.m10 = this.m12;
+        this.m12 = temp;
+        temp = this.m20;
+        this.m20 = this.m22;
+        this.m22 = temp;
         return this;
     }
 
@@ -443,6 +459,16 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 flipVertically(){
+        double temp;
+        temp = this.m00;
+        this.m00 = this.m20;
+        this.m20 = temp;
+        temp = this.m01;
+        this.m01 = this.m21;
+        this.m21 = temp;
+        temp = this.m02;
+        this.m02 = this.m22;
+        this.m22 = temp;
         return this;
     }
 
@@ -456,6 +482,17 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 rotate90DegClockwise(){
+        double temp;
+        temp = this.m20;
+        this.m20 = this.m22;
+        this.m22 = this.m02;
+        this.m02 = this.m00;
+        this.m00 = temp;
+        temp = this.m01;
+        this.m01 = this.m10;
+        this.m10 = this.m21;
+        this.m21 = this.m12;
+        this.m12 = temp;
         return this;
     }
 
@@ -469,6 +506,17 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 rotate90DegAntiClockwise(){
+        double temp;
+        temp = this.m20;
+        this.m20 = this.m00;
+        this.m00 = this.m02;
+        this.m02 = this.m22;
+        this.m22 = temp;
+        temp = this.m10;
+        this.m10 = this.m01;
+        this.m01 = this.m12;
+        this.m12 = this.m21;
+        this.m21 = temp;
         return this;
     }
 
@@ -482,6 +530,19 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 rotate180Deg(){
+        double temp;
+        temp = this.m10;
+        this.m10 = this.m12;
+        this.m12 = temp;
+        temp = this.m22;
+        this.m22 = this.m00;
+        this.m00 = temp;
+        temp = this.m20;
+        this.m20 = this.m02;
+        this.m02 = temp;
+        temp = this.m21;
+        this.m21 = this.m01;
+        this.m01 = temp;
         return this;
     }
 
@@ -491,17 +552,19 @@ public class TMat3 {
      * @return this matrix for method chaining
      */
     public TMat3 transpose(){
+        double temp;
+        temp = this.m01;
+        this.m01 = this.m10;
+        this.m10 = temp;
+        temp = this.m02;
+        this.m02 = this.m20;
+        this.m20 = temp;
+        temp = this.m12;
+        this.m12 = this.m21;
+        this.m21 = temp;
         return this;
     }
 
-    /*
-
-Kontrol:
-    == yerine TMath.areEqual() kullanılmalı
-
-
-her metodun kullanıldığı büyük bir test yazılmalı
-     */
 
 
     ////////////////////////////////
