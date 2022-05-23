@@ -143,11 +143,11 @@ public class SimpleRegression {
 
         // n & sums
         double n = array.length;
-        double sumX = Arrays.stream(array).mapToDouble(value -> value.x).sum();
-        double sumY = Arrays.stream(array).mapToDouble(value -> value.y).sum();
-        double sumX2 = Arrays.stream(array).mapToDouble(value -> value.x * value.x).sum();
-        double sumY2 = Arrays.stream(array).mapToDouble(value -> value.y * value.y).sum();
-        double sumXY = Arrays.stream(array).mapToDouble(value -> value.x * value.y).sum();
+        double sumX = Arrays.stream(array).mapToDouble(value -> value.getX()).sum();
+        double sumY = Arrays.stream(array).mapToDouble(value -> value.getY()).sum();
+        double sumX2 = Arrays.stream(array).mapToDouble(value -> value.getX() * value.getX()).sum();
+        double sumY2 = Arrays.stream(array).mapToDouble(value -> value.getY() * value.getY()).sum();
+        double sumXY = Arrays.stream(array).mapToDouble(value -> value.getX() * value.getY()).sum();
 
         // line
         double down = n * sumX2 - sumX * sumX;
@@ -157,7 +157,7 @@ public class SimpleRegression {
 
         // standardError
         double sumE2 = Arrays.stream(array).mapToDouble(value -> {
-            double error = value.y - line.value(value.x);
+            double error = value.getY() - line.value(value.getX());
             return error * error;
         }).sum();
 

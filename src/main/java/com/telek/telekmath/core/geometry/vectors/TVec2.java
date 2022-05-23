@@ -6,197 +6,400 @@ import java.util.Objects;
 
 
 /**
- * An immutable 2D vector/point class. <br>
- * All methods either return a numeric value or <b>a new {@link TVec2} instance</b>.
+ * A fast and mutable 2D vector/point class. <br>
+ * All methods either return a numeric value or this vector for method chaining purposes. <br>
+ * Also take a look at {@link TVec3} class for a 3D vector/point.
  */
 public class TVec2 {
 
     public static final TVec2 ZERO = new TVec2(0d, 0d);
 
-    public final double x, y;
+    protected double x, y;
 
 
     ////////////////////
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    /**
+     * Creates a vector using the given coordinates.
+     * @param x any double
+     * @param y any double
+     */
     public TVec2(double x, double y){
         this.x = x;
         this.y = y;
     }
 
 
-    ///////////////
-    /*  METHODS  */
-    ///////////////
-
-
-    public TVec2 add(TVec2 vec2){
-        return new TVec2(this.x + vec2.x, this.y + vec2.y);
-    }
-
-    public TVec2 add(double x, double y){
-        return new TVec2(this.x + x, this.y + y);
-    }
-
-    //////////////////////////////////////////
-
     /**
-     * @param vec2 any vector
-     * @return this - vec2
+     * Creates an origin point (0, 0).
      */
-    public TVec2 subtract(TVec2 vec2){
-        return new TVec2(this.x - vec2.x, this.y - vec2.y);
+    public TVec2(){
+        this.x = 0d;
+        this.y = 0d;
     }
 
+
     /**
+     * Copy constructor.
+     * @param other a vector to copy
+     */
+    public TVec2(TVec2 other){
+        this.x = other.x;
+        this.y = other.y;
+    }
+
+
+    /**
+     * @return a copy of this vector
+     */
+    public TVec2 copy(){
+        return new TVec2(this);
+    }
+
+
+
+    /////////////////////////
+    /*  GETTERS / SETTERS  */
+    /////////////////////////
+
+
+    /**
+     * Sets the coordinates of this vector.
      * @param x any double
      * @param y any double
-     * @return this - {x, y}
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 set(double x, double y){
+        this.x = x;
+        this.y = y;
+        return this;
+    }
+
+
+    /**
+     * Sets the x coordinate of this vector.
+     * @param x any double
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 setX(double x){
+        this.x = x;
+        return this;
+    }
+
+
+    /**
+     * Sets the y coordinate of this vector.
+     * @param y any double
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 setY(double y){
+        this.y = y;
+        return this;
+    }
+
+
+    /**
+     * @return x coordinate of this vector
+     */
+    public double getX() {
+        return x;
+    }
+
+
+    /**
+     * @return y coordinate of this vector
+     */
+    public double getY() {
+        return y;
+    }
+
+
+    ////////////////////////
+    /*  BASIC OPERATIONS  */
+    ////////////////////////
+
+
+    /**
+     * Adds the given vector to this vector.
+     * @param vec2 any vector
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 add(TVec2 vec2){
+        this.x += vec2.x;
+        this.y += vec2.y;
+        return this;
+    }
+
+
+    /**
+     * Adds the given (x, y) vector to this vector.
+     * @param x any double
+     * @param y any double
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 add(double x, double y){
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+
+
+    /**
+     * Subtracts the given vector to this vector.
+     * @param vec2 any vector
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 subtract(TVec2 vec2){
+        this.x -= vec2.x;
+        this.y -= vec2.y;
+        return this;
+    }
+
+
+    /**
+     * Subtracts the given (x, y) vector to this vector.
+     * @param x any double
+     * @param y any double
+     * @return this vector for method chaining purposes
      */
     public TVec2 subtract(double x, double y){
-        return new TVec2(this.x - x, this.y - y);
+        this.x -= x;
+        this.y -= y;
+        return this;
     }
 
-    //////////////////////////////////////////
 
+
+    /**
+     * Scales this vector's components by given scale
+     * @param scaleXY any double
+     * @return this vector for method chaining purposes
+     */
     public TVec2 scale(double scaleXY){
-        return new TVec2(this.x * scaleXY, this.y * scaleXY);
+        this.x *= scaleXY;
+        this.y *= scaleXY;
+        return this;
     }
 
+
+    /**
+     * Scales this vector's components by given scales
+     * @param scaleX any double
+     * @param scaleY any double
+     * @return this vector for method chaining purposes
+     */
     public TVec2 scale(double scaleX, double scaleY){
-        return new TVec2(this.x * scaleX, this.y * scaleY);
+        this.x *= scaleX;
+        this.y *= scaleY;
+        return this;
     }
 
-    //////////////////////////////////////////
 
-    public double dot(TVec2 vector2){
-        return this.x * vector2.x + this.y * vector2.y;
+    /**
+     * Unitizes this vector by scaling it by 1 / len(vec)
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 unit(){
+        double len = this.length();
+        this.x /= len;
+        this.y /= len;
+        return this;
     }
 
-    public double dot(double vecX, double vecY){
-        return this.x * vecX + this.y * vecY;
+
+    /////////////////////
+    /*  VALUE METHODS  */
+    /////////////////////
+
+
+    /**
+     * Returns the dot product of two vectors.
+     * @param other any vector
+     * @return dot product of this vector and the given vector
+     */
+    public double dot(TVec2 other){
+        return this.x * other.x + this.y * other.y;
     }
 
+
+    /**
+     * Returns the dot product of two vectors.
+     * @param otherVecX other vector's x coordinate
+     * @param otherVecY other vector's y coordinate
+     * @return dot product of this vector and the given vector
+     */
+    public double dot(double otherVecX, double otherVecY){
+        return this.x * otherVecX + this.y * otherVecY;
+    }
+
+
+    /**
+     * @return this vector's distance from the origin
+     */
     public double length() {
         return TMath.sqrt(this.x * this.x + this.y * this.y);
     }
 
+
+    /**
+     * @return this vector's distance from the origin but squared
+     */
     public double lengthSquared() {
         return this.x * this.x + this.y * this.y;
     }
 
-    //////////////////////////////////////////
 
-    /**  @return the unit vector of this vector by diving it by it's length  */
-    public TVec2 unit(){
-        return this.scale(1d / this.length());
+
+    /////////////////////////
+    /*  GEOMETRIC METHODS  */
+    /////////////////////////
+
+
+    /**
+     * Rotates this vector 90 degrees clockwise.
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 rotate90DegClockwise(){
+        double temp = -this.x;
+        this.x = this.y;
+        this.y = temp;
+        return this;
     }
 
-    public TVec2 projection(TVec2 vector2) {
-        return vector2.scale(this.dot(vector2) / vector2.lengthSquared());
+
+    /**
+     * Rotates this vector 180 degrees clockwise.
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 rotate180DegClockwise(){
+        this.x = -this.x;
+        this.y = -this.y;
+        return this;
     }
 
-    public TVec2 orthogonalProjection(TVec2 vector2){
-        return this.subtract(this.projection(vector2));
+
+    /**
+     * Rotates this vector 90 degrees clockwise.
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 rotate90DegAntiClockwise(){
+        double temp = -this.y;
+        this.y = this.x;
+        this.x = temp;
+        return this;
     }
 
-    //////////////////////////////////////////
 
-    public TVec2 rotateClockwise90(){
-        return new TVec2(this.y, -this.x);
-    }
-
-    public TVec2 rotateClockwise180(){
-        return new TVec2(-this.x, -this.y);
-    }
-
-    public TVec2 rotateClockwise270(){
-        return new TVec2(-this.y, this.x);
-    }
-
+    /**
+     * @param xAxis a boolean specifying if the calculated vector will be symmetrical according to the x-axis or not
+     * @param yAxis a boolean specifying if the calculated vector will be symmetrical according to the y-axis or not
+     * @return this vector for method chaining purposes
+     */
     public TVec2 symmetricalVectorToTheAxes(boolean xAxis, boolean yAxis){
-        return new TVec2(
-                (yAxis ? -1d : 1d) * this.x,
-                (xAxis ? -1d : 1d) * this.y
-        );
+        if(yAxis)
+            this.x = -this.x;
+        if(xAxis)
+            this.y = -this.y;
+        return this;
     }
 
-    public TVec2 symmetricalVectorTo(TVec2 vec2){
-        return new TVec2(
-                2d * vec2.x - this.x,
-                2d * vec2.y - this.y
-        );
+
+    /**
+     * Calculates the vector symmetrical to the given vector and assigns it to this vector.
+     * @param other any vector
+     * @return this vector for method chaining purposes
+     */
+    public TVec2 symmetricalVectorTo(TVec2 other){
+        this.x = 2d * other.x - this.x;
+        this.y = 2d * other.y - this.y;
+        return this;
     }
 
-    //////////////////////////////////////////
 
+
+    ///////////////////////
+    /*  BOOLEAN METHODS  */
+    ///////////////////////
+
+
+    /**
+     * @return true if this vector is (0, 0)
+     */
     public boolean isZeroVector() {
         return TMath.areEqual(this.x, 0d) && TMath.areEqual(this.y, 0d);
     }
 
+
+    /**
+     * @return true if this vector is unit vector
+     */
     public boolean isUnitVector() {
         return TMath.areEqual(this.length(), 1d);
     }
 
-    //////////////////////////////////////////
+
+    //////////////////////
+    /*  STATIC METHODS  */
+    //////////////////////
+
 
     /**
-     * @return {this.x, this.y, 0d}
+     * @param vec1 any vector
+     * @param vec2 any vector
+     * @return the angle between the given vectors
      */
-    public TVec3 to3D(){
-        return new TVec3(this.x, this.y, 0f);
-    }
-
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     public static double angleBetween(TVec2 vec1, TVec2 vec2) {
         return Math.acos(vec1.dot(vec2) / ( vec1.length() * vec2.length()));
     }
 
-    public static double distanceBetween(TVec2 vec1, TVec2 vec2) {
-        return vec1.subtract(vec2).length(); // len(vec1- vec2)
-    }
 
-    public static TVec2 midpoint(TVec2 vec1, TVec2 vec2){
-        return new TVec2( (vec1.x + vec2.x) / 2d, (vec1.y + vec2.y) / 2d );
-    }
 
+    /**
+     * @param vec1 any vector
+     * @param vec2 any vector
+     * @param vec3 any vector
+     * @return true if the given vectors are orthogonal
+     */
     public static boolean areOrthogonal(TVec2 vec1, TVec2 vec2, TVec2 vec3){
         return TMath.areEqual(vec1.dot(vec2), 0d) && TMath.areEqual(vec1.dot(vec3), 0d)
                 && TMath.areEqual(vec2.dot(vec3), 0d);
     }
 
+
+    /**
+     * @param vec1 any vector
+     * @param vec2 any vector
+     * @param vec3 any vector
+     * @return true if the given vectors are orthonormal
+     */
     public static boolean areOrthonormal(TVec2 vec1, TVec2 vec2, TVec2 vec3) {
         return areOrthogonal(vec1, vec2, vec3) && vec1.isUnitVector() && vec2.isUnitVector() && vec3.isUnitVector();
     }
 
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////
+    /*  OBJECT METHODS  */
+    //////////////////////
+
+
 
     @Override
     public String toString() {
-        return String.format("<%f, %f>", this.x, this.y)
-                .replaceAll("<0.000000", "<0")
-                .replaceAll("0.000000>", "0>")
-                .replaceAll("<1.000000", "<1")
-                .replaceAll("1.000000>", "1>")
-                .replaceAll("<-1.000000", "<-1")
-                .replaceAll("-1.000000>", "-1>");
+        return String.format("<%f, %f>", this.x, this.y);
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TVec2 tVec2 = (TVec2) o;
-        return TMath.areEqual(tVec2.x, x) && TMath.areEqual(tVec2.y, y);
+        TVec2 other = (TVec2) o;
+        return TMath.areEqual(other.x, x) && TMath.areEqual(other.y, y);
     }
+
 
     @Override
     public int hashCode() {

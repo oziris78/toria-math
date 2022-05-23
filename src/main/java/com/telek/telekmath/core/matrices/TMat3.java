@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A fast and mutable 3x3 double matrix class. <br>
  * All methods either return a numeric value or this matrix for method chaining purposes. <br>
- * Also see {@link TMat2}, {@link TMat4}, {@link TMat}
+ * Also see {@link TMat2}, {@link TMat4}, {@link TMathMat}
  */
 public class TMat3 {
 
@@ -68,9 +68,9 @@ public class TMat3 {
      */
     public TMat3(TVec3 col1, TVec3 col2, TVec3 col3){
         this(
-            col1.x, col2.x, col3.x,
-            col1.y, col2.y, col3.y,
-            col1.z, col2.z, col3.z
+            col1.getX(), col2.getX(), col3.getX(),
+            col1.getY(), col2.getY(), col3.getY(),
+            col1.getZ(), col2.getZ(), col3.getZ()
         );
     }
 

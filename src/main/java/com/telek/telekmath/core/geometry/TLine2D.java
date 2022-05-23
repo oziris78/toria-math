@@ -51,10 +51,10 @@ public class TLine2D {
 
 
     public TLine2D(TVec2 pointOneOnLine, TVec2 pointTwoOnLine){
-        double x1 = pointOneOnLine.x;
-        double x2 = pointTwoOnLine.x;
-        double y1 = pointOneOnLine.y;
-        double y2 = pointTwoOnLine.y;
+        double x1 = pointOneOnLine.getX();
+        double x2 = pointTwoOnLine.getX();
+        double y1 = pointOneOnLine.getY();
+        double y2 = pointTwoOnLine.getY();
 
         if( x1 == x2 ){ // x = k
             this.a = 1d;
@@ -179,7 +179,8 @@ public class TLine2D {
             double n1 = -line1.c / line1.b;
             double n2 = -line2.c / line2.b;
             // wont intersect here if they have the same m and different n
-            if(m1 == m2 && n1 != n2) return null;
+            if(m1 == m2 && n1 != n2)
+                return null;
 
             // always intersects here
             double x = - (n1-n2) / (m1-m2);
@@ -209,7 +210,7 @@ public class TLine2D {
      * @return The orthogonal distance between point and line
      */
     public static double distanceBetweenPointAndLine(TVec2 point, TLine2D line){
-        return TMath.abs( line.a * point.x + line.b * point.y + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
+        return TMath.abs( line.a * point.getX() + line.b * point.getY() + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
     }
 
 

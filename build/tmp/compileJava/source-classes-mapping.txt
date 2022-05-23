@@ -8,8 +8,8 @@ com/telek/telekmath/core/functions/other/TConstantFunc.java
  com.telek.telekmath.core.functions.other.TConstantFunc
 com/telek/telekutils/arrayref/twod/NumberArrRef2.java
  com.telek.telekutils.arrayref.twod.NumberArrRef2
-com/telek/telekutils/arrayref/oned/FloatArrRef.java
- com.telek.telekutils.arrayref.oned.FloatArrRef
+com/telek/telekmath/core/matrices/TMat2.java
+ com.telek.telekmath.core.matrices.TMat2
 com/telek/telekutils/arrayref/twod/LongArrRef2.java
  com.telek.telekutils.arrayref.twod.LongArrRef2
 com/telek/telekmath/core/functions/amnfuncs/TCosh.java
@@ -29,6 +29,8 @@ com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
  com.telek.telekmath.advanced.statistics.descriptive.DataDescription$Mode
 com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
+com/telek/telekmath/core/matrices/TMathMat.java
+ com.telek.telekmath.core.matrices.TMathMat
 com/telek/telekutils/arrayref/twod/FloatArrRef2.java
  com.telek.telekutils.arrayref.twod.FloatArrRef2
 com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
@@ -61,11 +63,11 @@ com/telek/telekmath/advanced/random/Sampler.java
  com.telek.telekmath.advanced.random.Sampler
 com/telek/telekutils/arrayref/oned/NumberArrRef.java
  com.telek.telekutils.arrayref.oned.NumberArrRef
+com/telek/telekmath/core/geometry/vectors/TVec3.java
+ com.telek.telekmath.core.geometry.vectors.TVec3
 com/telek/telekmath/core/functions/amnfuncs/AbstractAMNFunction.java
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction
  com.telek.telekmath.core.functions.amnfuncs.AbstractAMNFunction$FuncType
-com/telek/telekmath/core/geometry/vectors/TVec3.java
- com.telek.telekmath.core.geometry.vectors.TVec3
 com/telek/telekutils/arrayref/oned/ArrayRef.java
  com.telek.telekutils.arrayref.oned.ArrayRef
 com/telek/telekmath/core/functions/amnfuncs/TFloor.java
@@ -143,8 +145,6 @@ com/telek/telekmath/core/matrices/TMat4.java
  com.telek.telekmath.core.matrices.TMat4
 com/telek/telekmath/advanced/distributions/discrete/PoissonDist.java
  com.telek.telekmath.advanced.distributions.discrete.PoissonDist
-com/telek/telekmath/core/matrices/TMat.java
- com.telek.telekmath.core.matrices.TMat
 com/telek/telekmath/core/geometry/TLine2D.java
  com.telek.telekmath.core.geometry.TLine2D
 com/telek/telekutils/plain/TStringUtils.java
@@ -194,7 +194,7 @@ com/telek/telekmath/core/functions/other/TLog.java
  com.telek.telekmath.core.functions.other.TLog
 com/telek/telekmath/advanced/random/TRandom.java
  com.telek.telekmath.advanced.random.TRandom
-com/telek/telekmath/core/matrices/TMat2.java
- com.telek.telekmath.core.matrices.TMat2
 com/telek/telekmath/core/matrices/TMat3.java
  com.telek.telekmath.core.matrices.TMat3
+com/telek/telekutils/arrayref/oned/FloatArrRef.java
+ com.telek.telekutils.arrayref.oned.FloatArrRef

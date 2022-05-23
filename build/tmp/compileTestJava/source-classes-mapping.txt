@@ -18,10 +18,12 @@ com/telek/tests/stats/SimpleRegressionTest.java
 com/telek/tests/stats/desc/DataDescriptionTest.java
  com.telek.tests.stats.desc.DataDescriptionTest
  com.telek.tests.stats.desc.DataDescriptionTest$TestClass
+com/telek/tests/matrices/UnnamedMatrixTset.java
+ com.telek.tests.matrices.UnnamedMatrixTset
 com/telek/tests/matrices/TMat3Test.java
  com.telek.tests.matrices.TMat3Test
-com/telek/tests/geometry/TVec3Test.java
- com.telek.tests.geometry.TVec3Test
+com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
 com/telek/tests/functions/TPolynomialTest.java
  com.telek.tests.functions.TPolynomialTest
 com/telek/tests/dists/TDistTest.java
@@ -79,5 +81,5 @@ com/telek/tests/stats/freqtable/FreqDistTableTest.java
 com/telek/tests/stats/exampledata/RegData.java
  com.telek.tests.stats.exampledata.RegData
  com.telek.tests.stats.exampledata.RegData$YearResult
-com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
+com/telek/tests/geometry/TVec3Test.java
+ com.telek.tests.geometry.TVec3Test

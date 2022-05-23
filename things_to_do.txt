@@ -39,10 +39,13 @@ GELECEK PLANLARI {
 }
 
 
+
+
 TMatNM
 TMat
 TMatrix
 TGenericMatrix
+TMathMat
 
 
 

@@ -40,7 +40,7 @@ public class NumericalAnalysis {
         TPolynomial res = new TPolynomial(0);
         for (int i = 0; i < points.length; i++) {
             TVec2 curPoint = points[i];
-            TPolynomial p = getPolyForLagrange(points, i).multiply(new TPolynomial(curPoint.y));
+            TPolynomial p = getPolyForLagrange(points, i).multiply(new TPolynomial(curPoint.getY()));
             double denom = getDenomForLagrange(points, i);
             p = p.multiply(new TPolynomial(1d / denom));
             res = res.add(p);
@@ -156,18 +156,18 @@ public class NumericalAnalysis {
             if(i == dontTake)
                 continue;
             TVec2 curPoint = points[i];
-            res = res.multiply(new TPolynomial(-curPoint.x, 1)); // x - x_i
+            res = res.multiply(new TPolynomial(-curPoint.getX(), 1)); // x - x_i
         }
         return res;
     }
 
     private static double getDenomForLagrange(TVec2[] points, int dontTake){
         double d = 1d;
-        final double dontTakeX = points[dontTake].x;
+        final double dontTakeX = points[dontTake].getX();
         for (int i = 0; i < points.length; i++) {
             if(i == dontTake)
                 continue;
-            d *= (dontTakeX - points[i].x);
+            d *= (dontTakeX - points[i].getX());
         }
         return d;
     }
