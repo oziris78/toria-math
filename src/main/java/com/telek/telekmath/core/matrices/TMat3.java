@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A fast and mutable 3x3 double matrix class. <br>
  * All methods either return a numeric value or this matrix for method chaining purposes. <br>
- * Also see {@link TMat2}, {@link TMat4}, {@link TMathMat}
+ * Also see {@link TMat2}, {@link TMat4}, {@link TMatN}
  */
 public class TMat3 {
 
@@ -122,8 +122,7 @@ public class TMat3 {
      * @param m12 any double
      * @param m20 any double
      * @param m21 any double
-     * @param m22 any double
-     * @return this matrix for method chaining
+     * @param m22 any doubleq
      */
     public TMat3 set(double m00, double m01, double m02,
                      double m10, double m11, double m12,
@@ -141,8 +140,9 @@ public class TMat3 {
      * @param row 0-based row index
      * @param col 0-based column index
      * @param value any double
+     * @return this matrix for method chaining
      */
-    public void setCell(int row, int col, double value){
+    public TMat3 setCell(int row, int col, double value){
         if(row == 0 && col == 0) m00 = value;
         else if(row == 0 && col == 1) m01 = value;
         else if(row == 0 && col == 2) m02 = value;
@@ -152,6 +152,7 @@ public class TMat3 {
         else if(row == 2 && col == 0) m20 = value;
         else if(row == 2 && col == 1) m21 = value;
         else if(row == 2 && col == 2) m22 = value;
+        return this;
     }
 
 

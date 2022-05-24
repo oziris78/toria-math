@@ -242,7 +242,7 @@ public class TMatrix {
                     }
                 }
             }
-            result += sign * this.getCell(0,f) * new TMatrix(temp).determinant();
+            result += sign * this.getCell(0, f) * new TMatrix(temp).determinant();
             sign = -sign;
         }
         return result;

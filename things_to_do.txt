@@ -113,11 +113,6 @@ equals
 toString
 hashCode
 
-TMat4 constructors:
-    - TMat4()  =>  identity matrix
-    - TMat4(value)  => hepsi value
-    - TMat4(TMat4)  => copy constructor
-    - TMat4(16 double)
 TMat constructors:
     - TMat(n, m)  =>  nxm identity matrix
     - TMat(n)  =>  nxn identity matrix
