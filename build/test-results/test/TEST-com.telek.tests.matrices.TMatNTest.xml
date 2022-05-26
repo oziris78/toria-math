@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telek.tests.matrices.TMatNTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-26T17:01:31" hostname="TUNERIKGEZGINI" time="0.047">
-  <properties/>
-  <testcase name="tmanNTest" classname="com.telek.tests.matrices.TMatNTest" time="0.047"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

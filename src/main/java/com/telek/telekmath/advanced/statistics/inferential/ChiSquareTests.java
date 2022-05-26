@@ -3,7 +3,6 @@ package com.telek.telekmath.advanced.statistics.inferential;
 
 import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
-import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.arrayref.oned.*;
 
@@ -163,57 +162,62 @@ public class ChiSquareTests {
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return true if the distribution of the categorical variable is homogeneous for all populations
      */
-    public static boolean isHomogeneous(TMatrix table, double alpha) {
-        int lastRow = table.getRowSize() + 1;
-        int lastCol = table.getColSize() + 1;
-        TMatrix wholeTable = table.copy(lastRow, lastCol);
+    public static boolean isHomogeneous(double[][] table, double alpha) {
+        int lastRow = table.length + 1;
+        int lastCol = table[0].length + 1;
+
+        double[][] wholeTable = new double[lastRow][lastCol];
+        // extend it
+        for (int i = 0; i < lastRow; i++)
+            for (int j = 0; j < lastCol; j++)
+                wholeTable[i][j] = (i+1 == lastRow || j+1 == lastCol) ? 0d : table[i][j];
 
         // fill the table with sum values
         double rightDown = 0;
         for (int row = 0; row < lastRow - 1; row++) {
             double sum = 0;
             for (int i = 0; i < lastCol - 1; i++) {
-                sum += table.getCell(row, i);
+                sum += table[row][i];
             }
-            wholeTable.setCell(row, lastCol - 1, sum);
+            wholeTable[row][lastCol - 1] = sum;
             rightDown += sum;
         }
         for (int col = 0; col < lastCol - 1; col++) {
             double sum = 0;
             for (int i = 0; i < lastRow - 1; i++) {
-                sum += table.getCell(i, col);
+                sum += table[i][col];
             }
-            wholeTable.setCell(lastRow - 1, col, sum);
+            wholeTable[lastRow - 1][col] = sum;
         }
-        wholeTable.setCell(lastRow - 1, lastCol -1, rightDown);
+        wholeTable[lastRow - 1][lastCol -1] = rightDown;
 
         // update the table with ratios
         for (int i = 0; i < lastRow - 1; i++) {
             for (int j = 0; j < lastCol - 1; j++) {
-                double val = wholeTable.getCell(i, lastCol - 1) * wholeTable.getCell(lastRow - 1, j) / rightDown;
-                wholeTable.setCell(i, j, val);
+                double val = wholeTable[i][lastCol - 1] * wholeTable[lastRow - 1][j] / rightDown;
+                wholeTable[i][j] = val;
             }
         }
 
         // do the test
         double testStat = 0;
-        for (int i = 0; i < table.getRowSize(); i++) {
-            for (int j = 0; j < table.getColSize(); j++) {
-                double eij = wholeTable.getCell(i, j);
-                double oij = table.getCell(i, j);
+        for (int i = 0; i < lastRow - 1; i++) {
+            for (int j = 0; j < lastCol - 1; j++) {
+                double eij = wholeTable[i][j];
+                double oij = table[i][j];
                 double diff = eij - oij;
                 testStat += diff * diff / eij;
             }
         }
 
-        double v = (table.getRowSize() - 1) * (table.getColSize() - 1);
+        double v = (lastRow - 2) * (lastCol - 2);
         double chi = ChiSquaredDist.invCumLeftTailed(v, 1d - alpha);
         return testStat <= chi;
     }
 
 
     /**  @see #isHomogeneous(TMatrix, double)  */
-    public static boolean isIndependent(TMatrix table, double alpha){
+    public static boolean isIndependent(double[][] table, double alpha){
         return isHomogeneous(table, alpha);
     }
 

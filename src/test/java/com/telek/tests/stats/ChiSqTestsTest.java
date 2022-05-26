@@ -2,7 +2,6 @@ package com.telek.tests.stats;
 
 import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
 import com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests;
-import com.telek.telekmath.core.matrices.TMatrix;
 import com.telek.telekutils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -38,11 +37,11 @@ public class ChiSqTestsTest {
         Assertions.assertTrue(ChiSquareTests.fitsDistribution(table, expectedFrequencies, "uniform", 0.05d));
         Assertions.assertTrue(ChiSquareTests.isIndependent(table, expectedFrequencies, 0.05d));
 
-        TMatrix mat2 = new TMatrix(new double[][]{
+        double[][] mat2 = new double[][]{
                 {6, 14, 16},
                 {25, 22, 17},
                 {9, 6, 5}
-        });
+        };
 
         Assertions.assertTrue(ChiSquareTests.isHomogeneous(mat2, 0.05d));
         Assertions.assertTrue(ChiSquareTests.isIndependent(mat2, 0.05d));
@@ -129,10 +128,10 @@ public class ChiSqTestsTest {
         hourly work      40     60     60
         */
 
-        TMatrix mat = new TMatrix(new double[][]{
+        double[][] mat = new double[][]{
                 {160, 140, 40},
                 {40, 60, 60}
-        });
+        };
 
         Assertions.assertFalse(ChiSquareTests.isIndependent(mat, 0.05d));
         // we reject H_0, the retirement plans and working types are dependent
@@ -152,11 +151,11 @@ public class ChiSqTestsTest {
         rarely            9         6           5
         */
 
-        TMatrix mat2 = new TMatrix(new double[][]{
+        double[][] mat2 = new double[][]{
                 {6, 14, 16},
                 {25, 22, 17},
                 {9, 6, 5}
-        });
+        };
 
         Assertions.assertTrue(ChiSquareTests.isHomogeneous(mat2, 0.05d));
         // we accept H_0, The frequencies of going to theater are same for given faculties
