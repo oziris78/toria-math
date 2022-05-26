@@ -117,13 +117,10 @@ public final class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static class MatricesCantBeMultipliedException extends RuntimeException {
+    public static class DifferentMatrixSizeException extends RuntimeException {
 
-        public MatricesCantBeMultipliedException(int m1Col, int m2Row) {
-            super(String.format(
-                    "These matrices can't be multiplied because first matrix's column size isn't equal to " +
-                            "the second matrix's row size, %d != %d", m1Col, m2Row
-            ));
+        public DifferentMatrixSizeException() {
+            super("Matrix sizes must be the same.");
         }
 
     }

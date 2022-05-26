@@ -515,14 +515,6 @@ public class TMat4 {
 
 
 
-
-
-
-
-
-
-
-
     /**
      * Calculates the inverse of this matrix and assigns it to this matrix. <br>
      * Simply does A = A<sup>-1</sup>. <br>
@@ -534,22 +526,331 @@ public class TMat4 {
         if(TMath.areEqual(det, 0d))
             return null;
 
-        // code
+        this.set( // definitely first try ;)
+            (m11 * m22 * m33 + m12 * m23 * m31 + m13 * m21 * m32 - m13 * m22 * m31 - m12 * m21 * m33 - m11 * m23 * m32) / det,
+            (m03 * m22 * m31 + m02 * m21 * m33 + m01 * m23 * m32 - m01 * m22 * m33 - m02 * m23 * m31 - m03 * m21 * m32) / det,
+            (m01 * m12 * m33 + m02 * m13 * m31 + m03 * m11 * m32 - m03 * m12 * m31 - m02 * m11 * m33 - m01 * m13 * m32) / det,
+            (m03 * m12 * m21 + m02 * m11 * m23 + m01 * m13 * m22 - m01 * m12 * m23 - m02 * m13 * m21 - m03 * m11 * m22) / det,
+            (m13 * m22 * m30 + m12 * m20 * m33 + m10 * m23 * m32 - m10 * m22 * m33 - m12 * m23 * m30 - m13 * m20 * m32) / det,
+            (m00 * m22 * m33 + m02 * m23 * m30 + m03 * m20 * m32 - m03 * m22 * m30 - m02 * m20 * m33 - m00 * m23 * m32) / det,
+            (m03 * m12 * m30 + m02 * m10 * m33 + m00 * m13 * m32 - m00 * m12 * m33 - m02 * m13 * m30 - m03 * m10 * m32) / det,
+            (m00 * m12 * m23 + m02 * m13 * m20 + m03 * m10 * m22 - m03 * m12 * m20 - m02 * m10 * m23 - m00 * m13 * m22) / det,
+            (m10 * m21 * m33 + m11 * m23 * m30 + m13 * m20 * m31 - m13 * m21 * m30 - m11 * m20 * m33 - m10 * m23 * m31) / det,
+            (m03 * m21 * m30 + m01 * m20 * m33 + m00 * m23 * m31 - m00 * m21 * m33 - m01 * m23 * m30 - m03 * m20 * m31) / det,
+            (m00 * m11 * m33 + m01 * m13 * m30 + m03 * m10 * m31 - m03 * m11 * m30 - m01 * m10 * m33 - m00 * m13 * m31) / det,
+            (m03 * m11 * m20 + m01 * m10 * m23 + m00 * m13 * m21 - m00 * m11 * m23 - m01 * m13 * m20 - m03 * m10 * m21) / det,
+            (m12 * m21 * m30 + m11 * m20 * m32 + m10 * m22 * m31 - m10 * m21 * m32 - m11 * m22 * m30 - m12 * m20 * m31) / det,
+            (m00 * m21 * m32 + m01 * m22 * m30 + m02 * m20 * m31 - m02 * m21 * m30 - m01 * m20 * m32 - m00 * m22 * m31) / det,
+            (m02 * m11 * m30 + m01 * m10 * m32 + m00 * m12 * m31 - m00 * m11 * m32 - m01 * m12 * m30 - m02 * m10 * m31) / det,
+            (m00 * m11 * m22 + m01 * m12 * m20 + m02 * m10 * m21 - m02 * m11 * m20 - m01 * m10 * m22 - m00 * m12 * m21) / det
+        );
 
         return this;
     }
 
-    // https://semath.info/src/inverse-cofactor-ex4.html
-    // https://semath.info/src/inverse-cofactor-ex4.html
-    // https://semath.info/src/inverse-cofactor-ex4.html
-    // https://semath.info/src/inverse-cofactor-ex4.html
-    // https://semath.info/src/inverse-cofactor-ex4.html
-    // https://semath.info/src/inverse-cofactor-ex4.html
+
+
+    ////////////////////////////
+    /*  GEOMETRIC OPERATIONS  */
+    ////////////////////////////
+
+
+
+    /**
+     * Flips this matrix horizontally. <br>
+     * Example: <br>
+     * [10 11 12 13]   =>   [13 12 11 10]  <br>
+     * [14 15 16 17]   =>   [17 16 15 14]  <br>
+     * [18 19 20 21]   =>   [21 20 19 18]  <br>
+     * [22 23 24 25]   =>   [25 24 23 22]  <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 flipHorizontally(){
+        double temp;
+
+        temp = m00;
+        m00 = m03;
+        m03 = temp;
+
+        temp = m10;
+        m10 = m13;
+        m13 = temp;
+
+        temp = m20;
+        m20 = m23;
+        m23 = temp;
+
+        temp = m30;
+        m30 = m33;
+        m33 = temp;
+
+        temp = m01;
+        m01 = m02;
+        m02= temp;
+
+        temp = m21;
+        m21 = m22;
+        m22 = temp;
+
+        temp = m11;
+        m11 = m12;
+        m12 = temp;
+
+        temp = m31;
+        m31 = m32;
+        m32 = temp;
+
+        return this;
+    }
+
+
+
+    /**
+     * Flips this matrix vertically. <br>
+     * Example: <br>
+     * [10 11 12 13]   =>   [22 23 24 25]  <br>
+     * [14 15 16 17]   =>   [18 19 20 21]  <br>
+     * [18 19 20 21]   =>   [14 15 16 17]  <br>
+     * [22 23 24 25]   =>   [10 11 12 13]  <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 flipVertically(){
+        double temp;
+
+        temp = m20;
+        m20 = m10;
+        m10 = temp;
+
+        temp = m11;
+        m11 = m21;
+        m21 = temp;
+
+        temp = m12;
+        m12 = m22;
+        m22 = temp;
+
+        temp = m23;
+        m23 = m13;
+        m13 = temp;
+
+        temp = m00;
+        m00 = m30;
+        m30 = temp;
+
+        temp = m01;
+        m01 = m31;
+        m31 = temp;
+
+        temp = m02;
+        m02 = m32;
+        m32 = temp;
+
+        temp = m03;
+        m03 = m33;
+        m33 = temp;
+
+        return this;
+    }
+
+
+
+    /**
+     * Rotates this matrix 90 degrees clockwise. <br>
+     * Example: <br>
+     * [10 11 12 13]   =>   [22 18 14 10]  <br>
+     * [14 15 16 17]   =>   [23 19 15 11]  <br>
+     * [18 19 20 21]   =>   [24 20 16 12]  <br>
+     * [22 23 24 25]   =>   [25 21 17 13]  <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 rotate90DegClockwise(){
+        double temp;
+
+        temp = m12;
+        m12 = m11;
+        m11 = m21;
+        m21 = m22;
+        m22 = temp;
+
+        temp = m02;
+        m02 = m10;
+        m10 = m31;
+        m31 = m23;
+        m23 = temp;
+
+        temp = m01;
+        m01 = m20;
+        m20 = m32;
+        m32 = m13;
+        m13 = temp;
+
+        temp = m03;
+        m03 = m00;
+        m00 = m30;
+        m30 = m33;
+        m33 = temp;
+
+        return this;
+    }
+
+
+
+    /**
+     * Rotates this matrix 90 degrees anti-clockwise. <br>
+     * Example: <br>
+     * [10 11 12 13]   =>   [13 17 21 25]  <br>
+     * [14 15 16 17]   =>   [12 16 20 24]  <br>
+     * [18 19 20 21]   =>   [11 15 19 23]  <br>
+     * [22 23 24 25]   =>   [10 14 18 22]  <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 rotate90DegAntiClockwise(){
+        double temp;
+
+        temp = m11;
+        m11 = m12;
+        m12 = m22;
+        m22 = m21;
+        m21 = temp;
+
+        temp = m10;
+        m10 = m02;
+        m02 = m23;
+        m23 = m31;
+        m31 = temp;
+
+        temp = m00;
+        m00 = m03;
+        m03 = m33;
+        m33 = m30;
+        m30 = temp;
+
+        temp = m01;
+        m01 = m13;
+        m13 = m32;
+        m32 = m20;
+        m20 = temp;
+
+        return this;
+    }
+
+
+
+    /**
+     * Rotates this matrix 180 degrees clockwise / anti-clockwise. <br>
+     * Example: <br>
+     * [10 11 12 13]   =>   [25 24 23 22]  <br>
+     * [14 15 16 17]   =>   [21 20 19 18]  <br>
+     * [18 19 20 21]   =>   [17 16 15 14]  <br>
+     * [22 23 24 25]   =>   [13 12 11 10]  <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 rotate180Deg(){
+        double temp;
+
+        temp = m00;
+        m00 = m33;
+        m33 = temp;
+
+        temp = m10;
+        m10 = m23;
+        m23 = temp;
+
+        temp = m30;
+        m30 = m03;
+        m03 = temp;
+
+        temp = m31;
+        m31 = m02;
+        m02 = temp;
+
+        temp = m32;
+        m32 = m01;
+        m01 = temp;
+
+        temp = m20;
+        m20 = m13;
+        m13 = temp;
+
+        temp = m21;
+        m21 = m12;
+        m12 = temp;
+
+        temp = m22;
+        m22 = m11;
+        m11 = temp;
+
+        return this;
+    }
+
+
+
+    /**
+     * Calculates the transpose of this matrix and assigns it to this matrix. <br>
+     * @return this matrix for method chaining
+     */
+    public TMat4 transpose(){
+        double temp;
+
+        temp = this.m01;
+        this.m01 = this.m10;
+        this.m10 = temp;
+
+        temp = this.m02;
+        this.m02 = this.m20;
+        this.m20 = temp;
+
+        temp = this.m21;
+        this.m21 = this.m12;
+        this.m12 = temp;
+
+        temp = this.m03;
+        this.m03 = this.m30;
+        this.m30 = temp;
+
+        temp = this.m23;
+        this.m23 = this.m32;
+        this.m32 = temp;
+
+        temp = this.m13;
+        this.m13 = this.m31;
+        this.m31 = temp;
+
+        return this;
+    }
 
 
 
 
+    ////////////////////////////////
+    /*   SPECIAL MATRIX METHODS   */
+    ////////////////////////////////
 
+
+    /**  @return true if this matrix's transpose is equal to itself  */
+    public boolean isSymmetrical(){
+        return TMath.areEqual(this.m01, this.m10) &&
+                TMath.areEqual(this.m02, this.m20) &&
+                TMath.areEqual(this.m21, this.m12) &&
+                TMath.areEqual(this.m30, this.m03) &&
+                TMath.areEqual(this.m23, this.m32) &&
+                TMath.areEqual(this.m13, this.m31);
+    }
+
+
+    /**  @return true if this matrix's determinant is zero  */
+    public boolean isSingular(){
+        return TMath.areEqual(this.determinant(), 0d);
+    }
+
+
+    /**  @return true if this matrix is equal to I<sub>4</sub>  */
+    public boolean isIdentityMatrix(){
+        return  TMath.areEqual(m00, 1d) && TMath.areEqual(m01, 0d) && TMath.areEqual(m02, 0d) && TMath.areEqual(m03, 0d) &&
+                TMath.areEqual(m10, 0d) && TMath.areEqual(m11, 1d) && TMath.areEqual(m12, 0d) && TMath.areEqual(m13, 0d) &&
+                TMath.areEqual(m20, 0d) && TMath.areEqual(m21, 0d) && TMath.areEqual(m22, 1d) && TMath.areEqual(m23, 0d) &&
+                TMath.areEqual(m30, 0d) && TMath.areEqual(m31, 0d) && TMath.areEqual(m32, 0d) && TMath.areEqual(m33, 1d);
+    }
 
 
 
@@ -560,7 +861,8 @@ public class TMat4 {
 
     /**  @return the string representation of this matrix with high precision (%.12f)  */
     public String toStringPrecise() {
-        return String.format("[%.12f, %.12f, %.12f, %.12f]\n[%.12f, %.12f, %.12f, %.12f]\n[%.12f, %.12f, %.12f, %.12f]\n[%.12f, %.12f, %.12f, %.12f]\n",
+        return String.format("[%.12f, %.12f, %.12f, %.12f]\n" +
+                        "[%.12f, %.12f, %.12f, %.12f]\n[%.12f, %.12f, %.12f, %.12f]\n[%.12f, %.12f, %.12f, %.12f]\n",
                 m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33);
     }
 

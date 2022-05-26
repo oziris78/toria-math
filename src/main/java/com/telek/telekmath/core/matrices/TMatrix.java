@@ -1,8 +1,6 @@
 package com.telek.telekmath.core.matrices;
 
 
-import com.telek.telekutils.arrayref.oned.ArrayRef;
-import com.telek.telekutils.arrayref.twod.ArrayRef2;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.util.Arrays;
@@ -209,15 +207,6 @@ public class TMatrix {
 
 
 
-    public double trace(){
-        checkForSquareMatrix();
-        double sum = 0;
-        for (int i = 0; i < this.rowSize; i++)
-            sum += this.getCell(i, i);
-
-        return sum;
-    }
-
 
 
     public double determinant() {
@@ -286,7 +275,7 @@ public class TMatrix {
          int m2RowSize = matrix2.rowSize;
          int m2ColSize = matrix2.colSize;
 
-        if(m1ColSize != m2RowSize) throw new MatricesCantBeMultipliedException(m1ColSize, m2RowSize);
+        if(m1ColSize != m2RowSize) throw new DifferentMatrixSizeException();
 
         double[][] newMatrix = new double[m1RowSize][m2ColSize];
         for(int i = 0; i < m1RowSize; i++){

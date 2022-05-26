@@ -41,106 +41,14 @@ GELECEK PLANLARI {
 
 
 
-TMatNM
-TMat
-TMatrix
-TGenericMatrix
-TMathMat
 
 
 
-matris sınıflarının hepsi mutable olacak ve method chaining için this dönecekler
-
-// https://www.sanfoundry.com/java-program-find-inverse-matrix/
-
-javastr için:
-    TMat2, TMat3, TMat4  =>  mutable, belirli boyut, hızlı çalışan sınıflar
-    TMat                 =>  mutable, NxM boyut, yavaş ama işlevli
-
-// fields
-
-... fields
-
-// constructors and copying
-
-... constructors
-
-TMat2 copy          =>  kendi kopyasını dönme
 
 
-// getters and setters
-
-TMat3 set(doubles ...)
-void setCell
-double getCell()
-
-// special value methods
-
-double determinant
-double trace
-
-// basic operations
-
-TMat2 add           =>  kendi türünü ekleme, bir sürü double ekleme
-TMat2 subtract      =>  kendi türünü ekleme, bir sürü double ekleme
-TMat2 scale         =>  bir double
-TMat2 multiply  =>  kendi türü, bir sürü double
-TMat2 invert
-
-// geometric operations
-
-TMat2 flipHorizontally  =>  yatay olarak aynalıyor
-    [1, 2]      => [2, 1]
-    [3, 4]         [4, 3]
-TMat2 flipVertically  =>  dikey olarak aynalıyor
-    [1, 2]      => [3, 4]
-    [3, 4]         [1, 2]
-TMat2 rotate90DegClockwise
-TMat2 rotate90DegAntiClockwise
-TMat2 rotate180Deg
-TMat2 transpose
 
 
-// special matrix methods
 
-boolean isSymmetrical
-boolean isSingular
-boolean isIdentityMatrix
-
-// object methods
-
-equals
-toString
-hashCode
-
-TMat constructors:
-    - TMat(n, m)  =>  nxm identity matrix
-    - TMat(n)  =>  nxn identity matrix
-    - TMat(TMat2)
-    - TMat(TMat3)
-    - TMat(TMat4)
-    - TMat(TMat)  => copy constructor
-    - TMat(double[][])
-    - TMat(float[][])
-    - TMat(int[][])
-    - TMat(Number[][])
-    - TMat(ArrayRef2???)
-
-TMat özel:
-    - checkForSquareMatrix()
-    - getColSize()
-    - getRowSize()
-    - isSquareMatrix
-
-
-Kontrol:
-    == yerine TMath.areEqual() kullanılmalı
-    TMat için her metot öncelikle kare matris gerekiyor mu diye kontrol etmeli
-
-
-her metodun kullanıldığı büyük bir test yazılmalı
-
-JOML vs tmath yapılmalı bir test içinde
 
 
 
@@ -168,6 +76,8 @@ TFunction gibi birden çok iç içe single var func dizen sınıfı iki boyutlu 
 
 fonksiyonlar bitirildikten sonra girdileri single var func ve two var func olabilen matrisler yapacağım
 bunların yanında FMat3, FMat4 yapılabilir
+
+
 
 
 
