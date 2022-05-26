@@ -17,8 +17,8 @@ import java.util.Objects;
  */
 public class TMatN {
 
-    private final int N;
-    private final double[][] mat;
+    private int N;
+    private double[][] mat;
 
 
     ////////////////////
@@ -121,6 +121,25 @@ public class TMatN {
 
 
     /**
+     * Replaces this matrix's array reference.
+     * @param matrixData any square double matrix as a double[][]
+     * @return this matrix for method chaining
+     */
+    public TMatN set(double[][] matrixData){
+        for (int i = 0; i < matrixData.length; i++)
+            if(matrixData.length != matrixData[i].length)
+                throw new NotASquareMatrixException();
+
+        if(matrixData.length == 0)
+            throw new InvalidValueException("matrix size", 0);
+
+        this.N = matrixData.length;
+        this.mat = matrixData;
+        return this;
+    }
+
+
+    /**
      * Sets the value of mat[row][col] if the indexes are valid, if not it just returns the matrix.
      * @param row row index
      * @param col column index
@@ -161,32 +180,54 @@ public class TMatN {
 
 
     /**  @return the determinant of this matrix  */
-    public double determinant(){
-        if (N == 1)
-            return this.mat[0][0];
+    /*public double determinant(){
+        double[][] mat = TArrays.getCopyOf(this.mat);
 
-        double[][] temp = new double[N - 1][N - 1];
-        TMatN m = new TMatN(temp);
-        int result = 0, sign = 1;
-        for (int f = 0; f < N; f++) {
-            int i = 0, j = 0;
-            for (int row = 0; row < N; row++) {
-                for (int col = 0; col < N; col++) {
-                    if (row != 0 && col != f) {
-                        temp[i][j++] = this.mat[row][col];
-                        if (j == N - 1) {
-                            j = 0;
-                            i++;
-                        }
-                    }
+        double num1, num2, det = 1d, total = 1d;
+        int index;
+
+        double[] temp = new double[N + 1];
+        for (int i = 0; i < N; i++) {
+            index = i;
+
+            while (mat[index][i] == 0 && index < N) {
+                index++;
+            }
+            if (index == N)
+                continue;
+            if (index != i) {
+                for (int j = 0; j < N; j++) {
+                    double t = mat[index][j];
+                    mat[index][j] = mat[i][j];
+                    mat[i][j] = t;
                 }
+                det *= Math.pow(-1, index - i);
             }
 
-            result += sign * this.mat[0][f] * m.determinant();
-            sign = -sign;
+            for (int j = 0; j < N; j++)
+                temp[j] = mat[i][j];
+
+
+            for (int j = i + 1; j < N; j++) {
+                num1 = temp[i];
+                num2 = mat[j][i];
+
+                for (int k = 0; k < N; k++) {
+                    mat[j][k] = (num1 * mat[j][k]) - (num2 * temp[k]);
+                }
+                total *= num1; // Det(kA)=kDet(A);
+            }
         }
-        return result;
+
+        for (int i = 0; i < N; i++) {
+            det *= mat[i][i];
+        }
+        return (det / total);
+    }*/
+    public double determinant(){
+        return determinantOfMatrix(this.mat, N);
     }
+
 
 
     /**  @return the trace (sum of all values on diagonals) of this matrix  */
@@ -210,17 +251,36 @@ public class TMatN {
      * @return this matrix for method chaining
      */
     public TMatN add(TMatN other){
-        if(this.N != other.N)
+        this.add(other.mat);
+        return this;
+    }
+
+
+    /**
+     * If A is this matrix and B is the other matrix then this method does A = A + B. <br>
+     * @param other any matrix
+     * @return this matrix for method chaining
+     */
+    public TMatN add(double[][] other){
+        for (int i = 0; i < other.length; i++)
+            if(other.length != other[i].length)
+                throw new NotASquareMatrixException();
+
+        if(other.length == 0)
+            throw new InvalidValueException("matrix size", 0);
+
+        if(this.N != other.length)
             throw new DifferentMatrixSizeException();
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                this.mat[i][j] += other.mat[i][j];
+                this.mat[i][j] += other[i][j];
             }
         }
 
         return this;
     }
+
 
 
     /**
@@ -229,12 +289,31 @@ public class TMatN {
      * @return this matrix for method chaining
      */
     public TMatN subtract(TMatN other){
-        if(this.N != other.N)
+        this.subtract(other.mat);
+        return this;
+    }
+
+
+
+    /**
+     * If A is this matrix and B is the other matrix then this method does A = A - B. <br>
+     * @param other any matrix
+     * @return this matrix for method chaining
+     */
+    public TMatN subtract(double[][] other){
+        for (int i = 0; i < other.length; i++)
+            if(other.length != other[i].length)
+                throw new NotASquareMatrixException();
+
+        if(other.length == 0)
+            throw new InvalidValueException("matrix size", 0);
+
+        if(this.N != other.length)
             throw new DifferentMatrixSizeException();
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                this.mat[i][j] -= other.mat[i][j];
+                this.mat[i][j] -= other[i][j];
             }
         }
 
@@ -502,6 +581,45 @@ public class TMatN {
 
 
     ////////////////////////
+    /*   HELPER METHODS   */
+    ////////////////////////
+
+
+    private double determinantOfMatrix(double matrix[][], int n) {
+        double determinant = 0;
+        if (n == 1)
+            return matrix[0][0];
+        if (n == 2)
+            return (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
+        double temp[][] = new double[N][N];
+        int sign = 1;
+        for (int i = 0; i < n; i++) {
+            subMatrix(matrix, temp, 0, i, n);
+            determinant += sign * matrix[0][i] * determinantOfMatrix(temp, n - 1);
+            sign = -sign;
+        }
+        return determinant;
+    }
+
+
+    private void subMatrix(double mat[][], double temp[][], int p, int q, int n) {
+        int i = 0, j = 0;
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                if (row != p && col != q) {
+                    temp[i][j++] = mat[row][col];
+                    if (j == n - 1) {
+                        j = 0;
+                        i++;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    ////////////////////////
     /*   OBJECT METHODS   */
     ////////////////////////
 
@@ -530,6 +648,7 @@ public class TMatN {
         }
         return true;
     }
+
 
 
     @Override

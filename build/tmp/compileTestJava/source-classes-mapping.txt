@@ -1,3 +1,5 @@
+com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
+ com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
 com/telek/tests/numbers/FractionTest.java
  com.telek.tests.numbers.FractionTest
 com/telek/tests/stats/exampledata/Person.java
@@ -10,6 +12,8 @@ com/telek/tests/functions/FuncEqualityTest.java
  com.telek.tests.functions.FuncEqualityTest
 com/telek/tests/geometry/TLine2DTest.java
  com.telek.tests.geometry.TLine2DTest
+com/telek/tests/zsingle/LinearAlgebraTest.java
+ com.telek.tests.zsingle.LinearAlgebraTest
 com/telek/tests/zsingle/ArrayRefTest.java
  com.telek.tests.zsingle.ArrayRefTest
  com.telek.tests.zsingle.ArrayRefTest$MyClass
@@ -48,8 +52,6 @@ com/telek/tests/stats/sampling/SamplingTest.java
  com.telek.tests.stats.sampling.SamplingTest
 com/telek/tests/zsingle/TArraysTest.java
  com.telek.tests.zsingle.TArraysTest
-com/telek/tests/stats/confidenceint/ConfIntervalTwoVariableTest.java
- com.telek.tests.stats.confidenceint.ConfIntervalTwoVariableTest
 com/telek/tests/stats/ChiSqTestsTest.java
  com.telek.tests.stats.ChiSqTestsTest
 com/telek/tests/zsingle/CryptoTest.java
@@ -79,5 +81,5 @@ com/telek/tests/stats/freqtable/FreqDistTableTest.java
 com/telek/tests/stats/exampledata/RegData.java
  com.telek.tests.stats.exampledata.RegData
  com.telek.tests.stats.exampledata.RegData$YearResult
-com/telek/tests/matrices/TMatrixTest.java
- com.telek.tests.matrices.TMatrixTest
+com/telek/tests/matrices/TMatNTest.java
+ com.telek.tests.matrices.TMatNTest
