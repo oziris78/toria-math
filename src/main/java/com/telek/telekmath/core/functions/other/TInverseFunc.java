@@ -5,6 +5,8 @@ import com.telek.telekmath.core.functions.TFunction;
 import com.telek.telekmath.core.numbers.TRange;
 
 import java.util.Objects;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 
 /**

@@ -42,35 +42,42 @@ GELECEK PLANLARI {
 
 
 
-TFunction
-    - derivative fonksiyonunda unwrapping yapmalıyız
-    - toString() metodu belki bundan sonra yeniden yazılmalı olacak
-    - çoğu amnfunc sınıfının constructor'ları kötü yazıldı daha düzgün kod yazılmalı
+
+
+
+
+
+TRange  =>  TInterval, ayrıca taşı paketten
+
+SingleVarFunc, TwoVarFunc
+    - domain / interval (range) kavramı  |||  f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
+    - value(x) / value(x, y)
+    - içlerinde Function<?, ?> ve BiFunction<?, ?> tutarlar ve hatta bunları biz veririz ancak
+        burada her ilkel veri türleri için çalışmaları ayarlanmalı bir şekilde yine double'a casting yapabilirim
+
+TPolynomial özel bir sınıf olarak tutulacak ve yeniden yazılacak
+    - extends SingleVarFunc
     - TPolynomial için empty constructor yazılacak, tüm yapısı yeniden daha iyi bir şekilde
-        yazılabilir çoğu fonksiyon da eski zaten TArrays filan kullanılmamış
+             yazılabilir çoğu fonksiyon da eski zaten TArrays filan kullanılmamış
 
-Multivariable functions, adi dif denk nüm çözüm ekle
-genel olarak adi dif denk nüm dersini gözden geçirip ekle
-
-şu anda olanlar
-f(x = x0)
-df/dx
-domain (range) kavramı
-
-eklemek istediklerim
-f(x = x0, y = y0) // burada x ve y bağımsız değişkenler
-f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
-
-fonksiyonlar yapılırken constructor sorunu çözülmeli
-FuncParams{} diye bir sınıf tanımlayarak ve içlerine Function<FuncParams, Double> nesnesi koyarak sorunu belki çözebilirim
-Bu FuncParams sınıfının içinde kaç tane parametre olduğu sayısı da depolanır hem
-
-TRange sınıfı TInterval olarak değiştirilmeli...
-
-TFunction gibi birden çok iç içe single var func dizen sınıfı iki boyutlu için yapmayı denerim olmazsa olmaz
+TwoVarFunc için genel olarak adi dif denk nüm dersini gözden geçirip ekle
 
 
 
+
+
+Fraction için metotları yeniden yaz private olanlar doğrudan metot olmalı...
+
+
+
+
+
+kompleks analizi gözden geçirip bir şeyler ekle complexNumber sınıfına?
+ayrıca ismini Complex diye değiştirebilirim
+yeni bir core paketi oluşturabilirim complex diye
+ayrıca kompleks fonksiyon filan implemente ederim
+ComplexFunc sınıfı yazılabilir ??? üstteki fonksiyonlara
+    benzetilir ve ya complex paketinde durur ya da fonksiyon paketininin içine complex paketi açarım evet o daha mantıklı gibi
 
 
 
