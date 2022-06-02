@@ -43,7 +43,12 @@ GELECEK PLANLARI {
 
 
 
+TCompositeFunc yeniden bak
+AbstractFunction yerine SingleVarFunc gibi bir şey yap
+İkinci boyutu ekle
+TPoly yeniden yazılacak
 
+Bunlar için test yazacaksın
 
 
 
