@@ -43,8 +43,7 @@ GELECEK PLANLARI {
 
 
 
-TCompositeFunc yeniden bak
-AbstractFunction yerine SingleVarFunc gibi bir şey yap
+TCompositeFunc  =>  toString yeniden yazılacak ve derive metodunda filan kopyalar birleştirilmeli hiç zekice çalışmıyor
 İkinci boyutu ekle
 TPoly yeniden yazılacak
 
@@ -52,20 +51,19 @@ Bunlar için test yazacaksın
 
 
 
-TRange  =>  TInterval, ayrıca taşı paketten
 
 SingleVarFunc, TwoVarFunc
     - domain / interval (range) kavramı  |||  f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
     - value(x) / value(x, y)
-    - içlerinde Function<?, ?> ve BiFunction<?, ?> tutarlar ve hatta bunları biz veririz ancak
-        burada her ilkel veri türleri için çalışmaları ayarlanmalı bir şekilde yine double'a casting yapabilirim
 
 TPolynomial özel bir sınıf olarak tutulacak ve yeniden yazılacak
     - extends SingleVarFunc
+    - içinde x yerine başka bir fonksiyon tutabilir?
     - TPolynomial için empty constructor yazılacak, tüm yapısı yeniden daha iyi bir şekilde
              yazılabilir çoğu fonksiyon da eski zaten TArrays filan kullanılmamış
 
 TwoVarFunc için genel olarak adi dif denk nüm dersini gözden geçirip ekle
+
 
 
 

@@ -14,19 +14,6 @@ import java.util.Objects;
  */
 public class TRange {
 
-    //////////////
-    /*  FIELDS  */
-    //////////////
-
-    /**  <b>INCLUSIVE</b> END POINT OF THIS RANGE  */
-    public final double left, right;
-
-
-    /////////////////////
-    /*  STATIC FIELDS  */
-    /////////////////////
-
-
     public static final TRange REEL_NUMBERS = new TRange(-Double.MAX_VALUE, Double.MAX_VALUE);
 
     public static final TRange ZERO_TO_ONE = new TRange(0d, 1d);
@@ -38,6 +25,9 @@ public class TRange {
     /*  CONSTRUCTORS  */
     ////////////////////
 
+    /**  <b>INCLUSIVE</b> END POINT OF THIS RANGE  */
+    public final double left, right;
+
 
     public TRange(double inclusiveLeft, double inclusiveRight){
         if(inclusiveLeft >= inclusiveRight)
@@ -45,7 +35,6 @@ public class TRange {
         this.left = inclusiveLeft;
         this.right = inclusiveRight;
     }
-
 
 
     ///////////////

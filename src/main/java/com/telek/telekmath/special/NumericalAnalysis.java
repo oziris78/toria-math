@@ -1,7 +1,7 @@
 package com.telek.telekmath.special;
 
-import com.telek.telekmath.core.functions.AbstractFunction;
-import com.telek.telekmath.core.functions.TPolynomial;
+import com.telek.telekmath.core.functions.SingleVarFunc;
+import com.telek.telekmath.core.functions.onevar.TPolynomial;
 import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.arrayref.oned.DoubleArrRef;
@@ -63,7 +63,7 @@ public class NumericalAnalysis {
     ////////////////////////    NUMERICAL METHODS FOR FINDING ROOTS    ////////////////////////
 
 
-    public static double regulaFalse(AbstractFunction f, double a, double b, int iterationCount){
+    public static double regulaFalse(SingleVarFunc f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
         double smallNum = Math.min(a,b);
         double c = 0;
@@ -89,7 +89,7 @@ public class NumericalAnalysis {
     }
 
 
-    public static double bisectionMethod(AbstractFunction f, double a, double b, int iterationCount){
+    public static double bisectionMethod(SingleVarFunc f, double a, double b, int iterationCount){
         double bigNum = Math.max(a,b);
         double smallNum = Math.min(a,b);
         double c = 0;
@@ -115,8 +115,8 @@ public class NumericalAnalysis {
     }
 
 
-    public static double newtonsMethod(AbstractFunction f, double a, double b, int iterationCount){
-        AbstractFunction df = f.derivative();
+    public static double newtonsMethod(SingleVarFunc f, double a, double b, int iterationCount){
+        SingleVarFunc df = f.derivative();
         double xn1 = Math.min(a,b);
         for(int i = 0; i < iterationCount; i++)
             xn1 = xn1 - ( f.value(xn1) / df.value(xn1) );
