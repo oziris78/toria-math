@@ -1,9 +1,8 @@
 package com.telek.telekmath.advanced.statistics.regression;
 
 
-import com.telek.telekmath.core.numbers.TRange;
-import com.telek.telekmath.core.functions.other.TPolynomial;
-
+import com.telek.telekmath.core.functions.TPolynomial;
+import com.telek.telekmath.core.functions.TRange;
 import java.util.Objects;
 
 

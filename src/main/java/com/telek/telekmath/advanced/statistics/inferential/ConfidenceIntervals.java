@@ -3,7 +3,7 @@ package com.telek.telekmath.advanced.statistics.inferential;
 import com.telek.telekmath.advanced.distributions.cont.*;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TMath;
 
 

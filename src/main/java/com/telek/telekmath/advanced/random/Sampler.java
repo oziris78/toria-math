@@ -1,7 +1,7 @@
 package com.telek.telekmath.advanced.random;
 
 
-import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
 import java.lang.reflect.Array;
 import java.util.HashMap;

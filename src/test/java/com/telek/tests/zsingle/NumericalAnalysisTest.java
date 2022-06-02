@@ -2,7 +2,7 @@ package com.telek.tests.zsingle;
 
 import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.core.functions.other.TPolynomial;
+import com.telek.telekmath.core.functions.TPolynomial;
 import com.telek.telekmath.special.NumericalAnalysis;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,6 @@
 package com.telek.telekmath.utils;
 
-import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.core.geometry.TLine2D;
 
 
@@ -15,8 +15,8 @@ public final class TelekMathException extends RuntimeException {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static class EqualBoundsException extends RuntimeException {
-        public EqualBoundsException() {
-            super("Left bound of a range can't be greater or equal to the right bound.");
+        public EqualBoundsException(double inclusiveLeft, double inclusiveRight) {
+            super(String.format("Left bound can't be greater or equal to the right bound: %f >= %f", inclusiveLeft, inclusiveRight));
         }
     }
 

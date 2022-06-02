@@ -1,11 +1,10 @@
 package com.telek.telekmath.advanced.statistics.descriptive;
 
-import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TMath;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-import com.telek.telekmath.utils.TelekMathException;
 import com.telek.telekmath.utils.TelekMathException.*;
 
 // import Mode to get rid of poor syntax

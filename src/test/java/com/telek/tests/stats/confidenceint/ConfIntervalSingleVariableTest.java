@@ -3,7 +3,7 @@ package com.telek.tests.stats.confidenceint;
 import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals;
-import com.telek.telekmath.core.numbers.TRange;
+import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekutils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
@@ -94,9 +94,9 @@ public class ConfIntervalSingleVariableTest {
 
         // STD DEV
         // do whatever you want with them
-        TRange stdRange1 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.05d).getSqrt();
-        TRange stdRange2 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.12d).getSqrt();
-        TRange stdRange3 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.36d).getSqrt();
+        TRange stdRange1 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.05d).sqrt();
+        TRange stdRange2 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.12d).sqrt();
+        TRange stdRange3 = ConfidenceIntervals.getIntervalForVariance(sampleDesc, 0.36d).sqrt();
 
     }
 

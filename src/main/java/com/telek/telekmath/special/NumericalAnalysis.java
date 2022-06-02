@@ -1,7 +1,7 @@
 package com.telek.telekmath.special;
 
 import com.telek.telekmath.core.functions.AbstractFunction;
-import com.telek.telekmath.core.functions.other.TPolynomial;
+import com.telek.telekmath.core.functions.TPolynomial;
 import com.telek.telekmath.core.geometry.vectors.TVec2;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.arrayref.oned.DoubleArrRef;
