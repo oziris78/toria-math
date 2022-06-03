@@ -1,12 +1,10 @@
 package com.telek.tests.functions;
 
 import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.core.functions.SingleVarFunc;
-import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.core.functions.onevar.TPolynomial;
-import com.telek.telekmath.core.functions.onevar.TCompositeFunc;
+import com.telek.telekmath.core.functions.oned.AbstractSingleVarFunc;
+import com.telek.telekmath.core.functions.oned.TPolynomial;
+import com.telek.telekmath.core.functions.oned.TCompositeFunc;
 import com.telek.telekmath.utils.TMath;
-import org.apache.commons.math3.analysis.function.Sin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,14 +15,15 @@ import java.util.ArrayList;
 public class TCompositeFuncTest {
 
 
+
     @Test
     @DisplayName("tCompositeFuncTest")
     void tCompositeFuncTest() {
         TCompositeFunc f1 = new TCompositeFunc();
         TCompositeFunc f2 = new TCompositeFunc(new TPolynomial(1, 2, 3, 4));
         TCompositeFunc f3 = new TCompositeFunc(new TPolynomial(1, 2, 3, 4), new TPolynomial(1, 2, 3, 4));
-        ArrayList<SingleVarFunc[]> funcs = new ArrayList<>();
-        funcs.add(new SingleVarFunc[]{new TPolynomial(1, 2, 3, 7) ,new TPolynomial(1, 2, 3, 8), new TPolynomial(1, 2, 3, 9)});
+        ArrayList<AbstractSingleVarFunc[]> funcs = new ArrayList<>();
+        funcs.add(new AbstractSingleVarFunc[]{new TPolynomial(1, 2, 3, 7) ,new TPolynomial(1, 2, 3, 8), new TPolynomial(1, 2, 3, 9)});
         TCompositeFunc f4 = new TCompositeFunc(funcs);
         TCompositeFunc f5 = new TCompositeFunc(f1);
         TCompositeFunc f6 = new TCompositeFunc(f2);

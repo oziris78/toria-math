@@ -250,6 +250,9 @@ public final class TMath {
     /*  ---------------  */
 
 
+    public static boolean areEqual(int i1, int i2){
+        return i1 == i2;
+    }
 
     public static boolean areEqual(double d1, double d2){
         boolean b1 = Double.isNaN(d1);

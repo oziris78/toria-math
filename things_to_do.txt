@@ -43,26 +43,9 @@ GELECEK PLANLARI {
 
 
 
-TCompositeFunc  =>  toString yeniden yazılacak ve derive metodunda filan kopyalar birleştirilmeli hiç zekice çalışmıyor
-İkinci boyutu ekle
-TPoly yeniden yazılacak
-
-Bunlar için test yazacaksın
-
-
-
-
-SingleVarFunc, TwoVarFunc
-    - domain / interval (range) kavramı  |||  f(x,y) için domain kavramı (ikili domain olmalı AxB -> C)
-    - value(x) / value(x, y)
-
-TPolynomial özel bir sınıf olarak tutulacak ve yeniden yazılacak
-    - extends SingleVarFunc
-    - içinde x yerine başka bir fonksiyon tutabilir?
-    - TPolynomial için empty constructor yazılacak, tüm yapısı yeniden daha iyi bir şekilde
-             yazılabilir çoğu fonksiyon da eski zaten TArrays filan kullanılmamış
-
 TwoVarFunc için genel olarak adi dif denk nüm dersini gözden geçirip ekle
+
+
 
 
 
