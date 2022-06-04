@@ -4,6 +4,8 @@ import com.telek.telekmath.core.matrices.TMatN;
 
 public class LinearAlgebra {
 
+    /* No constructor */
+    private LinearAlgebra(){}
 
 
     /**
@@ -24,9 +26,9 @@ public class LinearAlgebra {
 
         double[] answers = new double[equationCount];
 
+        int mRowSize = A.length, mColSize = A.length;
         for(int i = 0; i < equationCount; i++){
             // GET THE MATRIX
-            int mRowSize = A.length, mColSize = A.length;
             double[][] newMatrix = new double[mRowSize][mColSize];
 
             for(int row = 0; row < mRowSize; row++)

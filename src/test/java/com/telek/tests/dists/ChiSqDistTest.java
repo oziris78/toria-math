@@ -70,7 +70,7 @@ public class ChiSqDistTest {
         // THIS TEST IS REALLY SLOW IF YOU USE BIG X VALUES
         // IT WILL EVEN FAIL FOR X VALUES BIGGER THAN 10 MILLION
 //        final int TIMES = 250_000;
-        final int TIMES = 100;
+        final int TIMES = 50;
         // THIS TEST IS REALLY SLOW
 
         Random random = new Random();

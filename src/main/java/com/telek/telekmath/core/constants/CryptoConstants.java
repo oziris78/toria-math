@@ -24,7 +24,8 @@ public final class CryptoConstants {
 
     private static HashMap<Integer, String> getBaseHashMap(int base){
         HashMap<Integer, String> map = new HashMap<>();
-        for(int i = 0; i < base; i++)  map.put(i, TStringUtils.convertNumberToUppercaseBaseString(i));
+        for(int i = 0; i < base; i++)
+            map.put(i, TStringUtils.convertNumberToUppercaseBaseString(i));
         return map;
     }
 

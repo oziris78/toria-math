@@ -108,6 +108,16 @@ public class TPolynomialTest {
         Assertions.assertTrue(TMath.areEqual(p1.multiply(p3).value(a), 1699.50267515d));
         Assertions.assertTrue(TMath.areEqual(p2.multiply(p3).value(a), 1460.31184824d));
 
+        Assertions.assertTrue(TMath.areEqual(p1.add(7, 8, 9, 1, 0, 1, 0).value(a), 117.748871758d));
+        Assertions.assertTrue(TMath.areEqual(p1.add(2, 5, 7).value(a), 90.1662977802d));
+        Assertions.assertTrue(TMath.areEqual(p2.add(2, 5, 7).value(a), 81.2529739776d));
+        Assertions.assertTrue(TMath.areEqual(p1.subtract(7, 8, 9, 1, 0, 1, 0).value(a), 8.91332380262d));
+        Assertions.assertTrue(TMath.areEqual(p1.subtract(2, 5, 7).value(a), 36.4958977802d));
+        Assertions.assertTrue(TMath.areEqual(p2.subtract(2, 5, 7).value(a), 27.5825739776d));
+        Assertions.assertTrue(TMath.areEqual(p1.multiply(7, 8, 9, 1, 0, 1, 0).value(a), 3446.33736476d));
+        Assertions.assertTrue(TMath.areEqual(p1.multiply(2, 5, 7).value(a), 1699.50267515d));
+        Assertions.assertTrue(TMath.areEqual(p2.multiply(2, 5, 7).value(a), 1460.31184824d));
+
         Assertions.assertTrue(TMath.areEqual(p1.getCoefficientOfDegree(0), 1));
         Assertions.assertTrue(TMath.areEqual(p1.getCoefficientOfDegree(1), 3));
         Assertions.assertTrue(TMath.areEqual(p1.getCoefficientOfDegree(2), 0));

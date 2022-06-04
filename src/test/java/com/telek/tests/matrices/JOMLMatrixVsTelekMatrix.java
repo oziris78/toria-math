@@ -19,7 +19,7 @@ import java.util.Random;
 public class JOMLMatrixVsTelekMatrix {
 
 
-    static final int TIMES = 20_000_000;
+    static final int TIMES = 1_000_000;
     static Random ran = new Random();
 
 

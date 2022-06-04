@@ -57,6 +57,10 @@ public class TPolynomial extends AbstractSingleVarFunc {
     ///////////////
 
 
+    public TPolynomial add(double... other){
+        return this.add(new TPolynomial(other));
+    }
+
     public TPolynomial add(TPolynomial other){
         int thisLen = this.coefficients.length;
         int otherLen = other.coefficients.length;
@@ -74,6 +78,9 @@ public class TPolynomial extends AbstractSingleVarFunc {
     }
 
 
+    public TPolynomial subtract(double... other){
+        return this.subtract(new TPolynomial(other));
+    }
 
     public TPolynomial subtract(TPolynomial other){
         int thisLen = this.coefficients.length;
@@ -92,6 +99,9 @@ public class TPolynomial extends AbstractSingleVarFunc {
     }
 
 
+    public TPolynomial multiply(double... other){
+        return this.multiply(new TPolynomial(other));
+    }
 
     public TPolynomial multiply(TPolynomial other){
         int m = this.coefficients.length;

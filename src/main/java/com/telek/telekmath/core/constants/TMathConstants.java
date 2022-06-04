@@ -8,6 +8,7 @@ public final class TMathConstants {
 
 
     // telek-math uses a bigger value just to make it more flexible...
+    // this EPSILON will be updated to 1E-6 or 1E-8 in the future
     public static final double EPSILON = 1E-4;
 
     public static final double PI = 3.14159265358979323846d;

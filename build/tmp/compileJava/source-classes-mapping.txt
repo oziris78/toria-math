@@ -35,6 +35,8 @@ com/telek/telekutils/containers/TArrays.java
  com.telek.telekutils.containers.TArrays
 com/telek/telekmath/core/functions/twod/TwoVarFunc.java
  com.telek.telekmath.core.functions.twod.TwoVarFunc
+com/telek/telekmath/special/ODESolver.java
+ com.telek.telekmath.special.ODESolver
 com/telek/telekutils/arrayref/oned/GenericArrRef.java
  com.telek.telekutils.arrayref.oned.GenericArrRef
 com/telek/telekutils/arrayref/twod/ArrayRef2.java
