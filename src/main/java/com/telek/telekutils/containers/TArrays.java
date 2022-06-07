@@ -149,21 +149,62 @@ public final class TArrays {
     /////// PRINTING ARRAY METHODS ////////
     ///////////////////////////////////////
 
-    public static String toString(double[] arr){return Arrays.toString(arr);}
-    public static String toString(float[] arr){return Arrays.toString(arr);}
-    public static String toString(int[] arr){return Arrays.toString(arr);}
-    public static String toString(long[] arr){return Arrays.toString(arr);}
-    public static String toString(byte[] arr){return Arrays.toString(arr);}
-    public static String toString(short[] arr){return Arrays.toString(arr);}
-    public static String toString(Number[] arr){return Arrays.toString(arr);}
+    public static String toString(double[] arr){
+        return Arrays.toString(arr);
+    }
 
-    public static String toString(double[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(float[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(int[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(long[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(byte[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(short[][] arr){return Arrays.deepToString(arr);}
-    public static String toString(Number[][] arr){return Arrays.deepToString(arr);}
+    public static String toString(float[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(int[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(long[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(byte[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(short[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(Number[] arr){
+        return Arrays.toString(arr);
+    }
+
+    public static String toString(double[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(float[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(int[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(long[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(byte[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(short[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
+    public static String toString(Number[][] arr){
+        return Arrays.deepToString(arr);
+    }
+
 
 
 

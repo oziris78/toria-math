@@ -63,7 +63,7 @@ public class TVec3Test {
         Assertions.assertTrue(TMath.areEqual(TVec3.angleBetween(
                 new TVec3(5, 8, 1),
                 new TVec3(-10, 75, -9)
-        ), TMath.acos(0.7484064033162872f)));
+        ), TMath.acosFloat(0.7484064033162872f)));
 
     }
 

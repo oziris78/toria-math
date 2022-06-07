@@ -148,52 +148,6 @@ public class ChiSqDistTest {
     }
 
 
-    // BENCHMARK
-    /*
-    @Test
-    @DisplayName("invCumProbBenchmark")
-    void invCumProbBenchmark() {
-        Random random = new Random();
-        ArrayList<Integer> myTime = new ArrayList<>();
-        ArrayList<Integer> apacheTime = new ArrayList<>();
 
-        for (int unused = 0; unused < TIMES; unused++) {
-            System.out.println("next");
-            double v = 1 + (int) (random.nextInt(10_000_000) * random.nextDouble());
-            double p = random.nextDouble();
-
-            long s1 = System.nanoTime();
-            double val1 = new ChiSquaredDistribution(v).inverseCumulativeProbability(p);
-            long e1 = System.nanoTime();
-            apacheTime.add((int) (e1 - s1));
-
-            long s2 = System.nanoTime();
-            double val2 = ChiSquaredDist.inverseCumulativeProbability(v, p);
-            long e2 = System.nanoTime();
-            myTime.add((int) (e2 - s2));
-
-            boolean b = TMath.areEqual(val1, val2);
-            if(!b){
-                System.out.println("i: " + unused);
-                System.out.println("v: " + v);
-                System.out.println("p: " + p);
-                System.out.println("apache: " + val1);
-                System.out.println("my val: " + val2);
-            }
-            Assertions.assertTrue(b);
-        }
-        Integer[] myTimeArr = myTime.toArray(new Integer[0]);
-        Integer[] myTimeArr2 = TCollections.getSortedCopy(myTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
-        DataSet myDataSet = new DataSet(myTimeArr2);
-        System.out.println("My results: " + myDataSet.getDataDesc());
-
-
-        Integer[] apacheTimeArr = apacheTime.toArray(new Integer[0]);
-        Integer[] apacheTimeArr2 = TCollections.getSortedCopy(apacheTimeArr, Integer.class, (o1, o2) -> o1.intValue() - o2.intValue());
-        DataSet apacheDataSet = new DataSet(apacheTimeArr2);
-        System.out.println("Apache results: " + apacheDataSet.getDataDesc());
-
-    }
-    */
 
 }

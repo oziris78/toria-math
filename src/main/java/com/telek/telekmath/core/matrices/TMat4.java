@@ -404,6 +404,7 @@ public class TMat4 {
      * @param mat any matrix
      * @return this matrix for method chaining
      */
+
     public TMat4 multiply(TMat4 mat){
         double newM00 = this.m00 * mat.m00 + this.m01 * mat.m10 + this.m02 * mat.m20 + this.m03 * mat.m30;
         double newM01 = this.m00 * mat.m01 + this.m01 * mat.m11 + this.m02 * mat.m21 + this.m03 * mat.m31;
@@ -512,6 +513,7 @@ public class TMat4 {
 
         return this;
     }
+
 
 
 

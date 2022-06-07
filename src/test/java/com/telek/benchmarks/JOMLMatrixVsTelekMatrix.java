@@ -1,4 +1,4 @@
-package com.telek.tests.matrices;
+package com.telek.benchmarks;
 
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.core.matrices.TMat2;
@@ -19,13 +19,19 @@ import java.util.Random;
 public class JOMLMatrixVsTelekMatrix {
 
 
-    static final int TIMES = 1_000_000;
+    static final int TIMES = 10_000_000;
     static Random ran = new Random();
 
 
-    @Test
-    @DisplayName("mat4Test")
-    void mat4Test() {
+
+
+    public static void main(String[] args) {
+        mat2Benchmark();
+        mat3Benchmark();
+        mat4Benchmark();
+    }
+
+    static void mat4Benchmark() {
         double[] jomlTimes = new double[TIMES];
         int jomlIndex = 0;
         double[] telekTimes = new double[TIMES];
@@ -75,9 +81,7 @@ public class JOMLMatrixVsTelekMatrix {
     }
 
 
-    @Test
-    @DisplayName("mat3Test")
-    void mat3Test() {
+    static void mat3Benchmark() {
         double[] jomlTimes = new double[TIMES];
         int jomlIndex = 0;
         double[] telekTimes = new double[TIMES];
@@ -131,9 +135,8 @@ public class JOMLMatrixVsTelekMatrix {
         System.out.println(DescStats.getDataDesc(jomlTimes));
     }
 
-    @Test
-    @DisplayName("mat2Test")
-    void mat2Test() {
+
+    static void mat2Benchmark() {
         double[] jomlTimes = new double[TIMES];
         int jomlIndex = 0;
         double[] telekTimes = new double[TIMES];
@@ -187,7 +190,6 @@ public class JOMLMatrixVsTelekMatrix {
         System.out.println("JOML:");
         System.out.println(DescStats.getDataDesc(jomlTimes));
     }
-
 
 
 }

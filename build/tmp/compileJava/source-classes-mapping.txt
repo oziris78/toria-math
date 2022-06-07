@@ -2,8 +2,9 @@ com/telek/telekutils/colors/TPalette.java
  com.telek.telekutils.colors.TPalette
 com/telek/telekutils/arrayref/twod/NumberArrRef2.java
  com.telek.telekutils.arrayref.twod.NumberArrRef2
-com/telek/telekmath/core/matrices/TMat2.java
- com.telek.telekmath.core.matrices.TMat2
+com/telek/telekmath/advanced/random/TNoise.java
+ com.telek.telekmath.advanced.random.TNoise
+ com.telek.telekmath.advanced.random.TNoise$Vec2
 com/telek/telekutils/arrayref/twod/LongArrRef2.java
  com.telek.telekutils.arrayref.twod.LongArrRef2
 com/telek/telekmath/special/LinearAlgebra.java
@@ -12,27 +13,26 @@ com/telek/telekmath/core/functions/oned/TCompositeFunc.java
  com.telek.telekmath.core.functions.oned.TCompositeFunc
 com/telek/telekmath/advanced/cryptography/AsciiCipher.java
  com.telek.telekmath.advanced.cryptography.AsciiCipher
-com/telek/telekmath/utils/TMath.java
- com.telek.telekmath.utils.TMath
+com/telek/telekmath/core/constants/CryptoConstants.java
+ com.telek.telekmath.core.constants.CryptoConstants
 com/telek/telekmath/special/NumericalAnalysis.java
  com.telek.telekmath.special.NumericalAnalysis
 com/telek/telekutils/arrayref/oned/DoubleArrRef.java
  com.telek.telekutils.arrayref.oned.DoubleArrRef
-com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
- com.telek.telekmath.advanced.statistics.descriptive.DataDescription
- com.telek.telekmath.advanced.statistics.descriptive.DataDescription$Mode
+com/telek/telekutils/plain/TStringUtils.java
+ com.telek.telekutils.plain.TStringUtils
 com/telek/telekutils/colors/TPalettes.java
  com.telek.telekutils.colors.TPalettes
 com/telek/telekmath/core/functions/oned/AbstractSingleVarFunc.java
  com.telek.telekmath.core.functions.oned.AbstractSingleVarFunc
 com/telek/telekutils/arrayref/twod/FloatArrRef2.java
  com.telek.telekutils.arrayref.twod.FloatArrRef2
-com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
- com.telek.telekmath.advanced.distributions.discrete.GeometricDist
-com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
- com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
-com/telek/telekutils/containers/TArrays.java
- com.telek.telekutils.containers.TArrays
+com/telek/telekutils/arrayref/twod/IntArrRef2.java
+ com.telek.telekutils.arrayref.twod.IntArrRef2
+com/telek/telekutils/plain/TStreamUtils.java
+ com.telek.telekutils.plain.TStreamUtils
+com/telek/telekutils/arrayref/oned/IntArrRef.java
+ com.telek.telekutils.arrayref.oned.IntArrRef
 com/telek/telekmath/core/functions/twod/TwoVarFunc.java
  com.telek.telekmath.core.functions.twod.TwoVarFunc
 com/telek/telekmath/special/ODESolver.java
@@ -41,60 +41,42 @@ com/telek/telekutils/arrayref/oned/GenericArrRef.java
  com.telek.telekutils.arrayref.oned.GenericArrRef
 com/telek/telekutils/arrayref/twod/ArrayRef2.java
  com.telek.telekutils.arrayref.twod.ArrayRef2
-com/telek/telekmath/advanced/distributions/cont/TDist.java
- com.telek.telekmath.advanced.distributions.cont.TDist
+com/telek/telekutils/containers/TCollections.java
+ com.telek.telekutils.containers.TCollections
 com/telek/telekmath/advanced/statistics/inferential/ChiSquareTests.java
  com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests
 com/telek/telekutils/plain/TClassUtils.java
  com.telek.telekutils.plain.TClassUtils
 com/telek/telekmath/advanced/statistics/freqtable/FrequencyClass.java
  com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass
-com/telek/telekmath/advanced/distributions/cont/ZDist.java
- com.telek.telekmath.advanced.distributions.cont.ZDist
-com/telek/telekmath/core/matrices/TMatN.java
- com.telek.telekmath.core.matrices.TMatN
+com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
+ com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
+com/telek/telekutils/arrayref/oned/FloatArrRef.java
+ com.telek.telekutils.arrayref.oned.FloatArrRef
 com/telek/telekmath/advanced/random/Sampler.java
  com.telek.telekmath.advanced.random.Sampler
 com/telek/telekutils/arrayref/oned/NumberArrRef.java
  com.telek.telekutils.arrayref.oned.NumberArrRef
 com/telek/telekmath/advanced/ai/AStarPathFinder.java
  com.telek.telekmath.advanced.ai.AStarPathFinder
-com/telek/telekmath/core/geometry/vectors/TVec3.java
- com.telek.telekmath.core.geometry.vectors.TVec3
+com/telek/telekmath/advanced/cryptography/CaesarCipher.java
+ com.telek.telekmath.advanced.cryptography.CaesarCipher
 com/telek/telekutils/arrayref/oned/ArrayRef.java
  com.telek.telekutils.arrayref.oned.ArrayRef
-com/telek/telekmath/core/functions/oned/TPolynomial.java
- com.telek.telekmath.core.functions.oned.TPolynomial
+com/telek/telekmath/special/IAF.java
+ com.telek.telekmath.special.IAF
 com/telek/telekmath/advanced/cryptography/BaconCipher.java
  com.telek.telekmath.advanced.cryptography.BaconCipher
 com/telek/telekmath/advanced/cryptography/VigenereCipher.java
  com.telek.telekmath.advanced.cryptography.VigenereCipher
 com/telek/telekutils/arrayref/oned/LongArrRef.java
  com.telek.telekutils.arrayref.oned.LongArrRef
-com/telek/telekmath/core/numbers/ComplexNumber.java
- com.telek.telekmath.core.numbers.ComplexNumber
-com/telek/telekmath/advanced/statistics/inferential/HypothesisTestings.java
- com.telek.telekmath.advanced.statistics.inferential.HypothesisTestings
+com/telek/telekmath/core/constants/TMathConstants.java
+ com.telek.telekmath.core.constants.TMathConstants
+com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
+ com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
 com/telek/telekmath/advanced/distributions/discrete/BernoulliDist.java
  com.telek.telekmath.advanced.distributions.discrete.BernoulliDist
-com/telek/telekmath/advanced/statistics/descriptive/DescStats.java
- com.telek.telekmath.advanced.statistics.descriptive.DescStats
-com/telek/telekmath/advanced/distributions/discrete/BinomialDist.java
- com.telek.telekmath.advanced.distributions.discrete.BinomialDist
-com/telek/telekutils/colors/TColor.java
- com.telek.telekutils.colors.TColor
-com/telek/telekmath/core/functions/TRange.java
- com.telek.telekmath.core.functions.TRange
-com/telek/telekmath/core/geometry/vectors/TVec2.java
- com.telek.telekmath.core.geometry.vectors.TVec2
-com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
- com.telek.telekmath.advanced.statistics.regression.RegressionResult
-com/telek/telekutils/plain/TStreamUtils.java
- com.telek.telekutils.plain.TStreamUtils
-com/telek/telekutils/arrayref/twod/DoubleArrRef2.java
- com.telek.telekutils.arrayref.twod.DoubleArrRef2
-com/telek/telekutils/arrayref/twod/IntArrRef2.java
- com.telek.telekutils.arrayref.twod.IntArrRef2
 com/telek/telekmath/utils/TelekMathException.java
  com.telek.telekmath.utils.TelekMathException
  com.telek.telekmath.utils.TelekMathException$CombinationException
@@ -126,46 +108,63 @@ com/telek/telekmath/utils/TelekMathException.java
  com.telek.telekmath.utils.TelekMathException$UnsupportedDistributionTypeString
  com.telek.telekmath.utils.TelekMathException$VigenereCipherException
  com.telek.telekmath.utils.TelekMathException$WrongFunctionException
+com/telek/telekutils/arrayref/twod/DoubleArrRef2.java
+ com.telek.telekutils.arrayref.twod.DoubleArrRef2
+com/telek/telekutils/colors/TColor.java
+ com.telek.telekutils.colors.TColor
+com/telek/telekmath/special/DiscreteMath.java
+ com.telek.telekmath.special.DiscreteMath
+com/telek/telekmath/advanced/random/TRandom.java
+ com.telek.telekmath.advanced.random.TRandom
+com/telek/telekmath/advanced/statistics/regression/RegressionResult.java
+ com.telek.telekmath.advanced.statistics.regression.RegressionResult
+com/telek/telekutils/containers/TArrays.java
+ com.telek.telekutils.containers.TArrays
+com/telek/telekmath/core/functions/TRange.java
+ com.telek.telekmath.core.functions.TRange
+com/telek/telekmath/core/geometry/vectors/TVec2.java
+ com.telek.telekmath.core.geometry.vectors.TVec2
+com/telek/telekmath/advanced/distributions/cont/TDist.java
+ com.telek.telekmath.advanced.distributions.cont.TDist
+com/telek/telekmath/advanced/distributions/cont/ZDist.java
+ com.telek.telekmath.advanced.distributions.cont.ZDist
+com/telek/telekmath/core/matrices/TMat2.java
+ com.telek.telekmath.core.matrices.TMat2
+com/telek/telekmath/core/matrices/TMatN.java
+ com.telek.telekmath.core.matrices.TMatN
+com/telek/telekmath/advanced/statistics/inferential/ConfidenceIntervals.java
+ com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals
 com/telek/telekmath/core/matrices/TMat4.java
  com.telek.telekmath.core.matrices.TMat4
+com/telek/telekmath/core/geometry/vectors/TVec3.java
+ com.telek.telekmath.core.geometry.vectors.TVec3
+com/telek/telekmath/advanced/statistics/regression/SimpleRegression.java
+ com.telek.telekmath.advanced.statistics.regression.SimpleRegression
+com/telek/telekmath/utils/TMath.java
+ com.telek.telekmath.utils.TMath
+ com.telek.telekmath.utils.TMath$ApacheArrays
+com/telek/telekmath/core/numbers/Fraction.java
+ com.telek.telekmath.core.numbers.Fraction
+com/telek/telekmath/core/functions/oned/TPolynomial.java
+ com.telek.telekmath.core.functions.oned.TPolynomial
 com/telek/telekmath/advanced/distributions/discrete/PoissonDist.java
  com.telek.telekmath.advanced.distributions.discrete.PoissonDist
 com/telek/telekmath/core/geometry/TLine2D.java
  com.telek.telekmath.core.geometry.TLine2D
-com/telek/telekutils/plain/TStringUtils.java
- com.telek.telekutils.plain.TStringUtils
-com/telek/telekmath/utils/ApacheArrays.java
- com.telek.telekmath.utils.ApacheArrays
-com/telek/telekmath/core/constants/TMathConstants.java
- com.telek.telekmath.core.constants.TMathConstants
-com/telek/telekmath/advanced/statistics/freqtable/FreqDistTable.java
- com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable
-com/telek/telekmath/special/IAF.java
- com.telek.telekmath.special.IAF
-com/telek/telekmath/special/DiscreteMath.java
- com.telek.telekmath.special.DiscreteMath
-com/telek/telekmath/advanced/statistics/inferential/ConfidenceIntervals.java
- com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals
-com/telek/telekmath/advanced/statistics/regression/SimpleRegression.java
- com.telek.telekmath.advanced.statistics.regression.SimpleRegression
-com/telek/telekmath/advanced/cryptography/CaesarCipher.java
- com.telek.telekmath.advanced.cryptography.CaesarCipher
-com/telek/telekutils/arrayref/oned/IntArrRef.java
- com.telek.telekutils.arrayref.oned.IntArrRef
-com/telek/telekmath/core/constants/CryptoConstants.java
- com.telek.telekmath.core.constants.CryptoConstants
-com/telek/telekmath/core/numbers/Fraction.java
- com.telek.telekmath.core.numbers.Fraction
-com/telek/telekmath/advanced/random/TNoise.java
- com.telek.telekmath.advanced.random.TNoise
- com.telek.telekmath.advanced.random.TNoise$Vec2
-com/telek/telekmath/advanced/distributions/discrete/DiscreteUniformDist.java
- com.telek.telekmath.advanced.distributions.discrete.DiscreteUniformDist
-com/telek/telekutils/containers/TCollections.java
- com.telek.telekutils.containers.TCollections
-com/telek/telekmath/advanced/random/TRandom.java
- com.telek.telekmath.advanced.random.TRandom
+com/telek/telekmath/advanced/statistics/descriptive/DataDescription.java
+ com.telek.telekmath.advanced.statistics.descriptive.DataDescription
+ com.telek.telekmath.advanced.statistics.descriptive.DataDescription$Mode
+com/telek/telekmath/core/numbers/ComplexNumber.java
+ com.telek.telekmath.core.numbers.ComplexNumber
 com/telek/telekmath/core/matrices/TMat3.java
  com.telek.telekmath.core.matrices.TMat3
-com/telek/telekutils/arrayref/oned/FloatArrRef.java
- com.telek.telekutils.arrayref.oned.FloatArrRef
+com/telek/telekmath/advanced/statistics/inferential/HypothesisTestings.java
+ com.telek.telekmath.advanced.statistics.inferential.HypothesisTestings
+com/telek/telekmath/advanced/statistics/descriptive/DescStats.java
+ com.telek.telekmath.advanced.statistics.descriptive.DescStats
+com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
+ com.telek.telekmath.advanced.distributions.discrete.GeometricDist
+com/telek/telekmath/advanced/distributions/discrete/BinomialDist.java
+ com.telek.telekmath.advanced.distributions.discrete.BinomialDist
+com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
+ com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist

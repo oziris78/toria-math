@@ -69,7 +69,7 @@ public class Fraction {
     }
 
     public Fraction pow(int exponent){
-        Fraction frac = new Fraction(TMath.pow(this.numerator, exponent), TMath.pow(this.denominator, exponent));
+        Fraction frac = new Fraction(TMath.powInt(this.numerator, exponent), TMath.powInt(this.denominator, exponent));
         return frac;
     }
 

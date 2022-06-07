@@ -1,6 +1,5 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.core.matrices.TMat2;
 import com.telek.telekmath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -23,7 +22,7 @@ public class TMathTest {
         for (int i = 0; i < 13; i++) {
             double prod = 1;
             for (int j = 1; j <= i; j++) prod *= j;
-            Assertions.assertEquals(TMath.ifactorial(i), prod);
+            Assertions.assertEquals(TMath.factorialInt(i), prod);
         }
 
         Assertions.assertEquals(TMath.isPrime(3), true);

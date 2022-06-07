@@ -1,0 +1,26 @@
+"!Telek:
+"!«DataDescription{mode=Mode{value=0.0, count=6765599.0}, count=1.0E7, mean=3.3433500498873625E-5, sum=334.3350049887363, interquartileRange=9.9E-5, sampleVariance=3.57815099696872E-8, variance=3.57815063915362E-8, sampleStddev=1.891600115502407E-4, median=0.0, quartile1=0.0, quartile2=0.0, quartile3=9.9E-5, min=0.0, max=0.569, range=0.569, stddev=1.8916000209223989E-4, pearsonSkewCoef=0.5302415964645182, bowleySkewCoef=1.0}
+"!
+"!JOML:
+"!¯DataDescription{mode=Mode{value=0.0, count=6394145.0}, count=1.0E7, mean=3.733635169794894E-5, sum=373.36351697948936, interquartileRange=1.0E-4, sampleVariance=3.2782279890907935E-7, variance=3.278227661267994E-7, sampleStddev=5.725581183679779E-4, median=0.0, quartile1=0.0, quartile2=0.0, quartile3=1.0E-4, min=0.0, max=1.8009, range=1.8009, stddev=5.725580897400712E-4, pearsonSkewCoef=0.1956291546674268, bowleySkewCoef=1.0}
+"#Telek:
+"#ÈDataDescription{mode=Mode{value=0.0, count=4501720.0}, count=1.0E7, mean=5.7205884193335524E-5, sum=572.0588419333552, interquartileRange=1.0E-4, sampleVariance=5.277055824091677E-7, variance=5.277055296386095E-7, sampleStddev=7.26433467297018E-4, median=9.9E-5, quartile1=0.0, quartile2=9.9E-5, quartile3=1.0E-4, min=0.0, max=1.234399, range=1.234399, stddev=7.264334309753437E-4, pearsonSkewCoef=-0.1725999135965551, bowleySkewCoef=-0.9799999999999998}
+"#
+"#JOML:
+"#ÉDataDescription{mode=Mode{value=0.0, count=4710633.0}, count=1.0E7, mean=5.8202468193877395E-5, sum=582.0246819387739, interquartileRange=1.0E-4, sampleVariance=5.2291123165820436E-5, variance=5.229111793670812E-5, sampleStddev=0.007231260136782554, median=9.9E-5, quartile1=0.0, quartile2=9.9E-5, quartile3=1.0E-4, min=0.0, max=21.5259, range=21.5259, stddev=0.007231259775219538, pearsonSkewCoef=-0.01692548729030441, bowleySkewCoef=-0.9799999999999998}
+"$Telek:
+"$ÞDataDescription{mode=Mode{value=1.0E-4, count=3831274.0}, count=1.0E7, mean=1.3211548147996005E-4, sum=1321.1548147996004, interquartileRange=9.900000000000001E-5, sampleVariance=1.4227918722375804E-6, variance=1.4227917299583931E-6, sampleStddev=0.0011928083971189927, median=1.0E-4, quartile1=1.0E-4, quartile2=1.0E-4, quartile3=1.99E-4, min=0.0, max=1.5478, range=1.5478, stddev=0.0011928083374785712, pearsonSkewCoef=0.08077277917384694, bowleySkewCoef=0.9999999999999999}
+"$
+"$JOML:
+"$ÑDataDescription{mode=Mode{value=1.0E-4, count=4867668.0}, count=1.0E7, mean=1.217985261812559E-4, sum=1217.985261812559, interquartileRange=9.999999999999972E-7, sampleVariance=4.077305750543745E-4, variance=4.0773053428131697E-4, sampleStddev=0.020192339514141854, median=1.0E-4, quartile1=1.0E-4, quartile2=1.0E-4, quartile3=1.01E-4, min=0.0, max=60.592899, range=60.592899, stddev=0.020192338504524853, pearsonSkewCoef=0.003238633233546147, bowleySkewCoef=1.0}
+RQk[183.0, 172.0, 170.0, 182.0, 176.0, 176.0, 176.0, 178.0, 170.0, 166.0, 180.0, 160.0, 203.0, 167.0, 158.0]
+RQH[160.0, 172.0, 162.0, 176.0, 180.0, 176.0, 182.0, 176.0, 176.0, 166.0]
+RS5[Lcom.telek.tests.stats.exampledata.Person;@6786bbc
+RS6[Lcom.telek.tests.stats.exampledata.Person;@247439a6
+RTM[170, 180, 182, 160, 170, 162, 176, 180, 173, 183, 177, 165, 176, 192, 190]
+RT4[160, 172, 162, 176, 180, 176, 182, 176, 176, 166]
+cb-10.000000 * nCr(n,0) + 10.000000 * nCr(n,1)
+cbC3.141593 * nCr(n,0) + -0.423311 * nCr(n,1) + -0.676937 * nCr(n,2)
+cb„789.000000 * nCr(n,0) + 29025.000000 * nCr(n,1) + -28189.000000 * nCr(n,2) + 481554.000000 * nCr(n,3) + -1281990.000000 * nCr(n,4)
+cbA1.000000 * nCr(n,0) + 3.000000 * nCr(n,1) + 2.000000 * nCr(n,2)
+ed[1.0, 2.0, -3.0]

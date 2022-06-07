@@ -17,7 +17,7 @@ public class PoissonDist {
 
     public static double probability(double lambda, int val){
         checkForInput(lambda);
-        return Math.pow(lambda, val) * Math.exp(-lambda) / TMath.ifactorial(val); // l^x * e^-l / x!
+        return Math.pow(lambda, val) * Math.exp(-lambda) / TMath.factorialInt(val); // l^x * e^-l / x!
     }
 
     public static double expectedValue(double lambda){
