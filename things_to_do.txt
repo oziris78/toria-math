@@ -36,7 +36,18 @@ GELECEK PLANLARI {
 
 
 
+mulGeneric, invertGeneric içinde Math.fma gibi bir şey kullanılmaaı
 
+apache commons'tan sinüs minüs her boku al olmayan önemli bir şey kalmasın
+
+
+TPalette ve Color[] ya da TPalette alacak ve yeni bir Color[] / TPalette dönecek ki bu dizi/palet en yakın
+renklerin bulunduğu bir palet olacak
+fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel implementasyon
+
+
+
+ArrayRef ismi değiştirilmeli çok salak bir isim verilmiş
 
 
 
