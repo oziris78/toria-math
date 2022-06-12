@@ -15,8 +15,8 @@ com/telek/telekmath/advanced/cryptography/AsciiCipher.java
  com.telek.telekmath.advanced.cryptography.AsciiCipher
 com/telek/telekmath/core/constants/CryptoConstants.java
  com.telek.telekmath.core.constants.CryptoConstants
-com/telek/telekmath/special/NumericalAnalysis.java
- com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
+ com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
 com/telek/telekutils/arrayref/oned/DoubleArrRef.java
  com.telek.telekutils.arrayref.oned.DoubleArrRef
 com/telek/telekutils/plain/TStringUtils.java
@@ -166,5 +166,7 @@ com/telek/telekmath/advanced/distributions/discrete/GeometricDist.java
  com.telek.telekmath.advanced.distributions.discrete.GeometricDist
 com/telek/telekmath/advanced/distributions/discrete/BinomialDist.java
  com.telek.telekmath.advanced.distributions.discrete.BinomialDist
-com/telek/telekmath/advanced/distributions/cont/ChiSquaredDist.java
- com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist
+com/telek/telekmath/special/NumericalAnalysis.java
+ com.telek.telekmath.special.NumericalAnalysis
+com/telek/telekutils/arrayref/oned/NumericArray.java
+ com.telek.telekutils.arrayref.oned.NumericArray

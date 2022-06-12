@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telek.tests.Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-11T19:55:01" hostname="TUNERIKGEZGINI" time="0.014">
+  <properties/>
+  <testcase name="t" classname="com.telek.tests.Test" time="0.014"/>
+  <system-out><![CDATA[1.0
+2.0
+3.0
+4.0
+-10.0
+-20.0
+-30.0
+-40.0
+-1.0
+-2.0
+-3.0
+-4.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

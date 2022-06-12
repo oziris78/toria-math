@@ -3,6 +3,7 @@ package com.telek.telekmath.special;
 import com.telek.telekmath.core.functions.oned.AbstractSingleVarFunc;
 import com.telek.telekmath.core.functions.oned.TPolynomial;
 import com.telek.telekmath.core.geometry.vectors.TVec2;
+import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.arrayref.oned.DoubleArrRef;
 import com.telek.telekutils.arrayref.oned.FloatArrRef;
@@ -25,7 +26,7 @@ public class NumericalAnalysis {
     public static TPolynomial getLagrangePolynomial(ArrayRef array){
         if(array.getSize() % 2 != 0)
             throw new InvalidValueException("points.length", array.getSize());
-        TPolynomial res = new TPolynomial(0);
+        TPolynomial res = new TPolynomial();
         for (int i = 0; i < array.getSize(); i+=2) {
             double curY = array.getValue(i+1);
             TPolynomial p = getPolyForLagrange(array, i).multiply(new TPolynomial(curY));
@@ -37,7 +38,7 @@ public class NumericalAnalysis {
     }
 
     public static TPolynomial getLagrangePolynomial(TVec2... points){
-        TPolynomial res = new TPolynomial(0);
+        TPolynomial res = new TPolynomial();
         for (int i = 0; i < points.length; i++) {
             TVec2 curPoint = points[i];
             TPolynomial p = getPolyForLagrange(points, i).multiply(new TPolynomial(curPoint.getY()));
@@ -90,22 +91,22 @@ public class NumericalAnalysis {
 
 
     public static double bisectionMethod(AbstractSingleVarFunc f, double a, double b, int iterationCount){
-        double bigNum = Math.max(a,b);
+        double bigNum = Math.max(a, b);
         double smallNum = Math.min(a,b);
         double c = 0;
         double fa, fb, fc;
         for(int i = 0; i < iterationCount; i++){
             fa = f.value(smallNum);
             fb = f.value(bigNum);
-            if( fa * fb >= 0) break;
+            if( fa * fb >= 0d) break;
             else{
-                c = (bigNum + smallNum)/2;
+                c = (bigNum + smallNum) / 2d;
                 fc = f.value(c);
-                if( fa * fc < 0){
+                if( fa * fc < 0d){
                     smallNum = Math.min(smallNum, bigNum);
                     bigNum = c;
                 }
-                else if(fb * fc < 0){
+                else if(fb * fc < 0d){
                     smallNum = c;
                     bigNum = Math.max(smallNum, bigNum);
                 }

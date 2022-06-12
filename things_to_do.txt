@@ -45,13 +45,17 @@ fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel imp
 
 ArrayRef ismi değiştirilmeli çok salak bir isim verilmiş
 
-
-
 ArrayRef internal bir şey olabilir?
 Tmath sürekli method overloading sunar
 
-
 ArrayRef i sil ve her zaman double, float, int arrleri bekle???
+
+Java Array sınıfına bak
+benchmarking yap ona göre değişiklik yap
+
+
+
+NumericalAnaylsis sınıfını düzenle, TRange kullanılmamış...
 
 
 

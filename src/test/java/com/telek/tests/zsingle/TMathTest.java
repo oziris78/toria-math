@@ -4,12 +4,15 @@ import com.telek.telekmath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Array;
 import java.util.Random;
 
 
 public class TMathTest {
 
     static final int TIMES = 10_000;
+
 
     @Test
     @DisplayName("tmathTest")
