@@ -1,9 +1,8 @@
 package com.telek.telekmath.core.matrices;
-
-
 import com.telek.telekmath.core.geometry.vectors.TVec3;
 import com.telek.telekmath.utils.TMath;
 import java.util.Objects;
+
 
 
 /**

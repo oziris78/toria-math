@@ -5,7 +5,6 @@ import com.telek.telekmath.core.functions.TRange;
 
 import java.util.Objects;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class TwoVarFunc {
 

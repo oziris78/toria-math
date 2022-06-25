@@ -10,7 +10,6 @@ public class IAF {
     /* No constructor */
     private IAF(){}
 
-
     public static ArrayList<double[]> mastersFormula(double... sequence){
         int elemCount = sequence.length;
         ArrayList<double[]> triangle = new ArrayList<>();

@@ -1,8 +1,6 @@
 package com.telek.telekutils.colors;
 
 
-import com.telek.telekutils.containers.TArrays;
-
 import java.util.Arrays;
 
 public class TPalette {

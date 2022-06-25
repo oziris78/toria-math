@@ -2,7 +2,6 @@ package com.telek.telekmath.advanced.statistics.freqtable;
 
 
 import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.utils.TMath;
 import com.telek.telekmath.utils.TelekMathException.*;
 import com.telek.telekutils.containers.TArrays;
 import com.telek.telekutils.arrayref.oned.*;

@@ -42,6 +42,8 @@ renklerin bulunduğu bir palet olacak
 fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel implementasyon
 
 
+TRANGE YERİNE TINTERVAL YAZICAM AMA TMATH İSMİ DE DEĞİŞECEK ÖNCE O YAPILMALI
+
 
 ArrayRef ismi değiştirilmeli çok salak bir isim verilmiş
 
@@ -55,7 +57,14 @@ benchmarking yap ona göre değişiklik yap
 
 
 
+Tmath içine bundan koyayım
+Initial string alabilir bir de başkaları string verebilir
+https://feldarkrealms.com/
+
+
+
 NumericalAnaylsis sınıfını düzenle, TRange kullanılmamış...
+
 
 
 

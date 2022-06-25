@@ -21,8 +21,6 @@ import com.telek.telekmath.core.constants.TMathConstants;
 import com.telek.telekmath.core.functions.TRange;
 import com.telek.telekmath.utils.TelekMathException.*;
 
-import java.math.BigDecimal;
-
 
 /**
  * A class that has a lot of utility functions. <br>
