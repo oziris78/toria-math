@@ -6,9 +6,9 @@ import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
 import com.telek.telekmath.utils.TMath;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.junit.jupiter.api.Assertions;
-
 import java.util.Arrays;
 import java.util.Random;
+
 
 public class ChiSqDistBenchmark {
 

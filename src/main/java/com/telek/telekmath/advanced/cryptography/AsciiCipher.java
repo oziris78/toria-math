@@ -4,7 +4,6 @@ import com.telek.telekmath.special.DiscreteMath;
 
 import java.util.ArrayList;
 
-
 public class AsciiCipher {
 
 

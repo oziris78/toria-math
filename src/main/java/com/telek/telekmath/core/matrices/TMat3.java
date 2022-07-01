@@ -1,4 +1,6 @@
 package com.telek.telekmath.core.matrices;
+
+
 import com.telek.telekmath.core.geometry.vectors.TVec3;
 import com.telek.telekmath.utils.TMath;
 import java.util.Objects;
@@ -11,7 +13,6 @@ import java.util.Objects;
  * Also see {@link TMat2}, {@link TMat4}, {@link TMatN}
  */
 public class TMat3 {
-
     private double m00, m01, m02;   /*    [ m00, m01, m02 ]    */
     private double m10, m11, m12;   /*    [ m10, m11, m12 ]    */
     private double m20, m21, m22;   /*    [ m20, m21, m22 ]    */

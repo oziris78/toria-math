@@ -8,6 +8,7 @@ import com.telek.telekutils.containers.TArrays;
 import java.util.Arrays;
 import java.util.Objects;
 
+
 /**
  * A very slow and mutable NxN double matrix class. <br>
  * If your matrix size is 2, 3 or 4 then do not use this class. <br>

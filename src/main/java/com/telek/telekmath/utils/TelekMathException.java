@@ -127,22 +127,6 @@ public final class TelekMathException extends RuntimeException {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static class DifferentMatrixDimensionException extends RuntimeException {
-        public DifferentMatrixDimensionException() {
-            super("Both matrices must have the same dimension.");
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class UnnecessaryZeroException extends RuntimeException {
-        public UnnecessaryZeroException() {
-            super("Your array has an unnecessary 0 at the end.");
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     public static class HasNonLetterCharactersException extends RuntimeException {
         public HasNonLetterCharactersException() {
             super("Write the code without non-letter characters");
@@ -198,15 +182,6 @@ public final class TelekMathException extends RuntimeException {
         }
     }
 
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class InvalidBaseException extends RuntimeException {
-        public InvalidBaseException() {
-            super("Base of a logarithm must be greater than 0 and not equal to 1");
-        }
-    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -313,19 +288,6 @@ public final class TelekMathException extends RuntimeException {
 
     }
 
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    public static class WrongFunctionException extends IllegalArgumentException{
-
-        public WrongFunctionException(String theValue, String forValue, String cantBeValue) {
-            super(theValue + " value for " + forValue + " can't be " + cantBeValue
-                    + ", use TConstantFunc for constant functions.");
-        }
-
-    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

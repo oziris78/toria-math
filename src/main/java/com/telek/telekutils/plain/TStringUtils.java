@@ -18,6 +18,7 @@ public class TStringUtils {
         return String.valueOf( (char) (65 + x - 10) );
     }
 
+
     public static String getAsHex(int value){
         String valueAsHex = Integer.toHexString(value);
         return (valueAsHex.length() == 1) ? "0" + valueAsHex : valueAsHex;
