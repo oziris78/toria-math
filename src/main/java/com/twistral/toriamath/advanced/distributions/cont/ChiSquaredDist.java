@@ -19,9 +19,8 @@ package com.twistral.toriamath.advanced.distributions.cont;
 
 
 import com.twistral.toriamath.core.functions.TRange;
-import com.twistral.toriamath.utils.TelekMathException.*;
-import com.twistral.toriamath.utils.TMath;
-
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 
 public class ChiSquaredDist  {
@@ -60,7 +59,7 @@ public class ChiSquaredDist  {
     public static double density(double v, double x){
         if(x < 0) return 0;
         double alpha = v / 2d;
-        return TMath.pow(x / 2d, alpha - 1d) / 2d * TMath.exp(-x / 2d) / TMath.gamma(alpha);
+        return ToriaMath.pow(x / 2d, alpha - 1d) / 2d * ToriaMath.exp(-x / 2d) / ToriaMath.gamma(alpha);
     }
 
 
@@ -75,7 +74,7 @@ public class ChiSquaredDist  {
         if(x <= 0)
             return 0;
 
-        return TMath.regularizedGammaP(v / 2d, x / 2d);
+        return ToriaMath.regularizedGammaP(v / 2d, x / 2d);
     }
 
 
@@ -100,14 +99,14 @@ public class ChiSquaredDist  {
         if (p == 1.0) return upperBound;
 
         final double mu = expectedValue(v);
-        final double sig = TMath.sqrt(variance(v));
+        final double sig = ToriaMath.sqrt(variance(v));
 
         final boolean chebyshevApplies = !(Double.isInfinite(mu) || Double.isNaN(mu) ||
                 Double.isInfinite(sig) || Double.isNaN(sig));
 
         if (lowerBound == Double.NEGATIVE_INFINITY) {
             if (chebyshevApplies) {
-                lowerBound = mu - sig * TMath.sqrt((1d - p) / p);
+                lowerBound = mu - sig * ToriaMath.sqrt((1d - p) / p);
             }
             else {
                 lowerBound = -1d;
@@ -118,7 +117,7 @@ public class ChiSquaredDist  {
 
         if (upperBound == Double.POSITIVE_INFINITY) {
             if (chebyshevApplies) {
-                upperBound = mu + sig * TMath.sqrt(p / (1d - p));
+                upperBound = mu + sig * ToriaMath.sqrt(p / (1d - p));
             }
             else {
                 upperBound = 1d;
@@ -131,16 +130,16 @@ public class ChiSquaredDist  {
         double initial = lowerBound + 0.5d * (upperBound - lowerBound);
 
         double yInitial = computeObjectiveValue(v, p, initial);
-        if (TMath.abs(yInitial) <= 1E-15) return initial;
+        if (ToriaMath.abs(yInitial) <= 1E-15) return initial;
 
         double yMin = computeObjectiveValue(v, p, lowerBound);
-        if (TMath.abs(yMin) <= 1E-15) return lowerBound;
+        if (ToriaMath.abs(yMin) <= 1E-15) return lowerBound;
 
         if (yInitial * yMin < 0)
             return brent(v, p, lowerBound, initial, yMin, yInitial);
 
         double yMax = computeObjectiveValue(v, p, upperBound);
-        if (TMath.abs(yMax) <= 1E-15) return upperBound;
+        if (ToriaMath.abs(yMax) <= 1E-15) return upperBound;
 
         if (yInitial * yMax < 0) return brent(v, p, initial, upperBound, yInitial, yMax);
 
@@ -187,7 +186,7 @@ public class ChiSquaredDist  {
         final double eps = 1e-14;
 
         while (true) {
-            if (TMath.abs(fc) < TMath.abs(fb)) {
+            if (ToriaMath.abs(fc) < ToriaMath.abs(fb)) {
                 a = b;
                 b = c;
                 c = a;
@@ -196,14 +195,14 @@ public class ChiSquaredDist  {
                 fc = fa;
             }
 
-            final double tol = 2 * eps * TMath.abs(b) + t;
+            final double tol = 2 * eps * ToriaMath.abs(b) + t;
             final double m = 0.5 * (c - b);
 
-            if (TMath.abs(m) <= tol || eqForBrent(fb))
+            if (ToriaMath.abs(m) <= tol || eqForBrent(fb))
                 return b;
 
 
-            if (TMath.abs(e) < tol || TMath.abs(fa) <= TMath.abs(fb)) {
+            if (ToriaMath.abs(e) < tol || ToriaMath.abs(fa) <= ToriaMath.abs(fb)) {
                 d = m;
                 e = d;
             }
@@ -229,7 +228,7 @@ public class ChiSquaredDist  {
                 }
                 s = e;
                 e = d;
-                if (p >= 1.5 * m * q - TMath.abs(tol * q) || p >= TMath.abs(0.5 * s * q)) {
+                if (p >= 1.5 * m * q - ToriaMath.abs(tol * q) || p >= ToriaMath.abs(0.5 * s * q)) {
                     d = m;
                     e = d;
                 }
@@ -240,7 +239,7 @@ public class ChiSquaredDist  {
             a = b;
             fa = fb;
 
-            if (TMath.abs(d) > tol) {
+            if (ToriaMath.abs(d) > tol) {
                 b += d;
             }
             else if (m > 0) {
@@ -268,7 +267,7 @@ public class ChiSquaredDist  {
         if (xInt < 0) xInt = SGN_MASK - xInt;
         if (yInt < 0) yInt = SGN_MASK - yInt;
 
-        return TMath.abs(xInt - yInt) <= 1 && !Double.isNaN(x);
+        return ToriaMath.abs(xInt - yInt) <= 1 && !Double.isNaN(x);
     }
 
 

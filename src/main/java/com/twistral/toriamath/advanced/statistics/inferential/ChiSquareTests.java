@@ -3,7 +3,7 @@ package com.twistral.toriamath.advanced.statistics.inferential;
 
 import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
 import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.arrayref.oned.*;
 
 

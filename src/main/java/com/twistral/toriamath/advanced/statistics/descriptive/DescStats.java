@@ -1,11 +1,11 @@
 package com.twistral.toriamath.advanced.statistics.descriptive;
 
 import com.twistral.toriamath.core.functions.TRange;
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 // import Mode to get rid of poor syntax
 import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription.Mode;
@@ -38,7 +38,7 @@ public class DescStats {
      * @return the standard deviation of this data set
      */
     public static double getStddev(double variance) {
-        return TMath.sqrt(variance);
+        return ToriaMath.sqrt(variance);
     }
 
     public static double getInterquartileRange(double quartile1, double quartile3) {

@@ -1,7 +1,7 @@
 package com.twistral.toriautils.containers;
 
 
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 import java.util.*;
 

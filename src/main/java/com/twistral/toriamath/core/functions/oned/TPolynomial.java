@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.functions.oned;
 
 import com.twistral.toriamath.core.functions.TRange;
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -135,8 +135,8 @@ public class TPolynomial extends AbstractSingleVarFunc {
 
         for (int i = 0; i < this.coefficients.length; i++){
             coef = this.coefficients[i];
-            if(!TMath.areEqual(coef, 0d))
-                result +=  coef * TMath.pow(x, i);
+            if(!ToriaMath.areEqual(coef, 0d))
+                result +=  coef * ToriaMath.pow(x, i);
         }
 
         return result;

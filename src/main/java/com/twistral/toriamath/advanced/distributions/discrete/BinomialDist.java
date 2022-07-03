@@ -1,8 +1,8 @@
 package com.twistral.toriamath.advanced.distributions.discrete;
 
 
-import com.twistral.toriamath.utils.TelekMathException.*;
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
+import com.twistral.toriamath.utils.ToriaMath;
 
 
 public class BinomialDist {
@@ -18,7 +18,7 @@ public class BinomialDist {
     public static double probability(int n, double p, int x){
         checkForInput(n, p);
         if( x < 0 || x > n ) return 0;
-        return TMath.combination(n,x) * Math.pow(p,x) * Math.pow(1-p, n-x);
+        return ToriaMath.combination(n,x) * Math.pow(p,x) * Math.pow(1-p, n-x);
     }
 
 

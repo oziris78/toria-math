@@ -2,7 +2,7 @@ package com.twistral.toriamath.advanced.statistics.freqtable;
 
 
 import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.containers.TArrays;
 import com.twistral.toriautils.arrayref.oned.*;
 

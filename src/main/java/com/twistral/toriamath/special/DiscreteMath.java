@@ -1,9 +1,9 @@
 package com.twistral.toriamath.special;
 
 
-import com.twistral.toriamath.utils.TMath;
-import com.twistral.toriamath.core.constants.CryptoConstants;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.core.constants.TCryptoConsts;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import java.util.HashMap;
 
 
@@ -46,7 +46,7 @@ public class DiscreteMath {
 
     /**
      * This functions exists only for educational purposes. <br>
-     * If you want a gcd(a,b) function use {@link TMath#gcd(int, int)}
+     * If you want a gcd(a,b) function use {@link ToriaMath#gcd(int, int)}
      * @param a any integer
      * @param b any integer
      * @return gcd(a,b) using the euclidean algorithm
@@ -101,12 +101,12 @@ public class DiscreteMath {
             for(int i = 0; i < base; i++)  mapToReturn.put(i, String.valueOf(i));
             return mapToReturn;
         }
-        else if(base == 11) return CryptoConstants.baseEleven;
-        else if(base == 12) return CryptoConstants.baseTwelve;
-        else if(base == 13) return CryptoConstants.baseThirteen;
-        else if(base == 14) return CryptoConstants.baseFourteen;
-        else if(base == 15) return CryptoConstants.baseFifteen;
-        else if(base == 16) return CryptoConstants.baseSixteen;
+        else if(base == 11) return TCryptoConsts.baseEleven;
+        else if(base == 12) return TCryptoConsts.baseTwelve;
+        else if(base == 13) return TCryptoConsts.baseThirteen;
+        else if(base == 14) return TCryptoConsts.baseFourteen;
+        else if(base == 15) return TCryptoConsts.baseFifteen;
+        else if(base == 16) return TCryptoConsts.baseSixteen;
         else throw new InvalidValueException("base", base);
     }
 

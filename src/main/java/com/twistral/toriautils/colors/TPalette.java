@@ -36,7 +36,7 @@ public class TPalette {
 
         StringBuilder content = new StringBuilder("GIMP Palette\n" +
                 "#Palette Name: ?\n" +
-                "#Description: Exported from telek-math.\n" +
+                "#Description: Exported from toria-math.\n" +
                 String.format("#Colors: %s \n", len)
         );
 

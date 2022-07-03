@@ -1,9 +1,9 @@
 package com.twistral.toriamath.core.geometry;
 
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
-import com.twistral.toriamath.core.constants.TMathConstants;
-import com.twistral.toriamath.utils.TMath;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import java.util.Objects;
 
 
@@ -100,7 +100,7 @@ public class TLine2D {
      * @return true if this line and line2 are parallel to each other if and only if m1 = m2
      */
     public boolean isOrthogonalTo(TLine2D line2){
-        return TMath.areEqual(angleBetweenTwoLines(this, line2), TMathConstants.PI_OVER_TWO);
+        return ToriaMath.areEqual(angleBetweenTwoLines(this, line2), TMathConsts.PI_OVER_TWO);
     }
 
 
@@ -199,7 +199,7 @@ public class TLine2D {
      */
     public static double distanceBetweenTwoParallelLines(TLine2D line1, TLine2D line2){
         if(!line1.isParallelTo(line2)) throw new LinesAreNotParallelException(line1, line2);
-        return TMath.abs(line2.c - line1.c) / TMath.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
+        return ToriaMath.abs(line2.c - line1.c) / ToriaMath.sqrt( line1.a * line1.a + line1.b * line1.b ); // abs(c2-c1) / sqrt(a^2+b^2)
     }
 
 
@@ -210,7 +210,7 @@ public class TLine2D {
      * @return The orthogonal distance between point and line
      */
     public static double distanceBetweenPointAndLine(TVec2 point, TLine2D line){
-        return TMath.abs( line.a * point.getX() + line.b * point.getY() + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
+        return ToriaMath.abs( line.a * point.getX() + line.b * point.getY() + line.c )  / Math.sqrt( line.a * line.a + line.b * line.b );
     }
 
 
@@ -233,7 +233,7 @@ public class TLine2D {
         else{
             double a1 = line1.a, a2 = line2.a;
             double b1 = line1.b, b2 = line2.b;
-            return TMath.abs(Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) ));
+            return ToriaMath.abs(Math.atan( (a2 * b1 - a1 * b2) / (a1 * a2 + b1 * b2) ));
         }
     }
 
@@ -272,8 +272,8 @@ public class TLine2D {
         if (o == null || getClass() != o.getClass()) return false;
         TLine2D line2 = (TLine2D) o;
         // -x + y = 0 and x - y = 0 are the same thing so check them both here:
-        boolean b1 = TMath.areEqual(this.a,  line2.a) && TMath.areEqual(this.b,  line2.b) && TMath.areEqual(this.c,  line2.c);
-        boolean b2 = TMath.areEqual(this.a, -line2.a) && TMath.areEqual(this.b, -line2.b) && TMath.areEqual(this.c, -line2.c);
+        boolean b1 = ToriaMath.areEqual(this.a,  line2.a) && ToriaMath.areEqual(this.b,  line2.b) && ToriaMath.areEqual(this.c,  line2.c);
+        boolean b2 = ToriaMath.areEqual(this.a, -line2.a) && ToriaMath.areEqual(this.b, -line2.b) && ToriaMath.areEqual(this.c, -line2.c);
         return b1 || b2;
     }
 

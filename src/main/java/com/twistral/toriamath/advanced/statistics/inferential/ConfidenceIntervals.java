@@ -4,7 +4,7 @@ import com.twistral.toriamath.advanced.distributions.cont.*;
 import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
 import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
 import com.twistral.toriamath.core.functions.TRange;
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 
 
 /**
@@ -38,7 +38,7 @@ public class ConfidenceIntervals {
         DescStats.verifyStddev(aStddev);
 
         // code
-        double error = aStddev / TMath.sqrt(sampleCount);
+        double error = aStddev / ToriaMath.sqrt(sampleCount);
         if(stdDevIsFromPop || !isNormallyDist)
             error *= ZDist.invCumRightTailed(0.5d - (alpha / 2d));
         else
@@ -184,7 +184,7 @@ public class ConfidenceIntervals {
         DescStats.verifyAlpha(alpha);
         // code
         double error = ZDist.invCumRightTailed(0.5d - (alpha / 2d));
-        error *= TMath.sqrt(pHat * (1d - pHat) / sampleCount);
+        error *= ToriaMath.sqrt(pHat * (1d - pHat) / sampleCount);
         return new TRange(pHat - error, pHat + error);
     }
 
@@ -239,7 +239,7 @@ public class ConfidenceIntervals {
         // code
         double xDiff = sampleMean1 - sampleMean2;
         double error = ZDist.invCumRightTailed(0.5d - (alpha / 2d));
-        error *= TMath.sqrt((populationStddev1 * populationStddev1 / sampleCount1) +
+        error *= ToriaMath.sqrt((populationStddev1 * populationStddev1 / sampleCount1) +
                 (populationStddev2 * populationStddev2 / sampleCount2));
         return new TRange(xDiff - error, xDiff + error);
     }
@@ -337,7 +337,7 @@ public class ConfidenceIntervals {
             double v = sampleCount1 + sampleCount2 - 2;
             double sk2 = ((sampleCount1 - 1) * sVar1 + (sampleCount2 - 1) * sVar2) / v;
             double error = TDist.invCumLeftTailed(v, 1d - alpha / 2d); // t_n-1_alpha/2
-            error *= TMath.sqrt(sk2) * TMath.sqrt( (1d / sampleCount1) + (1d / sampleCount2) );
+            error *= ToriaMath.sqrt(sk2) * ToriaMath.sqrt( (1d / sampleCount1) + (1d / sampleCount2) );
             return new TRange(xDiff - error, xDiff + error);
         }
         else{
@@ -346,7 +346,7 @@ public class ConfidenceIntervals {
             double v = (s1OverN1 + s2OverN2) * (s1OverN1 + s2OverN2)
                     / (s1OverN1 * s1OverN1 / (sampleCount1 - 1) + s2OverN2 * s2OverN2 / (sampleCount2 - 1));
             double error = TDist.invCumLeftTailed(v, 1d - alpha / 2d); // t_n-1_alpha/2
-            error *= TMath.sqrt(s1OverN1 + s2OverN2);
+            error *= ToriaMath.sqrt(s1OverN1 + s2OverN2);
             return new TRange(xDiff - error, xDiff + error);
         }
     }
@@ -399,7 +399,7 @@ public class ConfidenceIntervals {
         DescStats.verifyAlpha(alpha);
         // code
         double error = ZDist.invCumRightTailed(0.5d - (alpha / 2d));
-        error *= TMath.sqrt((pHat1 * (1d - pHat1) / sampleCount1) + (pHat2 * (1d - pHat2) / sampleCount2));
+        error *= ToriaMath.sqrt((pHat1 * (1d - pHat1) / sampleCount1) + (pHat2 * (1d - pHat2) / sampleCount2));
         // error = z_a/2 * sqrt( p1*q1/n1 + p2*q2/n2 )
         double hatDiff = pHat1 - pHat2;
         return new TRange(hatDiff - error, hatDiff + error);

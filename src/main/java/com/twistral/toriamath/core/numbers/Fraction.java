@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.numbers;
 
-import com.twistral.toriamath.utils.TMath;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 import java.util.Objects;
 
@@ -30,7 +30,7 @@ public class Fraction {
         }
 
         // SIMPLIFY
-        int gcd = TMath.gcd(numerator, denominator);
+        int gcd = ToriaMath.gcd(numerator, denominator);
         numerator /= gcd;
         denominator /= gcd;
 
@@ -69,7 +69,7 @@ public class Fraction {
     }
 
     public Fraction pow(int exponent){
-        Fraction frac = new Fraction(TMath.powInt(this.numerator, exponent), TMath.powInt(this.denominator, exponent));
+        Fraction frac = new Fraction(ToriaMath.powInt(this.numerator, exponent), ToriaMath.powInt(this.denominator, exponent));
         return frac;
     }
 

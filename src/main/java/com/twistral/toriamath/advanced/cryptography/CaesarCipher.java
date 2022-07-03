@@ -1,7 +1,7 @@
 package com.twistral.toriamath.advanced.cryptography;
 
 
-import com.twistral.toriamath.core.constants.CryptoConstants;
+import com.twistral.toriamath.core.constants.TCryptoConsts;
 
 import java.util.Locale;
 
@@ -23,7 +23,7 @@ public class CaesarCipher {
     /*  HELPERS  */
 
     private static String caesarCipher(String textToCode, int shift, boolean willBeCoded){
-        final StringBuilder alphabetString = CryptoConstants.ENGLISH_ALPHABET;
+        final StringBuilder alphabetString = TCryptoConsts.ENGLISH_ALPHABET;
         if(shift <= 0){ while (shift < 0){ shift += alphabetString.length(); } }
         if(shift == 0) return textToCode;
         String code = textToCode.toUpperCase(Locale.ROOT);

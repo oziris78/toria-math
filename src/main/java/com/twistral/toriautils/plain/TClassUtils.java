@@ -1,7 +1,7 @@
 package com.twistral.toriautils.plain;
 
 
-import com.twistral.toriamath.utils.TelekMathException;
+import com.twistral.toriamath.utils.ToriaMathException;
 
 import java.lang.reflect.Field;
 
@@ -47,7 +47,7 @@ public class TClassUtils {
         catch (SecurityException e) {
             e.printStackTrace();
         }
-        throw new TelekMathException.ThisLineIsNeverExecutedException();
+        throw new ToriaMathException.ThisLineIsNeverExecutedException();
     }
 
 

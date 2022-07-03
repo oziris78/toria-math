@@ -1,7 +1,7 @@
 package com.twistral.toriamath.advanced.cryptography;
 
-import com.twistral.toriamath.core.constants.CryptoConstants;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.core.constants.TCryptoConsts;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 import java.util.Locale;
 
@@ -12,7 +12,7 @@ public class BaconCipher {
 
     // look here for more info: https://www.youtube.com/watch?v=ctA38iXUpYg
     public static String decode(String code){
-        final StringBuilder alphabetString = CryptoConstants.ENGLISH_ALPHABET;
+        final StringBuilder alphabetString = TCryptoConsts.ENGLISH_ALPHABET;
         StringBuilder answer = new StringBuilder();
         String text = code.replaceAll("[^a-zA-Z]", ""); // remove all non-alphabetic words
         if(text.length() % 5 != 0) throw new NotAMultiplyOfNException("code's length", 5);

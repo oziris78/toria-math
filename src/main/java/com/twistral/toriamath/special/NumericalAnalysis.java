@@ -3,7 +3,7 @@ package com.twistral.toriamath.special;
 import com.twistral.toriamath.core.functions.oned.AbstractSingleVarFunc;
 import com.twistral.toriamath.core.functions.oned.TPolynomial;
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.arrayref.oned.DoubleArrRef;
 import com.twistral.toriautils.arrayref.oned.FloatArrRef;
 import com.twistral.toriautils.arrayref.oned.IntArrRef;

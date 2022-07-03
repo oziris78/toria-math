@@ -1,7 +1,7 @@
 package com.twistral.toriautils.arrayref.oned;
 
 
-import com.twistral.toriamath.utils.TelekMathException;
+import com.twistral.toriamath.utils.ToriaMathException;
 import com.twistral.toriautils.plain.TClassUtils;
 
 import java.lang.reflect.Field;
@@ -26,7 +26,7 @@ public class GenericArrRef<T> implements ArrayRef {
         catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        throw new TelekMathException.ThisLineIsNeverExecutedException();
+        throw new ToriaMathException.ThisLineIsNeverExecutedException();
     }
 
     @Override

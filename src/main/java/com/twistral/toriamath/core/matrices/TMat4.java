@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.matrices;
 
 
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 
 import java.util.Objects;
 
@@ -525,7 +525,7 @@ public class TMat4 {
      */
     public TMat4 invert(){
         double det = this.determinant();
-        if(TMath.areEqual(det, 0d))
+        if(ToriaMath.areEqual(det, 0d))
             return null;
 
         this.set( // definitely first try ;)
@@ -831,27 +831,27 @@ public class TMat4 {
 
     /**  @return true if this matrix's transpose is equal to itself  */
     public boolean isSymmetrical(){
-        return TMath.areEqual(this.m01, this.m10) &&
-                TMath.areEqual(this.m02, this.m20) &&
-                TMath.areEqual(this.m21, this.m12) &&
-                TMath.areEqual(this.m30, this.m03) &&
-                TMath.areEqual(this.m23, this.m32) &&
-                TMath.areEqual(this.m13, this.m31);
+        return ToriaMath.areEqual(this.m01, this.m10) &&
+                ToriaMath.areEqual(this.m02, this.m20) &&
+                ToriaMath.areEqual(this.m21, this.m12) &&
+                ToriaMath.areEqual(this.m30, this.m03) &&
+                ToriaMath.areEqual(this.m23, this.m32) &&
+                ToriaMath.areEqual(this.m13, this.m31);
     }
 
 
     /**  @return true if this matrix's determinant is zero  */
     public boolean isSingular(){
-        return TMath.areEqual(this.determinant(), 0d);
+        return ToriaMath.areEqual(this.determinant(), 0d);
     }
 
 
     /**  @return true if this matrix is equal to I<sub>4</sub>  */
     public boolean isIdentityMatrix(){
-        return  TMath.areEqual(m00, 1d) && TMath.areEqual(m01, 0d) && TMath.areEqual(m02, 0d) && TMath.areEqual(m03, 0d) &&
-                TMath.areEqual(m10, 0d) && TMath.areEqual(m11, 1d) && TMath.areEqual(m12, 0d) && TMath.areEqual(m13, 0d) &&
-                TMath.areEqual(m20, 0d) && TMath.areEqual(m21, 0d) && TMath.areEqual(m22, 1d) && TMath.areEqual(m23, 0d) &&
-                TMath.areEqual(m30, 0d) && TMath.areEqual(m31, 0d) && TMath.areEqual(m32, 0d) && TMath.areEqual(m33, 1d);
+        return  ToriaMath.areEqual(m00, 1d) && ToriaMath.areEqual(m01, 0d) && ToriaMath.areEqual(m02, 0d) && ToriaMath.areEqual(m03, 0d) &&
+                ToriaMath.areEqual(m10, 0d) && ToriaMath.areEqual(m11, 1d) && ToriaMath.areEqual(m12, 0d) && ToriaMath.areEqual(m13, 0d) &&
+                ToriaMath.areEqual(m20, 0d) && ToriaMath.areEqual(m21, 0d) && ToriaMath.areEqual(m22, 1d) && ToriaMath.areEqual(m23, 0d) &&
+                ToriaMath.areEqual(m30, 0d) && ToriaMath.areEqual(m31, 0d) && ToriaMath.areEqual(m32, 0d) && ToriaMath.areEqual(m33, 1d);
     }
 
 
@@ -881,12 +881,12 @@ public class TMat4 {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TMat4 tMat4 = (TMat4) o;
-        return  TMath.areEqual(tMat4.m00, m00) && TMath.areEqual(tMat4.m01, m01) && TMath.areEqual(tMat4.m02, m02) &&
-                TMath.areEqual(tMat4.m03, m03) && TMath.areEqual(tMat4.m10, m10) && TMath.areEqual(tMat4.m11, m11) &&
-                TMath.areEqual(tMat4.m12, m12) && TMath.areEqual(tMat4.m13, m13) && TMath.areEqual(tMat4.m20, m20) &&
-                TMath.areEqual(tMat4.m21, m21) && TMath.areEqual(tMat4.m22, m22) && TMath.areEqual(tMat4.m23, m23) &&
-                TMath.areEqual(tMat4.m30, m30) && TMath.areEqual(tMat4.m31, m31) && TMath.areEqual(tMat4.m32, m32) &&
-                TMath.areEqual(tMat4.m33, m33);
+        return  ToriaMath.areEqual(tMat4.m00, m00) && ToriaMath.areEqual(tMat4.m01, m01) && ToriaMath.areEqual(tMat4.m02, m02) &&
+                ToriaMath.areEqual(tMat4.m03, m03) && ToriaMath.areEqual(tMat4.m10, m10) && ToriaMath.areEqual(tMat4.m11, m11) &&
+                ToriaMath.areEqual(tMat4.m12, m12) && ToriaMath.areEqual(tMat4.m13, m13) && ToriaMath.areEqual(tMat4.m20, m20) &&
+                ToriaMath.areEqual(tMat4.m21, m21) && ToriaMath.areEqual(tMat4.m22, m22) && ToriaMath.areEqual(tMat4.m23, m23) &&
+                ToriaMath.areEqual(tMat4.m30, m30) && ToriaMath.areEqual(tMat4.m31, m31) && ToriaMath.areEqual(tMat4.m32, m32) &&
+                ToriaMath.areEqual(tMat4.m33, m33);
     }
 
 

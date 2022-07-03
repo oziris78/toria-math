@@ -1,7 +1,7 @@
 package com.twistral.toriautils.containers;
 
 
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 import com.twistral.toriautils.arrayref.oned.FloatArrRef;
 import com.twistral.toriautils.arrayref.oned.ArrayRef;
 
@@ -335,7 +335,7 @@ public final class TArrays {
         double inc = Math.abs(step);
 
         int len = 1 + (int) ((max - min) / inc);
-        if(TMath.areEqual((min + len * inc), max))
+        if(ToriaMath.areEqual((min + len * inc), max))
             len++; // make end inclusive for doubles
 
         double[] arr = new double[len];

@@ -25,7 +25,7 @@ GELECEK PLANLARI {
     }
 
 
-    Web projesi bir bakıma ama telek-math'e wiki gerekli artık...
+    Web projesi bir bakıma ama toria-math'e wiki gerekli artık...
 
 }
 
@@ -95,14 +95,14 @@ ComplexFunc sınıfı yazılabilir ??? üstteki fonksiyonlara
 
 
 
-AI Star yazılması  =>  belki telek-gdx'e koyarım belki de burada tutarım
-telek-gdx içindeki şeylere yeniden göz atıp libgdx'ten ayırabildiğim her şeyi burada depolamalıyım
+AI Star yazılması  =>  belki toria-gdx'e koyarım belki de burada tutarım
+toria-gdx içindeki şeylere yeniden göz atıp libgdx'ten ayırabildiğim her şeyi burada depolamalıyım
 
 
 
 
 
-telek-vstat{
+toria-vstat? {
     dot plots?
     stem and leaf plots?
     - frequency dist. table visualization

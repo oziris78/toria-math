@@ -1,14 +1,14 @@
 
 
-// ----------------------- \\
-// ---- TELEK STUDIOS ---- \\
-// ----------------------- \\
+// -------------------------- \\
+// ---- TWISTRAL STUDIOS ---- \\
+// -------------------------- \\
 
 apply plugin: 'java'
 apply plugin: 'maven'
 
 group 'com.github.oziris78'
-version '0.8.3'
+version '0.8.5'
 
 
 targetCompatibility = 1.8

@@ -1,7 +1,7 @@
 package com.twistral.toriamath.advanced.statistics.descriptive;
 
 
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
 
 import java.util.Objects;
 
@@ -88,7 +88,7 @@ public class DataDescription {
         this.pearsonSkewCoef = pearsonSkewCoef;
         this.bowleySkewCoef = bowleySkewCoef;
         this.sampleVariance = sampleVariance;
-        this.sampleStddev = TMath.sqrt(sampleVariance);
+        this.sampleStddev = ToriaMath.sqrt(sampleVariance);
         this.quartile1 = quartile1;
         this.quartile2 = quartile2;
         this.quartile3 = quartile3;

@@ -6,7 +6,7 @@ public class TPalettes {
     /* No Constructor */
     private TPalettes(){}
 
-    public static final TPalette TELEK_STUDIOS = new TPalette(
+    public static final TPalette TWISTRAL_STUDIOS = new TPalette(
             new TColor(36, 37, 42),
             new TColor(107, 185, 240)
     );

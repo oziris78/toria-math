@@ -1,8 +1,8 @@
 package com.twistral.toriamath.advanced.distributions.discrete;
 
 
-import com.twistral.toriamath.utils.TelekMathException.*;
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 public class PoissonDist {
 
@@ -17,7 +17,7 @@ public class PoissonDist {
 
     public static double probability(double lambda, int val){
         checkForInput(lambda);
-        return Math.pow(lambda, val) * Math.exp(-lambda) / TMath.factorialInt(val); // l^x * e^-l / x!
+        return Math.pow(lambda, val) * Math.exp(-lambda) / ToriaMath.factorialInt(val); // l^x * e^-l / x!
     }
 
     public static double expectedValue(double lambda){

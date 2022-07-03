@@ -2,7 +2,7 @@ package com.twistral.toriamath.advanced.random;
 
 
 import com.twistral.toriamath.core.functions.TRange;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Random;

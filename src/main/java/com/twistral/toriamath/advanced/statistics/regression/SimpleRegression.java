@@ -4,8 +4,8 @@ import com.twistral.toriamath.advanced.distributions.cont.TDist;
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.core.functions.oned.TPolynomial;
-import com.twistral.toriamath.utils.TMath;
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.arrayref.oned.*;
 import com.twistral.toriautils.arrayref.twod.*;
 import com.twistral.toriautils.plain.TClassUtils;
@@ -222,7 +222,7 @@ public class SimpleRegression {
         double b0 = line.getCoefficientOfDegree(0), b1 = line.getCoefficientOfDegree(1);
 
         double variance = sumE2 / (n - 2d);
-        double standardError = TMath.sqrt(variance);
+        double standardError = ToriaMath.sqrt(variance);
         double STS = sumY2 - sumY * sumY / n;
         double SRS = b1 * b1 * (sumX2 - sumX * sumX / n);
         double SES = STS - SRS;
@@ -230,7 +230,7 @@ public class SimpleRegression {
         double r = Math.copySign(Math.sqrt(R2), b1); // r = sqrt(R2) with the sign of b1
 
         boolean hasPositiveDirection = b1 > 0;
-        double standardErrorOfCorCoef = TMath.sqrt((1d - r * r) / (n - 2d));
+        double standardErrorOfCorCoef = ToriaMath.sqrt((1d - r * r) / (n - 2d));
         double t = TDist.invCumLeftTailed(n - 2d, 1d - alpha / 2d);
         TRange confIntOfCorrelationCoef = new TRange(r - t * standardErrorOfCorCoef, r + t * standardErrorOfCorCoef);
 

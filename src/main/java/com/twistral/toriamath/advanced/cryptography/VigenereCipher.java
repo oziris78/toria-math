@@ -1,6 +1,6 @@
 package com.twistral.toriamath.advanced.cryptography;
 
-import com.twistral.toriamath.utils.TelekMathException.*;
+import com.twistral.toriamath.utils.ToriaMathException.*;
 
 import java.util.Locale;
 

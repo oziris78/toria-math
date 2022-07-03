@@ -1,7 +1,8 @@
 package com.twistral.toriamath.core.numbers;
 
 
-import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.ToriaMath;
+
 import java.util.Objects;
 
 
@@ -91,7 +92,7 @@ public class ComplexNumber {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ComplexNumber that = (ComplexNumber) o;
-        return TMath.areEqual(that.real, real) && TMath.areEqual(that.imaginary, imaginary);
+        return ToriaMath.areEqual(that.real, real) && ToriaMath.areEqual(that.imaginary, imaginary);
     }
 
     @Override
