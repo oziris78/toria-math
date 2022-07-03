@@ -1,7 +1,7 @@
 package com.telek.tests.dists;
 
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

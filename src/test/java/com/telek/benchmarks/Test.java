@@ -1,11 +1,11 @@
 package com.telek.benchmarks;
 
 
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekutils.arrayref.oned.ArrayRef;
-import com.telek.telekutils.arrayref.oned.*;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriautils.arrayref.oned.ArrayRef;
+import com.twistral.toriautils.arrayref.oned.*;
 import org.junit.jupiter.api.Assertions;
 import java.util.Arrays;
 import java.util.Random;

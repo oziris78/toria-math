@@ -1,8 +1,8 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekutils.arrayref.oned.*;
-import com.telek.telekutils.arrayref.twod.*;
-import com.telek.telekutils.plain.TClassUtils;
+import com.twistral.toriautils.arrayref.oned.*;
+import com.twistral.toriautils.arrayref.twod.*;
+import com.twistral.toriautils.plain.TClassUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
 package com.telek.tests.functions;
 
-import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.core.functions.oned.AbstractSingleVarFunc;
-import com.telek.telekmath.core.functions.oned.TPolynomial;
-import com.telek.telekmath.core.functions.oned.TCompositeFunc;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.core.constants.TMathConstants;
+import com.twistral.toriamath.core.functions.oned.AbstractSingleVarFunc;
+import com.twistral.toriamath.core.functions.oned.TPolynomial;
+import com.twistral.toriamath.core.functions.oned.TCompositeFunc;
+import com.twistral.toriamath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

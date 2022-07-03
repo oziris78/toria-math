@@ -1,11 +1,11 @@
 package com.telek.tests.stats.confidenceint;
 
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.advanced.statistics.inferential.ConfidenceIntervals;
-import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekutils.containers.TArrays;
-import com.telek.telekutils.plain.TClassUtils;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.advanced.statistics.inferential.ConfidenceIntervals;
+import com.twistral.toriamath.core.functions.TRange;
+import com.twistral.toriautils.containers.TArrays;
+import com.twistral.toriautils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

@@ -1,9 +1,9 @@
 package com.telek.benchmarks;
 
-import com.telek.telekmath.advanced.distributions.cont.ChiSquaredDist;
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.utils.TMath;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.junit.jupiter.api.Assertions;
 import java.util.Arrays;

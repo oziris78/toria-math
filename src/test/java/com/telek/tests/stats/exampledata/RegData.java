@@ -1,6 +1,6 @@
 package com.telek.tests.stats.exampledata;
 
-import com.telek.telekmath.core.geometry.vectors.TVec2;
+import com.twistral.toriamath.core.geometry.vectors.TVec2;
 
 public class RegData {
 

@@ -1,7 +1,7 @@
 package com.telek.applications;
 
-import com.telek.telekmath.advanced.statistics.descriptive.*;
-import com.telek.telekutils.containers.TArrays;
+import com.twistral.toriamath.advanced.statistics.descriptive.*;
+import com.twistral.toriautils.containers.TArrays;
 
 import java.util.Arrays;
 import java.util.Random;

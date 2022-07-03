@@ -1,7 +1,7 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.special.DiscreteMath;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.special.DiscreteMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

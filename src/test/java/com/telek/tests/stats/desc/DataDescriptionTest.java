@@ -1,11 +1,11 @@
 package com.telek.tests.stats.desc;
 
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.advanced.random.TNoise;
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekutils.containers.TArrays;
-import com.telek.telekutils.plain.TClassUtils;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.advanced.random.TNoise;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriautils.containers.TArrays;
+import com.twistral.toriautils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import com.telek.tests.stats.exampledata.SampleData;
 import org.junit.jupiter.api.Assertions;

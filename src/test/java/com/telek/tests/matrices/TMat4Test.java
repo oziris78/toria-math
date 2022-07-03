@@ -1,7 +1,7 @@
 package com.telek.tests.matrices;
 
-import com.telek.telekmath.core.matrices.TMat4;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.core.matrices.TMat4;
+import com.twistral.toriamath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,11 +1,11 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
-import com.telek.telekmath.advanced.statistics.regression.RegressionResult;
-import com.telek.telekmath.advanced.statistics.regression.SimpleRegression;
-import com.telek.telekutils.arrayref.oned.DoubleArrRef;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
+import com.twistral.toriamath.advanced.statistics.regression.RegressionResult;
+import com.twistral.toriamath.advanced.statistics.regression.SimpleRegression;
+import com.twistral.toriautils.arrayref.oned.DoubleArrRef;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.telek.tests.zsingle;
 
 
-import com.telek.telekutils.containers.TArrays;
+import com.twistral.toriautils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

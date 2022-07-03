@@ -1,10 +1,10 @@
 package com.telek.benchmarks;
 
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.core.matrices.TMat2;
-import com.telek.telekmath.core.matrices.TMat3;
-import com.telek.telekmath.core.matrices.TMat4;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.core.matrices.TMat2;
+import com.twistral.toriamath.core.matrices.TMat3;
+import com.twistral.toriamath.core.matrices.TMat4;
+import com.twistral.toriamath.utils.TMath;
 import org.joml.Matrix2d;
 import org.joml.Matrix3d;
 import org.joml.Matrix4d;

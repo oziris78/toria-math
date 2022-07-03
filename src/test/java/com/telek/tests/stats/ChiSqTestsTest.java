@@ -1,8 +1,8 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
-import com.telek.telekmath.advanced.statistics.inferential.ChiSquareTests;
-import com.telek.telekutils.containers.TArrays;
+import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
+import com.twistral.toriamath.advanced.statistics.inferential.ChiSquareTests;
+import com.twistral.toriautils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

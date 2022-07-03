@@ -1,9 +1,9 @@
 package com.telek.tests.matrices;
 
-import com.telek.telekmath.core.matrices.*;
-import com.telek.telekmath.core.matrices.TMatN;
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.utils.TelekMathException.*;
+import com.twistral.toriamath.core.matrices.*;
+import com.twistral.toriamath.core.matrices.TMatN;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.TelekMathException.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

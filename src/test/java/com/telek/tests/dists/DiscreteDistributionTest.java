@@ -1,8 +1,8 @@
 package com.telek.tests.dists;
 
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.advanced.distributions.discrete.BinomialDist;
-import com.telek.telekmath.advanced.distributions.discrete.PoissonDist;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.advanced.distributions.discrete.BinomialDist;
+import com.twistral.toriamath.advanced.distributions.discrete.PoissonDist;
 import org.apache.commons.math3.distribution.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

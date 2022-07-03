@@ -1,9 +1,9 @@
 package com.telek.tests.stats;
 
-import com.telek.telekmath.advanced.statistics.regression.SimpleRegression;
-import com.telek.telekmath.advanced.statistics.regression.RegressionResult;
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekutils.plain.TClassUtils;
+import com.twistral.toriamath.advanced.statistics.regression.SimpleRegression;
+import com.twistral.toriamath.advanced.statistics.regression.RegressionResult;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriautils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.RegData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

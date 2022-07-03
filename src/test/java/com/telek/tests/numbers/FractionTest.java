@@ -1,6 +1,6 @@
 package com.telek.tests.numbers;
 
-import com.telek.telekmath.core.numbers.Fraction;
+import com.twistral.toriamath.core.numbers.Fraction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

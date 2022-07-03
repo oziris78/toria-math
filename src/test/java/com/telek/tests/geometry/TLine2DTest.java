@@ -1,9 +1,9 @@
 package com.telek.tests.geometry;
 
-import com.telek.telekmath.core.geometry.vectors.TVec2;
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.core.geometry.TLine2D;
+import com.twistral.toriamath.core.geometry.vectors.TVec2;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.core.constants.TMathConstants;
+import com.twistral.toriamath.core.geometry.TLine2D;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

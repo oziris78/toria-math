@@ -1,8 +1,8 @@
 package com.telek.tests.matrices;
 
-import com.telek.telekmath.core.geometry.vectors.TVec2;
-import com.telek.telekmath.core.matrices.TMat2;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.core.geometry.vectors.TVec2;
+import com.twistral.toriamath.core.matrices.TMat2;
+import com.twistral.toriamath.utils.TMath;
 import org.apache.commons.math3.linear.FieldLUDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;

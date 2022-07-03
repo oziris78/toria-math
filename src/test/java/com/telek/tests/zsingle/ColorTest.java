@@ -1,7 +1,7 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekutils.colors.TColor;
-import com.telek.telekutils.colors.TPalette;
+import com.twistral.toriautils.colors.TColor;
+import com.twistral.toriautils.colors.TPalette;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,9 +1,9 @@
 package com.telek.tests.stats.hypo;
 
-import com.telek.telekmath.advanced.statistics.descriptive.DataDescription;
-import com.telek.telekmath.advanced.statistics.descriptive.DescStats;
-import com.telek.telekmath.advanced.statistics.inferential.HypothesisTestings;
-import com.telek.telekutils.containers.TArrays;
+import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
+import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.advanced.statistics.inferential.HypothesisTestings;
+import com.twistral.toriautils.containers.TArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

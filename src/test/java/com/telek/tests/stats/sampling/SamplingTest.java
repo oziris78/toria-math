@@ -1,6 +1,6 @@
 package com.telek.tests.stats.sampling;
 
-import com.telek.telekmath.advanced.random.Sampler;
+import com.twistral.toriamath.advanced.random.Sampler;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

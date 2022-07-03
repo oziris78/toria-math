@@ -1,8 +1,8 @@
 package com.telek.tests.functions;
 
-import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.core.functions.twod.TwoVarFunc;
-import com.telek.telekmath.utils.TMath;
+import com.twistral.toriamath.core.functions.TRange;
+import com.twistral.toriamath.core.functions.twod.TwoVarFunc;
+import com.twistral.toriamath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

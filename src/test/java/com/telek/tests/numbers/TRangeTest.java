@@ -1,7 +1,7 @@
 package com.telek.tests.numbers;
 
-import com.telek.telekmath.core.functions.TRange;
-import com.telek.telekmath.utils.TelekMathException;
+import com.twistral.toriamath.core.functions.TRange;
+import com.twistral.toriamath.utils.TelekMathException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

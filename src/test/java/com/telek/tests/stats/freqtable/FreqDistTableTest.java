@@ -1,11 +1,11 @@
 package com.telek.tests.stats.freqtable;
 
-import com.telek.telekmath.utils.TMath;
-import com.telek.telekmath.advanced.statistics.freqtable.FreqDistTable;
-import com.telek.telekmath.advanced.statistics.freqtable.FrequencyClass;
-import com.telek.telekutils.containers.TArrays;
-import com.telek.telekutils.containers.TCollections;
-import com.telek.telekutils.plain.TClassUtils;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
+import com.twistral.toriamath.advanced.statistics.freqtable.FrequencyClass;
+import com.twistral.toriautils.containers.TArrays;
+import com.twistral.toriautils.containers.TCollections;
+import com.twistral.toriautils.plain.TClassUtils;
 import com.telek.tests.stats.exampledata.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

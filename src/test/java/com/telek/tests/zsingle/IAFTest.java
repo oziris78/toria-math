@@ -1,7 +1,7 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.core.constants.TMathConstants;
-import com.telek.telekmath.special.IAF;
+import com.twistral.toriamath.core.constants.TMathConstants;
+import com.twistral.toriamath.special.IAF;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,7 @@
 package com.telek.tests.zsingle;
 
-import com.telek.telekmath.special.LinearAlgebra;
-import com.telek.telekutils.containers.TArrays;
+import com.twistral.toriamath.special.LinearAlgebra;
+import com.twistral.toriautils.containers.TArrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
