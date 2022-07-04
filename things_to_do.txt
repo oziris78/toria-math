@@ -1,60 +1,85 @@
 
 
 
-GELECEK PLANLARI {
+ALL UPCOMING FEATURES:
+    epsilon fix
+    random stuff
+    fake words
+    color stuff
+    adi dif denk nüm ekleme
+    a-star ekleme
+    kompleks ekleme
+    wiki projesi
+    istatistik visualization
 
+
+
+epsilon fix {
     TMathConstants.EPSILON değeri her yerde kullanılmadı, precision arttırılmalı ve tüm framework'e yeniden bir göz atılmalı
-
-    Rastgele şeyler üretme sınıflarını oluşturmalı ve düzenlemeliyim
-    {
-        Rastgele sayı üretme metotları yazılmalı belki bunun için bir betik okurum
-
-        OpenSimplexNoise elde etme zamanı
-
-        En çok kullanılan sınıflar için rastgele nesne üreten bir sınıf yazarım, TVector2D, TPoint2D vb.
-
-        TRandom, TNoise sınıflarını güzelce noise ve randomness hakkında bir betik okuyarak yaz
-        Ayrıca OpenSimplexNoise'u doğrudan internetten alabilirim java ve unlicensed
-
-        UniqueRandomIntGenerator intGen = new UniqueRandomIntGenerator(int min, int step, int max);
-        if(intGen.hasNext())
-            int x = intGen.getNext();
-
-        TRandomString  =>  getRandString("??-###-##-?", "ABCDEF") // "AE-509-54-F" gibi bir şey
-                       =>  getRandHexStr("^^:^^::^^^") // "A1:BF::FF1" gibi bir şey
-    }
-
-
-    Web projesi bir bakıma ama toria-math'e wiki gerekli artık...
-
 }
 
 
-{
-    Tmath içine bundan koyayım
+
+random stuff {
+    Rastgele sayı üretme metotları yazılmalı belki bunun için bir betik okurum
+
+    OpenSimplexNoise elde etme zamanı
+
+    En çok kullanılan sınıflar için rastgele nesne üreten bir sınıf yazarım, TVector2D, TPoint2D vb.
+
+    TRandom, TNoise sınıflarını güzelce noise ve randomness hakkında bir betik okuyarak yaz
+    Ayrıca OpenSimplexNoise'u doğrudan internetten alabilirim java ve unlicensed
+
+    Rastgele sayı üretme metotları ile rastgele string, arr[], vec2, vec3 vb. üretme metotları yazılmalı
+
+    UniqueRandomIntGenerator intGen = new UniqueRandomIntGenerator(int min, int step, int max);
+    if(intGen.hasNext())
+        int x = intGen.getNext();
+
+    TRandomString  =>  getRandString("??-###-##-?", "ABCDEF") // "AE-509-54-F" gibi bir şey
+                   =>  getRandHexStr("^^:^^::^^^") // "A1:BF::FF1" gibi bir şey
+
+    Sampler yeniden yazılacak (bir int[] randomIndexes dönülecek böylece bir sürü veri türü desteklenmesi gerekmeyecek)
+        https://gist.github.com/oziris78/aefa73a4314fe6d37023946ca4b490d6
+}
+
+
+
+fake words {
+    Tmath? içine bundan koyayım
     Initial string alabilir bir de başkaları string verebilir
     https://feldarkrealms.com/
 }
 
 
-{
+
+color stuff {
     TPalette ve Color[] ya da TPalette alacak ve yeni bir Color[] / TPalette dönecek ki bu dizi/palet en yakın
     renklerin bulunduğu bir palet olacak
     fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel implementasyon
+
+    toria-color diye bir eklenti mi oluştursam ya da genel olarak toria-utils yapabilirim
+    çok değişmeyen toriautils kodlarını oraya atarım sonuçta ikide bir array metodu filan yazacak değilim
 }
 
-{
+
+
+adi dif denk nüm ekleme {
     com.twistral.toriamath.special.ODESolver
     adi dif denk nüm dersini gözden geçirip ekle
 }
 
-{
+
+
+a-star ekleme {
     com.twistral.toriamath.advanced.ai.AStarPathFinder
     AI Star yazılması  =>  belki toria-gdx'e koyarım belki de burada tutarım
     toria-gdx içindeki şeylere yeniden göz atıp libgdx'ten ayırabildiğim her şeyi burada depolamalıyım
 }
 
-{
+
+
+kompleks ekleme {
     com.twistral.toriamath.core.complex?
     kompleks analiz dersini gözden geçirip ekle
 
@@ -71,17 +96,15 @@ GELECEK PLANLARI {
 
 
 
+wiki projesi {
+    Web projesi bir bakıma ama toria-math'e wiki gerekli artık...
+}
 
 
 
+istatistik visualization {
+    toria-vstat? / toria-stats?
 
-
-
-
-
-
-
-toria-vstat? / toria-stats? {
     dot plots?
     stem and leaf plots?
     - frequency dist. table visualization

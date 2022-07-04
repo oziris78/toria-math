@@ -1,0 +1,128 @@
+com/twistral/toriamath/advanced/statistics/inferential/ConfidenceIntervals.java
+ com.twistral.toriamath.advanced.statistics.inferential.ConfidenceIntervals
+com/twistral/toriamath/core/matrices/TMat2.java
+ com.twistral.toriamath.core.matrices.TMat2
+com/twistral/toriamath/advanced/distributions/discrete/BernoulliDist.java
+ com.twistral.toriamath.advanced.distributions.discrete.BernoulliDist
+com/twistral/toriamath/advanced/statistics/inferential/HypothesisTestings.java
+ com.twistral.toriamath.advanced.statistics.inferential.HypothesisTestings
+com/twistral/toriamath/core/functions/oned/CompositeFunc.java
+ com.twistral.toriamath.core.functions.oned.CompositeFunc
+com/twistral/toriamath/advanced/random/TNoise.java
+ com.twistral.toriamath.advanced.random.TNoise
+ com.twistral.toriamath.advanced.random.TNoise$Vec2
+com/twistral/toriamath/advanced/cryptography/AsciiCipher.java
+ com.twistral.toriamath.advanced.cryptography.AsciiCipher
+com/twistral/toriamath/advanced/statistics/descriptive/DataDescription.java
+ com.twistral.toriamath.advanced.statistics.descriptive.DataDescription
+ com.twistral.toriamath.advanced.statistics.descriptive.DataDescription$Mode
+com/twistral/toriamath/advanced/distributions/discrete/DiscreteUniformDist.java
+ com.twistral.toriamath.advanced.distributions.discrete.DiscreteUniformDist
+com/twistral/toriamath/advanced/distributions/cont/ChiSquaredDist.java
+ com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist
+com/twistral/toriautils/containers/TCollections.java
+ com.twistral.toriautils.containers.TCollections
+com/twistral/toriamath/core/geometry/vectors/TVec2.java
+ com.twistral.toriamath.core.geometry.vectors.TVec2
+com/twistral/toriamath/advanced/random/TRandom.java
+ com.twistral.toriamath.advanced.random.TRandom
+com/twistral/toriamath/advanced/distributions/discrete/PoissonDist.java
+ com.twistral.toriamath.advanced.distributions.discrete.PoissonDist
+com/twistral/toriamath/advanced/distributions/cont/TDist.java
+ com.twistral.toriamath.advanced.distributions.cont.TDist
+com/twistral/toriamath/advanced/distributions/discrete/BinomialDist.java
+ com.twistral.toriamath.advanced.distributions.discrete.BinomialDist
+com/twistral/toriamath/advanced/distributions/cont/ZDist.java
+ com.twistral.toriamath.advanced.distributions.cont.ZDist
+com/twistral/toriautils/containers/TArrays.java
+ com.twistral.toriautils.containers.TArrays
+com/twistral/toriamath/core/matrices/TMat4.java
+ com.twistral.toriamath.core.matrices.TMat4
+com/twistral/toriamath/special/IAF.java
+ com.twistral.toriamath.special.IAF
+com/twistral/toriamath/advanced/cryptography/VigenereCipher.java
+ com.twistral.toriamath.advanced.cryptography.VigenereCipher
+com/twistral/toriamath/advanced/statistics/inferential/ChiSquareTests.java
+ com.twistral.toriamath.advanced.statistics.inferential.ChiSquareTests
+com/twistral/toriamath/special/DiscreteMath.java
+ com.twistral.toriamath.special.DiscreteMath
+com/twistral/toriamath/core/matrices/TMatN.java
+ com.twistral.toriamath.core.matrices.TMatN
+com/twistral/toriamath/advanced/statistics/freqtable/FrequencyClass.java
+ com.twistral.toriamath.advanced.statistics.freqtable.FrequencyClass
+com/twistral/toriamath/utils/TMath.java
+ com.twistral.toriamath.utils.TMath
+ com.twistral.toriamath.utils.TMath$ApacheArrays
+com/twistral/toriamath/advanced/statistics/descriptive/DescStats.java
+ com.twistral.toriamath.advanced.statistics.descriptive.DescStats
+com/twistral/toriamath/advanced/cryptography/BaconCipher.java
+ com.twistral.toriamath.advanced.cryptography.BaconCipher
+com/twistral/toriamath/special/NumericalAnalysis.java
+ com.twistral.toriamath.special.NumericalAnalysis
+com/twistral/toriamath/advanced/statistics/regression/RegressionResult.java
+ com.twistral.toriamath.advanced.statistics.regression.RegressionResult
+com/twistral/toriautils/plain/TStreamUtils.java
+ com.twistral.toriautils.plain.TStreamUtils
+com/twistral/toriamath/core/geometry/TLine2D.java
+ com.twistral.toriamath.core.geometry.TLine2D
+com/twistral/toriamath/utils/ToriaMathException.java
+ com.twistral.toriamath.utils.ToriaMathException
+ com.twistral.toriamath.utils.ToriaMathException$CombinationException
+ com.twistral.toriamath.utils.ToriaMathException$DifferentMatrixSizeException
+ com.twistral.toriamath.utils.ToriaMathException$DivisionByZeroException
+ com.twistral.toriamath.utils.ToriaMathException$EqualBoundsException
+ com.twistral.toriamath.utils.ToriaMathException$ExpectedValueAssumptionException
+ com.twistral.toriamath.utils.ToriaMathException$HasNonLetterCharactersException
+ com.twistral.toriamath.utils.ToriaMathException$InvalidSignStringException
+ com.twistral.toriamath.utils.ToriaMathException$InvalidValueException
+ com.twistral.toriamath.utils.ToriaMathException$IsNegativeException
+ com.twistral.toriamath.utils.ToriaMathException$LinesAreNotParallelException
+ com.twistral.toriamath.utils.ToriaMathException$NotAMultiplyOfNException
+ com.twistral.toriamath.utils.ToriaMathException$NotASquareMatrixException
+ com.twistral.toriamath.utils.ToriaMathException$NotEqualArrayLengthException
+ com.twistral.toriamath.utils.ToriaMathException$NotEqualKeyAndValueException
+ com.twistral.toriamath.utils.ToriaMathException$NotGreaterThanNException
+ com.twistral.toriamath.utils.ToriaMathException$NotGreaterThanZeroException
+ com.twistral.toriamath.utils.ToriaMathException$NotInRangeException
+ com.twistral.toriamath.utils.ToriaMathException$PermutationException
+ com.twistral.toriamath.utils.ToriaMathException$RepeatedCombinationException
+ com.twistral.toriamath.utils.ToriaMathException$RepeatedPermutationException
+ com.twistral.toriamath.utils.ToriaMathException$SampleSizeIsGreaterThanPopulationSizeException
+ com.twistral.toriamath.utils.ToriaMathException$SortedDataLengthIsTooSmallException
+ com.twistral.toriamath.utils.ToriaMathException$ThisLineIsNeverExecutedException
+ com.twistral.toriamath.utils.ToriaMathException$UnsupportedDistributionTypeString
+ com.twistral.toriamath.utils.ToriaMathException$VigenereCipherException
+com/twistral/toriamath/core/functions/oned/TPolynomial.java
+ com.twistral.toriamath.core.functions.oned.TPolynomial
+com/twistral/toriautils/colors/TPalettes.java
+ com.twistral.toriautils.colors.TPalettes
+com/twistral/toriamath/core/geometry/vectors/TVec3.java
+ com.twistral.toriamath.core.geometry.vectors.TVec3
+com/twistral/toriamath/advanced/statistics/freqtable/FreqDistTable.java
+ com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable
+com/twistral/toriautils/colors/TColor.java
+ com.twistral.toriautils.colors.TColor
+com/twistral/toriautils/colors/TPalette.java
+ com.twistral.toriautils.colors.TPalette
+com/twistral/toriautils/plain/TStringUtils.java
+ com.twistral.toriautils.plain.TStringUtils
+com/twistral/toriautils/plain/TClassUtils.java
+ com.twistral.toriautils.plain.TClassUtils
+com/twistral/toriamath/advanced/distributions/discrete/GeometricDist.java
+ com.twistral.toriamath.advanced.distributions.discrete.GeometricDist
+com/twistral/toriamath/core/functions/oned/AbstractSingleVarFunc.java
+ com.twistral.toriamath.core.functions.oned.AbstractSingleVarFunc
+com/twistral/toriamath/advanced/statistics/regression/SimpleRegression.java
+ com.twistral.toriamath.advanced.statistics.regression.SimpleRegression
+com/twistral/toriamath/core/functions/twod/TwoVarFunc.java
+ com.twistral.toriamath.core.functions.twod.TwoVarFunc
+com/twistral/toriamath/advanced/cryptography/CaesarCipher.java
+ com.twistral.toriamath.advanced.cryptography.CaesarCipher
+com/twistral/toriamath/core/matrices/TMat3.java
+ com.twistral.toriamath.core.matrices.TMat3
+com/twistral/toriamath/utils/TMathConsts.java
+ com.twistral.toriamath.utils.TMathConsts
+com/twistral/toriamath/special/LinearAlgebra.java
+ com.twistral.toriamath.special.LinearAlgebra
+com/twistral/toriamath/core/functions/TRange.java
+ com.twistral.toriamath.core.functions.TRange
