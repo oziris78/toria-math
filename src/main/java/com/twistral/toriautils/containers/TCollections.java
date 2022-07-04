@@ -59,8 +59,8 @@ public final class TCollections {
     /////// COLLECTION CONVERSION METHODS ////////
     ///////////////////////////////////////////////
 
-    public static int[] collectionToArray(List<Integer> steps) {
-        return steps.stream().mapToInt(i -> i.intValue()).toArray();
+    public static double[] collectionToArray(List<Double> steps) {
+        return steps.stream().mapToDouble(i -> i.doubleValue()).toArray();
     }
 
 

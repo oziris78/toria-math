@@ -18,8 +18,8 @@ public class HypothesisTwoVarTest {
     @DisplayName("differenceOfProportionsTest")
     void differenceOfProportionsTest() {
         // data
-        int[] sample1 = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116); // IQ scores
-        int[] sortedSample1 = TArrays.getSortedCopy(sample1);
+        double[] sample1 = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116); // IQ scores
+        double[] sortedSample1 = TArrays.getSortedCopy(sample1);
         DataDescription sampleDesc1 = DescStats.getDataDesc(sortedSample1);
 
         double[] sample2 = TArrays.doubleArr(150d, 130d, 95d, 86d, 160d, 157d, 80d, 130d, 130d, 152d); // IQ scores
@@ -73,8 +73,8 @@ public class HypothesisTwoVarTest {
     @DisplayName("differenceOfMeansTest")
     void differenceOfMeansTest() {
         // data
-        int[] sample1 = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116); // IQ scores
-        int[] sortedSample1 = TArrays.getSortedCopy(sample1);
+        double[] sample1 = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116) ; // IQ scores
+        double[] sortedSample1 = TArrays.getSortedCopy(sample1);
         DataDescription sampleDesc1 = DescStats.getDataDesc(sortedSample1);
 
         double[] sample2 = TArrays.doubleArr(150d, 130d, 95d, 86d, 160d, 157d, 80d, 130d, 130d, 152d); // IQ scores

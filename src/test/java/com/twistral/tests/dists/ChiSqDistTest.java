@@ -1,6 +1,6 @@
 package com.twistral.tests.dists;
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.junit.jupiter.api.Assertions;
@@ -25,7 +25,7 @@ public class ChiSqDistTest {
             double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(99999999);
             double val1 = new ChiSquaredDistribution(v).density(x);
             double val2 = ChiSquaredDist.density(v, x);
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("v : " + v);
                 System.out.println("x : " + x);
@@ -49,7 +49,7 @@ public class ChiSqDistTest {
 
             double val1 = new ChiSquaredDistribution(v).cumulativeProbability(x);
             double val2 = ChiSquaredDist.cumulativeProbability(v, x);
-            boolean res = ToriaMath.areEqual(val1, val2);
+            boolean res = TMath.areEqual(val1, val2);
             if(!res){
                 System.out.println("x: " + x);
                 System.out.println("v: " + v);
@@ -81,7 +81,7 @@ public class ChiSqDistTest {
 
             double val1 = new ChiSquaredDistribution(v).inverseCumulativeProbability(p);
             double val2 = ChiSquaredDist.invCumLeftTailed(v, p);
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
 
             if(!b){
                 System.out.println("i: " + unused);
@@ -133,7 +133,7 @@ public class ChiSqDistTest {
             double p = pValues[i % pValues.length];
             double v = 1 + (i / 13);
             double val2 = ChiSquaredDist.invCumRightTailed(v, p);
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("i: " + i);
                 System.out.println("p: " + p);

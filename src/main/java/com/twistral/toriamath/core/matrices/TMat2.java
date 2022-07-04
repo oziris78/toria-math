@@ -2,7 +2,7 @@ package com.twistral.toriamath.core.matrices;
 
 
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 
 import java.util.Objects;
 
@@ -282,7 +282,7 @@ public class TMat2 {
      */
     public TMat2 invert(){
         double det = this.determinant();
-        if(ToriaMath.areEqual(det, 0d))
+        if(TMath.areEqual(det, 0d))
             return null;
 
         // make the changes
@@ -413,20 +413,20 @@ public class TMat2 {
 
     /**  @return true if this matrix's transpose is equal to itself  */
     public boolean isSymmetrical(){
-        return ToriaMath.areEqual(this.m01, this.m10);
+        return TMath.areEqual(this.m01, this.m10);
     }
 
 
     /**  @return true if this matrix's determinant is zero  */
     public boolean isSingular(){
-        return ToriaMath.areEqual(this.determinant(), 0d);
+        return TMath.areEqual(this.determinant(), 0d);
     }
 
 
     /**  @return true if this matrix is equal to I<sub>2</sub>  */
     public boolean isIdentityMatrix(){
-        return ToriaMath.areEqual(this.m00, 1d) && ToriaMath.areEqual(this.m01, 0d) &&
-               ToriaMath.areEqual(this.m10, 0d) && ToriaMath.areEqual(this.m11, 1d);
+        return TMath.areEqual(this.m00, 1d) && TMath.areEqual(this.m01, 0d) &&
+               TMath.areEqual(this.m10, 0d) && TMath.areEqual(this.m11, 1d);
     }
 
 
@@ -454,10 +454,10 @@ public class TMat2 {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TMat2 tMat2 = (TMat2) o;
-        return ToriaMath.areEqual(tMat2.m00, m00) &&
-                ToriaMath.areEqual(tMat2.m01, m01) &&
-                ToriaMath.areEqual(tMat2.m10, m10) &&
-                ToriaMath.areEqual(tMat2.m11, m11);
+        return TMath.areEqual(tMat2.m00, m00) &&
+                TMath.areEqual(tMat2.m01, m01) &&
+                TMath.areEqual(tMat2.m10, m10) &&
+                TMath.areEqual(tMat2.m11, m11);
     }
 
 

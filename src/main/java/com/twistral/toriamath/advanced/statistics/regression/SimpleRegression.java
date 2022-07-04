@@ -4,10 +4,8 @@ import com.twistral.toriamath.advanced.distributions.cont.TDist;
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.core.functions.oned.TPolynomial;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.*;
-import com.twistral.toriautils.arrayref.oned.*;
-import com.twistral.toriautils.arrayref.twod.*;
 import com.twistral.toriautils.plain.TClassUtils;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -25,18 +23,18 @@ public class SimpleRegression {
     ///////////////
 
 
-    /* ----------- One dimension: TypelessArray ----------- */
 
-    public static RegressionResult getResult(ArrayRef array, double alpha){
+    public static RegressionResult getResult(double[] array, double alpha){
         // error checking
-        final int len = array.getSize();
+        final int len = array.length;
         checkEven(len);
 
         // n & sums
         double n = len / 2d;
         double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
         for (int i = 0; i < len; i+=2) {
-            double x = array.getValue(i), y = array.getValue(i+1);
+            double x = array[i];
+            double y = array[i+1];
             sumX += x;
             sumY += y;
             sumX2 += x * x;
@@ -53,7 +51,8 @@ public class SimpleRegression {
         // standardError
         double sumE2 = 0;
         for (int i = 0; i < len; i+=2) {
-            double x = array.getValue(i), y = array.getValue(i+1);
+            double x = array[i];
+            double y = array[i+1];
             double error = y - line.value(x);
             sumE2 += error * error;
         }
@@ -63,36 +62,18 @@ public class SimpleRegression {
 
 
 
-    public static RegressionResult getResult(double[] array, double alpha){
-        return getResult(new DoubleArrRef(array), alpha);
-    }
-    public static RegressionResult getResult(float[] array, double alpha){
-        return getResult(new FloatArrRef(array), alpha);
-    }
-    public static RegressionResult getResult(int[] array, double alpha){
-        return getResult(new IntArrRef(array), alpha);
-    }
-    public static RegressionResult getResult(Number[] array, double alpha){
-        return getResult(new NumberArrRef(array), alpha);
-    }
 
-
-
-
-    /* ----------- double[][], float[][], int[][] ----------- */
-
-
-    public static RegressionResult getResult(ArrayRef2 array, double alpha){
+    public static RegressionResult getResult(double[][] array, double alpha){
         // error checking
-        checkPointLength(array.getRowSize());
+        checkPointLength(array.length);
 
         // n & sums
-        double n = array.getRowSize();
+        double n = array.length;
 
         double sumX = 0, sumY = 0, sumX2 = 0, sumY2 = 0, sumXY = 0;
-        for (int i = 0; i < array.getRowSize(); i++) {
-            double x = array.getValue(i, 0);
-            double y = array.getValue(i, 1);
+        for (int i = 0; i < n; i++) {
+            double x = array[i][0];
+            double y = array[i][1];
             sumX += x;
             sumY += y;
             sumX2 += x * x;
@@ -108,9 +89,9 @@ public class SimpleRegression {
 
         // standardError
         double sumE2 = 0;
-        for (int i = 0; i < array.getRowSize(); i++) {
-            double x = array.getValue(i, 0);
-            double y = array.getValue(i, 1);
+        for (int i = 0; i < n; i++) {
+            double x = array[i][0];
+            double y = array[i][1];
             double error = y - line.value(x);
             sumE2 += error * error;
         }
@@ -119,23 +100,11 @@ public class SimpleRegression {
     }
 
 
-    public static RegressionResult getResult(float[][] array, double alpha){
-        return getResult(new FloatArrRef2(array), alpha);
-    }
-    public static RegressionResult getResult(double[][] array, double alpha){
-        return getResult(new DoubleArrRef2(array), alpha);
-    }
-    public static RegressionResult getResult(int[][] array, double alpha){
-        return getResult(new IntArrRef2(array), alpha);
-    }
-    public static RegressionResult getResult(Number[][] array, double alpha){
-        return getResult(new NumberArrRef2(array), alpha);
-    }
 
 
 
 
-    /* ----------- TPoint2D[] ----------- */
+    /* ----------- TVec2[] ----------- */
 
     public static RegressionResult getResult(TVec2[] array, double alpha){
         // error checking
@@ -222,7 +191,7 @@ public class SimpleRegression {
         double b0 = line.getCoefficientOfDegree(0), b1 = line.getCoefficientOfDegree(1);
 
         double variance = sumE2 / (n - 2d);
-        double standardError = ToriaMath.sqrt(variance);
+        double standardError = TMath.sqrt(variance);
         double STS = sumY2 - sumY * sumY / n;
         double SRS = b1 * b1 * (sumX2 - sumX * sumX / n);
         double SES = STS - SRS;
@@ -230,7 +199,7 @@ public class SimpleRegression {
         double r = Math.copySign(Math.sqrt(R2), b1); // r = sqrt(R2) with the sign of b1
 
         boolean hasPositiveDirection = b1 > 0;
-        double standardErrorOfCorCoef = ToriaMath.sqrt((1d - r * r) / (n - 2d));
+        double standardErrorOfCorCoef = TMath.sqrt((1d - r * r) / (n - 2d));
         double t = TDist.invCumLeftTailed(n - 2d, 1d - alpha / 2d);
         TRange confIntOfCorrelationCoef = new TRange(r - t * standardErrorOfCorCoef, r + t * standardErrorOfCorCoef);
 

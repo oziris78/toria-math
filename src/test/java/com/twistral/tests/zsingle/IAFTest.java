@@ -1,6 +1,6 @@
 package com.twistral.tests.zsingle;
 
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.special.IAF;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

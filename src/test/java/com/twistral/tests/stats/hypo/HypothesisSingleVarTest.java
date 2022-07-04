@@ -17,9 +17,9 @@ public class HypothesisSingleVarTest {
     @DisplayName("singleVarTest")
     void singleVarTest() {
         // data
-        int[] sample = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116); // IQ scores
-        int[] sortedSample = TArrays.getSortedCopy(sample);
-        DataDescription sampleDesc = DescStats.getDataDesc(sortedSample);
+        double[] sample = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 105, 116); // IQ scores
+        Arrays.sort(sample);
+        DataDescription sampleDesc = DescStats.getDataDesc(sample);
 
         /*
         n = 12

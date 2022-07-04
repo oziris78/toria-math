@@ -1,6 +1,6 @@
 package com.twistral.tests.dists;
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.advanced.distributions.cont.ZDist;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.jupiter.api.Assertions;
@@ -23,7 +23,7 @@ public class ZDistTest {
         Random random = new Random();
         for (int i = 0; i < TIMES; i++) {
             double x = random.nextDouble() * random.nextInt(999999999);
-            Assertions.assertTrue(ToriaMath.areEqual(ZDist.density(x), nd.density(x)));
+            Assertions.assertTrue(TMath.areEqual(ZDist.density(x), nd.density(x)));
         }
     }
 
@@ -36,7 +36,7 @@ public class ZDistTest {
         double val = 0.0d;
         int index = 0;
         while (index != vals.length){
-            Assertions.assertTrue(ToriaMath.areEqual(vals[index], ZDist.cumulativeProbabilityBetween(0, val)));
+            Assertions.assertTrue(TMath.areEqual(vals[index], ZDist.cumulativeProbabilityBetween(0, val)));
             index++;
             val += 0.01;
         }
@@ -48,14 +48,14 @@ public class ZDistTest {
     @DisplayName("cumulativeProbabilityBetweenTest2")
     void cumulativeProbabilityBetweenTest2() {
         // used this site:  https://onlinestatbook.com/2/calculators/normal_dist.html
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(0, 1.15), 0.3749));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(0, -1.15), 0));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 0), 0.4846));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 0), 0));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, -5.15), 0));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 1.15), 0.8595));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, -1.15), 0.1097));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 5.15), 0.0154));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, 1.15), 0.3749));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(0, -1.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 0), 0.4846));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 0), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, -5.15), 0));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, 1.15), 0.8595));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(-2.16, -1.15), 0.1097));
+        Assertions.assertTrue(TMath.areEqual(ZDist.cumulativeProbabilityBetween(2.16, 5.15), 0.0154));
     }
 
 
@@ -71,7 +71,7 @@ public class ZDistTest {
             double x = (random.nextBoolean() ? -1 : 1) * random.nextDouble() * random.nextInt(1000000);
             double val1 = nd.cumulativeProbability(x);
             double val2 = ZDist.cumulativeProbability(x);
-            Assertions.assertTrue(ToriaMath.areEqual(val1, val2));
+            Assertions.assertTrue(TMath.areEqual(val1, val2));
         }
 
     }
@@ -87,7 +87,7 @@ public class ZDistTest {
         while(area <= 1d){
             double val1 = nd.inverseCumulativeProbability(area);
             double val2 = ZDist.invCumLeftTailed(area);
-            Assertions.assertTrue(ToriaMath.areEqual(val1, val2));
+            Assertions.assertTrue(TMath.areEqual(val1, val2));
             area += 0.01d;
         }
 
@@ -96,10 +96,10 @@ public class ZDistTest {
     @Test
     @DisplayName("invCumRightTailedTest")
     void invCumRightTailedTest() {
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.invCumRightTailed(0.17d), 0.44d));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.invCumRightTailed(0.499d), 3.0902d));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.05d / 2d), 1.96d));
-        Assertions.assertTrue(ToriaMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.01d / 2d), 2.5758d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.17d), 0.44d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.499d), 3.0902d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.05d / 2d), 1.96d));
+        Assertions.assertTrue(TMath.areEqual(ZDist.invCumRightTailed(0.5d - 0.01d / 2d), 2.5758d));
     }
 
 

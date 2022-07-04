@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 public class ConfIntervalSingleVariableTest {
 
@@ -21,8 +23,8 @@ public class ConfIntervalSingleVariableTest {
     @DisplayName("meanSingleVariableTest")
     void meanSingleVariableTest() {
         // get necessary descriptions from your data
-        int[] sample = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
-        int[] sortedSample = TArrays.getSortedCopy(sample);
+        double[] sample = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
+        double[] sortedSample = TArrays.getSortedCopy(sample);
         DataDescription sampleDesc = DescStats.getDataDesc(sortedSample);
 
         // TESTS
@@ -73,8 +75,8 @@ public class ConfIntervalSingleVariableTest {
     @DisplayName("varianceSingleVariableTest")
     void varianceSingleVariableTest() {
         // get necessary descriptions from your data
-        int[] sample = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
-        int[] sortedSample = TArrays.getSortedCopy(sample);
+        double[] sample = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
+        double[] sortedSample = TArrays.getSortedCopy(sample);
         DataDescription sampleDesc = DescStats.getDataDesc(sortedSample);
 
         // TESTS
@@ -106,8 +108,8 @@ public class ConfIntervalSingleVariableTest {
     @DisplayName("proportionsSingleVariableTest")
     void proportionsSingleVariableTest() {
         // get necessary descriptions from your data
-        int[] sample = TArrays.intArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
-        int[] sortedSample = TArrays.getSortedCopy(sample);
+        double[] sample = TArrays.doubleArr(103, 96, 112, 130, 111, 125, 89, 100, 104, 117, 99, 118); // IQ scores
+        double[] sortedSample = TArrays.getSortedCopy(sample);
         DataDescription sampleDesc = DescStats.getDataDesc(sortedSample);
 
         int successes; // which is equal to "p hat"
@@ -151,11 +153,12 @@ public class ConfIntervalSingleVariableTest {
     @DisplayName("forPersonDataTest")
     void forPersonDataTest() {
         Person[] people = Person.createPopulation();
-        Person[] sortedPeople = TArrays.getSortedCopy(people, Person.class, (o1, o2) -> o1.height - o2.height);
+        double[] sortedHeights = new double[people.length];
+        for (int i = 0; i < people.length; i++)
+            sortedHeights[i] = people[i].height;
+        Arrays.sort(sortedHeights);
 
-        Field heightField = TClassUtils.getField(Person.class, "height");
-        heightField.setAccessible(true);
-        DataDescription description = DescStats.getDataDesc(sortedPeople, heightField);
+        DataDescription description = DescStats.getDataDesc(sortedHeights);
 
         double alpha = 0.01d;
 

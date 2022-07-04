@@ -3,7 +3,7 @@ package com.twistral.benchmarks;
 import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
 import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
 import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.junit.jupiter.api.Assertions;
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class ChiSqDistBenchmark {
             long e2 = System.nanoTime();
             myTime[index] = (e2 - s2) / 1000000d;
 
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("i: " + index);
                 System.out.println("v: " + v);

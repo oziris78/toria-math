@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.geometry.vectors;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 
 import java.util.Objects;
 
@@ -240,7 +240,7 @@ public class TVec2 {
      * @return this vector's distance from the origin
      */
     public double length() {
-        return ToriaMath.sqrt(this.x * this.x + this.y * this.y);
+        return TMath.sqrt(this.x * this.x + this.y * this.y);
     }
 
 
@@ -329,7 +329,7 @@ public class TVec2 {
      * @return true if this vector is (0, 0)
      */
     public boolean isZeroVector() {
-        return ToriaMath.areEqual(this.x, 0d) && ToriaMath.areEqual(this.y, 0d);
+        return TMath.areEqual(this.x, 0d) && TMath.areEqual(this.y, 0d);
     }
 
 
@@ -337,7 +337,7 @@ public class TVec2 {
      * @return true if this vector is unit vector
      */
     public boolean isUnitVector() {
-        return ToriaMath.areEqual(this.length(), 1d);
+        return TMath.areEqual(this.length(), 1d);
     }
 
 
@@ -364,8 +364,8 @@ public class TVec2 {
      * @return true if the given vectors are orthogonal
      */
     public static boolean areOrthogonal(TVec2 vec1, TVec2 vec2, TVec2 vec3){
-        return ToriaMath.areEqual(vec1.dot(vec2), 0d) && ToriaMath.areEqual(vec1.dot(vec3), 0d)
-                && ToriaMath.areEqual(vec2.dot(vec3), 0d);
+        return TMath.areEqual(vec1.dot(vec2), 0d) && TMath.areEqual(vec1.dot(vec3), 0d)
+                && TMath.areEqual(vec2.dot(vec3), 0d);
     }
 
 
@@ -398,7 +398,7 @@ public class TVec2 {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TVec2 other = (TVec2) o;
-        return ToriaMath.areEqual(other.x, x) && ToriaMath.areEqual(other.y, y);
+        return TMath.areEqual(other.x, x) && TMath.areEqual(other.y, y);
     }
 
 

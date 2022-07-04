@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class TPalette {
 
+
     private final TColor[] colors;
 
     public TPalette(TColor... colors){

@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.matrices;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.containers.TArrays;
 
@@ -370,7 +370,7 @@ public class TMatN {
      */
     public TMatN invert(){
         double det = this.determinant();
-        if(ToriaMath.areEqual(det, 0d))
+        if(TMath.areEqual(det, 0d))
             return null;
 
         double newMatrix[][] = new double[N][N];
@@ -387,7 +387,7 @@ public class TMatN {
             for (int i=0; i<N; ++i) {
                 double c1 = 0;
                 for (int j=0; j<N; ++j) {
-                    double c0 = ToriaMath.abs(this.mat[i][j]);
+                    double c0 = TMath.abs(this.mat[i][j]);
                     if (c0 > c1)
                         c1 = c0;
                 }
@@ -398,7 +398,7 @@ public class TMatN {
             for (int j=0; j<N-1; ++j) {
                 double pi1 = 0;
                 for (int i=j; i<N; ++i) {
-                    double pi0 = ToriaMath.abs(this.mat[index[i]][j]);
+                    double pi0 = TMath.abs(this.mat[index[i]][j]);
                     pi0 /= c[index[i]];
                     if (pi0 > pi1) {
                         pi1 = pi0;
@@ -558,7 +558,7 @@ public class TMatN {
 
     /**  @return true if this matrix's determinant is zero  */
     public boolean isSingular(){
-        return ToriaMath.areEqual(this.determinant(), 0d);
+        return TMath.areEqual(this.determinant(), 0d);
     }
 
 
@@ -567,11 +567,11 @@ public class TMatN {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if( i == j ){
-                    if(!ToriaMath.areEqual(this.mat[i][j], 1d))
+                    if(!TMath.areEqual(this.mat[i][j], 1d))
                         return false;
                 }
                 else{
-                    if(!ToriaMath.areEqual(this.mat[i][j], 0d))
+                    if(!TMath.areEqual(this.mat[i][j], 0d))
                         return false;
                 }
             }
@@ -643,7 +643,7 @@ public class TMatN {
             return false;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if(!ToriaMath.areEqual(other.mat[i][j], this.mat[i][j]))
+                if(!TMath.areEqual(other.mat[i][j], this.mat[i][j]))
                     return false;
             }
         }

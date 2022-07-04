@@ -1,6 +1,6 @@
 package com.twistral.tests.zsingle;
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.special.DiscreteMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -27,7 +27,7 @@ public class DiscreteMathTest {
         for (int unused = 0; unused < 99999; unused++) {
             int num1 = random.nextInt();
             int num2 = random.nextInt();
-            Assertions.assertEquals(DiscreteMath.euclideanAlgorithm(num1, num2), ToriaMath.gcd(num1, num2));
+            Assertions.assertEquals(DiscreteMath.euclideanAlgorithm(num1, num2), TMath.gcd(num1, num2));
         }
 
         Assertions.assertEquals(DiscreteMath.primeFactorization(2*2*5*7*11*11), "2^2 * 5 * 7 * 11^2");

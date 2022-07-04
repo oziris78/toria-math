@@ -5,7 +5,6 @@ import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
 import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
 import com.twistral.toriamath.advanced.statistics.regression.RegressionResult;
 import com.twistral.toriamath.advanced.statistics.regression.SimpleRegression;
-import com.twistral.toriautils.arrayref.oned.DoubleArrRef;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,10 +17,10 @@ public class StatsEqualityTest {
     @Test
     @DisplayName("eqTest")
     void eqTest() {
-        DoubleArrRef arr1 = new DoubleArrRef(new double[]{89, 100, 105, 110, 100, 100});
-        DoubleArrRef arr2 = new DoubleArrRef(new double[]{89, 100, 105, 110, 100, 100});
-        Arrays.sort(arr1.getArray());
-        Arrays.sort(arr2.getArray());
+        double[] arr1 = new double[]{89, 100, 105, 110, 100, 100};
+        double[] arr2 = new double[]{89, 100, 105, 110, 100, 100};
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
 
 
         DataDescription desc1 = DescStats.getDataDesc(arr1);

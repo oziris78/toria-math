@@ -1,8 +1,8 @@
 package com.twistral.tests.geometry;
 
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
-import com.twistral.toriamath.utils.ToriaMath;
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.core.geometry.TLine2D;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +32,7 @@ public class TLine2DTest {
         Assertions.assertEquals(TLine2D.angleBetweenTwoLines(l1, l2), TMathConsts.PI_OVER_TWO);
         Assertions.assertEquals(TLine2D.angleBetweenTwoLines(l2, l1), TMathConsts.PI_OVER_TWO);
 
-        Assertions.assertTrue(ToriaMath.areEqual(
+        Assertions.assertTrue(TMath.areEqual(
                 TLine2D.distanceBetweenPointAndLine(new TVec2(10, 20), new TLine2D(123, 234, 345)),
                 23.66112169729583d
         ));
@@ -55,7 +55,7 @@ public class TLine2DTest {
 
 
         Assertions.assertTrue(
-                ToriaMath.areEqual(TLine2D.distanceBetweenTwoParallelLines(new TLine2D(2.65d, -13), new TLine2D(2.65d, 4)),
+                TMath.areEqual(TLine2D.distanceBetweenTwoParallelLines(new TLine2D(2.65d, -13), new TLine2D(2.65d, 4)),
                 6.002d
         ));
 

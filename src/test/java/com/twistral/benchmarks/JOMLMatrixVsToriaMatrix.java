@@ -4,7 +4,7 @@ import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
 import com.twistral.toriamath.core.matrices.TMat2;
 import com.twistral.toriamath.core.matrices.TMat3;
 import com.twistral.toriamath.core.matrices.TMat4;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import org.joml.Matrix2d;
 import org.joml.Matrix3d;
 import org.joml.Matrix4d;
@@ -49,7 +49,7 @@ public class JOMLMatrixVsToriaMatrix {
             jMat.sub(new Matrix4d(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16));
             jMat.mul(jMat);
             jDet = jMat.determinant();
-            if(!ToriaMath.areEqual(jDet, 0d))
+            if(!TMath.areEqual(jDet, 0d))
                 jMat.invert();
             long jomlEnd = System.nanoTime();
             double jTotalTime = (jomlEnd - jomlStart) / 1000000d;
@@ -63,7 +63,7 @@ public class JOMLMatrixVsToriaMatrix {
             tMat.subtract(new TMat4(1 ,5, 9 ,13, 2 ,6, 10 ,14, 3 ,7, 11 ,15, 4 ,8 ,12 ,16));
             tMat.multiply(tMat);
             tDet = tMat.determinant();
-            if(!ToriaMath.areEqual(tDet, 0d))
+            if(!TMath.areEqual(tDet, 0d))
                 tMat.invert();
             long toriaEnd = System.nanoTime();
             double tTotalTime = (toriaEnd - toriaStart) / 1000000d;
@@ -98,7 +98,7 @@ public class JOMLMatrixVsToriaMatrix {
             jMat.sub(new Matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9));
             jMat.mul(jMat);
             jDet = jMat.determinant();
-            if(!ToriaMath.areEqual(jDet, 0d))
+            if(!TMath.areEqual(jDet, 0d))
                 jMat.invert();
             long jomlEnd = System.nanoTime();
             double jTotalTime = (jomlEnd - jomlStart) / 1000000d;
@@ -112,13 +112,13 @@ public class JOMLMatrixVsToriaMatrix {
             tMat.subtract(new TMat3(1, 4, 7, 2, 5, 8, 3, 6, 9));
             tMat.multiply(tMat);
             tDet = tMat.determinant();
-            if(!ToriaMath.areEqual(tDet, 0d))
+            if(!TMath.areEqual(tDet, 0d))
                 tMat.invert();
             long toriaEnd = System.nanoTime();
             double tTotalTime = (toriaEnd - toriaStart) / 1000000d;
             toriaTimes[toriaIndex++] = tTotalTime;
             // TORIA
-            if(!ToriaMath.areEqual(jDet, tDet)){
+            if(!TMath.areEqual(jDet, tDet)){
                 System.out.println("Failed for these values:");
                 System.out.printf("jDet: %f\n tDet: %f\n tMat: %s\n jMat: %s\n", jDet, tDet, tMat, jMat);
                 Assertions.fail();
@@ -154,7 +154,7 @@ public class JOMLMatrixVsToriaMatrix {
             jMat.sub(new Matrix2d(m11, m10, m01, m00));
             jMat.mul(jMat);
             jDet = jMat.determinant();
-            if(!ToriaMath.areEqual(jDet, 0d))
+            if(!TMath.areEqual(jDet, 0d))
                 jMat.invert();
             long jomlEnd = System.nanoTime();
             double jTotalTime = (jomlEnd - jomlStart) / 1000000d;
@@ -168,13 +168,13 @@ public class JOMLMatrixVsToriaMatrix {
             tMat.subtract(new TMat2(m11, m01, m10, m00));
             tMat.multiply(tMat);
             tDet = tMat.determinant();
-            if(!ToriaMath.areEqual(tDet, 0d))
+            if(!TMath.areEqual(tDet, 0d))
                 tMat.invert();
             long toriaEnd = System.nanoTime();
             double tTotalTime = (toriaEnd - toriaStart) / 1000000d;
             toriaTimes[toriaIndex++] = tTotalTime;
             // TORIA
-            if(!ToriaMath.areEqual(jDet, tDet)){
+            if(!TMath.areEqual(jDet, tDet)){
                 System.out.println("Failed for these values:");
                 System.out.printf("jDet: %f\n tDet: %f\n tMat: %s\n jMat: %s\n", jDet, tDet, tMat, jMat);
                 Assertions.fail();

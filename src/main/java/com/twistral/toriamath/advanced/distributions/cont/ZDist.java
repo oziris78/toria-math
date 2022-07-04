@@ -1,8 +1,8 @@
 package com.twistral.toriamath.advanced.distributions.cont;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 
@@ -38,7 +38,7 @@ public class ZDist {
      * @return cumulative density function (CDF) result
      */
     public static double cumulativeProbability(double x)  {
-        return 0.5d * (1 + ToriaMath.erf(x / TMathConsts.SQRT2));
+        return 0.5d * (1 + TMath.erf(x / TMathConsts.SQRT2));
     }
 
 
@@ -69,7 +69,7 @@ public class ZDist {
      */
     public static double invCumLeftTailed(double p){
         if(!TRange.ZERO_TO_ONE.isInRange(p)) throw new InvalidValueException("p", p);
-        return ToriaMath.probit(p);
+        return TMath.probit(p);
     }
 
 
@@ -83,7 +83,7 @@ public class ZDist {
      */
     public static double invCumRightTailed(double p){
         if( !(-0.5d <= p && p <= 0.5d) ) throw new InvalidValueException("p", p);
-        return ToriaMath.probit(p + 0.5d);
+        return TMath.probit(p + 0.5d);
     }
 
 

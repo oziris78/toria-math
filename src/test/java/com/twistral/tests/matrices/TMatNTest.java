@@ -2,7 +2,7 @@ package com.twistral.tests.matrices;
 
 import com.twistral.toriamath.core.matrices.*;
 import com.twistral.toriamath.core.matrices.TMatN;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -44,14 +44,14 @@ public class TMatNTest {
                 { 9, 10, 11, 12 },
                 { 13, 14, 15, 16 }
         });
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getCell(0, 0), 1));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getCell(0, 1), 2));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getCell(2, 2), 11));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getCell(0, 200), Double.NaN));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.setCell(0, 0, -20).getCell(0, 0), -20));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getN(), 4));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.set(new double[][]{ {100, 20}, {3, 4} }).getN(), 2));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.getCell(0, 0), 100));
+        Assertions.assertTrue(TMath.areEqual(mat1.getCell(0, 0), 1));
+        Assertions.assertTrue(TMath.areEqual(mat1.getCell(0, 1), 2));
+        Assertions.assertTrue(TMath.areEqual(mat1.getCell(2, 2), 11));
+        Assertions.assertTrue(TMath.areEqual(mat1.getCell(0, 200), Double.NaN));
+        Assertions.assertTrue(TMath.areEqual(mat1.setCell(0, 0, -20).getCell(0, 0), -20));
+        Assertions.assertTrue(TMath.areEqual(mat1.getN(), 4));
+        Assertions.assertTrue(TMath.areEqual(mat1.set(new double[][]{ {100, 20}, {3, 4} }).getN(), 2));
+        Assertions.assertTrue(TMath.areEqual(mat1.getCell(0, 0), 100));
 
         // special value methods
         mat1.set(new double[][]{
@@ -63,8 +63,8 @@ public class TMatNTest {
                 {1, 1, 1, 7, 8.5d, 9.5d}
         });
         mat2 = mat1.copy();
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.determinant(), 929005.5d));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.trace(), 34.5d));
+        Assertions.assertTrue(TMath.areEqual(mat1.determinant(), 929005.5d));
+        Assertions.assertTrue(TMath.areEqual(mat1.trace(), 34.5d));
         Assertions.assertEquals(mat1, mat2);
         mat1.set(new double[][]{
                 {0,2,5,7,8,4,1},
@@ -76,8 +76,8 @@ public class TMatNTest {
                 {7,0,0,0,0,0,2}
         });
         mat2 = mat1.copy();
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.determinant(), 493174));
-        Assertions.assertTrue(ToriaMath.areEqual(mat1.trace(), 20d));
+        Assertions.assertTrue(TMath.areEqual(mat1.determinant(), 493174));
+        Assertions.assertTrue(TMath.areEqual(mat1.trace(), 20d));
         Assertions.assertEquals(mat1, mat2);
 
         // basic methods

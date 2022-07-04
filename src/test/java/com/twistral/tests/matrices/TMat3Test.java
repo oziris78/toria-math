@@ -2,7 +2,7 @@ package com.twistral.tests.matrices;
 
 import com.twistral.toriamath.core.geometry.vectors.TVec3;
 import com.twistral.toriamath.core.matrices.TMat3;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -44,7 +44,7 @@ public class TMat3Test {
         Assertions.assertEquals(mat1.trace(), 1 + 1 + 1);
         Assertions.assertEquals(new TMat3(50d).trace(), 50d + 50d + 50d);
 
-        Assertions.assertTrue(ToriaMath.areEqual(
+        Assertions.assertTrue(TMath.areEqual(
             new TMat3(-9.5, 156, 100, 500, -15, 3.1415, 78, 99, 100).determinant(),
             -2677569.64725d
         ));

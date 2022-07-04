@@ -1,6 +1,6 @@
 package com.twistral.tests.dists;
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.advanced.distributions.cont.TDist;
 import org.apache.commons.math3.distribution.TDistribution;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +26,7 @@ public class TDistTest {
             double val1 = new TDistribution(v).density(x);
             double val2 = TDist.density(v, x);
 
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("v: " + v);
                 System.out.println("x: " + x);
@@ -50,7 +50,7 @@ public class TDistTest {
 
             double val1 = new TDistribution(v).cumulativeProbability(x);
             double val2 = TDist.cumulativeProbability(v, x);
-            boolean res = ToriaMath.areEqual(val1, val2);
+            boolean res = TMath.areEqual(val1, val2);
             if(!res){
                 System.out.println("x: " + x);
                 System.out.println("v: " + v);
@@ -78,7 +78,7 @@ public class TDistTest {
             double val1 = new TDistribution(v).inverseCumulativeProbability(p);
             double val2 = TDist.invCumLeftTailed(v, p);
 
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("v: " + v);
                 System.out.println("p: " + p);
@@ -97,8 +97,8 @@ public class TDistTest {
     @DisplayName("invCumRightTailed")
     void invCumRightTailed() {
         // single tests
-        Assertions.assertTrue(ToriaMath.areEqual(TDist.invCumRightTailed(500, 0.75), -0.674980734036162));
-        Assertions.assertTrue(ToriaMath.areEqual(TDist.invCumRightTailed(500, 0.32), 0.4679839324361787));
+        Assertions.assertTrue(TMath.areEqual(TDist.invCumRightTailed(500, 0.75), -0.674980734036162));
+        Assertions.assertTrue(TMath.areEqual(TDist.invCumRightTailed(500, 0.32), 0.4679839324361787));
 
         // big test
         double[] pVals = new double[]{0.40, 0.25, 0.10, 0.05, 0.025, 0.01, 0.005, 0.0005};
@@ -122,7 +122,7 @@ public class TDistTest {
             double val1 = arr[i];
             double val2 = TDist.invCumRightTailed(v, p);
 
-            boolean b = ToriaMath.areEqual(val1, val2);
+            boolean b = TMath.areEqual(val1, val2);
             if(!b){
                 System.out.println("v: " + v);
                 System.out.println("p: " + p);

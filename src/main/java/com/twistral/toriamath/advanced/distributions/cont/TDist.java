@@ -3,8 +3,8 @@ package com.twistral.toriamath.advanced.distributions.cont;
 
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.utils.ToriaMathException.*;
-import com.twistral.toriamath.utils.ToriaMath;
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.TMathConsts;
 
 
 /**
@@ -30,8 +30,8 @@ public class TDist {
      */
     public static double density(double v, double x){
         final double nPlus1Over2 = (v + 1d) / 2d;
-        return ToriaMath.exp(ToriaMath.logGamma(nPlus1Over2) - 0.5d * (ToriaMath.log(TMathConsts.PI) + ToriaMath.log(v))
-                - ToriaMath.logGamma(v / 2d) - nPlus1Over2 * ToriaMath.log(1d + x * x / v));
+        return TMath.exp(TMath.logGamma(nPlus1Over2) - 0.5d * (TMath.log(TMathConsts.PI) + TMath.log(v))
+                - TMath.logGamma(v / 2d) - nPlus1Over2 * TMath.log(1d + x * x / v));
     }
 
 
@@ -46,7 +46,7 @@ public class TDist {
         if (x == 0d)
             return 0.5d;
 
-        double t = ToriaMath.regularizedBeta(v / (v + (x * x)), 0.5d * v, 0.5d);
+        double t = TMath.regularizedBeta(v / (v + (x * x)), 0.5d * v, 0.5d);
         return (x < 0.0d) ? 0.5d * t : 1.0d - 0.5d * t;
     }
 
@@ -104,27 +104,27 @@ public class TDist {
     private static double iribfForTDist(double alpha, double beta, double probability) {
         final double EPSILON = 1E-18;
 
-        double t = ToriaMath.exp(alpha * ToriaMath.log(alpha / (alpha + beta))) / alpha;
-        double u = ToriaMath.exp(beta * ToriaMath.log(beta / (alpha + beta))) / beta;
+        double t = TMath.exp(alpha * TMath.log(alpha / (alpha + beta))) / alpha;
+        double u = TMath.exp(beta * TMath.log(beta / (alpha + beta))) / beta;
 
         double ret = probability < t / (t + u) ?
-                ToriaMath.pow(alpha * (t + u) * probability, 1d / alpha) :
-                1d - ToriaMath.pow(beta * (t + u) * (1d - probability), 1d / beta);
+                TMath.pow(alpha * (t + u) * probability, 1d / alpha) :
+                1d - TMath.pow(beta * (t + u) * (1d - probability), 1d / beta);
 
-        double logBeta = ToriaMath.logBeta(alpha, beta);
+        double logBeta = TMath.logBeta(alpha, beta);
 
         double error;
         double alphaMOne = alpha - 1d;
         double betaMOne = beta - 1d;
         for (int j = 0; j < 10; j++) {
             if (ret == 0d || ret == 1d) return ret;
-            error = ToriaMath.regularizedBeta(ret, alpha, beta) - probability;
-            t = ToriaMath.exp(alphaMOne * ToriaMath.log(ret) + betaMOne * ToriaMath.log(1d - ret) - logBeta);
+            error = TMath.regularizedBeta(ret, alpha, beta) - probability;
+            t = TMath.exp(alphaMOne * TMath.log(ret) + betaMOne * TMath.log(1d - ret) - logBeta);
             u = error / t;
             ret -= (t = u / (1d - 0.5d * Math.min(1d, u * (alphaMOne / ret - betaMOne / (1d - ret)))));
             if (ret <= 0d) ret = 0.5d * (ret + t);
             if (ret >= 1d) ret = 0.5d * (ret + t + 1d);
-            if (ToriaMath.abs(t) < EPSILON * ret && j > 0) break;
+            if (TMath.abs(t) < EPSILON * ret && j > 0) break;
         }
         return ret;
     }

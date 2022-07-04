@@ -1,7 +1,7 @@
 package com.twistral.tests.geometry;
 
-import com.twistral.toriamath.utils.ToriaMath;
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMath;
+import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -20,10 +20,10 @@ public class TVec2Test {
         Assertions.assertEquals(v1, new TVec2(v1));
         Assertions.assertEquals(v1, v1);
 
-        Assertions.assertTrue(ToriaMath.areEqual(v1.getX(), 0d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.setX(10d).getX(), 10d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.setY(-10d).getY(), -10d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.set(0d, 0d).getY(), 0d));
+        Assertions.assertTrue(TMath.areEqual(v1.getX(), 0d));
+        Assertions.assertTrue(TMath.areEqual(v1.setX(10d).getX(), 10d));
+        Assertions.assertTrue(TMath.areEqual(v1.setY(-10d).getY(), -10d));
+        Assertions.assertTrue(TMath.areEqual(v1.set(0d, 0d).getY(), 0d));
 
         Assertions.assertEquals(v1.add(v2), v2);
         Assertions.assertEquals(v1.subtract(v2), TVec2.ZERO);
@@ -36,10 +36,10 @@ public class TVec2Test {
 
         v1.set(10d, 20d);
         v2.set(-2d, 2d);
-        Assertions.assertTrue(ToriaMath.areEqual(v1.dot(v2), v2.dot(10d, 20d)));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.dot(v2), -20d + 40d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.lengthSquared(), 500d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.length(), ToriaMath.sqrt(500d)));
+        Assertions.assertTrue(TMath.areEqual(v1.dot(v2), v2.dot(10d, 20d)));
+        Assertions.assertTrue(TMath.areEqual(v1.dot(v2), -20d + 40d));
+        Assertions.assertTrue(TMath.areEqual(v1.lengthSquared(), 500d));
+        Assertions.assertTrue(TMath.areEqual(v1.length(), TMath.sqrt(500d)));
 
         v1.set(1d, 1d);
         Assertions.assertEquals(v1.copy().rotate90DegClockwise(), new TVec2(1d, -1d));
@@ -59,7 +59,7 @@ public class TVec2Test {
         Assertions.assertFalse(v1.isUnitVector());
 
 
-        Assertions.assertTrue(ToriaMath.areEqual(TVec2.angleBetween(new TVec2(1d, 1d), new TVec2(0d, 1d)),
+        Assertions.assertTrue(TMath.areEqual(TVec2.angleBetween(new TVec2(1d, 1d), new TVec2(0d, 1d)),
                 TMathConsts.PI_OVER_TWO / 2d));
     }
 
@@ -86,7 +86,7 @@ public class TVec2Test {
         Assertions.assertEquals(p1.length(), p2.length());
         Assertions.assertEquals(p2.length(), 10);
         Assertions.assertEquals(p3.length(), 0);
-        Assertions.assertTrue(ToriaMath.areEqual(p4.length(), 1d / TMathConsts.SQRT2));
+        Assertions.assertTrue(TMath.areEqual(p4.length(), 1d / TMathConsts.SQRT2));
 
 
         Assertions.assertEquals(p1.copy().rotate90DegClockwise().rotate90DegClockwise(), p1.copy().rotate180DegClockwise());

@@ -13,7 +13,7 @@ public abstract class AbstractSingleVarFunc {
 
     public abstract double value(double x);
 
-    public abstract TCompositeFunc derivative();
+    public abstract CompositeFunc derivative();
 
     public TRange getDomain() {
         return this.domain;

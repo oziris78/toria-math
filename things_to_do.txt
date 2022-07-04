@@ -30,6 +30,44 @@ GELECEK PLANLARI {
 }
 
 
+{
+    Tmath içine bundan koyayım
+    Initial string alabilir bir de başkaları string verebilir
+    https://feldarkrealms.com/
+}
+
+
+{
+    TPalette ve Color[] ya da TPalette alacak ve yeni bir Color[] / TPalette dönecek ki bu dizi/palet en yakın
+    renklerin bulunduğu bir palet olacak
+    fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel implementasyon
+}
+
+{
+    com.twistral.toriamath.special.ODESolver
+    adi dif denk nüm dersini gözden geçirip ekle
+}
+
+{
+    com.twistral.toriamath.advanced.ai.AStarPathFinder
+    AI Star yazılması  =>  belki toria-gdx'e koyarım belki de burada tutarım
+    toria-gdx içindeki şeylere yeniden göz atıp libgdx'ten ayırabildiğim her şeyi burada depolamalıyım
+}
+
+{
+    com.twistral.toriamath.core.complex?
+    kompleks analiz dersini gözden geçirip ekle
+
+    ÖNCEKİ KODLARI YEDEKLEDİM ONLARI ALIP GEÇİRECEĞİM
+        https://gist.github.com/oziris78/bf5229ea35fc2b672d62a2c6b0d04ebe
+
+    kompleks analizi gözden geçirip bir şeyler ekle complexNumber sınıfına?
+    ayrıca ismini Complex diye değiştirebilirim
+    yeni bir core paketi oluşturabilirim complex diye
+    ayrıca kompleks fonksiyon filan implemente ederim
+    ComplexFunc sınıfı yazılabilir ??? üstteki fonksiyonlara
+        benzetilir ve ya complex paketinde durur ya da fonksiyon paketininin içine complex paketi açarım evet o daha mantıklı gibi
+}
 
 
 
@@ -37,72 +75,13 @@ GELECEK PLANLARI {
 
 
 
-TPalette ve Color[] ya da TPalette alacak ve yeni bir Color[] / TPalette dönecek ki bu dizi/palet en yakın
-renklerin bulunduğu bir palet olacak
-fotoğraf exporting'i için de metot yazacağım hem test olur hem de güzel implementasyon
-
-
-TRANGE YERİNE TINTERVAL YAZICAM AMA TMATH İSMİ DE DEĞİŞECEK ÖNCE O YAPILMALI
-
-
-ArrayRef ismi değiştirilmeli çok salak bir isim verilmiş
-
-ArrayRef internal bir şey olabilir?
-Tmath sürekli method overloading sunar
-
-ArrayRef i sil ve her zaman double, float, int arrleri bekle???
-
-Java Array sınıfına bak
-benchmarking yap ona göre değişiklik yap
-
-
-
-Tmath içine bundan koyayım
-Initial string alabilir bir de başkaları string verebilir
-https://feldarkrealms.com/
-
-
-
-NumericalAnaylsis sınıfını düzenle, TRange kullanılmamış...
-
-
-
-
-adi dif denk nüm dersini gözden geçirip ekle
 
 
 
 
 
 
-
-
-Fraction için metotları yeniden yaz private olanlar doğrudan metot olmalı...
-
-
-
-
-
-
-kompleks analizi gözden geçirip bir şeyler ekle complexNumber sınıfına?
-ayrıca ismini Complex diye değiştirebilirim
-yeni bir core paketi oluşturabilirim complex diye
-ayrıca kompleks fonksiyon filan implemente ederim
-ComplexFunc sınıfı yazılabilir ??? üstteki fonksiyonlara
-    benzetilir ve ya complex paketinde durur ya da fonksiyon paketininin içine complex paketi açarım evet o daha mantıklı gibi
-
-
-
-
-
-AI Star yazılması  =>  belki toria-gdx'e koyarım belki de burada tutarım
-toria-gdx içindeki şeylere yeniden göz atıp libgdx'ten ayırabildiğim her şeyi burada depolamalıyım
-
-
-
-
-
-toria-vstat? {
+toria-vstat? / toria-stats? {
     dot plots?
     stem and leaf plots?
     - frequency dist. table visualization

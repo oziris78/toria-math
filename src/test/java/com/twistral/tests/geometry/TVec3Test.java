@@ -1,8 +1,8 @@
 package com.twistral.tests.geometry;
 
-import com.twistral.toriamath.core.constants.TMathConsts;
+import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.core.geometry.vectors.TVec3;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,12 +40,12 @@ public class TVec3Test {
 
         v1.set(0d, 1d, -2d);
         v2.set(10d, 20d, 30d);
-        Assertions.assertTrue(ToriaMath.areEqual(v1.dot(v2), 20d - 60d));
-        Assertions.assertTrue(ToriaMath.areEqual(v1.dot(0d, 0d, 1d), -2d));
+        Assertions.assertTrue(TMath.areEqual(v1.dot(v2), 20d - 60d));
+        Assertions.assertTrue(TMath.areEqual(v1.dot(0d, 0d, 1d), -2d));
 
         v1.set(0d, 1d, -2d);
-        Assertions.assertTrue(ToriaMath.areEqual(v1.lengthSquared(), v1.length() * v1.length()));
-        Assertions.assertTrue(ToriaMath.areEqual(TMathConsts.SQRT5, v1.length()));
+        Assertions.assertTrue(TMath.areEqual(v1.lengthSquared(), v1.length() * v1.length()));
+        Assertions.assertTrue(TMath.areEqual(TMathConsts.SQRT5, v1.length()));
 
         Assertions.assertEquals(new TVec3(1, 1, 1).length(), TMathConsts.SQRT3);
         Assertions.assertEquals(new TVec3(2, 2, 1).length(), 3);
@@ -60,10 +60,10 @@ public class TVec3Test {
         Assertions.assertTrue(new TVec3(0, 0, 0).isZeroVector());
         Assertions.assertFalse(new TVec3(0, 2, 7).isZeroVector());
 
-        Assertions.assertTrue(ToriaMath.areEqual(TVec3.angleBetween(
+        Assertions.assertTrue(TMath.areEqual(TVec3.angleBetween(
                 new TVec3(5, 8, 1),
                 new TVec3(-10, 75, -9)
-        ), ToriaMath.acosFloat(0.7484064033162872f)));
+        ), TMath.acosFloat(0.7484064033162872f)));
 
     }
 

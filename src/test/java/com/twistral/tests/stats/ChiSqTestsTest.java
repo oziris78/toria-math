@@ -17,23 +17,12 @@ public class ChiSqTestsTest {
     void aliasFunctionChecksTest() {
 
         double[] observedFreqs = TArrays.doubleArr(94, 93, 112, 101, 104, 95, 100, 99, 108, 94);
-        float[] ob1 = TArrays.floatArr(94, 93, 112, 101, 104, 95, 100, 99, 108, 94);
-        int[] ob2 = TArrays.intArr(94, 93, 112, 101, 104, 95, 100, 99, 108, 94);
-        Number[] ob3 = new Number[]{94, 93, 112, 101, 104, 95, 100, 99, 108, 94};
         FreqDistTable table = new FreqDistTable(observedFreqs, 0d, 1d); // start from 0d and increase by 1d
         double[] expectedFrequencies = TArrays.doubleFilledArr(table.getRowCount(),
                 table.getTotalFrequency() / table.getRowCount());
 
         Assertions.assertTrue(ChiSquareTests.fitsDistribution(observedFreqs, expectedFrequencies, "uniform", 0.05d));
-        Assertions.assertTrue(ChiSquareTests.fitsDistribution(ob1, expectedFrequencies, "uniform", 0.05d));
-        Assertions.assertTrue(ChiSquareTests.fitsDistribution(ob3, expectedFrequencies, "uniform", 0.05d));
-        Assertions.assertTrue(ChiSquareTests.fitsDistribution(ob2, expectedFrequencies, "uniform", 0.05d));
-
         Assertions.assertTrue(ChiSquareTests.isIndependent(observedFreqs, expectedFrequencies, 0.05d));
-        Assertions.assertTrue(ChiSquareTests.isIndependent(ob1, expectedFrequencies, 0.05d));
-        Assertions.assertTrue(ChiSquareTests.isIndependent(ob3, expectedFrequencies, 0.05d));
-        Assertions.assertTrue(ChiSquareTests.isIndependent(ob2, expectedFrequencies, 0.05d));
-
         Assertions.assertTrue(ChiSquareTests.fitsDistribution(table, expectedFrequencies, "uniform", 0.05d));
         Assertions.assertTrue(ChiSquareTests.isIndependent(table, expectedFrequencies, 0.05d));
 

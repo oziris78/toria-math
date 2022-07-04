@@ -2,7 +2,7 @@ package com.twistral.tests.matrices;
 
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import com.twistral.toriamath.core.matrices.TMat2;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import org.apache.commons.math3.linear.FieldLUDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
@@ -87,7 +87,7 @@ public class TMat2Test {
             };
             TMat2 t = new TMat2(m00, m01, m10, m11);
             double res = new FieldLUDecomposition<>(MatrixUtils.createFieldMatrix(data)).getDeterminant().doubleValue();
-            Assertions.assertTrue(ToriaMath.areEqual(t.determinant(), res));
+            Assertions.assertTrue(TMath.areEqual(t.determinant(), res));
         }
 
 

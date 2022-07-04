@@ -4,10 +4,6 @@ import com.twistral.toriamath.core.functions.oned.AbstractSingleVarFunc;
 import com.twistral.toriamath.core.functions.oned.TPolynomial;
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import com.twistral.toriamath.utils.ToriaMathException.*;
-import com.twistral.toriautils.arrayref.oned.DoubleArrRef;
-import com.twistral.toriautils.arrayref.oned.FloatArrRef;
-import com.twistral.toriautils.arrayref.oned.IntArrRef;
-import com.twistral.toriautils.arrayref.oned.ArrayRef;
 
 
 public class NumericalAnalysis {
@@ -20,14 +16,15 @@ public class NumericalAnalysis {
     /*  METHODS  */
     ///////////////
 
+
     ////////////////////////    LAGRANGE POLYNOMIALS    ////////////////////////
 
-    public static TPolynomial getLagrangePolynomial(ArrayRef array){
-        if(array.getSize() % 2 != 0)
-            throw new InvalidValueException("points.length", array.getSize());
+    public static TPolynomial getLagrangePolynomial(double... array){
+        if(array.length % 2 != 0)
+            throw new InvalidValueException("points.length", array.length);
         TPolynomial res = new TPolynomial();
-        for (int i = 0; i < array.getSize(); i+=2) {
-            double curY = array.getValue(i+1);
+        for (int i = 0; i < array.length; i+=2) {
+            double curY = array[i+1];
             TPolynomial p = getPolyForLagrange(array, i).multiply(new TPolynomial(curY));
             double denom = getDenomForLagrange(array, i);
             p = p.multiply(new TPolynomial(1d / denom));
@@ -48,15 +45,6 @@ public class NumericalAnalysis {
         return res;
     }
 
-    public static TPolynomial getLagrangePolynomial(double... array){
-        return getLagrangePolynomial(new DoubleArrRef(array));
-    }
-    public static TPolynomial getLagrangePolynomial(float... array){
-        return getLagrangePolynomial(new FloatArrRef(array));
-    }
-    public static TPolynomial getLagrangePolynomial(int... array){
-        return getLagrangePolynomial(new IntArrRef(array));
-    }
 
 
 
@@ -130,25 +118,25 @@ public class NumericalAnalysis {
     ///////////////
 
 
-    private static TPolynomial getPolyForLagrange(ArrayRef array, int dontTake){
+    private static TPolynomial getPolyForLagrange(double[] array, int dontTake){
         TPolynomial res = new TPolynomial(1); // f(x) = 1
-        for (int i = 0; i < array.getSize(); i+=2) {
+        for (int i = 0; i < array.length; i+=2) {
             if(i == dontTake)
                 continue;
-            res = res.multiply(new TPolynomial(-array.getValue(i), 1)); // x - x_i
+            res = res.multiply(new TPolynomial(-array[i], 1)); // x - x_i
         }
         return res;
     }
 
-    private static double getDenomForLagrange(ArrayRef array, int dontTake){
-        double d = 1d;
-        final double dontTakeX = array.getValue(dontTake);
-        for (int i = 0; i < array.getSize(); i+=2) {
+    private static double getDenomForLagrange(double[] array, int dontTake){
+        double res = 1d;
+        final double dontTakeX = array[dontTake];
+        for (int i = 0; i < array.length; i+=2) {
             if(i == dontTake)
                 continue;
-            d *= (dontTakeX - array.getValue(i));
+            res *= (dontTakeX - array[i]);
         }
-        return d;
+        return res;
     }
 
     private static TPolynomial getPolyForLagrange(TVec2[] points, int dontTake){

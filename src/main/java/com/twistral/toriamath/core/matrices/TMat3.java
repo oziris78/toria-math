@@ -2,7 +2,7 @@ package com.twistral.toriamath.core.matrices;
 
 
 import com.twistral.toriamath.core.geometry.vectors.TVec3;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 
 import java.util.Objects;
 
@@ -403,7 +403,7 @@ public class TMat3 {
      */
     public TMat3 invert(){
         double det = this.determinant();
-        if(ToriaMath.areEqual(det, 0d))
+        if(TMath.areEqual(det, 0d))
             return null;
 
         this.set(
@@ -576,23 +576,23 @@ public class TMat3 {
 
     /**  @return true if this matrix's transpose is equal to itself  */
     public boolean isSymmetrical(){
-        return ToriaMath.areEqual(this.m01, this.m10) &&
-               ToriaMath.areEqual(this.m02, this.m20) &&
-               ToriaMath.areEqual(this.m21, this.m12);
+        return TMath.areEqual(this.m01, this.m10) &&
+               TMath.areEqual(this.m02, this.m20) &&
+               TMath.areEqual(this.m21, this.m12);
     }
 
 
     /**  @return true if this matrix's determinant is zero  */
     public boolean isSingular(){
-        return ToriaMath.areEqual(this.determinant(), 0d);
+        return TMath.areEqual(this.determinant(), 0d);
     }
 
 
     /**  @return true if this matrix is equal to I<sub>3</sub>  */
     public boolean isIdentityMatrix(){
-        return ToriaMath.areEqual(this.m00, 1d) && ToriaMath.areEqual(this.m01, 0d) && ToriaMath.areEqual(this.m02, 0d) &&
-               ToriaMath.areEqual(this.m10, 0d) && ToriaMath.areEqual(this.m11, 1d) && ToriaMath.areEqual(this.m12, 0d) &&
-               ToriaMath.areEqual(this.m20, 0d) && ToriaMath.areEqual(this.m21, 0d) && ToriaMath.areEqual(this.m22, 1d);
+        return TMath.areEqual(this.m00, 1d) && TMath.areEqual(this.m01, 0d) && TMath.areEqual(this.m02, 0d) &&
+               TMath.areEqual(this.m10, 0d) && TMath.areEqual(this.m11, 1d) && TMath.areEqual(this.m12, 0d) &&
+               TMath.areEqual(this.m20, 0d) && TMath.areEqual(this.m21, 0d) && TMath.areEqual(this.m22, 1d);
     }
 
 
@@ -621,15 +621,15 @@ public class TMat3 {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TMat3 tMat3 = (TMat3) o;
-        return  ToriaMath.areEqual(tMat3.m00, m00) &&
-                ToriaMath.areEqual(tMat3.m01, m01) &&
-                ToriaMath.areEqual(tMat3.m02, m02) &&
-                ToriaMath.areEqual(tMat3.m10, m10) &&
-                ToriaMath.areEqual(tMat3.m11, m11) &&
-                ToriaMath.areEqual(tMat3.m12, m12) &&
-                ToriaMath.areEqual(tMat3.m20, m20) &&
-                ToriaMath.areEqual(tMat3.m21, m21) &&
-                ToriaMath.areEqual(tMat3.m22, m22);
+        return  TMath.areEqual(tMat3.m00, m00) &&
+                TMath.areEqual(tMat3.m01, m01) &&
+                TMath.areEqual(tMat3.m02, m02) &&
+                TMath.areEqual(tMat3.m10, m10) &&
+                TMath.areEqual(tMat3.m11, m11) &&
+                TMath.areEqual(tMat3.m12, m12) &&
+                TMath.areEqual(tMat3.m20, m20) &&
+                TMath.areEqual(tMat3.m21, m21) &&
+                TMath.areEqual(tMat3.m22, m22);
     }
 
 

@@ -1,7 +1,7 @@
 package com.twistral.toriamath.core.functions;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.EqualBoundsException;
 import java.util.Objects;
 
@@ -47,7 +47,7 @@ public class TRange {
      * @return a new range whose boundaries are the square roots of this range's boundaries
      */
     public TRange sqrt(){
-        return new TRange(ToriaMath.sqrt(this.left), ToriaMath.sqrt(this.right));
+        return new TRange(TMath.sqrt(this.left), TMath.sqrt(this.right));
     }
 
 
@@ -117,7 +117,7 @@ public class TRange {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TRange other = (TRange) o;
-        return ToriaMath.areEqual(this.left, other.left) && ToriaMath.areEqual(this.right, other.right);
+        return TMath.areEqual(this.left, other.left) && TMath.areEqual(this.right, other.right);
     }
 
     @Override

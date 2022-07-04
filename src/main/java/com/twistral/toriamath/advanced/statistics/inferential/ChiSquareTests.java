@@ -4,7 +4,6 @@ package com.twistral.toriamath.advanced.statistics.inferential;
 import com.twistral.toriamath.advanced.distributions.cont.ChiSquaredDist;
 import com.twistral.toriamath.advanced.statistics.freqtable.FreqDistTable;
 import com.twistral.toriamath.utils.ToriaMathException.*;
-import com.twistral.toriautils.arrayref.oned.*;
 
 
 /**
@@ -41,8 +40,8 @@ public class ChiSquareTests {
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return true if the frequency distribution fits the distribution specified with the distType parameter
      */
-    public static boolean fitsDistribution(ArrayRef observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        final int k = observedFreqs.getSize();
+    public static boolean fitsDistribution(double[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
+        final int k = observedFreqs.length;
         if(expectedFreqs.length != k)
             throw new NotEqualArrayLengthException("expectedFreqs", "observedFreqs");
         final int p = getParameterNumber(distType);
@@ -51,7 +50,7 @@ public class ChiSquareTests {
         // test statistic
         double testStat = 0;
         for (int i = 0; i < k; i++) {
-            double oi = observedFreqs.getValue(i);
+            double oi = observedFreqs[i];
             double ei = expectedFreqs[i];
             double diff = oi - ei;
             if(ei < 5d)
@@ -63,45 +62,9 @@ public class ChiSquareTests {
     }
 
 
-    ///////////////////   ALIASES   ///////////////////
-
-    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
-    public static boolean fitsDistribution(double[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new DoubleArrRef(observedFreqs), expectedFreqs, distType, alpha);
-    }
-
-    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
-    public static boolean fitsDistribution(float[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new FloatArrRef(observedFreqs), expectedFreqs, distType, alpha);
-    }
-
-    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
-    public static boolean fitsDistribution(Number[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new NumberArrRef(observedFreqs), expectedFreqs, distType, alpha);
-    }
-
-    /**  @see #fitsDistribution(ArrayRef, double[], String, double)  */
-    public static boolean fitsDistribution(int[] observedFreqs, double[] expectedFreqs, String distType, double alpha){
-        return fitsDistribution(new IntArrRef(observedFreqs), expectedFreqs, distType, alpha);
-    }
 
     /**  @see #fitsDistribution(double[], double[], String, double)  */
     public static boolean isIndependent(double[] observedFreqs, double[] expectedFreqs, double alpha){
-        return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
-    }
-
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
-    public static boolean isIndependent(float[] observedFreqs, double[] expectedFreqs, double alpha){
-        return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
-    }
-
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
-    public static boolean isIndependent(Number[] observedFreqs, double[] expectedFreqs, double alpha){
-        return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
-    }
-
-    /**  @see #fitsDistribution(double[], double[], String, double)  */
-    public static boolean isIndependent(int[] observedFreqs, double[] expectedFreqs, double alpha){
         return fitsDistribution(observedFreqs, expectedFreqs, "uniform", alpha);
     }
 
@@ -216,7 +179,7 @@ public class ChiSquareTests {
     }
 
 
-    /**  @see #isHomogeneous(TMatrix, double)  */
+    /**  @see #isHomogeneous(double[][], double)  */
     public static boolean isIndependent(double[][] table, double alpha){
         return isHomogeneous(table, alpha);
     }

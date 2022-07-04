@@ -1,7 +1,7 @@
 package com.twistral.tests.zsingle;
 
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.core.functions.oned.TPolynomial;
 import com.twistral.toriamath.special.NumericalAnalysis;
 import org.junit.jupiter.api.Assertions;
@@ -22,12 +22,12 @@ public class NumericalAnalysisTest {
         double sol1 = 0.67210d;
         double sol2 = -1.30570d;
 
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.regulaFalse(p1, -1, 2, 500), sol1), true);
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.regulaFalse(p1, -1, -2, 500), sol2), true);
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.bisectionMethod(p1, -1, 2, 500), sol1), true);
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.bisectionMethod(p1, -1, -2, 500), sol2), true);
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.newtonsMethod(p1, 0, 2, 500), sol1), true);
-        Assertions.assertEquals(ToriaMath.areEqual(NumericalAnalysis.newtonsMethod(p1, -1, -2, 500), sol2), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.regulaFalse(p1, -1, 2, 500), sol1), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.regulaFalse(p1, -1, -2, 500), sol2), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.bisectionMethod(p1, -1, 2, 500), sol1), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.bisectionMethod(p1, -1, -2, 500), sol2), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.newtonsMethod(p1, 0, 2, 500), sol1), true);
+        Assertions.assertEquals(TMath.areEqual(NumericalAnalysis.newtonsMethod(p1, -1, -2, 500), sol2), true);
 
         TPolynomial poly1, poly2;
         TVec2[] arr = new TVec2[]{

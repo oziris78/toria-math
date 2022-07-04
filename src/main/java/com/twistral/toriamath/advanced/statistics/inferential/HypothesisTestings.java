@@ -2,7 +2,7 @@ package com.twistral.toriamath.advanced.statistics.inferential;
 
 import com.twistral.toriamath.advanced.distributions.cont.*;
 import com.twistral.toriamath.advanced.statistics.descriptive.*;
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 
 
@@ -34,7 +34,7 @@ public class HypothesisTestings {
         verifyMean(sampleCount, aStddev, alpha);
 
         // code
-        double testStat = (sampleMean - hypoMean) / (aStddev / ToriaMath.sqrt(sampleCount));
+        double testStat = (sampleMean - hypoMean) / (aStddev / TMath.sqrt(sampleCount));
 
         if(signStr == "="){
             double bound = stddevIsFromPop ? ZDist.invCumRightTailed(0.5d - alpha / 2d) :
@@ -222,7 +222,7 @@ public class HypothesisTestings {
         DescStats.verifyAlpha(alpha);
 
         // code
-        double testStat = (sampleProportion - hypoProportion) / ToriaMath.sqrt(hypoProportion * (1d - hypoProportion) / sampleCount);
+        double testStat = (sampleProportion - hypoProportion) / TMath.sqrt(hypoProportion * (1d - hypoProportion) / sampleCount);
         if(signStr == "="){
             double z = ZDist.invCumRightTailed(0.5d - (alpha / 2d));
             return -z <= testStat && testStat <= z;
@@ -393,7 +393,7 @@ public class HypothesisTestings {
         verifyDifMean(sampleCount1, sampleCount2, aStddev1, aStddev2, alpha);
 
         double testStat = (sampleMean1 - sampleMean2 - hypoMean) /
-                ToriaMath.sqrt((aStddev1 * aStddev1 / sampleCount1) + (aStddev2 * aStddev2 / sampleCount2));
+                TMath.sqrt((aStddev1 * aStddev1 / sampleCount1) + (aStddev2 * aStddev2 / sampleCount2));
 
         if(signStr == "=") // cover two tailed tests
             alpha /= 2d;
@@ -428,10 +428,10 @@ public class HypothesisTestings {
         double testStat;
         if(assumeEqualStddevs){
             double sk2 = ((sampleCount1 - 1d) * var1 + (sampleCount2 - 1d) * var2) / (sampleCount1 + sampleCount2 - 2d);
-            testStat = (sampleMean1 - sampleMean2 - hypoMean) / ToriaMath.sqrt(sk2 / sampleCount1 + sk2 / sampleCount2);
+            testStat = (sampleMean1 - sampleMean2 - hypoMean) / TMath.sqrt(sk2 / sampleCount1 + sk2 / sampleCount2);
         }
         else{
-            testStat = (sampleMean1 - sampleMean2 - hypoMean) / ToriaMath.sqrt(var1n + var2n);
+            testStat = (sampleMean1 - sampleMean2 - hypoMean) / TMath.sqrt(var1n + var2n);
         }
 
         if(signStr == "=") // cover two tailed tests
@@ -506,7 +506,7 @@ public class HypothesisTestings {
         double pw = (sampleCount1 * sampleProportion1 + sampleCount2 * sampleProportion2) / (sampleCount1 + sampleCount2);
         double qw = 1d - pw;
         double testStat = (sampleProportion1 - sampleProportion2 - hypoProportion)
-                / ToriaMath.sqrt(pw * qw * (1d / sampleCount1 + 1d / sampleCount2));
+                / TMath.sqrt(pw * qw * (1d / sampleCount1 + 1d / sampleCount2));
         if(signStr == "="){
             double z = ZDist.invCumRightTailed(0.5d - (alpha / 2d));
             return -z <= testStat && testStat <= z;

@@ -4,9 +4,7 @@ package com.twistral.toriamath.advanced.statistics.freqtable;
 import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.containers.TArrays;
-import com.twistral.toriautils.arrayref.oned.*;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -28,9 +26,9 @@ public class FreqDistTable {
 
 
     // KNOWN FREQUENCIES TO FREQTABLE
-    public FreqDistTable(ArrayRef frequencies, double min, double classInterval){
+    public FreqDistTable(double[] frequencies, double min, double classInterval){
         // error checking & references
-        this.classCount = frequencies.getSize();
+        this.classCount = frequencies.length;
         checkForClassCount(classCount);
 
         // create table
@@ -38,14 +36,14 @@ public class FreqDistTable {
 
         double totalFreqs = 0;
         for (int i = 0; i < classCount; i++)
-            totalFreqs += frequencies.getValue(i);
+            totalFreqs += frequencies[i];
 
         for (int i = 0; i < table.length; i++){
             double cLeft = min + i * classInterval;
             double cRight = min + (i+1) * classInterval;
             double midpoint = (cLeft + cRight) / 2d;
             // freq
-            double freq = frequencies.getValue(i);
+            double freq = frequencies[i];
             double relFreq = freq / totalFreqs;
             double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
             double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
@@ -53,18 +51,6 @@ public class FreqDistTable {
         }
     }
 
-    public FreqDistTable(double[] frequencies, double min, double classInterval){
-        this(new DoubleArrRef(frequencies), min, classInterval);
-    }
-    public FreqDistTable(float[] frequencies, double min, double classInterval){
-        this(new FloatArrRef(frequencies), min, classInterval);
-    }
-    public FreqDistTable(int[] frequencies, double min, double classInterval){
-        this(new IntArrRef(frequencies), min, classInterval);
-    }
-    public FreqDistTable(Number[] frequencies, double min, double classInterval){
-        this(new NumberArrRef(frequencies), min, classInterval);
-    }
 
 
     // PRIMITIVES & NUMBER & GENERIC CLASS TO FREQTABLE
@@ -74,7 +60,7 @@ public class FreqDistTable {
      * @param population any population (can be unsorted)
      * @param classCount an integer specifying how many rows this frequency distribution table will have
      */
-    public FreqDistTable(ArrayRef population, int classCount) {
+    public FreqDistTable(double[] population, int classCount) {
         // error checking & references
         checkForClassCount(classCount);
         this.classCount = classCount;
@@ -93,36 +79,18 @@ public class FreqDistTable {
             double midpoint = (cLeft + cRight) / 2d;
             // freq
             double freq = 0d;
-            for (int j = 0; j < population.getSize(); j++) {
-                double number = population.getValue(j);
+            for (int j = 0; j < population.length; j++) {
+                double number = population[j];
                 if(cLeft <= number && number < cRight) // cl <= val < cr
                     freq++;
             }
-            double relFreq = freq / population.getSize();
+            double relFreq = freq / population.length;
             double incCumFreq = freq + (i == 0 ? 0 : table[i-1].incCumFreq);
             double incRelFreq = relFreq + (i == 0 ? 0 : table[i-1].incRelFreq);
             table[i] = new FrequencyClass(cLeft, cRight, midpoint, freq, relFreq, incCumFreq, incRelFreq);
         }
     }
 
-
-
-
-    public FreqDistTable(double[] population, int classCount){
-        this(new DoubleArrRef(population), classCount);
-    }
-    public FreqDistTable(float[] population, int classCount){
-        this(new FloatArrRef(population), classCount);
-    }
-    public FreqDistTable(int[] population, int classCount){
-        this(new IntArrRef(population), classCount);
-    }
-    public FreqDistTable(Number[] population, int classCount){
-        this(new NumberArrRef(population), classCount);
-    }
-    public <T> FreqDistTable(T[] population, Field field, int classCount) {
-        this(new GenericArrRef<>(population, field), classCount);
-    }
 
 
     ///////////////

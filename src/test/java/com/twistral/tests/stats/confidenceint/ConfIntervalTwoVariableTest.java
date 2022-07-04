@@ -20,8 +20,8 @@ public class ConfIntervalTwoVariableTest {
         // https://www.socscistatistics.com/confidenceinterval/default4.aspx
 
         // get data
-        int[] sample1 = TArrays.intArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
-        int[] sample2 = TArrays.intArr(15, 35, 95, 97, 0, 0, 30, 40);
+        double[] sample1 = TArrays.doubleArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
+        double[] sample2 = TArrays.doubleArr(15, 35, 95, 97, 0, 0, 30, 40);
         Arrays.sort(sample1);
         Arrays.sort(sample2);
         DataDescription desc1 = DescStats.getDataDesc(sample1);
@@ -78,8 +78,8 @@ public class ConfIntervalTwoVariableTest {
     @DisplayName("meanUnknownVarianceTest")
     void meanUnknownVarianceTest() {
         // get data
-        int[] sample1 = TArrays.intArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
-        int[] sample2 = TArrays.intArr(15, 35, 95, 97, 0, 0, 30, 40);
+        double[] sample1 = TArrays.doubleArr(10, 50, 90, 24, 30, 70, 70, 50, 60, 60, 60, 50);
+        double[] sample2 = TArrays.doubleArr(15, 35, 95, 97, 0, 0, 30, 40);
         Arrays.sort(sample1);
         Arrays.sort(sample2);
         DataDescription desc1 = DescStats.getDataDesc(sample1);
@@ -137,8 +137,8 @@ public class ConfIntervalTwoVariableTest {
     @DisplayName("proportionsTwoVariableTest")
     void proportionsTwoVariableTest() {
         // get data and it's descriptions
-        int[] sample1 = TArrays.intArr(10, 50, 90, 20, 30, 70, 70, 50, 60, 60, 60, 50); // 12 terms
-        int[] sample2 = TArrays.intArr(15, 35, 95, 100, 0, 0, 30, 40); // 8 term
+        double[] sample1 = TArrays.doubleArr(10, 50, 90, 20, 30, 70, 70, 50, 60, 60, 60, 50); // 12 terms
+        double[] sample2 = TArrays.doubleArr(15, 35, 95, 100, 0, 0, 30, 40); // 8 term
         Arrays.sort(sample1);
         Arrays.sort(sample2);
         DataDescription desc1 = DescStats.getDataDesc(sample1);

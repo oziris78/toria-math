@@ -1,9 +1,8 @@
 package com.twistral.toriautils.containers;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
-import com.twistral.toriautils.arrayref.oned.FloatArrRef;
-import com.twistral.toriautils.arrayref.oned.ArrayRef;
+import com.twistral.toriamath.utils.TMath;
+
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -335,7 +334,7 @@ public final class TArrays {
         double inc = Math.abs(step);
 
         int len = 1 + (int) ((max - min) / inc);
-        if(ToriaMath.areEqual((min + len * inc), max))
+        if(TMath.areEqual((min + len * inc), max))
             len++; // make end inclusive for doubles
 
         double[] arr = new double[len];
@@ -428,35 +427,9 @@ public final class TArrays {
         return Arrays.stream(array).max((o1, o2) -> (int) (o1.doubleValue() - o2.doubleValue())).get().doubleValue();
     }
 
-    public static double getMax(ArrayRef array){
-        double max = array.getValue(0);
-        for (int i = 1; i < array.getSize(); i++) {
-            double curValue = array.getValue(i);
-            if(curValue > max) max = curValue;
-        }
-        return max;
-    }
 
 
-    public static float getMax(float[] array){
-        return (float) getMax(new FloatArrRef(array));
-    }
 
-
-    // O(n)
-    public static double getMin(ArrayRef array){
-        double min = array.getValue(0);
-        for (int i = 1; i < array.getSize(); i++) {
-            double curValue = array.getValue(i);
-            if(curValue < min)
-                min = curValue;
-        }
-        return min;
-    }
-
-    public static float getMin(float[] array){
-        return (float) getMin(new FloatArrRef(array));
-    }
 
     public static long getMin(long[] array){
         return Arrays.stream(array).min().getAsLong();

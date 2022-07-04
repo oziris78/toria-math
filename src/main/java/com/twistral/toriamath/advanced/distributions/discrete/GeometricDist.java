@@ -1,7 +1,7 @@
 package com.twistral.toriamath.advanced.distributions.discrete;
 
 
-import com.twistral.toriamath.utils.ToriaMath;
+import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 
@@ -39,7 +39,7 @@ public class GeometricDist  {
     ///////////////
 
     private static void checkForInput(double p){
-        if( !TRange.ZERO_TO_ONE.isInRange(p) || ToriaMath.areEqual(p, 0d)) throw new InvalidValueException("p", p);
+        if( !TRange.ZERO_TO_ONE.isInRange(p) || TMath.areEqual(p, 0d)) throw new InvalidValueException("p", p);
     }
 
 
