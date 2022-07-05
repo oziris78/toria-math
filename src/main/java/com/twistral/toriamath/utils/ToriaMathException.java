@@ -44,7 +44,8 @@ public final class ToriaMathException extends RuntimeException {
 
     public static class UnsupportedDistributionTypeString extends RuntimeException {
         public UnsupportedDistributionTypeString() {
-            super("Your distType string should be one of these: \"uniform\", \"poisson\", \"normal\"");
+            super("Your distType should be one of these: \"uniform\", \"poisson\", \"normal\"\nTo avoid " +
+                    "this type of exception please use static Strings defined in the same class.");
         }
     }
 
@@ -66,16 +67,6 @@ public final class ToriaMathException extends RuntimeException {
         }
     }
 
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class SampleSizeIsGreaterThanPopulationSizeException extends RuntimeException {
-
-        public SampleSizeIsGreaterThanPopulationSizeException() {
-            super("Sample size has to be less than population size.");
-        }
-
-    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -162,14 +153,6 @@ public final class ToriaMathException extends RuntimeException {
     public static class RepeatedCombinationException extends RuntimeException {
         public RepeatedCombinationException(int n, int r) {
             super(String.format("Invalid values for repeated combination for comb(%d,%d)", n, r));
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static class DivisionByZeroException extends RuntimeException {
-        public DivisionByZeroException() {
-            super("You can't divide by zero.");
         }
     }
 

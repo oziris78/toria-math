@@ -1,8 +1,7 @@
 package com.twistral.toriamath.advanced.statistics.inferential;
 
 import com.twistral.toriamath.advanced.distributions.cont.*;
-import com.twistral.toriamath.advanced.statistics.descriptive.DataDescription;
-import com.twistral.toriamath.advanced.statistics.descriptive.DescStats;
+import com.twistral.toriamath.advanced.statistics.descriptive.*;
 import com.twistral.toriamath.core.functions.TRange;
 import com.twistral.toriamath.utils.TMath;
 
@@ -54,7 +53,7 @@ public class ConfidenceIntervals {
      * Returns the confidence interval (CI) for the population's mean when the population's standard deviation is known. <br>
      * If the population is normally distributed, this method will return exact results. And if not, then it will return
      * approximate results.
-     * @param sampleDesc the sample's DataDescription object
+     * @param sampleDesc the sample's {@link DataDescription} object
      * @param populationStddev the population's known standard deviation
      * @param alpha a value in range [0,1] specifying the confidence level,
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
@@ -69,11 +68,11 @@ public class ConfidenceIntervals {
 
     /**
      * Returns the confidence interval (CI) for the population's mean when the population's standard deviation is unknown. <br>
-     * You will need to specify the distribution type with the `isNormallyDist` parameter. <br>
+     * You will need to specify the distribution type with the <code>isNormallyDist</code> parameter. <br>
      * If you don't know the distribution type then just enter false. <br>
      * If the population is normally distributed, this method will return exact results. And if not, it will return
      * approximate results.
-     * @param sampleDesc the sample's DataDescription object
+     * @param sampleDesc the sample's {@link DataDescription} object
      * @param isNormallyDist a boolean value specifying the distribution type, you need to enter true
      *                       if this sample is normally distributed, if you don't know what type of
      *                       distribution this data has then just enter false
@@ -114,7 +113,7 @@ public class ConfidenceIntervals {
      * Returns the confidence interval (CI) for the population's variance. <br>
      * If the population is normally distributed, this method will return exact results.
      * And if not, then it will return approximate results.
-     * @param sampleDesc the sample's DataDescription object
+     * @param sampleDesc the sample's {@link DataDescription} object
      * @param alpha a value in range [0,1] specifying the confidence level,
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return The confidence interval (CI) for the population variance
@@ -145,13 +144,13 @@ public class ConfidenceIntervals {
      * Returns the confidence interval (CI) for the population's proportion according to the successes parameter. <br>
      * There are many methods to calculate the CI for population's proportion such as Jeffreys, Agresti-Coull,
      * Wilson, Clopper-Pearson exact and Normal approximation. <br>
-     * This method uses Normal approximation to calculate the CI, meaning that it uses ZDist to determine it's
+     * This method uses Normal approximation to calculate the CI, meaning that it uses {@link ZDist} to determine it's
      * initial interval before calculating the error. <br>
      * Also if the population is normally distributed, this method will return exact results.
      * And if not, then it will return approximate results. <br>
      * To check if your samples are approximately normally distributed or not, you can use the
      * {@link #isApproximatelyNormallyDistributed(DataDescription, double)} method.
-     * @param sampleDesc the sample's DataDescription object
+     * @param sampleDesc the sample's {@link DataDescription} object
      * @param successes specifies how many successes are in this sample, the definition of a "success" may change
      * @param alpha a value in range [0,1] specifying the confidence level,
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
@@ -166,7 +165,7 @@ public class ConfidenceIntervals {
      * Returns the confidence interval (CI) for the population's proportion. <br>
      * @see #getIntervalForProportion(DataDescription, int, double)
      * @param pHat rate of successes in this sample (definition of success may change)
-     * @param sampleDesc the sample's DataDescription object
+     * @param sampleDesc the sample's {@link DataDescription} object
      * @param alpha a value in range [0,1] specifying the confidence level,
      *              if you want %99 confidence level then you need to enter 0.01 (%1) as alpha
      * @return The confidence interval (CI) for the population proportion
@@ -206,7 +205,7 @@ public class ConfidenceIntervals {
      * To be honest us knowing these populations' standard deviations are somewhat an unrealistic
      * assumption but sometimes this assumption is met and we can use this method to calculate confidence intervals. <br>
      * In statistics, in order to calculate this interval we make the assumption that both of
-     * these populations are normally distributed. If they're not we won't get an exacty answer. <br>
+     * these populations are normally distributed. If they're not we won't get an exact answer. <br>
      * But even if they're not normally distributed (or we just don't know what type of distributions they have)
      * we can still use this method to do an approximation by passing our samples' standard deviations as our
      * populations' standard deviation values.
@@ -295,10 +294,10 @@ public class ConfidenceIntervals {
      * don't know what type of distribution they have you can always use
      * {@link #getIntervalForDiffOfMeansUnknownAny(DataDescription, DataDescription, double)}
      * method to get approximate resulsts. For more information look at that method's javadocs. <br>
-     * Most of the times in real life statistics when you calculate degrees of freedom as a non-integer value you
+     * <b>Most of the times in real life statistics when you calculate degrees of freedom as a non-integer value you
      * round it to get better and approximate results. This method does not do approximations for degrees of freedom
      * and uses real valued degrees of freedoms. For example if degrees of freedom is calculated as 10.751 you would
-     * round this to 11 but this method does not do this and takes it as 10.751.
+     * round this to 11 but this method does not do this and takes it as 10.751.</b>
      * @param desc1 first sample's description
      * @param desc2 second sample's description
      * @param assumeEqualStddevs a boolean specifying if these two populations have the same

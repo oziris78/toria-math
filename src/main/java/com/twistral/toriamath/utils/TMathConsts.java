@@ -1,15 +1,14 @@
 package com.twistral.toriamath.utils;
 
 
-import com.twistral.toriautils.plain.TStringUtils;
-
-import java.util.HashMap;
 
 public final class TMathConsts {
 
     /* No constructors */
     private TMathConsts(){}
 
+
+    /* --------------------- NUMBERS --------------------- */
 
     // toria-math uses a bigger value just to make it more flexible...
     // this EPSILON will be updated to 1E-6 or 1E-8 in the future
@@ -29,27 +28,11 @@ public final class TMathConsts {
     /** PI / 2 */
     public static final double PI_OVER_TWO = PI / 2d;
 
-    /** -PI / 2 */
-    public static final double MPI_OVER_TWO = -PI_OVER_TWO;
 
+
+    /* --------------------- OTHER STUFF --------------------- */
 
     public static final StringBuilder ENGLISH_ALPHABET = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-    public static final HashMap<Integer, String> baseEleven = getBaseHashMap(11);
-    public static final HashMap<Integer, String> baseTwelve = getBaseHashMap(12);
-    public static final HashMap<Integer, String> baseThirteen = getBaseHashMap(13);
-    public static final HashMap<Integer, String> baseFourteen = getBaseHashMap(14);
-    public static final HashMap<Integer, String> baseFifteen = getBaseHashMap(15);
-    public static final HashMap<Integer, String> baseSixteen = getBaseHashMap(16);
-
-
-    /*  HELPERS  */
-
-    private static HashMap<Integer, String> getBaseHashMap(int base){
-        HashMap<Integer, String> map = new HashMap<>();
-        for(int i = 0; i < base; i++)
-            map.put(i, TStringUtils.convertNumberToUppercaseBaseString(i));
-        return map;
-    }
 
 }

@@ -8,7 +8,7 @@ import java.util.*;
 
 
 /**
- * Utility methods revolving around collections such as ArrayLists, HashSets, HashMaps, LinkedLists etc.
+ * Utility methods revolving around collections such as {@link ArrayList}, {@link HashSet}, {@link HashMap}, {@link LinkedList} etc.
  */
 public final class TCollections {
 

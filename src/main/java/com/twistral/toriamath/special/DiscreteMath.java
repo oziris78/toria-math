@@ -4,6 +4,8 @@ package com.twistral.toriamath.special;
 import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.utils.ToriaMathException.*;
+import com.twistral.toriautils.plain.TStringUtils;
+
 import java.util.HashMap;
 
 
@@ -12,11 +14,10 @@ public class DiscreteMath {
     /* No constructor */
     private DiscreteMath(){}
 
+
     /**
-     * Returns the prime factorization of num as a HashMap object, use TUtils.stringifyFactors() to
-     * get this map as a String object
      * @param num any number
-     * @return The prime factorization of num
+     * @return the prime factorization of num
      */
     public static String primeFactorization(long num){
         HashMap<Long, Long> factors = new HashMap<Long, Long>();
@@ -74,18 +75,18 @@ public class DiscreteMath {
 
 
     public static String getNumberInBase(int numberInBase10, int base){
-        if(base == 10) return String.valueOf(numberInBase10);
-        HashMap<Integer, String> dict = getHashMapWithBase(base);
+        if(base == 10)
+            return String.valueOf(numberInBase10);
         StringBuilder sb = new StringBuilder();
         int num = numberInBase10;
         int divided = (int) Math.floor( num / base );
         int remainder = num - base * divided;
-        sb.append( dict.get(remainder) );
+        sb.append(TStringUtils.convertNumberToUppercaseBaseString(remainder));
         while(divided != 0){
             num = divided;
             divided = (int) Math.floor( num / base );
             remainder = num - base * divided;
-            sb.append( dict.get(remainder) );
+            sb.append(TStringUtils.convertNumberToUppercaseBaseString(remainder));
         }
         return sb.reverse().toString();
     }
@@ -93,22 +94,6 @@ public class DiscreteMath {
 
 
 
-    /*  HELPERS  */
-
-    private static HashMap<Integer, String> getHashMapWithBase(int base){
-        if(base <= 10){
-            HashMap<Integer, String> mapToReturn = new HashMap<>();
-            for(int i = 0; i < base; i++)  mapToReturn.put(i, String.valueOf(i));
-            return mapToReturn;
-        }
-        else if(base == 11) return TMathConsts.baseEleven;
-        else if(base == 12) return TMathConsts.baseTwelve;
-        else if(base == 13) return TMathConsts.baseThirteen;
-        else if(base == 14) return TMathConsts.baseFourteen;
-        else if(base == 15) return TMathConsts.baseFifteen;
-        else if(base == 16) return TMathConsts.baseSixteen;
-        else throw new InvalidValueException("base", base);
-    }
 
 
 

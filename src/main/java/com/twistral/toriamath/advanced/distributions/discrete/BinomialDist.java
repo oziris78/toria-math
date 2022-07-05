@@ -38,8 +38,8 @@ public class BinomialDist {
 
 
     private static void checkForInput(int n, double p){
-        if( n < 1 ) throw new InvalidValueException("n", n);
-        if( !(p >= 0 && p <= 1) ) throw new InvalidValueException("p", p);
+        if(n < 1) throw new InvalidValueException("n", n);
+        if(!(p >= 0 && p <= 1)) throw new InvalidValueException("p", p);
     }
 
 

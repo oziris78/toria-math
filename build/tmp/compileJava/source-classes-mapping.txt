@@ -52,7 +52,6 @@ com/twistral/toriamath/advanced/statistics/freqtable/FrequencyClass.java
  com.twistral.toriamath.advanced.statistics.freqtable.FrequencyClass
 com/twistral/toriamath/utils/TMath.java
  com.twistral.toriamath.utils.TMath
- com.twistral.toriamath.utils.TMath$ApacheArrays
 com/twistral/toriamath/advanced/statistics/descriptive/DescStats.java
  com.twistral.toriamath.advanced.statistics.descriptive.DescStats
 com/twistral/toriamath/advanced/cryptography/BaconCipher.java
@@ -65,11 +64,12 @@ com/twistral/toriautils/plain/TStreamUtils.java
  com.twistral.toriautils.plain.TStreamUtils
 com/twistral/toriamath/core/geometry/TLine2D.java
  com.twistral.toriamath.core.geometry.TLine2D
+com/twistral/toriamath/utils/ApacheArrays.java
+ com.twistral.toriamath.utils.ApacheArrays
 com/twistral/toriamath/utils/ToriaMathException.java
  com.twistral.toriamath.utils.ToriaMathException
  com.twistral.toriamath.utils.ToriaMathException$CombinationException
  com.twistral.toriamath.utils.ToriaMathException$DifferentMatrixSizeException
- com.twistral.toriamath.utils.ToriaMathException$DivisionByZeroException
  com.twistral.toriamath.utils.ToriaMathException$EqualBoundsException
  com.twistral.toriamath.utils.ToriaMathException$ExpectedValueAssumptionException
  com.twistral.toriamath.utils.ToriaMathException$HasNonLetterCharactersException
@@ -87,7 +87,6 @@ com/twistral/toriamath/utils/ToriaMathException.java
  com.twistral.toriamath.utils.ToriaMathException$PermutationException
  com.twistral.toriamath.utils.ToriaMathException$RepeatedCombinationException
  com.twistral.toriamath.utils.ToriaMathException$RepeatedPermutationException
- com.twistral.toriamath.utils.ToriaMathException$SampleSizeIsGreaterThanPopulationSizeException
  com.twistral.toriamath.utils.ToriaMathException$SortedDataLengthIsTooSmallException
  com.twistral.toriamath.utils.ToriaMathException$ThisLineIsNeverExecutedException
  com.twistral.toriamath.utils.ToriaMathException$UnsupportedDistributionTypeString

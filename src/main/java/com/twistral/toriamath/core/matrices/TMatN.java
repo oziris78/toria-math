@@ -4,9 +4,9 @@ package com.twistral.toriamath.core.matrices;
 import com.twistral.toriamath.utils.TMath;
 import com.twistral.toriamath.utils.ToriaMathException.*;
 import com.twistral.toriautils.containers.TArrays;
-
 import java.util.Arrays;
 import java.util.Objects;
+
 
 
 /**
@@ -42,7 +42,7 @@ public class TMatN {
     }
 
 
-    /**  Converts a TMat2 object into a TMatN object and returns it.  */
+    /**  Converts a {@link TMat2} object into a {@link TMatN} object and returns it.  */
     public TMatN(TMat2 mat){
         this(new double[][]{
                 { mat.getCell(0, 0), mat.getCell(0, 1) },
@@ -51,7 +51,7 @@ public class TMatN {
     }
 
 
-    /**  Converts a TMat3 object into a TMatN object and returns it.  */
+    /**  Converts a {@link TMat3} object into a {@link TMatN} object and returns it.  */
     public TMatN(TMat3 mat){
         this(new double[][]{
                 { mat.getCell(0, 0), mat.getCell(0, 1), mat.getCell(0, 2) },
@@ -61,7 +61,7 @@ public class TMatN {
     }
 
 
-    /**  Converts a TMat4 object into a TMatN object and returns it.  */
+    /**  Converts a {@link TMat4} object into a {@link TMatN} object and returns it.  */
     public TMatN(TMat4 mat){
         this(new double[][]{
                 { mat.getCell(0, 0), mat.getCell(0, 1), mat.getCell(0, 2), mat.getCell(0, 3) },
@@ -84,7 +84,7 @@ public class TMatN {
 
 
     /**
-     * Creates a TMatN object using the given two dimensional array. <br>
+     * Creates a {@link TMatN} object using the given two dimensional array. <br>
      * A reference to the array will be kept so any methods of this class will modify the array. <br>
      * If you have a two-dimensional array with a different type (float, int, ...) use the
      * {@link TArrays#getCastedDouble2CopyOf(int[][])},
@@ -181,50 +181,6 @@ public class TMatN {
 
 
     /**  @return the determinant of this matrix  */
-    /*public double determinant(){
-        double[][] mat = TArrays.getCopyOf(this.mat);
-
-        double num1, num2, det = 1d, total = 1d;
-        int index;
-
-        double[] temp = new double[N + 1];
-        for (int i = 0; i < N; i++) {
-            index = i;
-
-            while (mat[index][i] == 0 && index < N) {
-                index++;
-            }
-            if (index == N)
-                continue;
-            if (index != i) {
-                for (int j = 0; j < N; j++) {
-                    double t = mat[index][j];
-                    mat[index][j] = mat[i][j];
-                    mat[i][j] = t;
-                }
-                det *= Math.pow(-1, index - i);
-            }
-
-            for (int j = 0; j < N; j++)
-                temp[j] = mat[i][j];
-
-
-            for (int j = i + 1; j < N; j++) {
-                num1 = temp[i];
-                num2 = mat[j][i];
-
-                for (int k = 0; k < N; k++) {
-                    mat[j][k] = (num1 * mat[j][k]) - (num2 * temp[k]);
-                }
-                total *= num1; // Det(kA)=kDet(A);
-            }
-        }
-
-        for (int i = 0; i < N; i++) {
-            det *= mat[i][i];
-        }
-        return (det / total);
-    }*/
     public double determinant(){
         return determinantOfMatrix(this.mat, N);
     }

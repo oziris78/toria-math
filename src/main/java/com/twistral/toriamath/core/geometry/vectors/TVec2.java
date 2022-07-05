@@ -2,8 +2,8 @@ package com.twistral.toriamath.core.geometry.vectors;
 
 
 import com.twistral.toriamath.utils.TMath;
-
 import java.util.Objects;
+
 
 
 /**

@@ -1,5 +1,6 @@
 package com.twistral.toriamath.core.geometry;
 
+
 import com.twistral.toriamath.core.geometry.vectors.TVec2;
 import com.twistral.toriamath.utils.TMathConsts;
 import com.twistral.toriamath.utils.TMath;

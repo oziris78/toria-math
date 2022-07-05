@@ -7,8 +7,10 @@ import java.util.ArrayList;
 /**  INTENSE ALGORITHM FINDER  */
 public class IAF {
 
+
     /* No constructor */
     private IAF(){}
+
 
     public static ArrayList<double[]> mastersFormula(double... sequence){
         int elemCount = sequence.length;

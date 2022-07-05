@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * An immutable range/interval class. <br>
  * Even though this class represents a mathematical interval
- * for a function, it's widely used in toria-math. <br>
+ * for a function (or a range of numbers), it's widely used in toria-math. <br>
  */
 public class TRange {
 
@@ -53,8 +53,8 @@ public class TRange {
 
 
     /**
-     * Returns a new and scaled version of this TRange.
-     * @param scale any double, TRange will be multiplied by this value
+     * Returns a new and scaled version of this range.
+     * @param scale any double, the range will be multiplied by this value
      * @return A new and scaled TRange
      */
     public TRange scale(double scale){
@@ -64,8 +64,8 @@ public class TRange {
 
 
     /**
-     * Returns a new and shifted version of this TRange.
-     * @param shift any double, this value will be added to TRange's boundaries.
+     * Returns a new and shifted version of this range.
+     * @param shift any double, this value will be added to range's boundaries.
      * @return A new and shifted TRange
      */
     public TRange shift(double shift){

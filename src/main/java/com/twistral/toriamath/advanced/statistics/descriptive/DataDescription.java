@@ -2,8 +2,8 @@ package com.twistral.toriamath.advanced.statistics.descriptive;
 
 
 import com.twistral.toriamath.utils.TMath;
-
 import java.util.Objects;
+
 
 /**
  * A class containing all measures inside it.

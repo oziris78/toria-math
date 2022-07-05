@@ -3,6 +3,7 @@ package com.twistral.toriautils.colors;
 
 import java.util.Arrays;
 
+
 public class TPalette {
 
 
@@ -19,8 +20,6 @@ public class TPalette {
     public TColor getColor(int index){
         return colors[index];
     }
-
-
 
 
 

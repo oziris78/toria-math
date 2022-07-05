@@ -10,7 +10,12 @@ public class BaconCipher {
     /* No constructor */
     private BaconCipher(){}
 
-    // look here for more info: https://www.youtube.com/watch?v=ctA38iXUpYg
+
+    /**
+     * For more information look <a href="https://www.youtube.com/watch?v=ctA38iXUpYg">here</a>
+     * @param code a string to decode
+     * @return decoded string
+     */
     public static String decode(String code){
         final StringBuilder alphabetString = TMathConsts.ENGLISH_ALPHABET;
         StringBuilder answer = new StringBuilder();

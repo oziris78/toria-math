@@ -17,6 +17,10 @@ import com.twistral.toriamath.utils.ToriaMathException.*;
  */
 public class ChiSquareTests {
 
+    public static final String UNIFORM = "uniform";
+    public static final String NORMAL = "normal";
+    public static final String POISSON = "poisson";
+
     /*  No constructor  */
     private ChiSquareTests(){}
 
@@ -30,8 +34,7 @@ public class ChiSquareTests {
     /**
      * Performs a "goodness of fit" test. Which is the same as "test for independence" with one variable. <br>
      * This is the recommended method for you to use if you want to do this test without creating
-     * a frequency distribution table. All other methods that will do the same thing with a different type of
-     * array will create a casted double array (they will create a copy) and use this method with that copied array.
+     * a frequency distribution table.
      * @param observedFreqs observed frequencies array
      * @param expectedFreqs expected frequencies array, you will need to create this array
      *                      on your own using the distribution that you're going to test

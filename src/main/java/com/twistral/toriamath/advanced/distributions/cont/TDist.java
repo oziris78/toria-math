@@ -58,7 +58,7 @@ public class TDist {
      * Returns the variable "val" for this equation:  p = P(X <= val)
      * @param v degrees of freedom
      * @param p any value in range [0,1]
-     * @return inverse cumulative density function (ICDF | quantile) result
+     * @return inverse cumulative density function (ICDF / quantile) result
      */
     public static double invCumLeftTailed(double v, double p) {
         if(p < 0d || p > 1d) throw new NotInRangeException(TRange.ZERO_TO_ONE, p);
@@ -67,7 +67,7 @@ public class TDist {
         if(p == 0d) return Double.NEGATIVE_INFINITY;
         if(p == 1d) return Double.POSITIVE_INFINITY;
 
-        double ret = iribfForTDist(0.5d * v, 0.5d, 2d * Math.min(p, 1d - p));
+        double ret = inverseRegularizedIncompleteBetaFunc(0.5d * v, 0.5d, 2d * Math.min(p, 1d - p));
         ret = Math.sqrt(v * (1d - ret) / ret);
 
         return Math.copySign(ret, p - 0.5d);
@@ -101,7 +101,7 @@ public class TDist {
         For more information: https://core.ac.uk/download/pdf/82140723.pdf
         inverse regularized incomplete beta function
      */
-    private static double iribfForTDist(double alpha, double beta, double probability) {
+    private static double inverseRegularizedIncompleteBetaFunc(double alpha, double beta, double probability) {
         final double EPSILON = 1E-18;
 
         double t = TMath.exp(alpha * TMath.log(alpha / (alpha + beta))) / alpha;

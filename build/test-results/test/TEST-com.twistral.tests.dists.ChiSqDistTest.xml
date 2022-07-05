@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.twistral.tests.dists.ChiSqDistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-07-05T00:18:47" hostname="TUNERIKGEZGINI" time="1.308">
+  <properties/>
+  <testcase name="invCumLeftTailed" classname="com.twistral.tests.dists.ChiSqDistTest" time="0.206"/>
+  <testcase name="invCumRightTailed" classname="com.twistral.tests.dists.ChiSqDistTest" time="0.002"/>
+  <testcase name="cumProbTest" classname="com.twistral.tests.dists.ChiSqDistTest" time="1.034"/>
+  <testcase name="densityTest" classname="com.twistral.tests.dists.ChiSqDistTest" time="0.064"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -12,7 +12,7 @@ public class TNoise {
 
 
     /**
-     * A class ONLY used in TNoise class any nowhere else.
+     * A class ONLY used in {@link TNoise} class any nowhere else.
      * This class is intentionally left small and kinda unfinished for optimization purposes.
      * If you want to save your x,y datas in a vector use TVector2D or TVector3D.
      * You don't have to use this class since all TNoise methods will have a variant like func(float, float).
@@ -131,7 +131,7 @@ public class TNoise {
 
     /**
      * Returns perlin noise value in range (-1, 1) for point (x,y). This is the default perlin noise.
-     * @param vec any cev
+     * @param vec any vec
      * @return perlinNoise(x,y), returns a number in range (-1, 1)
      */
     public static float perlinNoise(Vec2 vec){ return perlinNoise(vec.x, vec.y); }
@@ -225,7 +225,7 @@ public class TNoise {
 
     /**
      * This method is a not-working or alternatively weirdly-working perlin noise that I've wrote. I didn't delete this
-     * method because it looks weird and sometimes very random. You can set isInterestion boolean to any value
+     * method because it looks weird and sometimes very random. You can set isInteresting boolean to any value
      * to get a different effect as well. This method returns a number in [0, 1) interval
      * @param x any float
      * @param y any float

@@ -25,8 +25,8 @@ public class TRandom {
 
 
     /**
-     * Returns a random number in range [0, M] using linear-congruential generation algorithm.
-     * M value should be a prime for good generations
+     * Returns a random number in range [0, M] using linear-congruential generation algorithm. <br>
+     * M value should be a prime for good generations <br>
      * @param a a constant number to multiply
      * @param seed your seed
      * @param c constant number to add
@@ -42,9 +42,9 @@ public class TRandom {
 
 
     /**
-     * Returns a random number in range [0, 2^31-1] using linear-congruential generation algorithm.
-     * Uses Park and Miller numbers.  a = 16807, M = 2^31-1 (mersenne prime).
-     * Also uses {@link #LCG_ITER_COUNT} as iterationCount
+     * Returns a random number in range [0, 2^31-1] using linear-congruential generation algorithm. <br>
+     * Uses Park and Miller numbers.  a = 16807, M = 2^31-1 (Mersenne prime). <br>
+     * Also uses {@link #LCG_ITER_COUNT} as iterationCount <br>
      * @param seed your seed
      * @param c constant number to add
      * @return a random number in range [0, 2^31-1]
