@@ -3,6 +3,8 @@
 
 ![image was not loaded](./assets/logo/tmath-logo.png)
 
+<br>
+
 # Toria Math
 
 <p> <!-- BADGES -->
@@ -25,8 +27,9 @@
 
 <b>A lightweight Java math library that aims to have a balance between speed and having many functionalities.</b> <br>
 
-This repository was created on 08.10.2021
 
+
+<br>
 
 ## Importing Toria Math
 Add these to your build.gradle file
@@ -51,7 +54,9 @@ Note: <b> Toria Math has no dependencies. </b>
 - Toria Math currently has no wiki, but it has a lot of javadocs to guide you.
 - Toria Math was developed by only one person (Oğuzhan Topaloğlu)
 - A wiki <b>might</b> be coming soon. (maybe...)
+- This repository was created on 08.10.2021
 
+<br>
 
 ## Projects Using Toria Math
 
