@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.twistral.tests.dists.DiscreteDistributionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-05T00:18:48" hostname="TUNERIKGEZGINI" time="0.006">
-  <properties/>
-  <testcase name="discDistTest" classname="com.twistral.tests.dists.DiscreteDistributionTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

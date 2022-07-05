@@ -23,9 +23,7 @@
 <!-- badge end -->
 </p>
 
-<b>"Not precise but fast and enough!" </b> <br>
-
-A lightweight Java math library with additional utility classes. <br>
+<b>A lightweight Java math library that aims to have a balance between speed and having many functionalities.</b> <br>
 
 This repository was created on 08.10.2021
 
@@ -41,29 +39,18 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.oziris78:toria-math:v0.8.5'
+    implementation 'com.github.oziris78:toria-math:v0.8.8'
 }
 ```
 
 Note: <b> Toria Math has no dependencies. </b>
 
-## How To Use Toria Math
-
-Toria Math currently has no wiki, but it has javadocs to guide you!
-
-When it comes to methods that don't have explanatory names, 
-Toria Math has detailed javadocs. Just hover over the method's 
-signature (name) on your IDE and you'll see the information.
-Also you can just click on the signature while holding down 
-CTRL to see how it works.
 
 
 ### Some Notes
+- Toria Math currently has no wiki, but it has a lot of javadocs to guide you.
 - Toria Math was developed by only one person (Oğuzhan Topaloğlu)
-- Toria Math (currently v0.8.1) has passed all tests!
-- Wiki won't be coming soon.
-- Toria Math (currently v0.8.1) not optimized at all, 
-  code still runs fast but it lacks a lot of optimizations...
+- A wiki <b>might</b> be coming soon. (maybe...)
 
 
 ## Projects Using Toria Math
